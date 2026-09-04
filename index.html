@@ -1,1392 +1,368 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1,viewport-fit=cover"
->
-
-<title>
-EBRM V0.2 · John 1
-</title>
-
-
-<style>
-
-/* =========================
-   BASE
-========================= */
-
-* {
-  box-sizing: border-box;
-}
-
-
-body {
-
-  margin: 0;
-
-  background:
-    #f3efe7;
-
-  color:
-    #26322c;
-
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-}
-
-
-.app {
-
-  width: 100%;
-
-  max-width: 760px;
-
-  min-height: 100vh;
-
-  margin: auto;
-
-  background:
-    #fffdf9;
-
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-
-  position: sticky;
-
-  top: 0;
-
-  z-index: 50;
-
-  padding:
-    15px 18px 11px;
-
-  background:
-    #fffdf9;
-
-  border-bottom:
-    1px solid #ebe5da;
-
-}
-
-
-.logo {
-
-  font-size:
-    21px;
-
-  font-weight:
-    850;
-
-}
-
-
-.subtitle {
-
-  margin-top:
-    2px;
-
-  color:
-    #77736c;
-
-  font-size:
-    12px;
-
-}
-
-
-.progress {
-
-  height:
-    5px;
-
-  margin-top:
-    10px;
-
-  overflow:
-    hidden;
-
-  background:
-    #e9e4da;
-
-  border-radius:
-    99px;
-
-}
-
-
-.progress-fill {
-
-  width:
-    0%;
-
-  height:
-    100%;
-
-  background:
-    #26382f;
-
-  transition:
-    width .25s ease;
-
-}
-
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-
-  padding:
-    20px 18px 50px;
-
-}
-
-
-.screen {
-
-  display:
-    none;
-
-}
-
-
-.screen.active {
-
-  display:
-    block;
-
-}
-
-
-.eyebrow {
-
-  color:
-    #817b72;
-
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    .1em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-h1 {
-
-  margin:
-    8px 0 12px;
-
-  font-size:
-    30px;
-
-  line-height:
-    1.15;
-
-}
-
-
-h2 {
-
-  margin:
-    8px 0 14px;
-
-  font-size:
-    23px;
-
-}
-
-
-h3 {
-
-  margin:
-    0 0 8px;
-
-}
-
-
-p {
-
-  line-height:
-    1.65;
-
-}
-
-
-/* =========================
-   CARD
-========================= */
-
-.card {
-
-  margin:
-    11px 0;
-
-  padding:
-    16px;
-
-  background:
-    #f8f5ee;
-
-  border:
-    1px solid #ebe4d8;
-
-  border-radius:
-    17px;
-
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-button {
-
-  width:
-    100%;
-
-  margin-top:
-    9px;
-
-  padding:
-    13px 15px;
-
-  color:
-    #fff;
-
-  background:
-    #26382f;
-
-  border:
-    0;
-
-  border-radius:
-    12px;
-
-  font-size:
-    15px;
-
-  font-weight:
-    750;
-
-  cursor:
-    pointer;
-
-}
-
-
-button.secondary {
-
-  color:
-    #29332e;
-
-  background:
-    #eee9df;
-
-}
-
-
-/* =========================
-   PASSAGE
-========================= */
-
-.passage-box {
-
-  padding:
-    16px;
-
-  background:
-    #fff;
-
-  border-left:
-    4px solid #26382f;
-
-  border-radius:
-    10px;
-
-  font-family:
-    Georgia,
-    serif;
-
-  font-size:
-    19px;
-
-  line-height:
-    1.9;
-
-}
-
-
-.verse-row {
-
-  padding:
-    5px 0;
-
-}
-
-
-.verse-number {
-
-  display:
-    inline-block;
-
-  margin-right:
-    6px;
-
-  color:
-    #7c776f;
-
-  font-family:
-    system-ui;
-
-  font-size:
-    11px;
-
-  vertical-align:
-    top;
-
-}
-
-
-/* =========================
-   CLICKABLE WORD
-========================= */
-
-.click-word {
-
-  padding:
-    1px 2px;
-
-  color:
-    inherit;
-
-  background:
-    transparent;
-
-  border:
-    0;
-
-  border-radius:
-    4px;
-
-  font: inherit;
-
-  cursor:
-    pointer;
-
-}
-
-
-.click-word:hover {
-
-  background:
-    #e9eee9;
-
-}
-
-
-/* =========================
-   WORD POPUP
-========================= */
-
-.word-popup {
-
-  position:
-    fixed;
-
-  left:
-    18px;
-
-  right:
-    18px;
-
-  bottom:
-    18px;
-
-  z-index:
-    100;
-
-  display:
-    none;
-
-  padding:
-    18px;
-
-  background:
-    #fff;
-
-  border:
-    1px solid #ded7cb;
-
-  border-radius:
-    18px;
-
-  box-shadow:
-    0 12px 35px
-    rgba(0,0,0,.18);
-
-}
-
-
-.word-popup.show {
-
-  display:
-    block;
-
-}
-
-
-.word-popup-word {
-
-  font-size:
-    25px;
-
-  font-weight:
-    800;
-
-}
-
-
-.word-popup-cn {
-
-  margin-top:
-    4px;
-
-  font-size:
-    18px;
-
-}
-
-
-.word-popup-desc {
-
-  margin-top:
-    8px;
-
-  color:
-    #777;
-
-  font-size:
-    13px;
-
-}
-
-
-/* =========================
-   VOCAB
-========================= */
-
-.word {
-
-  padding:
-    13px 0;
-
-  border-bottom:
-    1px solid #e8e1d6;
-
-}
-
-
-.word:last-child {
-
-  border-bottom:
-    0;
-
-}
-
-
-.word-head {
-
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-}
-
-
-.word-name {
-
-  font-size:
-    17px;
-
-  font-weight:
-    750;
-
-}
-
-
-.tag {
-
-  display:
-    inline-block;
-
-  margin-left:
-    5px;
-
-  padding:
-    3px 7px;
-
-  color:
-    #526056;
-
-  background:
-    #e8eee9;
-
-  border-radius:
-    99px;
-
-  font-size:
-    10px;
-
-}
-
-
-.muted {
-
-  color:
-    #77736c;
-
-  font-size:
-    12px;
-
-}
-
-
-/* =========================
-   STRUCTURE
-========================= */
-
-.structure-card {
-
-  padding:
-    16px;
-
-  margin:
-    10px 0;
-
-  background:
-    #fff;
-
-  border:
-    1px solid #e3ddd2;
-
-  border-radius:
-    15px;
-
-}
-
-
-.structure-en {
-
-  font-family:
-    Georgia,
-    serif;
-
-  font-size:
-    18px;
-
-  font-weight:
-    700;
-
-}
-
-
-.structure-pattern {
-
-  margin-top:
-    7px;
-
-  color:
-    #777;
-
-  font-size:
-    12px;
-
-}
-
-
-/* =========================
-   QUESTIONS
-========================= */
-
-.question {
-
-  margin:
-    12px 0;
-
-  padding:
-    16px;
-
-  background:
-    #f8f5ee;
-
-  border:
-    1px solid #ebe4d8;
-
-  border-radius:
-    17px;
-
-}
-
-
-.choice {
-
-  color:
-    #29332e;
-
-  background:
-    #fff;
-
-  border:
-    1px solid #ddd6ca;
-
-  text-align:
-    left;
-
-}
-
-
-.choice.correct {
-
-  border:
-    2px solid #26382f;
-
-}
-
-
-.choice.wrong {
-
-  border:
-    2px solid #a85b52;
-
-}
-
-
-.feedback {
-
-  display:
-    none;
-
-  margin-top:
-    8px;
-
-  font-size:
-    13px;
-
-}
-
-
-.feedback.show {
-
-  display:
-    block;
-
-}
-
-
-/* =========================
-   PRODUCTION
-========================= */
-
-textarea {
-
-  width:
-    100%;
-
-  min-height:
-    135px;
-
-  padding:
-    13px;
-
-  resize:
-    vertical;
-
-  border:
-    1px solid #d8d1c6;
-
-  border-radius:
-    12px;
-
-  font:
-    inherit;
-
-}
-
-
-.production-result {
-
-  display:
-    none;
-
-  margin-top:
-    12px;
-
-  padding:
-    15px;
-
-  background:
-    #eef2ed;
-
-  border-radius:
-    14px;
-
-}
-
-
-.production-result.show {
-
-  display:
-    block;
-
-}
-
-
-.score {
-
-  font-size:
-    38px;
-
-  font-weight:
-    850;
-
-}
-
-
-/* =========================
-   REVIEW
-========================= */
-
-.review-item {
-
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  padding:
-    13px 0;
-
-  border-bottom:
-    1px solid #e8e1d6;
-
-}
-
-
-.review-item:last-child {
-
-  border-bottom:
-    0;
-
-}
-
-
-.review-button {
-
-  width:
-    auto;
-
-  margin:
-    0;
-
-  padding:
-    8px 12px;
-
-}
-
-
-.review-due {
-
-  color:
-    #8d554c;
-
-  font-size:
-    12px;
-
-}
-
-
-.review-done {
-
-  color:
-    #53645a;
-
-  font-size:
-    12px;
-
-}
-
-
-/* =========================
-   CHAPTER GRID
-========================= */
-
-.chapter-grid {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap:
-    8px;
-
-}
-
-
-.chapter-grid button {
-
-  margin:
-    0;
-
-  padding:
-    11px 5px;
-
-  color:
-    #29332e;
-
-  background:
-    #eee9df;
-
-}
-
-
-.chapter-grid button.done {
-
-  color:
-    #fff;
-
-  background:
-    #26382f;
-
-}
-
-
-/* =========================
-   AUDIO
-========================= */
-
-.audio-player {
-
-  width:
-    100%;
-
-  margin-top:
-    10px;
-
-}
-
-
-.notice {
-
-  margin-top:
-    10px;
-
-  color:
-    #77736c;
-
-  font-size:
-    11px;
-
-  line-height:
-    1.5;
-
-}
-
-
-.center {
-
-  text-align:
-    center;
-
-}
-
-
-.success {
-
-  font-size:
-    55px;
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#26382f">
+  <title>EBRM V0.2 · John 1</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <div class="app">
 
-
-<!-- ======================
-     HEADER
-======================= -->
-
-<header class="header">
-
-  <div class="logo">
-    EBRM
-  </div>
-
-  <div class="subtitle">
-    English Bible Reading Trainer · John 1
-  </div>
-
-  <div class="progress">
-
-    <div
-      id="progressFill"
-      class="progress-fill">
+  <header class="header">
+    <div class="logo">EBRM</div>
+    <div class="subtitle">
+      English Bible Reading Trainer · John 1
     </div>
 
-  </div>
-
-</header>
-
-
-<main>
-
-
-<!-- ======================
-     HOME
-======================= -->
-
-<section
-  id="home"
-  class="screen active">
-
-  <div class="eyebrow">
-    EBRM V0.2
-  </div>
-
-  <h1>
-    John 1
-  </h1>
-
-  <p>
-    用英文直接阅读约翰福音第一章。
-  </p>
-
-
-  <div class="card">
-
-    <b>
-      今日训练
-    </b>
-
-    <p>
-      READ → WORDS → STRUCTURE →
-      UNDERSTAND → PRODUCE → REVIEW
-    </p>
-
-    <span class="muted">
-      每个训练单元约 5–10 节
-    </span>
-
-  </div>
-
-
-  <div class="card">
-
-    <b>
-      John 1 训练单元
-    </b>
-
-    <div
-      id="chapterGrid"
-      class="chapter-grid">
+    <div class="progress">
+      <div id="progressFill"></div>
     </div>
+  </header>
 
-  </div>
 
+  <main>
 
-  <button
-    onclick="openToday()">
+    <!-- HOME -->
+    <section id="home" class="screen active">
 
-    开始今天训练
+      <div class="eyebrow">EBRM V0.2</div>
 
-  </button>
+      <h1>John 1</h1>
 
+      <p>
+        用英文直接阅读约翰福音第一章，
+        建立英文圣经直接理解能力。
+      </p>
 
-  <button
-    class="secondary"
-    onclick="go('review')">
+      <div class="card">
 
-    查看复习
+        <b>训练循环</b>
 
-  </button>
+        <div class="flow">
+          READ
+          →
+          WORDS
+          →
+          STRUCTURE
+          →
+          UNDERSTAND
+          →
+          PRODUCE
+          →
+          REVIEW
+        </div>
 
-</section>
+      </div>
 
 
+      <div class="card">
 
-<!-- ======================
-     READ
-======================= -->
+        <div class="section-title">
+          John 1 训练单元
+        </div>
 
-<section
-  id="read"
-  class="screen">
+        <div id="unitGrid" class="unit-grid"></div>
 
-  <div class="eyebrow">
-    01 · READ
-  </div>
+      </div>
 
-  <h2 id="readTitle">
-    John 1
-  </h2>
 
+      <div class="card">
 
-  <div
-    id="passageText"
-    class="passage-box">
+        <div class="section-title">
+          本章进度
+        </div>
 
-    正在读取 ESV 经文……
+        <div id="chapterProgress"></div>
 
-  </div>
+      </div>
 
 
-  <div
-    id="audioContainer">
-  </div>
+      <button onclick="openToday()">
+        开始今天训练
+      </button>
 
 
-  <div class="notice">
+      <button
+        class="secondary"
+        onclick="showScreen('review')">
 
-    点击英文单词可以查看词义。
-  </div>
+        我的复习
 
+      </button>
 
-  <button
-    onclick="go('vocabulary')">
+    </section>
 
-    继续：关键词
 
-  </button>
 
-</section>
+    <!-- READ -->
+    <section id="read" class="screen">
 
+      <div class="eyebrow">
+        01 · READ
+      </div>
 
+      <h2 id="readTitle">
+        John 1:1–5
+      </h2>
 
-<!-- ======================
-     VOCABULARY
-======================= -->
 
-<section
-  id="vocabulary"
-  class="screen">
+      <div
+        id="passageText"
+        class="passage">
 
-  <div class="eyebrow">
-    02 · VOCABULARY
-  </div>
+        正在读取 ESV……
 
-  <h2>
-    关键词
-  </h2>
+      </div>
 
 
-  <div
-    id="vocabularyList">
-  </div>
+      <div
+        id="audioBox"
+        class="audio-box">
 
+        正在准备 Audio……
 
-  <button
-    onclick="go('structure')">
+      </div>
 
-    继续：句型
 
-  </button>
+      <div class="notice">
 
-</section>
+        点击重点单词查看词义。
+        先读英文，再看解释。
 
+      </div>
 
 
-<!-- ======================
-     STRUCTURE
-======================= -->
+      <button onclick="showScreen('vocabulary')">
+        继续：关键词
+      </button>
 
-<section
-  id="structure"
-  class="screen">
+    </section>
 
-  <div class="eyebrow">
-    03 · STRUCTURE
-  </div>
 
-  <h2>
-    英文结构
-  </h2>
 
+    <!-- VOCABULARY -->
+    <section id="vocabulary" class="screen">
 
-  <div id="structureList">
-  </div>
+      <div class="eyebrow">
+        02 · VOCABULARY
+      </div>
 
+      <h2>关键词</h2>
 
-  <button
-    onclick="go('understand')">
+      <p class="muted">
+        这些词不是单纯背诵，而是帮助你直接理解经文。
+      </p>
 
-    继续：理解练习
 
-  </button>
+      <div id="vocabularyList"></div>
 
-</section>
 
+      <button onclick="showScreen('structure')">
+        继续：英文结构
+      </button>
 
+    </section>
 
-<!-- ======================
-     UNDERSTAND
-======================= -->
 
-<section
-  id="understand"
-  class="screen">
 
-  <div class="eyebrow">
-    04 · UNDERSTAND
-  </div>
+    <!-- STRUCTURE -->
+    <section id="structure" class="screen">
 
-  <h2>
-    理解练习
-  </h2>
+      <div class="eyebrow">
+        03 · STRUCTURE
+      </div>
 
+      <h2>英文结构</h2>
 
-  <div id="questionList">
-  </div>
 
+      <div id="structureList"></div>
 
-  <div class="card">
 
-    <b>
-      当前得分
-    </b>
+      <button onclick="showScreen('understand')">
+        继续：理解练习
+      </button>
 
-    <div
-      id="quizScore"
-      class="score">
+    </section>
 
-      0 / 0
 
-    </div>
 
-  </div>
+    <!-- UNDERSTAND -->
+    <section id="understand" class="screen">
 
+      <div class="eyebrow">
+        04 · UNDERSTAND
+      </div>
 
-  <button
-    onclick="go('produce')">
+      <h2>理解练习</h2>
 
-    继续：英文输出
 
-  </button>
+      <div id="questionList"></div>
 
-</section>
 
+      <div class="score-card">
 
+        <div class="muted">
+          当前得分
+        </div>
 
-<!-- ======================
-     PRODUCE
-======================= -->
+        <div
+          id="quizScore"
+          class="big-score">
 
-<section
-  id="produce"
-  class="screen">
+          0 / 0
 
-  <div class="eyebrow">
-    05 · PRODUCE
-  </div>
+        </div>
 
-  <h2>
-    用英文复述
-  </h2>
+      </div>
 
 
-  <p>
-    请用简单英文写出你对本段经文的理解。
-  </p>
+      <button onclick="showScreen('produce')">
+        继续：英文输出
+      </button>
 
+    </section>
 
-  <textarea
-    id="productionAnswer"
-    placeholder="The Word was with God in the beginning...">
-  </textarea>
 
 
-  <p class="muted">
+    <!-- PRODUCE -->
+    <section id="produce" class="screen">
 
-    尽量使用：
+      <div class="eyebrow">
+        05 · PRODUCE
+      </div>
 
-    Word · God · life · light · darkness
+      <h2>用英文复述</h2>
 
-  </p>
 
+      <p>
+        不要求复杂英语。
+        尝试用自己的英文表达你刚才读到的内容。
+      </p>
 
-  <button
-    onclick="scoreProduction()">
 
-    自动评分
+      <div class="prompt card">
 
-  </button>
+        <b>Prompt</b>
 
+        <p>
+          What does this passage teach you about
+          the Word, God, life, light, or Jesus?
+        </p>
 
-  <div
-    id="productionResult"
-    class="production-result">
+      </div>
 
-  </div>
 
+      <textarea
+        id="productionAnswer"
+        placeholder="The Word was with God in the beginning...">
+      </textarea>
 
-  <button
-    onclick="finishTraining()">
 
-    完成训练
+      <button onclick="scoreProduction()">
+        自动评分
+      </button>
 
-  </button>
 
-</section>
+      <div
+        id="productionResult"
+        class="result">
 
+      </div>
 
 
-<!-- ======================
-     REVIEW
-======================= -->
+      <button onclick="finishTraining()">
+        完成训练
+      </button>
 
-<section
-  id="review"
-  class="screen">
+    </section>
 
-  <div class="eyebrow">
-    REVIEW
-  </div>
 
-  <h2>
-    我的复习
-  </h2>
 
+    <!-- REVIEW -->
+    <section id="review" class="screen">
 
-  <div
-    id="reviewList">
-  </div>
+      <div class="eyebrow">
+        REVIEW
+      </div>
 
+      <h2>我的复习</h2>
 
-  <button
-    class="secondary"
-    onclick="go('home')">
 
-    返回首页
+      <div
+        id="reviewList">
+      </div>
 
-  </button>
 
-</section>
+      <button
+        class="secondary"
+        onclick="showScreen('home')">
 
+        返回首页
 
+      </button>
 
-<!-- ======================
-     DONE
-======================= -->
+    </section>
 
-<section
-  id="done"
-  class="screen center">
 
-  <div class="success">
-    ✓
-  </div>
 
+    <!-- DONE -->
+    <section id="done" class="screen center">
 
-  <div class="eyebrow">
-    COMPLETED
-  </div>
+      <div class="success">
+        ✓
+      </div>
 
+      <div class="eyebrow">
+        COMPLETED
+      </div>
 
-  <h1>
-    今天完成了
-  </h1>
+      <h1>
+        今日训练完成
+      </h1>
 
 
-  <p id="doneMessage">
-  </p>
+      <p id="doneMessage"></p>
 
 
-  <div class="card">
+      <div class="card">
 
-    <b>
-      自动复习
-    </b>
+        <b>
+          自动复习
+        </b>
 
-    <p>
-      Day 1 · Day 3 · Day 7
-    </p>
+        <p>
+          Day 1 · Day 3 · Day 7
+        </p>
 
-  </div>
+      </div>
 
 
-  <button
-    onclick="go('review')">
+      <button onclick="showScreen('review')">
+        查看复习计划
+      </button>
 
-    查看复习计划
 
-  </button>
+      <button
+        class="secondary"
+        onclick="showScreen('home')">
 
+        返回首页
 
-  <button
-    class="secondary"
-    onclick="go('home')">
+      </button>
 
-    返回首页
+    </section>
 
-  </button>
+  </main>
 
-</section>
+</div>
 
 
-</main>
-
-
-<!-- ======================
-     WORD POPUP
-======================= -->
+<!-- WORD POPUP -->
 
 <div
   id="wordPopup"
@@ -1394,22 +370,22 @@ textarea {
 
   <div
     id="popupWord"
-    class="word-popup-word">
+    class="popup-word">
   </div>
 
   <div
-    id="popupCn"
-    class="word-popup-cn">
+    id="popupChinese"
+    class="popup-chinese">
   </div>
 
   <div
-    id="popupDesc"
-    class="word-popup-desc">
+    id="popupEnglish"
+    class="popup-english">
   </div>
 
   <button
     class="secondary"
-    onclick="closeWordPopup()">
+    onclick="closeWord()">
 
     关闭
 
@@ -1418,1645 +394,7 @@ textarea {
 </div>
 
 
-</div>
-
-
-
-<script>
-
-/* =========================================================
-   EBRM DATA
-========================================================= */
-
-
-const units = [
-
-  {
-    id: 'john1-1-5',
-    title: 'John 1:1–5',
-    start: 1,
-    end: 5,
-
-    words: [
-      ['beginning','开始','the start'],
-      ['Word','道','the Word in John 1'],
-      ['with','与……同在','together / in relationship with'],
-      ['life','生命','living; source of life'],
-      ['light','光','light'],
-      ['darkness','黑暗','darkness']
-    ],
-
-    structures: [
-      [
-        'In the beginning was the Word.',
-        'In the beginning + was + subject'
-      ],
-      [
-        'The Word was with God.',
-        'Subject + was + with + person'
-      ],
-      [
-        'The Word was God.',
-        'Subject + was + complement'
-      ]
-    ],
-
-    questions: [
-      {
-        q:'What was with God in the beginning?',
-        options:[
-          'The Word',
-          'The light',
-          'The darkness'
-        ],
-        answer:0
-      },
-      {
-        q:'What was in the Word?',
-        options:[
-          'Darkness',
-          'Life',
-          'Beginning'
-        ],
-        answer:1
-      },
-      {
-        q:'Where does the light shine?',
-        options:[
-          'In the beginning',
-          'With God',
-          'In the darkness'
-        ],
-        answer:2
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-6-13',
-    title:'John 1:6–13',
-    start:6,
-    end:13,
-
-    words:[
-      ['witness','见证人','a person who gives testimony'],
-      ['believe','相信','to trust or accept as true'],
-      ['true','真的','real; genuine'],
-      ['world','世界','the world'],
-      ['receive','接受','to accept'],
-      ['children','儿女','children']
-    ],
-
-    structures:[
-      [
-        'There was a man sent from God.',
-        'There was + noun + past participle'
-      ],
-      [
-        'He came as a witness.',
-        'Subject + came + as + noun'
-      ],
-      [
-        'He was not the light.',
-        'Subject + was not + noun'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'Why did John come?',
-        options:[
-          'To be the light',
-          'To bear witness to the light',
-          'To create the world'
-        ],
-        answer:1
-      },
-      {
-        q:'What happens to those who receive the Word?',
-        options:[
-          'They become children of God',
-          'They become angels',
-          'They become prophets'
-        ],
-        answer:0
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-14-18',
-    title:'John 1:14–18',
-    start:14,
-    end:18,
-
-    words:[
-      ['flesh','肉身','human bodily existence'],
-      ['dwelt','住','lived among'],
-      ['glory','荣耀','splendor; honor'],
-      ['grace','恩典','undeserved favor'],
-      ['truth','真理','what is true'],
-      ['revealed','显明','made known']
-    ],
-
-    structures:[
-      [
-        'The Word became flesh.',
-        'Subject + became + noun'
-      ],
-      [
-        'We have seen his glory.',
-        'Subject + have seen + object'
-      ],
-      [
-        'Grace and truth came through Jesus Christ.',
-        'Noun + came through + person'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'What did the Word become?',
-        options:[
-          'Light',
-          'Flesh',
-          'Darkness'
-        ],
-        answer:1
-      },
-      {
-        q:'What did John see?',
-        options:[
-          'His glory',
-          'The beginning',
-          'The law only'
-        ],
-        answer:0
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-19-28',
-    title:'John 1:19–28',
-    start:19,
-    end:28,
-
-    words:[
-      ['testimony','见证','testimony'],
-      ['Christ','基督','Messiah / Christ'],
-      ['prophet','先知','prophet'],
-      ['baptize','施洗','to baptize'],
-      ['worthy','配得','deserving']
-    ],
-
-    structures:[
-      [
-        'Who are you?',
-        'Question word + be + subject'
-      ],
-      [
-        'I am not the Christ.',
-        'Subject + be not + noun'
-      ],
-      [
-        'I baptize with water.',
-        'Subject + verb + with + noun'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'Who did John say he was not?',
-        options:[
-          'Elijah',
-          'The Christ',
-          'A prophet'
-        ],
-        answer:1
-      },
-      {
-        q:'With what did John baptize?',
-        options:[
-          'Fire',
-          'Oil',
-          'Water'
-        ],
-        answer:2
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-29-34',
-    title:'John 1:29–34',
-    start:29,
-    end:34,
-
-    words:[
-      ['Lamb','羔羊','Lamb'],
-      ['sin','罪','sin'],
-      ['Spirit','圣灵','Spirit'],
-      ['remain','住','stay; continue'],
-      ['Son','儿子','Son']
-    ],
-
-    structures:[
-      [
-        'Behold, the Lamb of God.',
-        'Behold + noun phrase'
-      ],
-      [
-        'He takes away the sin of the world.',
-        'Subject + verb + object'
-      ],
-      [
-        'The Spirit remained on him.',
-        'Subject + remained + prepositional phrase'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'Who takes away the sin of the world?',
-        options:[
-          'John',
-          'The Lamb of God',
-          'Elijah'
-        ],
-        answer:1
-      },
-      {
-        q:'What descended like a dove?',
-        options:[
-          'The Spirit',
-          'The light',
-          'The Word'
-        ],
-        answer:0
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-35-42',
-    title:'John 1:35–42',
-    start:35,
-    end:42,
-
-    words:[
-      ['disciple','门徒','a follower'],
-      ['follow','跟随','to go after'],
-      ['Rabbi','拉比','teacher'],
-      ['Messiah','弥赛亚','Messiah'],
-      ['brother','兄弟','brother']
-    ],
-
-    structures:[
-      [
-        'What are you seeking?',
-        'Question word + be + subject + participle'
-      ],
-      [
-        'Come and you will see.',
-        'Imperative + and + result'
-      ],
-      [
-        'We have found the Messiah.',
-        'Present perfect + object'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'What did the disciples call Jesus?',
-        options:[
-          'Rabbi',
-          'Elijah',
-          'Prophet only'
-        ],
-        answer:0
-      },
-      {
-        q:'Who did Andrew bring to Jesus?',
-        options:[
-          'John',
-          'Simon',
-          'Philip'
-        ],
-        answer:1
-      }
-    ]
-  },
-
-
-  {
-    id:'john1-43-51',
-    title:'John 1:43–51',
-    start:43,
-    end:51,
-
-    words:[
-      ['follow','跟随','to go after'],
-      ['Philip','腓力','Philip'],
-      ['Nathanael','拿但业','Nathanael'],
-      ['fig tree','无花果树','fig tree'],
-      ['heaven','天','heaven'],
-      ['angels','天使','angels']
-    ],
-
-    structures:[
-      [
-        'Follow me.',
-        'Imperative'
-      ],
-      [
-        'Can anything good come out of Nazareth?',
-        'Can + subject + verb + ...?'
-      ],
-      [
-        'You will see heaven opened.',
-        'Subject + will + verb + object'
-      ]
-    ],
-
-    questions:[
-      {
-        q:'Who said, “Follow me”?',
-        options:[
-          'Jesus',
-          'Nathanael',
-          'Moses'
-        ],
-        answer:0
-      },
-      {
-        q:'What did Jesus say Nathanael would see?',
-        options:[
-          'The temple',
-          'Heaven opened',
-          'The Jordan'
-        ],
-        answer:1
-      }
-    ]
-  }
-
-];
-
-
-/* =========================================================
-   STATE
-========================================================= */
-
-let currentUnit = units[0];
-
-let quizAnswers = {};
-
-let quizScore = 0;
-
-let productionScore = 0;
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-const screens = [
-  'home',
-  'read',
-  'vocabulary',
-  'structure',
-  'understand',
-  'produce',
-  'review',
-  'done'
-];
-
-
-function go(id) {
-
-  document
-    .querySelectorAll('.screen')
-    .forEach(function(el) {
-
-      el.classList.remove('active');
-
-    });
-
-
-  const target =
-    document.getElementById(id);
-
-
-  if (target) {
-
-    target.classList.add('active');
-
-  }
-
-
-  let index =
-    screens.indexOf(id);
-
-
-  if (index < 0) {
-
-    index = 0;
-
-  }
-
-
-  document
-    .getElementById('progressFill')
-    .style.width =
-      ((index / (screens.length - 1)) * 100)
-      + '%';
-
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
-
-  if (id === 'review') {
-
-    renderReview();
-
-  }
-
-}
-
-
-/* =========================================================
-   UNIT
-========================================================= */
-
-function openToday() {
-
-  const saved =
-    localStorage.getItem(
-      'EBRM_CURRENT_UNIT'
-    );
-
-
-  if (saved) {
-
-    const found =
-      units.find(function(unit) {
-
-        return unit.id === saved;
-
-      });
-
-
-    if (found) {
-
-      currentUnit = found;
-
-    }
-
-  }
-
-
-  startUnit();
-
-}
-
-
-function startUnit() {
-
-  quizAnswers = {};
-
-  quizScore = 0;
-
-  productionScore = 0;
-
-
-  document.getElementById(
-    'readTitle'
-  ).textContent =
-    currentUnit.title;
-
-
-  loadPassage();
-
-  renderVocabulary();
-
-  renderStructures();
-
-  renderQuestions();
-
-  go('read');
-
-}
-
-
-/* =========================================================
-   CHAPTER GRID
-========================================================= */
-
-function renderChapterGrid() {
-
-  const box =
-    document.getElementById(
-      'chapterGrid'
-    );
-
-
-  box.innerHTML = '';
-
-
-  units.forEach(function(unit) {
-
-    const button =
-      document.createElement('button');
-
-
-    const done =
-      getTraining(unit.id);
-
-
-    if (done) {
-
-      button.classList.add('done');
-
-    }
-
-
-    button.textContent =
-      unit.start + '–' + unit.end;
-
-
-    button.onclick =
-      function() {
-
-        currentUnit = unit;
-
-        localStorage.setItem(
-          'EBRM_CURRENT_UNIT',
-          unit.id
-        );
-
-        startUnit();
-
-      };
-
-
-    box.appendChild(button);
-
-  });
-
-}
-
-
-/* =========================================================
-   PASSAGE
-========================================================= */
-
-async function loadPassage() {
-
-  const box =
-    document.getElementById(
-      'passageText'
-    );
-
-
-  box.innerHTML =
-    '正在读取 ESV 经文……';
-
-
-  const query =
-    'John 1:' +
-    currentUnit.start +
-    '-' +
-    currentUnit.end;
-
-
-  try {
-
-    const response =
-      await fetch(
-        '?action=passage&q=' +
-        encodeURIComponent(query)
-      );
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      !data.passages ||
-      !data.passages[0]
-    ) {
-
-      box.innerHTML =
-        '经文读取失败。<br><br>' +
-        '请检查 ESV_API_KEY。';
-
-      return;
-
-    }
-
-
-    let text =
-      data.passages[0].text;
-
-
-    box.innerHTML =
-      makeClickableWords(text);
-
-
-    loadAudio(query);
-
-
-  } catch(error) {
-
-    box.innerHTML =
-      '无法连接 ESV 服务。';
-
-  }
-
-}
-
-
-/* =========================================================
-   CLICKABLE WORDS
-========================================================= */
-
-function makeClickableWords(text) {
-
-  const dictionary =
-    getDictionary();
-
-
-  return text.replace(
-    /([A-Za-z]+(?:['’][A-Za-z]+)?)/g,
-    function(match) {
-
-      const clean =
-        match
-          .toLowerCase()
-          .replace(/['’]/g,'');
-
-
-      if (
-        dictionary[clean]
-      ) {
-
-        return `
-          <button
-            class="click-word"
-            onclick="showWord('${escapeAttr(clean)}')">
-            ${match}
-          </button>
-        `;
-
-      }
-
-
-      return match;
-
-    }
-  );
-
-}
-
-
-function escapeAttr(value) {
-
-  return value
-    .replace(/'/g,"\\'");
-
-}
-
-
-function getDictionary() {
-
-  const dictionary = {};
-
-
-  units.forEach(function(unit) {
-
-    unit.words.forEach(function(item) {
-
-      dictionary[
-        item[0]
-          .toLowerCase()
-          .replace(/['’]/g,'')
-      ] = {
-        word:item[0],
-        cn:item[1],
-        desc:item[2]
-      };
-
-    });
-
-  });
-
-
-  return dictionary;
-
-}
-
-
-function showWord(word) {
-
-  const dictionary =
-    getDictionary();
-
-
-  const data =
-    dictionary[word];
-
-
-  if (!data) return;
-
-
-  document.getElementById(
-    'popupWord'
-  ).textContent =
-    data.word;
-
-
-  document.getElementById(
-    'popupCn'
-  ).textContent =
-    data.cn;
-
-
-  document.getElementById(
-    'popupDesc'
-  ).textContent =
-    data.desc;
-
-
-  document.getElementById(
-    'wordPopup'
-  ).classList.add('show');
-
-}
-
-
-function closeWordPopup() {
-
-  document.getElementById(
-    'wordPopup'
-  ).classList.remove('show');
-
-}
-
-
-/* =========================================================
-   AUDIO
-========================================================= */
-
-async function loadAudio(query) {
-
-  const container =
-    document.getElementById(
-      'audioContainer'
-    );
-
-
-  container.innerHTML =
-    '<div class="notice">正在准备 ESV Audio…</div>';
-
-
-  try {
-
-    const response =
-      await fetch(
-        '?action=audio&q=' +
-        encodeURIComponent(query)
-      );
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      data &&
-      data.audio &&
-      data.audio.length
-    ) {
-
-      let audio =
-        data.audio[0];
-
-
-      let url =
-        audio.url ||
-        audio.url_mp3 ||
-        audio.src;
-
-
-      if (url) {
-
-        container.innerHTML = `
-          <audio
-            class="audio-player"
-            controls
-            preload="none"
-            src="${url}">
-          </audio>
-        `;
-
-        return;
-
-      }
-
-    }
-
-
-    container.innerHTML =
-      '<div class="notice">' +
-      '当前 ESV Audio 没有返回可播放地址。' +
-      '</div>';
-
-
-  } catch(error) {
-
-    container.innerHTML =
-      '<div class="notice">' +
-      'Audio 暂时无法加载。' +
-      '</div>';
-
-  }
-
-}
-
-
-/* =========================================================
-   VOCABULARY
-========================================================= */
-
-function renderVocabulary() {
-
-  const box =
-    document.getElementById(
-      'vocabularyList'
-    );
-
-
-  box.innerHTML = '';
-
-
-  currentUnit.words.forEach(
-    function(item) {
-
-      const div =
-        document.createElement('div');
-
-
-      div.className =
-        'word';
-
-
-      div.innerHTML = `
-
-        <div class="word-head">
-
-          <div>
-
-            <span class="word-name">
-              ${item[0]}
-            </span>
-
-            <span class="tag">
-              BV
-            </span>
-
-            <br>
-
-            <span class="muted">
-              ${item[2]}
-            </span>
-
-          </div>
-
-          <b>
-            ${item[1]}
-          </b>
-
-        </div>
-
-      `;
-
-
-      box.appendChild(div);
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   STRUCTURE
-========================================================= */
-
-function renderStructures() {
-
-  const box =
-    document.getElementById(
-      'structureList'
-    );
-
-
-  box.innerHTML = '';
-
-
-  currentUnit.structures.forEach(
-    function(item) {
-
-      const div =
-        document.createElement('div');
-
-
-      div.className =
-        'structure-card';
-
-
-      div.innerHTML = `
-
-        <div class="structure-en">
-          ${item[0]}
-        </div>
-
-        <div class="structure-pattern">
-          ${item[1]}
-        </div>
-
-      `;
-
-
-      box.appendChild(div);
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   QUESTIONS
-========================================================= */
-
-function renderQuestions() {
-
-  const box =
-    document.getElementById(
-      'questionList'
-    );
-
-
-  box.innerHTML = '';
-
-
-  currentUnit.questions.forEach(
-    function(question,index) {
-
-      const div =
-        document.createElement('div');
-
-
-      div.className =
-        'question';
-
-
-      let html = `
-        <b>
-          ${index + 1}.
-          ${question.q}
-        </b>
-      `;
-
-
-      question.options.forEach(
-        function(option,optIndex) {
-
-          html += `
-
-            <button
-              class="choice"
-              onclick="
-                answerQuestion(
-                  ${index},
-                  ${optIndex},
-                  this
-                )
-              ">
-
-              ${option}
-
-            </button>
-
-          `;
-
-        }
-      );
-
-
-      html += `
-        <div
-          id="feedback-${index}"
-          class="feedback">
-        </div>
-      `;
-
-
-      div.innerHTML =
-        html;
-
-
-      box.appendChild(div);
-
-    }
-  );
-
-
-  updateQuizScore();
-
-}
-
-
-/* =========================================================
-   AUTO SCORING
-========================================================= */
-
-function answerQuestion(
-  questionIndex,
-  selected,
-  button
-) {
-
-  if (
-    quizAnswers[
-      questionIndex
-    ] !== undefined
-  ) {
-
-    return;
-
-  }
-
-
-  const question =
-    currentUnit.questions[
-      questionIndex
-    ];
-
-
-  quizAnswers[
-    questionIndex
-  ] = selected;
-
-
-  const buttons =
-    button
-      .parentElement
-      .querySelectorAll(
-        '.choice'
-      );
-
-
-  buttons.forEach(
-    function(btn,index) {
-
-      if (
-        index === question.answer
-      ) {
-
-        btn.classList.add(
-          'correct'
-        );
-
-      }
-
-    }
-  );
-
-
-  if (
-    selected === question.answer
-  ) {
-
-    quizScore++;
-
-    button.classList.add(
-      'correct'
-    );
-
-
-    showFeedback(
-      questionIndex,
-      '✓ 正确'
-    );
-
-  } else {
-
-    button.classList.add(
-      'wrong'
-    );
-
-
-    showFeedback(
-      questionIndex,
-      '✗ 再读一次经文，注意句子的主语和动作。'
-    );
-
-  }
-
-
-  updateQuizScore();
-
-}
-
-
-function showFeedback(
-  index,
-  message
-) {
-
-  const el =
-    document.getElementById(
-      'feedback-' + index
-    );
-
-
-  el.textContent =
-    message;
-
-
-  el.classList.add(
-    'show'
-  );
-
-}
-
-
-function updateQuizScore() {
-
-  const total =
-    currentUnit.questions.length;
-
-
-  document.getElementById(
-    'quizScore'
-  ).textContent =
-    quizScore + ' / ' + total;
-
-}
-
-
-/* =========================================================
-   PRODUCTION SCORING
-========================================================= */
-
-function scoreProduction() {
-
-  const text =
-    document.getElementById(
-      'productionAnswer'
-    ).value
-      .trim()
-      .toLowerCase();
-
-
-  if (!text) {
-
-    alert(
-      '请先写一句英文。'
-    );
-
-    return;
-
-  }
-
-
-  const keywords = [
-    'word',
-    'god',
-    'life',
-    'light',
-    'darkness'
-  ];
-
-
-  let matched = 0;
-
-
-  keywords.forEach(
-    function(word) {
-
-      if (
-        text.includes(word)
-      ) {
-
-        matched++;
-
-      }
-
-    }
-  );
-
-
-  const lengthScore =
-    text.split(/\s+/).length >= 8
-      ? 2
-      : 1;
-
-
-  const keywordScore =
-    Math.min(
-      5,
-      matched
-    );
-
-
-  productionScore =
-    Math.min(
-      10,
-      keywordScore + lengthScore + 3
-    );
-
-
-  const result =
-    document.getElementById(
-      'productionResult'
-    );
-
-
-  result.innerHTML = `
-
-    <div class="score">
-      ${productionScore}/10
-    </div>
-
-    <p>
-      关键词命中：
-      ${matched}/${keywords.length}
-    </p>
-
-    <p>
-      ${getProductionComment(productionScore)}
-    </p>
-
-  `;
-
-
-  result.classList.add(
-    'show'
-  );
-
-}
-
-
-function getProductionComment(score) {
-
-  if (score >= 9) {
-
-    return '很好。你已经能够用英文抓住这段经文的核心。';
-
-  }
-
-
-  if (score >= 7) {
-
-    return '不错。继续减少中文翻译依赖。';
-
-  }
-
-
-  if (score >= 5) {
-
-    return '已经开始建立英文直接理解能力。再读一次经文。';
-
-  }
-
-
-  return '先回到经文，找出 Word、God、life、light、darkness。';
-
-}
-
-
-/* =========================================================
-   SAVE TRAINING
-========================================================= */
-
-function finishTraining() {
-
-  const now =
-    new Date();
-
-
-  const record = {
-
-    unitId:
-      currentUnit.id,
-
-    title:
-      currentUnit.title,
-
-    completedAt:
-      now.toISOString(),
-
-    quizScore:
-      quizScore,
-
-    quizTotal:
-      currentUnit.questions.length,
-
-    productionScore:
-      productionScore
-
-  };
-
-
-  localStorage.setItem(
-    'EBRM_TRAIN_' +
-    currentUnit.id,
-    JSON.stringify(record)
-  );
-
-
-  localStorage.setItem(
-    'EBRM_CURRENT_UNIT',
-    currentUnit.id
-  );
-
-
-  document.getElementById(
-    'doneMessage'
-  ).textContent =
-    currentUnit.title +
-    ' 已完成。';
-
-
-  renderChapterGrid();
-
-
-  go('done');
-
-}
-
-
-/* =========================================================
-   STORAGE
-========================================================= */
-
-function getTraining(id) {
-
-  const data =
-    localStorage.getItem(
-      'EBRM_TRAIN_' + id
-    );
-
-
-  if (!data) {
-
-    return null;
-
-  }
-
-
-  try {
-
-    return JSON.parse(data);
-
-  } catch(error) {
-
-    return null;
-
-  }
-
-}
-
-
-/* =========================================================
-   REVIEW SYSTEM
-========================================================= */
-
-function getReviewDate(
-  completedAt,
-  days
-) {
-
-  const date =
-    new Date(completedAt);
-
-
-  date.setDate(
-    date.getDate() + days
-  );
-
-
-  return date;
-
-}
-
-
-function isDue(
-  completedAt,
-  days
-) {
-
-  const reviewDate =
-    getReviewDate(
-      completedAt,
-      days
-    );
-
-
-  return new Date() >= reviewDate;
-
-}
-
-
-function renderReview() {
-
-  const box =
-    document.getElementById(
-      'reviewList'
-    );
-
-
-  box.innerHTML = '';
-
-
-  let found =
-    false;
-
-
-  units.forEach(
-    function(unit) {
-
-      const record =
-        getTraining(unit.id);
-
-
-      if (!record) {
-
-        return;
-
-      }
-
-
-      found = true;
-
-
-      [1,3,7].forEach(
-        function(days) {
-
-          const due =
-            isDue(
-              record.completedAt,
-              days
-            );
-
-
-          const div =
-            document.createElement(
-              'div'
-            );
-
-
-          div.className =
-            'review-item';
-
-
-          const date =
-            getReviewDate(
-              record.completedAt,
-              days
-            );
-
-
-          div.innerHTML = `
-
-            <div>
-
-              <b>
-                ${unit.title}
-              </b>
-
-              <br>
-
-              <span
-                class="${
-                  due
-                    ? 'review-due'
-                    : 'review-done'
-                }">
-
-                Day ${days}
-                ·
-                ${due ? '需要复习' : '尚未到期'}
-
-              </span>
-
-            </div>
-
-            <button
-              class="review-button"
-              onclick="
-                reviewUnit(
-                  '${unit.id}'
-                )
-              ">
-
-              复习
-
-            </button>
-
-          `;
-
-
-          box.appendChild(div);
-
-        }
-      );
-
-    }
-  );
-
-
-  if (!found) {
-
-    box.innerHTML = `
-
-      <div class="card">
-
-        <b>
-          暂无复习记录
-        </b>
-
-        <p class="muted">
-          完成一个训练单元后，
-          Day 1 / Day 3 / Day 7
-          会自动进入这里。
-        </p>
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-function reviewUnit(id) {
-
-  const unit =
-    units.find(
-      function(item) {
-
-        return item.id === id;
-
-      }
-    );
-
-
-  if (!unit) return;
-
-
-  currentUnit =
-    unit;
-
-
-  startUnit();
-
-}
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-function init() {
-
-  renderChapterGrid();
-
-  renderReview();
-
-}
-
-
-init();
-
-</script>
-
+<script src="app.js"></script>
 
 </body>
-
 </html>
