@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<title>EBRM · English Bible Reading Trainer</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f0e8;
+  color: #26322c;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.app {
+  max-width: 720px;
+  min-height: 100vh;
+  margin: auto;
+  background: #fffdf9;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 18px 20px 12px;
+  background: #fffdf9;
+  border-bottom: 1px solid #ebe5da;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 3px;
+  color: #77736c;
+  font-size: 12px;
+}
+
+.progress {
+  height: 5px;
+  margin-top: 12px;
+  overflow: hidden;
+  background: #e9e4da;
+  border-radius: 20px;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #26382f;
+  transition: width .25s ease;
+}
+
+main {
+  padding: 22px 20px 40px;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.eyebrow {
+  color: #817b72;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 8px 0 12px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 8px 0 14px;
+  font-size: 24px;
+}
+
+p {
+  line-height: 1.65;
+}
+
+.card {
+  margin: 12px 0;
+  padding: 18px;
+  background: #f8f5ee;
+  border: 1px solid #ebe4d8;
+  border-radius: 18px;
+}
+
+.verse {
+  padding: 16px;
+  color: #202820;
+  background: #fff;
+  border-left: 4px solid #26382f;
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 1.85;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px;
+  color: white;
+  background: #26382f;
+  border: 0;
+  border-radius: 13px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.secondary {
+  color: #29332e;
+  background: #eee9df;
+}
+
+.choice {
+  color: #29332e;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #dcd5c9;
+}
+
+.choice.correct {
+  border: 2px solid #26382f;
+}
+
+.choice.wrong {
+  border: 2px solid #a85b52;
+}
+
+.word {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid #e8e1d6;
+}
+
+.word:last-child {
+  border-bottom: 0;
+}
+
+.word b {
+  font-size: 17px;
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 3px 7px;
+  color: #526056;
+  background: #e8eee9;
+  border-radius: 99px;
+  font-size: 10px;
+}
+
+.muted {
+  color: #77736c;
+  font-size: 13px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 13px;
+  resize: vertical;
+  border: 1px solid #d8d1c6;
+  border-radius: 12px;
+  font: inherit;
+}
+
+.success {
+  font-size: 54px;
+}
+
+.center {
+  text-align: center;
+}
+
+.notice {
+  margin-top: 12px;
+  color: #77736c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+  <div class="logo">
+    EBRM
+  </div>
+
+  <div class="subtitle">
+    English Bible Reading Trainer · John 1:1–5
+  </div>
+
+  <div class="progress">
+    <div
+      id="progressFill"
+      class="progress-fill">
+    </div>
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- HOME -->
+
+<section
+  id="home"
+  class="screen active">
+
+  <div class="eyebrow">
+    TODAY
+  </div>
+
+  <h1>
+    John 1:1–5
+  </h1>
+
+  <p>
+    用英文圣经训练真正的英文阅读能力。
+  </p>
+
+  <div class="card">
+
+    <strong>
+      今天的训练
+    </strong>
+
+    <p>
+      READ → NOTICE → VOCABULARY →
+      STRUCTURE → MEANING → PRODUCE →
+      RE-READ
+    </p>
+
+    <span class="muted">
+      约 15–20 分钟
+    </span>
+
+  </div>
+
+  <button onclick="go('read')">
+    开始训练
+  </button>
+
+</section>
+
+
+
+<!-- READ -->
+
+<section
+  id="read"
+  class="screen">
+
+  <div class="eyebrow">
+    01 · READ
+  </div>
+
+  <h2>
+    先读经文
+  </h2>
+
+  <div
+    id="passage"
+    class="verse">
+
+    正在读取 ESV 经文……
+
+  </div>
+
+  <div class="notice">
+
+    经文由 ESV API 动态提供。
+    API Key 不放在前端。
+
+  </div>
+
+  <button
+    class="secondary"
+    onclick="listen()">
+
+    🔊 Listen
+
+  </button>
+
+  <button
+    onclick="go('words')">
+
+    读完了，继续
+
+  </button>
+
+</section>
+
+
+
+<!-- VOCABULARY -->
+
+<section
+  id="words"
+  class="screen">
+
+  <div class="eyebrow">
+    02 · VOCABULARY
+  </div>
+
+  <h2>
+    抓住关键词
+  </h2>
+
+  <div class="card">
+
+    <div class="word">
+
+      <div>
+        <b>beginning</b>
+        <span class="tag">BV</span>
+
+        <br>
+
+        <span class="muted">
+          the start
+        </span>
+      </div>
+
+      <b>开始</b>
+
+    </div>
+
+
+    <div class="word">
+
+      <div>
+        <b>Word</b>
+        <span class="tag">BT</span>
+
+        <br>
+
+        <span class="muted">
+          the Word in John 1
+        </span>
+      </div>
+
+      <b>道</b>
+
+    </div>
+
+
+    <div class="word">
+
+      <div>
+        <b>with</b>
+        <span class="tag">BS</span>
+
+        <br>
+
+        <span class="muted">
+          together / in relationship with
+        </span>
+      </div>
+
+      <b>与……同在</b>
+
+    </div>
+
+
+    <div class="word">
+
+      <div>
+        <b>life</b>
+        <span class="tag">BT</span>
+
+        <br>
+
+        <span class="muted">
+          living; source of life
+        </span>
+      </div>
+
+      <b>生命</b>
+
+    </div>
+
+
+    <div class="word">
+
+      <div>
+        <b>light</b>
+        <span class="tag">BT</span>
+
+        <br>
+
+        <span class="muted">
+          light
+        </span>
+      </div>
+
+      <b>光</b>
+
+    </div>
+
+
+    <div class="word">
+
+      <div>
+        <b>darkness</b>
+        <span class="tag">BT</span>
+
+        <br>
+
+        <span class="muted">
+          darkness
+        </span>
+      </div>
+
+      <b>黑暗</b>
+
+    </div>
+
+  </div>
+
+  <button onclick="go('structure')">
+    继续：看句型
+  </button>
+
+</section>
+
+
+
+<!-- STRUCTURE -->
+
+<section
+  id="structure"
+  class="screen">
+
+  <div class="eyebrow">
+    03 · STRUCTURE
+  </div>
+
+  <h2>
+    观察英文句子
+  </h2>
+
+
+  <div class="card">
+
+    <b>
+      In the beginning was the Word.
+    </b>
+
+    <p class="muted">
+      In the beginning + was + subject
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <b>
+      The Word was with God.
+    </b>
+
+    <p class="muted">
+      Subject + was + with + person
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <b>
+      The Word was God.
+    </b>
+
+    <p class="muted">
+      Subject + was + complement
+    </p>
+
+  </div>
+
+
+  <p>
+    先观察英文结构，再理解意思。
+  </p>
+
+
+  <button onclick="go('understand')">
+    继续：理解
+  </button>
+
+</section>
+
+
+
+<!-- UNDERSTAND -->
+
+<section
+  id="understand"
+  class="screen">
+
+  <div class="eyebrow">
+    04 · MEANING
+  </div>
+
+  <h2>
+    不用翻译，直接判断
+  </h2>
+
+
+  <div class="card">
+
+    <b>
+      1. What was with God in the beginning?
+    </b>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,true)">
+
+      The Word
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      The light
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      The darkness
+
+    </button>
+
+  </div>
+
+
+
+  <div class="card">
+
+    <b>
+      2. What was in the Word?
+    </b>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,true)">
+
+      Life
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      Darkness
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      Beginning
+
+    </button>
+
+  </div>
+
+
+
+  <div class="card">
+
+    <b>
+      3. Where does the light shine?
+    </b>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      In the beginning
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,true)">
+
+      In the darkness
+
+    </button>
+
+
+    <button
+      class="choice"
+      onclick="answer(this,false)">
+
+      With God
+
+    </button>
+
+  </div>
+
+
+  <button onclick="go('speak')">
+    继续：英文输出
+  </button>
+
+</section>
+
+
+
+<!-- PRODUCE -->
+
+<section
+  id="speak"
+  class="screen">
+
+  <div class="eyebrow">
+    05 · PRODUCE
+  </div>
+
+  <h2>
+    用简单英文复述
+  </h2>
+
+  <p>
+    请用 1–2 个简单英文句子解释
+    John 1:1–5。
+  </p>
+
+
+  <textarea
+    id="answerText"
+    placeholder="The Word was with God in the beginning. The Word was God.">
+  </textarea>
+
+
+  <p class="muted">
+
+    提示词：
+
+    Word · God · beginning ·
+    life · light · darkness
+
+  </p>
+
+
+  <button onclick="finish()">
+    完成今天训练
+  </button>
+
+</section>
+
+
+
+<!-- DONE -->
+
+<section
+  id="done"
+  class="screen center">
+
+  <div class="success">
+    ✓
+  </div>
+
+  <div class="eyebrow">
+    COMPLETED
+  </div>
+
+  <h1>
+    今天完成了
+  </h1>
+
+  <p>
+    你已经完成 John 1:1–5
+    的 EBRM 精读训练。
+  </p>
+
+
+  <div class="card">
+
+    <b>
+      自动复习
+    </b>
+
+    <p>
+      Day 1 · Day 3 · Day 7
+    </p>
+
+  </div>
+
+
+  <button onclick="go('home')">
+    返回首页
+  </button>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script>
+
+const screens = [
+  'home',
+  'read',
+  'words',
+  'structure',
+  'understand',
+  'speak',
+  'done'
+];
+
+
+function go(id) {
+
+  document
+    .querySelectorAll('.screen')
+    .forEach(function(screen) {
+
+      screen.classList.remove('active');
+
+    });
+
+
+  document
+    .getElementById(id)
+    .classList.add('active');
+
+
+  const index = screens.indexOf(id);
+
+  const percent =
+    (index / (screens.length - 1)) * 100;
+
+
+  document
+    .getElementById('progressFill')
+    .style.width = percent + '%';
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+
+  if (id === 'read') {
+    loadPassage();
+  }
+
+}
+
+
+
+async function loadPassage() {
+
+  const box =
+    document.getElementById('passage');
+
+
+  box.innerHTML =
+    '正在读取 ESV 经文……';
+
+
+  try {
+
+    const response =
+      await fetch('?action=passage');
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      data.passages &&
+      data.passages.length > 0
+    ) {
+
+      box.innerHTML =
+        data.passages[0].text;
+
+    } else {
+
+      box.innerHTML =
+        'ESV 经文读取失败。<br><br>' +
+        '请检查 ESV_API_KEY。';
+
+    }
+
+  } catch (error) {
+
+    box.innerHTML =
+      '无法连接经文服务。<br><br>' +
+      '请检查 Apps Script 部署。';
+
+  }
+
+}
+
+
+
+function answer(button, correct) {
+
+  button.classList.add(
+    correct ? 'correct' : 'wrong'
+  );
+
+
+  if (correct) {
+
+    button.parentElement
+      .setAttribute('data-correct', 'true');
+
+  }
+
+}
+
+
+
+function listen() {
+
+  alert(
+    'V0.2 将连接 ESV Audio API。'
+  );
+
+}
+
+
+
+function finish() {
+
+  const answer =
+    document.getElementById('answerText').value;
+
+
+  localStorage.setItem(
+    'EBRM_John1_1_5',
+    JSON.stringify({
+      completed: true,
+      answer: answer,
+      completedAt: new Date().toISOString()
+    })
+  );
+
+
+  go('done');
+
+}
+
+</script>
+
+</body>
+
+</html>
