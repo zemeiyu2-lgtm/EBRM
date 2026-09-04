@@ -2,22 +2,19 @@
   box-sizing: border-box;
 }
 
+
 :root {
 
   --bg: #f5f1e7;
-
   --paper: #fffdf8;
 
   --ink: #28332d;
-
   --muted: #778078;
 
   --accent: #496b59;
-
   --accent-soft: #e6eee7;
 
   --gold: #9a7740;
-
   --gold-soft: #f3ead8;
 
   --danger: #965f55;
@@ -34,9 +31,11 @@ body {
 
   margin: 0;
 
-  background: var(--bg);
+  background:
+    var(--bg);
 
-  color: var(--ink);
+  color:
+    var(--ink);
 
   font-family:
     -apple-system,
@@ -45,7 +44,8 @@ body {
     "Microsoft YaHei",
     sans-serif;
 
-  line-height: 1.65;
+  line-height:
+    1.65;
 
 }
 
@@ -64,10 +64,11 @@ body {
 
   align-items: center;
 
-  padding: 13px 18px;
+  padding:
+    13px 18px;
 
   background:
-    rgba(245,241,231,.95);
+    rgba(245,241,231,.96);
 
   border-bottom:
     1px solid var(--line);
@@ -80,56 +81,69 @@ body {
 
 .brand {
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  letter-spacing: .12em;
+  letter-spacing:
+    .12em;
 
 }
 
 
 .subtitle {
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
-  font-size: 10px;
+  font-size:
+    10px;
 
 }
 
 
 .version {
 
-  color: var(--accent);
+  color:
+    var(--accent);
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
 }
 
 
 .app {
 
-  width: 100%;
+  width:
+    100%;
 
-  max-width: 850px;
+  max-width:
+    850px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  padding: 18px 16px 70px;
+  padding:
+    18px 16px 70px;
 
 }
 
 
 .screen {
 
-  display: none;
+  display:
+    none;
 
 }
 
 
 .screen.active {
 
-  display: block;
+  display:
+    block;
 
 }
 
@@ -144,13 +158,17 @@ body {
 
 .eyebrow {
 
-  color: var(--accent);
+  color:
+    var(--accent);
 
-  font-size: 10px;
+  font-size:
+    10px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  letter-spacing: .15em;
+  letter-spacing:
+    .15em;
 
 }
 
@@ -168,34 +186,40 @@ body {
   font-size:
     clamp(35px, 9vw, 58px);
 
-  line-height: 1.05;
+  line-height:
+    1.05;
 
 }
 
 
-.hero p {
+.hero-subtitle {
 
   margin:
-    0 0 16px;
+    0 0 14px;
 
   font-family:
     Georgia,
     serif;
 
-  font-size: 18px;
+  font-size:
+    18px;
 
 }
 
 
 .hero-description {
 
-  max-width: 600px;
+  max-width:
+    600px;
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.8;
+  line-height:
+    1.8;
 
 }
 
@@ -267,31 +291,25 @@ body {
 }
 
 
-.golden-title {
+.golden-card h2 {
 
-  margin-top:
-    8px;
+  margin:
+    8px 0 0;
 
   font-family:
     Georgia,
     serif;
 
   font-size:
-    27px;
-
-  font-weight:
-    700;
+    28px;
 
 }
 
 
-.golden-subtitle {
+.golden-reference {
 
   color:
     #786b55;
-
-  margin-top:
-    3px;
 
   font-size:
     13px;
@@ -311,7 +329,7 @@ body {
     10px;
 
   line-height:
-    2.1;
+    2.2;
 
 }
 
@@ -322,7 +340,7 @@ body {
     0 4px;
 
   opacity:
-    .45;
+    .4;
 
 }
 
@@ -355,14 +373,14 @@ body {
   padding:
     16px;
 
+  background:
+    rgba(255,255,255,.55);
+
   border:
     1px solid var(--line);
 
   border-radius:
     15px;
-
-  background:
-    rgba(255,255,255,.5);
 
 }
 
@@ -407,7 +425,7 @@ body {
 .progress-fill {
 
   width:
-    0%;
+    0;
 
   height:
     100%;
@@ -656,10 +674,44 @@ body {
 }
 
 
-.audio-controls button {
+button {
 
-  min-height:
-    42px;
+  font:
+    inherit;
+
+  padding:
+    10px 13px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    10px;
+
+  background:
+    white;
+
+  cursor:
+    pointer;
+
+  transition:
+    .15s ease;
+
+}
+
+
+button:active {
+
+  transform:
+    scale(.98);
+
+}
+
+
+button:hover {
+
+  border-color:
+    #b9b0a0;
 
 }
 
@@ -681,7 +733,7 @@ body {
 .secondary {
 
   background:
-    #fff !important;
+    white !important;
 
   color:
     var(--ink) !important;
@@ -696,36 +748,6 @@ body {
 
   margin-top:
     10px;
-
-}
-
-
-button {
-
-  font: inherit;
-
-  padding:
-    10px 13px;
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    10px;
-
-  background:
-    white;
-
-  cursor:
-    pointer;
-
-}
-
-
-button:active {
-
-  transform:
-    scale(.98);
 
 }
 
@@ -857,11 +879,11 @@ button:active {
   display:
     flex;
 
-  align-items:
-    center;
-
   justify-content:
     space-between;
+
+  align-items:
+    center;
 
 }
 
@@ -892,7 +914,7 @@ button:active {
 .vocab-en {
 
   margin-top:
-    2px;
+    3px;
 
   color:
     var(--muted);
@@ -1206,18 +1228,13 @@ textarea:focus {
     grid;
 
   grid-template-columns:
-    1fr
-    30px
-    1fr;
+    1fr 30px 1fr;
 
   align-items:
     center;
 
   gap:
     8px;
-
-  margin:
-    10px 0;
 
 }
 
@@ -1349,14 +1366,6 @@ textarea:focus {
 }
 
 
-.review-row small {
-
-  color:
-    var(--muted);
-
-}
-
-
 footer {
 
   padding:
@@ -1379,16 +1388,7 @@ footer {
   .app {
 
     padding:
-      28px
-      30px
-      90px;
-
-  }
-
-  .unit-grid {
-
-    grid-template-columns:
-      repeat(4,1fr);
+      28px 30px 90px;
 
   }
 
@@ -1402,7 +1402,7 @@ footer {
 }
 
 
-@media (max-width: 380px) {
+@media (max-width: 500px) {
 
   .feeling-options {
 
