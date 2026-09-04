@@ -1,22 +1,12 @@
 /* =========================================================
-   EBRM V0.2
+   EBRM V0.3
+   English Bible Reading Model
    John 1
+   GitHub Pages Independent Version
 ========================================================= */
 
-
-/*
- * 把这里换成你的 Cloudflare Worker 地址。
- *
- * 例如：
- *
- * https://ebrm-esv.xxxxx.workers.dev
- */
-
 const CONFIG = {
-
-  WORKER_URL:
-    'https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev'
-
+  BIBLE_API: 'https://bible-api.com'
 };
 
 
@@ -28,525 +18,420 @@ const UNITS = [
 
   {
     id: 'john1-1-5',
-
     title: 'John 1:1–5',
-
     start: 1,
     end: 5,
 
     words: [
-
       ['beginning', '开始', 'the start'],
-
       ['Word', '道', 'the Word in John 1'],
-
       ['with', '与……同在', 'together / in relationship with'],
-
       ['life', '生命', 'living; source of life'],
-
       ['light', '光', 'light'],
-
       ['darkness', '黑暗', 'darkness']
-
     ],
 
     structures: [
-
       [
         'In the beginning was the Word.',
         'In the beginning + was + subject'
       ],
-
       [
         'The Word was with God.',
         'Subject + was + with + person'
       ],
-
       [
         'The Word was God.',
         'Subject + was + complement'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'What was with God in the beginning?',
-
         options: [
           'The Word',
           'The light',
           'The darkness'
         ],
-
         answer: 0
       },
-
       {
         q: 'What was in the Word?',
-
         options: [
           'Darkness',
           'Life',
           'Beginning'
         ],
-
         answer: 1
       },
-
       {
         q: 'Where does the light shine?',
-
         options: [
           'In the beginning',
           'With God',
           'In the darkness'
         ],
-
         answer: 2
       }
+    ],
 
-    ]
+    context:
+      'John begins his Gospel by presenting the Word in relation to God, creation, life, and light.',
 
+    production:
+      'In 2–3 English sentences, explain who the Word is and what is in the Word.'
   },
 
 
   {
     id: 'john1-6-13',
-
     title: 'John 1:6–13',
-
     start: 6,
     end: 13,
 
     words: [
-
       ['witness', '见证人', 'a person who gives testimony'],
-
       ['believe', '相信', 'to trust or accept as true'],
-
       ['true', '真的', 'real; genuine'],
-
       ['world', '世界', 'the world'],
-
       ['receive', '接受', 'to accept'],
-
       ['children', '儿女', 'children']
-
     ],
 
     structures: [
-
       [
         'There was a man sent from God.',
         'There was + noun + past participle'
       ],
-
       [
         'He came as a witness.',
         'Subject + came + as + noun'
       ],
-
       [
         'He was not the light.',
         'Subject + was not + noun'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'Why did John come?',
-
         options: [
           'To be the light',
           'To bear witness to the light',
           'To create the world'
         ],
-
         answer: 1
       },
-
       {
         q: 'What happens to those who receive the Word?',
-
         options: [
           'They become children of God',
           'They become angels',
           'They become prophets'
         ],
-
         answer: 0
       }
+    ],
 
-    ]
+    context:
+      'John the Baptist is introduced as a witness. The passage contrasts the true light with the response of the world and those who receive him.',
 
+    production:
+      'Explain in English why John came and what happens to those who receive the Word.'
   },
 
 
   {
     id: 'john1-14-18',
-
     title: 'John 1:14–18',
-
     start: 14,
     end: 18,
 
     words: [
-
       ['flesh', '肉身', 'human bodily existence'],
-
       ['dwelt', '住', 'lived among'],
-
       ['glory', '荣耀', 'splendor; honor'],
-
       ['grace', '恩典', 'undeserved favor'],
-
       ['truth', '真理', 'what is true'],
-
       ['revealed', '显明', 'made known']
-
     ],
 
     structures: [
-
       [
         'The Word became flesh.',
         'Subject + became + noun'
       ],
-
       [
         'We have seen his glory.',
         'Subject + have seen + object'
       ],
-
       [
         'Grace and truth came through Jesus Christ.',
         'Noun + came through + person'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'What did the Word become?',
-
         options: [
           'Light',
           'Flesh',
           'Darkness'
         ],
-
         answer: 1
       },
-
       {
         q: 'What did John see?',
-
         options: [
           'His glory',
           'The beginning',
           'The law only'
         ],
-
         answer: 0
       }
+    ],
 
-    ]
+    context:
+      'John 1:14 is central to the Gospel: the Word became flesh and lived among humanity. The passage connects Jesus with glory, grace, and truth.',
 
+    production:
+      'Write 2–3 English sentences about what the Word became and what people saw in him.'
   },
 
 
   {
     id: 'john1-19-28',
-
     title: 'John 1:19–28',
-
     start: 19,
     end: 28,
 
     words: [
-
       ['testimony', '见证', 'testimony'],
-
       ['Christ', '基督', 'Messiah / Christ'],
-
       ['prophet', '先知', 'prophet'],
-
       ['baptize', '施洗', 'to baptize'],
-
       ['worthy', '配得', 'deserving']
-
     ],
 
     structures: [
-
       [
         'Who are you?',
         'Question word + be + subject'
       ],
-
       [
         'I am not the Christ.',
         'Subject + be not + noun'
       ],
-
       [
         'I baptize with water.',
         'Subject + verb + with + noun'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'Who did John say he was not?',
-
         options: [
           'Elijah',
           'The Christ',
           'A prophet'
         ],
-
         answer: 1
       },
-
       {
         q: 'With what did John baptize?',
-
         options: [
           'Fire',
           'Oil',
           'Water'
         ],
-
         answer: 2
       }
+    ],
 
-    ]
+    context:
+      'Religious leaders question John about his identity. John points away from himself and toward the one who is coming after him.',
 
+    production:
+      'Explain in English who John said he was not and what he did with water.'
   },
 
 
   {
     id: 'john1-29-34',
-
     title: 'John 1:29–34',
-
     start: 29,
     end: 34,
 
     words: [
-
       ['Lamb', '羔羊', 'Lamb'],
-
       ['sin', '罪', 'sin'],
-
       ['Spirit', '圣灵', 'Spirit'],
-
       ['remain', '住', 'stay; continue'],
-
       ['Son', '儿子', 'Son']
-
     ],
 
     structures: [
-
       [
         'Behold, the Lamb of God.',
         'Behold + noun phrase'
       ],
-
       [
         'He takes away the sin of the world.',
         'Subject + verb + object'
       ],
-
       [
         'The Spirit remained on him.',
         'Subject + remained + prepositional phrase'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'Who takes away the sin of the world?',
-
         options: [
           'John',
           'The Lamb of God',
           'Elijah'
         ],
-
         answer: 1
       },
-
       {
         q: 'What descended like a dove?',
-
         options: [
           'The Spirit',
           'The light',
           'The Word'
         ],
-
         answer: 0
       }
+    ],
 
-    ]
+    context:
+      'John identifies Jesus as the Lamb of God and testifies that the Spirit remained upon him.',
 
+    production:
+      'Explain in English who Jesus is according to John and what the Spirit did.'
   },
 
 
   {
     id: 'john1-35-42',
-
     title: 'John 1:35–42',
-
     start: 35,
     end: 42,
 
     words: [
-
       ['disciple', '门徒', 'a follower'],
-
       ['follow', '跟随', 'to go after'],
-
       ['Rabbi', '拉比', 'teacher'],
-
       ['Messiah', '弥赛亚', 'Messiah'],
-
       ['brother', '兄弟', 'brother']
-
     ],
 
     structures: [
-
       [
         'What are you seeking?',
         'Question word + be + subject + participle'
       ],
-
       [
         'Come and you will see.',
         'Imperative + and + result'
       ],
-
       [
         'We have found the Messiah.',
         'Present perfect + object'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'What did the disciples call Jesus?',
-
         options: [
           'Rabbi',
           'Elijah',
           'Prophet only'
         ],
-
         answer: 0
       },
-
       {
         q: 'Who did Andrew bring to Jesus?',
-
         options: [
           'John',
           'Simon',
           'Philip'
         ],
-
         answer: 1
       }
+    ],
 
-    ]
+    context:
+      'The first disciples begin following Jesus. Andrew brings Simon to Jesus after discovering the Messiah.',
 
+    production:
+      'Describe in English how the first disciples began to follow Jesus.'
   },
 
 
   {
     id: 'john1-43-51',
-
     title: 'John 1:43–51',
-
     start: 43,
     end: 51,
 
     words: [
-
       ['follow', '跟随', 'to go after'],
-
       ['Nazareth', '拿撒勒', 'Nazareth'],
-
       ['Nathanael', '拿但业', 'Nathanael'],
-
       ['fig', '无花果', 'fig'],
-
       ['heaven', '天', 'heaven'],
-
       ['angels', '天使', 'angels']
-
     ],
 
     structures: [
-
       [
         'Follow me.',
         'Imperative'
       ],
-
       [
         'Can anything good come out of Nazareth?',
         'Can + subject + verb + ...?'
       ],
-
       [
         'You will see heaven opened.',
         'Subject + will + verb + object'
       ]
-
     ],
 
     questions: [
-
       {
         q: 'Who said, “Follow me”?',
-
         options: [
           'Jesus',
           'Nathanael',
           'Moses'
         ],
-
         answer: 0
       },
-
       {
         q: 'What did Jesus say Nathanael would see?',
-
         options: [
           'The temple',
           'Heaven opened',
           'The Jordan'
         ],
-
         answer: 1
       }
+    ],
 
-    ]
+    context:
+      'Jesus calls Philip and Nathanael. The section ends with Jesus presenting himself as the Son of Man.',
 
+    production:
+      'Explain in English what Jesus promised Nathanael would see.'
   }
 
 ];
@@ -557,11 +442,8 @@ const UNITS = [
 ========================================================= */
 
 let currentUnit = UNITS[0];
-
 let quizAnswers = {};
-
 let quizScore = 0;
-
 let productionScore = 0;
 
 
@@ -574,9 +456,7 @@ function showScreen(id) {
   document
     .querySelectorAll('.screen')
     .forEach(function(screen) {
-
       screen.classList.remove('active');
-
     });
 
 
@@ -591,7 +471,6 @@ function showScreen(id) {
 
 
   const order = [
-
     'home',
     'read',
     'vocabulary',
@@ -600,7 +479,6 @@ function showScreen(id) {
     'produce',
     'review',
     'done'
-
   ];
 
 
@@ -611,10 +489,16 @@ function showScreen(id) {
   if (index < 0) index = 0;
 
 
-  document.getElementById(
-    'progressFill'
-  ).style.width =
-    ((index / 7) * 100) + '%';
+  const progress =
+    document.getElementById('progressFill');
+
+
+  if (progress) {
+
+    progress.style.width =
+      ((index / (order.length - 1)) * 100) + '%';
+
+  }
 
 
   window.scrollTo({
@@ -624,9 +508,7 @@ function showScreen(id) {
 
 
   if (id === 'review') {
-
     renderReview();
-
   }
 
 }
@@ -639,25 +521,19 @@ function showScreen(id) {
 function openToday() {
 
   const saved =
-    localStorage.getItem(
-      'EBRM_CURRENT_UNIT'
-    );
+    localStorage.getItem('EBRM_CURRENT_UNIT');
 
 
   if (saved) {
 
     const found =
       UNITS.find(function(unit) {
-
         return unit.id === saved;
-
       });
 
 
     if (found) {
-
       currentUnit = found;
-
     }
 
   }
@@ -671,34 +547,39 @@ function openToday() {
 function startUnit() {
 
   quizAnswers = {};
-
   quizScore = 0;
-
   productionScore = 0;
 
 
-  document.getElementById(
-    'readTitle'
-  ).textContent =
-    currentUnit.title;
+  const title =
+    document.getElementById('readTitle');
+
+  if (title) {
+    title.textContent =
+      currentUnit.title;
+  }
 
 
-  document.getElementById(
-    'productionAnswer'
-  ).value = '';
+  const answer =
+    document.getElementById('productionAnswer');
+
+  if (answer) {
+    answer.value = '';
+  }
 
 
-  document.getElementById(
-    'productionResult'
-  ).classList.remove('show');
+  const result =
+    document.getElementById('productionResult');
+
+  if (result) {
+    result.classList.remove('show');
+    result.innerHTML = '';
+  }
 
 
   renderVocabulary();
-
   renderStructures();
-
   renderQuestions();
-
   loadPassage();
 
   showScreen('read');
@@ -713,9 +594,10 @@ function startUnit() {
 function renderUnits() {
 
   const box =
-    document.getElementById(
-      'unitGrid'
-    );
+    document.getElementById('unitGrid');
+
+
+  if (!box) return;
 
 
   box.innerHTML = '';
@@ -732,16 +614,12 @@ function renderUnits() {
 
 
     if (getTraining(unit.id)) {
-
       button.classList.add('done');
-
     }
 
 
     button.textContent =
-      unit.start +
-      '–' +
-      unit.end;
+      unit.title.replace('John ', '');
 
 
     button.onclick =
@@ -773,9 +651,7 @@ function updateChapterProgress() {
 
   const completed =
     UNITS.filter(function(unit) {
-
       return !!getTraining(unit.id);
-
     }).length;
 
 
@@ -783,18 +659,18 @@ function updateChapterProgress() {
     UNITS.length;
 
 
-  document.getElementById(
-    'chapterProgress'
-  ).innerHTML = `
+  const box =
+    document.getElementById('chapterProgress');
 
-    <b>
-      ${completed} / ${total}
-    </b>
 
+  if (!box) return;
+
+
+  box.innerHTML = `
+    <b>${completed} / ${total}</b>
     <span class="muted">
       个训练单元完成
     </span>
-
   `;
 
 }
@@ -807,58 +683,59 @@ function updateChapterProgress() {
 async function loadPassage() {
 
   const box =
-    document.getElementById(
-      'passageText'
-    );
+    document.getElementById('passageText');
 
 
   const audio =
-    document.getElementById(
-      'audioBox'
-    );
+    document.getElementById('audioBox');
 
 
-  box.textContent =
-    '正在读取 ESV……';
+  if (!box) return;
 
 
-  audio.innerHTML =
-    '正在准备 ESV Audio……';
+  box.innerHTML = `
+    <div class="notice">
+      正在读取英文圣经……
+    </div>
+  `;
 
 
-  const query =
-    `John 1:${currentUnit.start}-${currentUnit.end}`;
+  if (audio) {
 
-
-  if (
-    !CONFIG.WORKER_URL ||
-    CONFIG.WORKER_URL.includes('YOUR-WORKER')
-  ) {
-
-    box.innerHTML = `
-
-      <b>还没有配置 Cloudflare Worker。</b>
-
-      <p class="muted">
-        请打开 app.js，
-        修改 CONFIG.WORKER_URL。
-      </p>
-
+    audio.innerHTML = `
+      <div class="muted">
+        本版本暂未连接圣经音频。
+      </div>
     `;
 
-    return;
-
   }
+
+
+  const reference =
+    `John ${currentUnit.start}:${currentUnit.end}`;
+
+
+  const url =
+    CONFIG.BIBLE_API +
+    '/' +
+    encodeURIComponent(reference) +
+    '?translation=web';
 
 
   try {
 
     const response =
-      await fetch(
-        CONFIG.WORKER_URL +
-        '/passage?q=' +
-        encodeURIComponent(query)
+      await fetch(url);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'Bible API HTTP ' +
+        response.status
       );
+
+    }
 
 
     const data =
@@ -866,39 +743,61 @@ async function loadPassage() {
 
 
     if (
-      !data.passages ||
-      !data.passages.length
+      !data.text ||
+      !data.text.trim()
     ) {
 
       throw new Error(
-        'No passage returned'
+        '没有返回经文内容'
       );
 
     }
 
 
     box.innerHTML =
-      renderPassage(
-        data.passages[0]
-      );
+      renderPassage(data.text);
 
 
-    loadAudio(query);
+    const version =
+      document.createElement('div');
+
+
+    version.className =
+      'muted passage-version';
+
+
+    version.textContent =
+      'World English Bible (WEB)';
+
+
+    box.appendChild(version);
 
 
   } catch(error) {
 
-    console.error(error);
+    console.error(
+      'Bible API Error:',
+      error
+    );
 
 
     box.innerHTML = `
 
-      <b>经文读取失败</b>
+      <div class="notice">
 
-      <p class="muted">
-        请检查 Worker 地址、
-        ESV API Key 和网络连接。
-      </p>
+        <b>
+          经文读取失败
+        </b>
+
+        <p class="muted">
+          ${escapeHtml(error.message)}
+        </p>
+
+        <p class="muted">
+          请检查网络连接，然后重新打开本训练单元。
+        </p>
+
+      </div>
 
     `;
 
@@ -919,8 +818,8 @@ function renderPassage(text) {
 
   html =
     html.replace(
-      /\[(\d+)\]/g,
-      '<span class="verse-number">$1</span>'
+      /\n/g,
+      '<br>'
     );
 
 
@@ -944,15 +843,11 @@ function renderPassage(text) {
         ) {
 
           return `
-
             <button
               class="click-word"
               onclick="showWord('${escapeAttribute(key)}')">
-
               ${word}
-
             </button>
-
           `;
 
         }
@@ -964,79 +859,7 @@ function renderPassage(text) {
     );
 
 
-  html =
-    html.replace(
-      /\n/g,
-      '<br>'
-    );
-
-
   return html;
-
-}
-
-
-/* =========================================================
-   AUDIO
-========================================================= */
-
-async function loadAudio(query) {
-
-  const box =
-    document.getElementById(
-      'audioBox'
-    );
-
-
-  try {
-
-    const response =
-      await fetch(
-        CONFIG.WORKER_URL +
-        '/audio?q=' +
-        encodeURIComponent(query)
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        'Audio request failed'
-      );
-
-    }
-
-
-    const audioUrl =
-      CONFIG.WORKER_URL +
-      '/audio?q=' +
-      encodeURIComponent(query);
-
-
-    box.innerHTML = `
-
-      <audio
-        class="audio-player"
-        controls
-        preload="none"
-        src="${audioUrl}">
-      </audio>
-
-    `;
-
-  } catch(error) {
-
-    console.error(error);
-
-    box.innerHTML = `
-
-      <div class="notice">
-        ESV Audio 暂时无法加载。
-      </div>
-
-    `;
-
-  }
 
 }
 
@@ -1061,13 +884,9 @@ function getDictionary() {
 
 
       dictionary[key] = {
-
         word: item[0],
-
         chinese: item[1],
-
         english: item[2]
-
       };
 
     });
@@ -1097,36 +916,50 @@ function showWord(key) {
   if (!item) return;
 
 
-  document.getElementById(
-    'popupWord'
-  ).textContent =
-    item.word;
+  const word =
+    document.getElementById('popupWord');
+
+  const chinese =
+    document.getElementById('popupChinese');
+
+  const english =
+    document.getElementById('popupEnglish');
+
+  const popup =
+    document.getElementById('wordPopup');
 
 
-  document.getElementById(
-    'popupChinese'
-  ).textContent =
-    item.chinese;
+  if (word) {
+    word.textContent =
+      item.word;
+  }
 
+  if (chinese) {
+    chinese.textContent =
+      item.chinese;
+  }
 
-  document.getElementById(
-    'popupEnglish'
-  ).textContent =
-    item.english;
+  if (english) {
+    english.textContent =
+      item.english;
+  }
 
-
-  document.getElementById(
-    'wordPopup'
-  ).classList.add('show');
+  if (popup) {
+    popup.classList.add('show');
+  }
 
 }
 
 
 function closeWord() {
 
-  document.getElementById(
-    'wordPopup'
-  ).classList.remove('show');
+  const popup =
+    document.getElementById('wordPopup');
+
+
+  if (popup) {
+    popup.classList.remove('show');
+  }
 
 }
 
@@ -1138,9 +971,10 @@ function closeWord() {
 function renderVocabulary() {
 
   const box =
-    document.getElementById(
-      'vocabularyList'
-    );
+    document.getElementById('vocabularyList');
+
+
+  if (!box) return;
 
 
   box.innerHTML = '';
@@ -1157,19 +991,15 @@ function renderVocabulary() {
 
 
     div.innerHTML = `
-
-      <b>
-        ${item[0]}
-      </b>
+      <b>${escapeHtml(item[0])}</b>
 
       <span class="muted">
-        · ${item[1]}
+        · ${escapeHtml(item[1])}
       </span>
 
       <p class="muted">
-        ${item[2]}
+        ${escapeHtml(item[2])}
       </p>
-
     `;
 
 
@@ -1187,9 +1017,10 @@ function renderVocabulary() {
 function renderStructures() {
 
   const box =
-    document.getElementById(
-      'structureList'
-    );
+    document.getElementById('structureList');
+
+
+  if (!box) return;
 
 
   box.innerHTML = '';
@@ -1206,15 +1037,13 @@ function renderStructures() {
 
 
     div.innerHTML = `
-
       <div class="structure-en">
-        ${item[0]}
+        ${escapeHtml(item[0])}
       </div>
 
       <div class="structure-pattern">
-        ${item[1]}
+        ${escapeHtml(item[1])}
       </div>
-
     `;
 
 
@@ -1232,9 +1061,10 @@ function renderStructures() {
 function renderQuestions() {
 
   const box =
-    document.getElementById(
-      'questionList'
-    );
+    document.getElementById('questionList');
+
+
+  if (!box) return;
 
 
   box.innerHTML = '';
@@ -1252,12 +1082,10 @@ function renderQuestions() {
 
 
       let html = `
-
         <b>
           ${index + 1}.
-          ${question.q}
+          ${escapeHtml(question.q)}
         </b>
-
       `;
 
 
@@ -1265,7 +1093,6 @@ function renderQuestions() {
         function(option, optionIndex) {
 
           html += `
-
             <button
               class="choice"
               onclick="
@@ -1275,11 +1102,8 @@ function renderQuestions() {
                   this
                 )
               ">
-
-              ${option}
-
+              ${escapeHtml(option)}
             </button>
-
           `;
 
         }
@@ -1287,12 +1111,10 @@ function renderQuestions() {
 
 
       html += `
-
         <div
           id="feedback-${index}"
           class="feedback">
         </div>
-
       `;
 
 
@@ -1324,21 +1146,16 @@ function answerQuestion(
   if (
     quizAnswers[questionIndex] !== undefined
   ) {
-
     return;
-
   }
 
 
   const question =
-    currentUnit.questions[
-      questionIndex
-    ];
+    currentUnit.questions[questionIndex];
 
 
-  quizAnswers[
-    questionIndex
-  ] = selected;
+  quizAnswers[questionIndex] =
+    selected;
 
 
   const buttons =
@@ -1352,9 +1169,7 @@ function answerQuestion(
       index === question.answer
     ) {
 
-      btn.classList.add(
-        'correct'
-      );
+      btn.classList.add('correct');
 
     }
 
@@ -1377,9 +1192,7 @@ function answerQuestion(
 
   } else {
 
-    button.classList.add(
-      'wrong'
-    );
+    button.classList.add('wrong');
 
 
     showFeedback(
@@ -1406,26 +1219,53 @@ function showFeedback(
     );
 
 
+  if (!el) return;
+
+
   el.textContent =
     message;
 
 
-  el.classList.add(
-    'show'
-  );
+  el.classList.add('show');
 
 }
 
 
 function updateQuizScore() {
 
-  document.getElementById(
-    'quizScore'
-  ).textContent =
+  const box =
+    document.getElementById('quizScore');
 
+
+  if (!box) return;
+
+
+  box.textContent =
     quizScore +
     ' / ' +
     currentUnit.questions.length;
+
+}
+
+
+/* =========================================================
+   UNDERSTAND
+========================================================= */
+
+function renderContext() {
+
+  const box =
+    document.getElementById('contextText');
+
+
+  if (!box) return;
+
+
+  box.innerHTML = `
+    <div class="card">
+      ${escapeHtml(currentUnit.context || '')}
+    </div>
+  `;
 
 }
 
@@ -1440,6 +1280,9 @@ function scoreProduction() {
     document.getElementById(
       'productionAnswer'
     );
+
+
+  if (!input) return;
 
 
   const text =
@@ -1460,15 +1303,17 @@ function scoreProduction() {
 
 
   const keywords = [
-
     'word',
     'god',
     'life',
     'light',
     'darkness',
     'jesus',
-    'christ'
-
+    'christ',
+    'john',
+    'spirit',
+    'lamb',
+    'messiah'
   ];
 
 
@@ -1489,7 +1334,10 @@ function scoreProduction() {
 
 
   const wordCount =
-    text.split(/\s+/).filter(Boolean).length;
+    text
+      .split(/\s+/)
+      .filter(Boolean)
+      .length;
 
 
   let score = 0;
@@ -1503,13 +1351,13 @@ function scoreProduction() {
 
 
   if (
-    wordCount >= 8
+    wordCount >= 12
   ) {
 
     score += 2;
 
   } else if (
-    wordCount >= 4
+    wordCount >= 6
   ) {
 
     score += 1;
@@ -1520,7 +1368,8 @@ function scoreProduction() {
   if (
     text.includes('because') ||
     text.includes('that') ||
-    text.includes('and')
+    text.includes('and') ||
+    text.includes('who')
   ) {
 
     score += 1;
@@ -1543,6 +1392,9 @@ function scoreProduction() {
     document.getElementById(
       'productionResult'
     );
+
+
+  if (!result) return;
 
 
   result.innerHTML = `
@@ -1578,25 +1430,16 @@ function scoreProduction() {
 function productionComment(score) {
 
   if (score >= 9) {
-
     return '很好。你已经能够用英文表达经文核心。';
-
   }
-
 
   if (score >= 7) {
-
     return '不错。继续尝试减少中文翻译依赖。';
-
   }
-
 
   if (score >= 5) {
-
     return '已经开始建立英文直接理解能力。';
-
   }
-
 
   return '回到经文，再尝试用英文表达。';
 
@@ -1661,12 +1504,8 @@ function finishTraining() {
 
 
   localStorage.setItem(
-
-    'EBRM_TRAIN_' +
-    currentUnit.id,
-
+    'EBRM_TRAIN_' + currentUnit.id,
     JSON.stringify(record)
-
   );
 
 
@@ -1676,12 +1515,19 @@ function finishTraining() {
   );
 
 
-  document.getElementById(
-    'doneMessage'
-  ).textContent =
+  const message =
+    document.getElementById(
+      'doneMessage'
+    );
 
-    currentUnit.title +
-    ' 已完成。';
+
+  if (message) {
+
+    message.textContent =
+      currentUnit.title +
+      ' 已完成。';
+
+  }
 
 
   renderUnits();
@@ -1736,6 +1582,9 @@ function renderReview() {
     );
 
 
+  if (!box) return;
+
+
   box.innerHTML = '';
 
 
@@ -1783,7 +1632,7 @@ function renderReview() {
         <div>
 
           <b>
-            ${unit.title}
+            ${escapeHtml(unit.title)}
           </b>
 
           <br>
@@ -1810,7 +1659,7 @@ function renderReview() {
 
         <button
           onclick="
-            startReview('${unit.id}')
+            startReview('${escapeAttribute(unit.id)}')
           ">
 
           复习
@@ -1856,9 +1705,7 @@ function startReview(id) {
 
   const unit =
     UNITS.find(function(item) {
-
       return item.id === id;
-
     });
 
 
@@ -1880,7 +1727,7 @@ function startReview(id) {
 
 function escapeHtml(text) {
 
-  return text
+  return String(text)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -1892,10 +1739,9 @@ function escapeHtml(text) {
 
 function escapeAttribute(text) {
 
-  return text.replace(
-    /'/g,
-    "\\'"
-  );
+  return String(text)
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'");
 
 }
 
