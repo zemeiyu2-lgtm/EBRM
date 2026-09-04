@@ -1,2375 +1,2345 @@
-/* =====================================================
+/* =========================================================
    EBRM V0.5
    English Bible Reading Model
-
    GitHub Pages 独立版
-
+   ---------------------------------------------------------
    V0.5 新增：
-   1. Bible API
-   2. 经文阅读
-   3. 浏览器英文朗读
-   4. 单节朗读
-   5. 单词发音
-   6. 句型朗读
-   7. 正常 / 慢速
-   8. 理解测试
-   9. 英文输出
-   10. Day 1 / Day 3 / Day 7 复习
-   11. 逐节自动播放
-   12. 当前经文高亮
-   13. 上一句 / 下一句
-   14. 单节循环跟读
-   15. 自动连续听读
-   16. 跟读状态提示
-===================================================== */
-
-
-/* =====================================================
-   CONFIG
-===================================================== */
+   1. 英文声音选择器
+   2. 自动优先男性英语声音
+   3. 记住用户选择的声音
+   4. 正常 / 慢速朗读
+   5. 整段朗读
+   6. 单节朗读
+   7. 连续朗读
+   8. 当前经文高亮
+   9. 朗读3遍训练
+   10. Production答案朗读
+   ========================================================= */
 
 const CONFIG = {
+    BIBLE_API: "https://bible-api.com",
+    TRANSLATION: "web",
+    SPEECH_LANG: "en-US",
 
-  BIBLE_API:
-    "https://bible-api.com",
+    STATE_KEY: "EBRM_V05_STATE",
+    VOICE_KEY: "EBRM_V05_VOICE",
 
-  TRANSLATION:
-    "web",
-
-  SPEECH_LANG:
-    "en-US",
-
-  STORAGE_KEY:
-    "EBRM_V05_STATE"
-
+    NORMAL_RATE: 0.88,
+    SLOW_RATE: 0.62
 };
 
 
-/* =====================================================
-   JOHN 1 TRAINING UNITS
-===================================================== */
+/* =========================================================
+   1. 课程数据
+   ========================================================= */
 
 const UNITS = [
 
-  {
-    id: "j1-01",
-    start: 1,
-    end: 5,
-    title: "道与生命之光",
-    ref: "John 1:1–5",
+    {
+        id: "J1-01",
+        title: "The Word Became Flesh — Part 1",
+        reference: "John 1:1–5",
+        start: 1,
+        end: 5,
 
-    vocab: [
-      ["Word", "BV", "圣经核心词汇"],
-      ["beginning", "BV", "起初、开始"],
-      ["life", "BT", "生命"],
-      ["light", "BT", "光"],
-      ["darkness", "BT", "黑暗"],
-      ["overcome", "BT", "胜过、制伏"]
-    ],
+        vocabulary: [
+            {
+                word: "beginning",
+                meaning: "起初；开始",
+                type: "noun"
+            },
+            {
+                word: "Word",
+                meaning: "道",
+                type: "noun"
+            },
+            {
+                word: "life",
+                meaning: "生命",
+                type: "noun"
+            },
+            {
+                word: "light",
+                meaning: "光",
+                type: "noun"
+            },
+            {
+                word: "darkness",
+                meaning: "黑暗",
+                type: "noun"
+            }
+        ],
 
-    structures: [
-      [
-        "In the beginning...",
-        "时间背景短语：把读者带回创造与起初。"
-      ],
-      [
-        "the Word was...",
-        "be 动词结构表达持续存在的状态。"
-      ],
-      [
-        "All things were made through him",
-        "被动结构 + through，强调创造的媒介。"
-      ]
-    ],
+        structures: [
+            {
+                pattern: "In the beginning was...",
+                explanation: "表示“起初……就已经存在”。"
+            },
+            {
+                pattern: "was with...",
+                explanation: "表示“与……同在”。"
+            },
+            {
+                pattern: "was God",
+                explanation: "说明身份或本质。"
+            }
+        ],
 
-    questions: [
-      [
-        "Q1",
-        "According to the passage, who was in the beginning with God?",
-        ["The Word", "John the Baptist", "Moses"],
-        0
-      ],
-      [
-        "Q2",
-        "What does the passage say about life?",
-        ["It was hidden", "It was in him", "It was created later"],
-        1
-      ],
-      [
-        "Q3",
-        "What does the light do in the darkness?",
-        ["It disappears", "It overcomes it", "It creates darkness"],
-        1
-      ]
-    ],
+        questions: [
+            {
+                question: "Who was in the beginning?",
+                answer: "The Word."
+            },
+            {
+                question: "Who was the Word with?",
+                answer: "God."
+            },
+            {
+                question: "What was the Word?",
+                answer: "God."
+            }
+        ],
 
-    context:
-      "John opens his Gospel with a theological prologue. The passage presents the Word in relation to God, creation, life, and light before the narrative introduces Jesus' earthly ministry.",
+        context:
+            "John begins his Gospel by presenting Jesus as the eternal Word. " +
+            "The opening connects Jesus with creation, life, and light.",
 
-    production:
-      "In simple English, explain the relationship between the Word, life, and light in this passage."
-  },
-
-
-  {
-    id: "j1-02",
-    start: 6,
-    end: 13,
-    title: "光来到世界",
-    ref: "John 1:6–13",
-
-    vocab: [
-      ["witness", "BV", "见证人"],
-      ["believe", "BV", "相信"],
-      ["true", "BT", "真实的"],
-      ["receive", "BV", "领受"],
-      ["children of God", "BT", "神的儿女"]
-    ],
-
-    structures: [
-      [
-        "There was a man sent from God",
-        "there was + 名词 + 过去分词，介绍一个被差遣的人。"
-      ],
-      [
-        "to bear witness about the light",
-        "to + 动词表示目的。"
-      ],
-      [
-        "gave the right to become children of God",
-        "give + 人 + 名词，表达赐予身份/权利。"
-      ]
-    ],
-
-    questions: [
-      [
-        "Q1",
-        "What was John's role?",
-        ["To create the light", "To bear witness", "To replace the Word"],
-        1
-      ],
-      [
-        "Q2",
-        "Who can become children of God?",
-        ["Those who receive and believe", "Only rulers", "Only angels"],
-        0
-      ],
-      [
-        "Q3",
-        "How does the passage describe the world's response?",
-        ["Everyone understood", "The world did not recognize him", "No one saw the light"],
-        1
-      ]
-    ],
-
-    context:
-      "The prologue moves from who the Word is to how the light enters the human world. John the Baptist is introduced as a witness, while belief and receiving the Word become central responses.",
-
-    production:
-      "Write one or two simple English sentences about what it means to receive the light."
-  },
+        production:
+            "In one English sentence, describe who the Word is."
+    },
 
 
-  {
-    id: "j1-03",
-    start: 14,
-    end: 18,
-    title: "道成了肉身",
-    ref: "John 1:14–18",
+    {
+        id: "J1-02",
+        title: "The Witness to the Light",
+        reference: "John 1:6–13",
+        start: 6,
+        end: 13,
 
-    vocab: [
-      ["dwelt", "BT", "居住、住在"],
-      ["glory", "BT", "荣耀"],
-      ["grace", "BT", "恩典"],
-      ["truth", "BT", "真理"],
-      ["only Son", "BT", "独生子/唯一的子"]
-    ],
+        vocabulary: [
+            {
+                word: "witness",
+                meaning: "见证人；见证",
+                type: "noun"
+            },
+            {
+                word: "testify",
+                meaning: "作见证",
+                type: "verb"
+            },
+            {
+                word: "true",
+                meaning: "真实的；真正的",
+                type: "adjective"
+            },
+            {
+                word: "receive",
+                meaning: "接受",
+                type: "verb"
+            },
+            {
+                word: "believe",
+                meaning: "相信",
+                type: "verb"
+            },
+            {
+                word: "children",
+                meaning: "儿女",
+                type: "noun"
+            }
+        ],
 
-    structures: [
-      [
-        "The Word became flesh",
-        "become + 名词，表达真实进入人的状态。"
-      ],
-      [
-        "we have seen his glory",
-        "现在完成时，强调已经看见并仍具有见证意义。"
-      ],
-      [
-        "full of grace and truth",
-        "形容词短语作补充说明。"
-      ]
-    ],
+        structures: [
+            {
+                pattern: "There was a man...",
+                explanation: "用于介绍一个人物。"
+            },
+            {
+                pattern: "He came as a witness...",
+                explanation: "as + 身份，表示“作为……”。"
+            },
+            {
+                pattern: "those who believe",
+                explanation: "who 引导关系从句，修饰 those。"
+            }
+        ],
 
-    questions: [
-      [
-        "Q1",
-        "What did the Word become?",
-        ["Flesh", "An angel", "A prophet"],
-        0
-      ],
-      [
-        "Q2",
-        "What was the Word full of?",
-        ["Power and wealth", "Grace and truth", "Fear and judgment"],
-        1
-      ],
-      [
-        "Q3",
-        "What have the witnesses seen?",
-        ["His glory", "His childhood", "The temple only"],
-        0
-      ]
-    ],
+        questions: [
+            {
+                question: "Who came as a witness?",
+                answer: "John."
+            },
+            {
+                question: "What did John testify about?",
+                answer: "The light."
+            },
+            {
+                question: "What happens to those who receive the Word?",
+                answer: "They become children of God."
+            }
+        ],
 
-    context:
-      "John 1:14 is a central statement about the incarnation. The eternal Word is presented as truly entering human existence, and the witnesses speak of glory, grace, and truth.",
+        context:
+            "John the Baptist is introduced as a witness. " +
+            "His ministry points people toward the true light.",
 
-    production:
-      "In simple English, say why John 1:14 is important for understanding Jesus."
-  },
-
-
-  {
-    id: "j1-04",
-    start: 19,
-    end: 28,
-    title: "约翰的见证",
-    ref: "John 1:19–28",
-
-    vocab: [
-      ["confess", "BV", "承认、承认身份"],
-      ["Christ", "BT", "基督"],
-      ["prophet", "BV", "先知"],
-      ["voice", "BV", "声音"],
-      ["make straight", "BS", "修直、预备"]
-    ],
-
-    structures: [
-      [
-        "Who are you?",
-        "疑问句直接推动身份辨认。"
-      ],
-      [
-        "I am not the Christ",
-        "否定结构，强调约翰不是基督。"
-      ],
-      [
-        "I am the voice of one crying out",
-        "I am + 名词，定义身份与使命。"
-      ]
-    ],
-
-    questions: [
-      [
-        "Q1",
-        "What did John say he was not?",
-        ["The Christ", "A witness", "A voice"],
-        0
-      ],
-      [
-        "Q2",
-        "What did John call himself?",
-        ["The king", "A voice", "The light"],
-        1
-      ],
-      [
-        "Q3",
-        "What was John's ministry connected with?",
-        ["Preparing the way", "Building a palace", "Writing laws"],
-        0
-      ]
-    ],
-
-    context:
-      "The religious leaders question John about his identity. John consistently redirects attention away from himself toward the one whose coming he announces.",
-
-    production:
-      "Complete this idea in English: John did not point people to himself; he pointed them to ____."
-  },
+        production:
+            "Write one English sentence about John the Baptist's role."
+    },
 
 
-  {
-    id: "j1-05",
-    start: 29,
-    end: 34,
-    title: "看见神的羔羊",
-    ref: "John 1:29–34",
+    {
+        id: "J1-03",
+        title: "The Word Became Flesh — Part 2",
+        reference: "John 1:14–18",
+        start: 14,
+        end: 18,
 
-    vocab: [
-      ["Lamb of God", "BT", "神的羔羊"],
-      ["take away", "BV", "除去"],
-      ["sin", "BT", "罪"],
-      ["Spirit", "BT", "圣灵"],
-      ["remain", "BV", "停留、常住"]
-    ],
+        vocabulary: [
+            {
+                word: "flesh",
+                meaning: "肉身",
+                type: "noun"
+            },
+            {
+                word: "glory",
+                meaning: "荣耀",
+                type: "noun"
+            },
+            {
+                word: "grace",
+                meaning: "恩典",
+                type: "noun"
+            },
+            {
+                word: "truth",
+                meaning: "真理",
+                type: "noun"
+            },
+            {
+                word: "begotten",
+                meaning: "独生的",
+                type: "adjective"
+            }
+        ],
 
-    structures: [
-      [
-        "Behold, the Lamb of God",
-        "behold 是引导注意的表达。"
-      ],
-      [
-        "who takes away the sin of the world",
-        "who 引导关系从句，说明羔羊的工作。"
-      ],
-      [
-        "I saw the Spirit descend and remain",
-        "过去时叙述见证，多个动作形成见证链。"
-      ]
-    ],
+        structures: [
+            {
+                pattern: "The Word became flesh",
+                explanation: "became + 名词，表示“变成/成为”。"
+            },
+            {
+                pattern: "full of grace and truth",
+                explanation: "full of 表示“充满……”。"
+            },
+            {
+                pattern: "from his fullness",
+                explanation: "from 表示来源。"
+            }
+        ],
 
-    questions: [
-      [
-        "Q1",
-        "What title does John give Jesus?",
-        ["Lamb of God", "King of Rome", "Son of Joseph"],
-        0
-      ],
-      [
-        "Q2",
-        "What does the Lamb of God take away?",
-        ["The temple", "The sin of the world", "The law"],
-        1
-      ],
-      [
-        "Q3",
-        "What did John see remain on Jesus?",
-        ["The Spirit", "A crown", "A book"],
-        0
-      ]
-    ],
+        questions: [
+            {
+                question: "What did the Word become?",
+                answer: "Flesh."
+            },
+            {
+                question: "What was the Word full of?",
+                answer: "Grace and truth."
+            },
+            {
+                question: "Who has made God known?",
+                answer: "Jesus Christ."
+            }
+        ],
 
-    context:
-      "John's witness now identifies Jesus directly. The title 'Lamb of God' connects Jesus with God's saving work, while the descent and remaining of the Spirit authenticate his identity.",
+        context:
+            "John 1:14 is central to John's theology: the eternal Word became flesh. " +
+            "God's glory is revealed through Jesus Christ.",
 
-    production:
-      "In simple English, explain what John says Jesus came to do."
-  },
-
-
-  {
-    id: "j1-06",
-    start: 35,
-    end: 42,
-    title: "来，看耶稣",
-    ref: "John 1:35–42",
-
-    vocab: [
-      ["follow", "BV", "跟随"],
-      ["Rabbi", "BV", "拉比、老师"],
-      ["Messiah", "BT", "弥赛亚"],
-      ["stay", "BV", "住、停留"],
-      ["found", "BV", "找到"]
-    ],
-
-    structures: [
-      [
-        "What are you seeking?",
-        "现在进行时疑问，直接询问人的寻找。"
-      ],
-      [
-        "Come and you will see",
-        "祈使句 + and + 结果，邀请进入经历。"
-      ],
-      [
-        "We have found the Messiah",
-        "现在完成时表达发现已经发生且具有当前意义。"
-      ]
-    ],
-
-    questions: [
-      [
-        "Q1",
-        "What did the disciples do after hearing John?",
-        ["They followed Jesus", "They left immediately", "They argued"],
-        0
-      ],
-      [
-        "Q2",
-        "What invitation did Jesus give?",
-        ["Come and you will see", "Go and hide", "Write a book"],
-        0
-      ],
-      [
-        "Q3",
-        "What did Andrew say they had found?",
-        ["The prophet", "The Messiah", "The temple"],
-        1
-      ]
-    ],
-
-    context:
-      "The focus shifts from public testimony to personal following. The disciples hear testimony, approach Jesus, spend time with him, and begin inviting others.",
-
-    production:
-      "Write one simple sentence about what it means to follow Jesus."
-  },
+        production:
+            "Write one English sentence explaining the incarnation."
+    },
 
 
-  {
-    id: "j1-07",
-    start: 43,
-    end: 51,
-    title: "跟随我",
-    ref: "John 1:43–51",
+    {
+        id: "J1-04",
+        title: "John's Testimony",
+        reference: "John 1:19–28",
+        start: 19,
+        end: 28,
 
-    vocab: [
-      ["follow me", "BV", "跟从我"],
-      ["Nazareth", "BV", "拿撒勒"],
-      ["true Israelite", "BT", "真以色列人"],
-      ["heaven", "BT", "天"],
-      ["Son of Man", "BT", "人子"]
-    ],
+        vocabulary: [
+            {
+                word: "testimony",
+                meaning: "见证",
+                type: "noun"
+            },
+            {
+                word: "Christ",
+                meaning: "基督",
+                type: "noun"
+            },
+            {
+                word: "prophet",
+                meaning: "先知",
+                type: "noun"
+            },
+            {
+                word: "voice",
+                meaning: "声音",
+                type: "noun"
+            },
+            {
+                word: "prepare",
+                meaning: "预备",
+                type: "verb"
+            }
+        ],
 
-    structures: [
-      [
-        "Follow me",
-        "最简洁的命令式呼召。"
-      ],
-      [
-        "Can anything good come out of Nazareth?",
-        "Can + 主语 + 动词，表达质疑可能性。"
-      ],
-      [
-        "You will see heaven opened",
-        "will + 动词，表达将要经历的启示。"
-      ]
-    ],
+        structures: [
+            {
+                pattern: "I am not...",
+                explanation: "否定身份。"
+            },
+            {
+                pattern: "I am the voice...",
+                explanation: "说明身份与使命。"
+            },
+            {
+                pattern: "make straight...",
+                explanation: "使……变直；这里具有使命性的意义。"
+            }
+        ],
 
-    questions: [
-      [
-        "Q1",
-        "What did Jesus say to Philip?",
-        ["Follow me", "Stay here", "Go home"],
-        0
-      ],
-      [
-        "Q2",
-        "Where was Jesus from?",
-        ["Nazareth", "Bethlehem", "Rome"],
-        0
-      ],
-      [
-        "Q3",
-        "What did Jesus promise Nathanael would see?",
-        ["Heaven opened", "The Roman army", "A new temple"],
-        0
-      ]
-    ],
+        questions: [
+            {
+                question: "Was John the Christ?",
+                answer: "No."
+            },
+            {
+                question: "Who did John say he was?",
+                answer: "The voice crying in the wilderness."
+            }
+        ],
 
-    context:
-      "Jesus personally calls Philip, who then brings Nathanael. The passage closes with Jesus revealing a larger horizon: heaven opened and the Son of Man as the meeting point between heaven and earth.",
+        context:
+            "John refuses to take the identity of Christ. " +
+            "He understands himself as a witness whose mission is to prepare the way.",
 
-    production:
-      "In simple English, describe the movement: Jesus calls → a person follows → the person brings another person."
-  }
+        production:
+            "Describe John's mission in one English sentence."
+    },
+
+
+    {
+        id: "J1-05",
+        title: "Behold the Lamb of God",
+        reference: "John 1:29–34",
+        start: 29,
+        end: 34,
+
+        vocabulary: [
+            {
+                word: "Lamb",
+                meaning: "羔羊",
+                type: "noun"
+            },
+            {
+                word: "sin",
+                meaning: "罪",
+                type: "noun"
+            },
+            {
+                word: "reveal",
+                meaning: "显明；启示",
+                type: "verb"
+            },
+            {
+                word: "Spirit",
+                meaning: "圣灵",
+                type: "noun"
+            },
+            {
+                word: "remain",
+                meaning: "停留；常住",
+                type: "verb"
+            }
+        ],
+
+        structures: [
+            {
+                pattern: "Behold...",
+                explanation: "看哪；用于强调一个重要的人或事实。"
+            },
+            {
+                pattern: "who takes away...",
+                explanation: "who 引导关系从句。"
+            },
+            {
+                pattern: "I have seen...",
+                explanation: "现在完成时，表达过去发生但与现在有关的经验。"
+            }
+        ],
+
+        questions: [
+            {
+                question: "Who takes away the sin of the world?",
+                answer: "The Lamb of God."
+            },
+            {
+                question: "What came down like a dove?",
+                answer: "The Spirit."
+            }
+        ],
+
+        context:
+            "John identifies Jesus as the Lamb of God. " +
+            "The Spirit's descent confirms Jesus' identity.",
+
+        production:
+            "Write one English sentence about Jesus as the Lamb of God."
+    },
+
+
+    {
+        id: "J1-06",
+        title: "Come and See",
+        reference: "John 1:35–42",
+        start: 35,
+        end: 42,
+
+        vocabulary: [
+            {
+                word: "follow",
+                meaning: "跟随",
+                type: "verb"
+            },
+            {
+                word: "disciple",
+                meaning: "门徒",
+                type: "noun"
+            },
+            {
+                word: "Rabbi",
+                meaning: "拉比；夫子",
+                type: "noun"
+            },
+            {
+                word: "Messiah",
+                meaning: "弥赛亚",
+                type: "noun"
+            },
+            {
+                word: "stay",
+                meaning: "停留",
+                type: "verb"
+            }
+        ],
+
+        structures: [
+            {
+                pattern: "What are you seeking?",
+                explanation: "现在进行时，用于询问当前正在寻找什么。"
+            },
+            {
+                pattern: "Come and see",
+                explanation: "两个动词并列，表示邀请。"
+            },
+            {
+                pattern: "We have found...",
+                explanation: "现在完成时表示“我们已经找到”。"
+            }
+        ],
+
+        questions: [
+            {
+                question: "What did the two disciples do?",
+                answer: "They followed Jesus."
+            },
+            {
+                question: "What did Jesus invite them to do?",
+                answer: "Come and see."
+            },
+            {
+                question: "What did Andrew say they had found?",
+                answer: "The Messiah."
+            }
+        ],
+
+        context:
+            "Discipleship begins with following Jesus. " +
+            "John's witness leads people toward Jesus, and Jesus invites them to come and see.",
+
+        production:
+            "Write one English sentence about following Jesus."
+    },
+
+
+    {
+        id: "J1-07",
+        title: "Jesus Calls Philip and Nathanael",
+        reference: "John 1:43–51",
+        start: 43,
+        end: 51,
+
+        vocabulary: [
+            {
+                word: "follow",
+                meaning: "跟随",
+                type: "verb"
+            },
+            {
+                word: "find",
+                meaning: "找到",
+                type: "verb"
+            },
+            {
+                word: "written",
+                meaning: "所写的",
+                type: "adjective"
+            },
+            {
+                word: "Nazarene",
+                meaning: "拿撒勒人",
+                type: "noun"
+            },
+            {
+                word: "Israel",
+                meaning: "以色列",
+                type: "noun"
+            }
+        ],
+
+        structures: [
+            {
+                pattern: "Follow me",
+                explanation: "祈使句，用于呼召或命令。"
+            },
+            {
+                pattern: "We have found...",
+                explanation: "表示已经发现或找到某人/某事。"
+            },
+            {
+                pattern: "You will see...",
+                explanation: "will + 动词原形，表达未来。"
+            }
+        ],
+
+        questions: [
+            {
+                question: "Who did Jesus say should follow him?",
+                answer: "Philip."
+            },
+            {
+                question: "What did Philip tell Nathanael?",
+                answer: "We have found Jesus."
+            },
+            {
+                question: "What did Jesus promise Nathanael?",
+                answer: "He would see greater things."
+            }
+        ],
+
+        context:
+            "Jesus personally calls Philip. " +
+            "Philip then invites Nathanael to come and see Jesus.",
+
+        production:
+            "Write one English sentence about Jesus calling a disciple."
+    }
 
 ];
 
 
-/* =====================================================
-   STATE
-===================================================== */
+/* =========================================================
+   2. 状态
+   ========================================================= */
 
 let currentUnit = null;
+let currentPassage = null;
 
-let currentPassage = [];
+let speechRate = CONFIG.NORMAL_RATE;
+let selectedVoice = null;
 
-let currentVerseIndex = -1;
+let continuousReading = false;
+let repeatCount = 0;
 
-let slow = false;
-
-let autoPlay = false;
-
-let repeatMode = false;
-
-let speechGeneration = 0;
+let state = loadState();
 
 
-let state =
-  JSON.parse(
-    localStorage.getItem(CONFIG.STORAGE_KEY)
-    ||
-    '{"completed":{},"reviews":[]}'
-  );
+function loadState() {
 
+    try {
 
-/* =====================================================
-   BASIC HELPERS
-===================================================== */
+        const saved =
+            localStorage.getItem(CONFIG.STATE_KEY);
 
-function $(id) {
+        if (saved) {
+            return JSON.parse(saved);
+        }
 
-  return document.getElementById(id);
+    } catch (error) {
+        console.warn("State load error:", error);
+    }
 
+    return {
+        completed: {},
+        reviews: {}
+    };
 }
 
 
-function save() {
+function saveState() {
 
-  localStorage.setItem(
-    CONFIG.STORAGE_KEY,
-    JSON.stringify(state)
-  );
-
+    localStorage.setItem(
+        CONFIG.STATE_KEY,
+        JSON.stringify(state)
+    );
 }
 
 
-function esc(value) {
+/* =========================================================
+   3. 语音系统
+   ========================================================= */
 
-  return String(value ?? "")
-    .replace(/[&<>"']/g, function (m) {
+function getVoices() {
 
-      return {
+    return window.speechSynthesis
+        ? window.speechSynthesis.getVoices()
+        : [];
+}
 
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
 
-      }[m];
+function isLikelyMaleVoice(voice) {
+
+    const name =
+        (voice.name || "").toLowerCase();
+
+    const maleWords = [
+        "male",
+        "man",
+        "david",
+        "mark",
+        "daniel",
+        "george",
+        "james",
+        "alex",
+        "guy",
+        "ryan",
+        "fred"
+    ];
+
+    return maleWords.some(word =>
+        name.includes(word)
+    );
+}
+
+
+function getEnglishVoices() {
+
+    return getVoices().filter(voice => {
+
+        const lang =
+            (voice.lang || "").toLowerCase();
+
+        return (
+            lang.startsWith("en-us") ||
+            lang.startsWith("en-gb") ||
+            lang.startsWith("en-au") ||
+            lang.startsWith("en-ca")
+        );
 
     });
 
 }
 
 
-/* =====================================================
-   INIT
-===================================================== */
+function chooseBestVoice() {
 
-function init() {
+    const voices =
+        getEnglishVoices();
 
-  injectV05Styles();
+    if (!voices.length) {
+        return null;
+    }
 
-  renderUnits();
+    const savedVoice =
+        localStorage.getItem(CONFIG.VOICE_KEY);
 
-  renderReviews();
+    if (savedVoice) {
 
-  if (
-    "speechSynthesis" in window
-  ) {
+        const saved =
+            voices.find(
+                voice => voice.name === savedVoice
+            );
 
-    speechSynthesis.getVoices();
+        if (saved) {
+            return saved;
+        }
+    }
 
-    if (
-      typeof speechSynthesis.onvoiceschanged !==
-      "undefined"
-    ) {
 
-      speechSynthesis.onvoiceschanged =
+    /*
+     * 第一优先：
+     * 看名字是否明显属于男性声音
+     */
+
+    const male =
+        voices.find(isLikelyMaleVoice);
+
+    if (male) {
+        return male;
+    }
+
+
+    /*
+     * 第二优先：
+     * Google / Microsoft 英语声音
+     */
+
+    const preferred =
+        voices.find(voice => {
+
+            const name =
+                (voice.name || "").toLowerCase();
+
+            return (
+                name.includes("google") ||
+                name.includes("microsoft")
+            );
+
+        });
+
+    if (preferred) {
+        return preferred;
+    }
+
+
+    /*
+     * 第三优先：
+     * 美国英语
+     */
+
+    const us =
+        voices.find(
+            voice =>
+                voice.lang.toLowerCase() === "en-us"
+        );
+
+    return us || voices[0];
+}
+
+
+function initVoices() {
+
+    selectedVoice =
+        chooseBestVoice();
+
+    renderVoiceSelector();
+}
+
+
+function populateVoiceSelector(select) {
+
+    const voices =
+        getEnglishVoices();
+
+    select.innerHTML = "";
+
+    if (!voices.length) {
+
+        const option =
+            document.createElement("option");
+
+        option.textContent =
+            "No English voice detected";
+
+        select.appendChild(option);
+
+        return;
+    }
+
+
+    voices.forEach(voice => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = voice.name;
+
+        let label = voice.name;
+
+        if (isLikelyMaleVoice(voice)) {
+            label += " — Male?";
+        }
+
+        label += ` (${voice.lang})`;
+
+        option.textContent = label;
+
+        if (
+            selectedVoice &&
+            voice.name === selectedVoice.name
+        ) {
+            option.selected = true;
+        }
+
+        select.appendChild(option);
+
+    });
+
+}
+
+
+function renderVoiceSelector() {
+
+    const old =
+        document.getElementById("ebrmVoicePanel");
+
+    if (old) {
+        old.remove();
+    }
+
+
+    const passageScreen =
+        document.getElementById("read");
+
+    if (!passageScreen) {
+        return;
+    }
+
+
+    const panel =
+        document.createElement("div");
+
+    panel.id =
+        "ebrmVoicePanel";
+
+    panel.className =
+        "audio-card";
+
+
+    panel.innerHTML = `
+
+        <div class="audio-title">
+            🎙️ English Voice
+        </div>
+
+        <select
+            id="ebrmVoiceSelect"
+            style="
+                width:100%;
+                padding:10px;
+                margin-top:8px;
+                border-radius:10px;
+                border:1px solid #ddd;
+                background:white;
+                font-size:14px;
+            "
+        ></select>
+
+        <div
+            style="
+                margin-top:8px;
+                font-size:12px;
+                color:#777;
+            "
+        >
+            建议选择 Male / 男性英文声音。
+            可用声音取决于你的 Windows / Chrome 语音系统。
+        </div>
+
+    `;
+
+
+    const audioControls =
+        passageScreen.querySelector(
+            ".audio-controls"
+        );
+
+
+    if (audioControls) {
+
+        audioControls
+            .parentNode
+            .insertBefore(
+                panel,
+                audioControls
+            );
+
+    } else {
+
+        const passage =
+            document.getElementById(
+                "passageText"
+            );
+
+        if (passage) {
+            passage.parentNode.insertBefore(
+                panel,
+                passage
+            );
+        }
+    }
+
+
+    const select =
+        document.getElementById(
+            "ebrmVoiceSelect"
+        );
+
+    populateVoiceSelector(select);
+
+
+    select.addEventListener(
+        "change",
         function () {
 
-          speechSynthesis.getVoices();
+            const voices =
+                getEnglishVoices();
+
+            selectedVoice =
+                voices.find(
+                    voice =>
+                        voice.name === this.value
+                );
+
+            if (selectedVoice) {
+
+                localStorage.setItem(
+                    CONFIG.VOICE_KEY,
+                    selectedVoice.name
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   4. 语音朗读
+   ========================================================= */
+
+function speakText(
+    text,
+    verseElement = null,
+    callback = null
+) {
+
+    if (!window.speechSynthesis) {
+
+        alert(
+            "你的浏览器不支持语音朗读。请使用 Chrome 或 Edge。"
+        );
+
+        return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+
+    utterance.lang =
+        CONFIG.SPEECH_LANG;
+
+    utterance.rate =
+        speechRate;
+
+    utterance.pitch =
+        0.92;
+
+    utterance.volume =
+        1;
+
+
+    if (selectedVoice) {
+        utterance.voice =
+            selectedVoice;
+    }
+
+
+    if (verseElement) {
+
+        clearVerseHighlight();
+
+        verseElement.classList.add(
+            "verse-speaking"
+        );
+
+    }
+
+
+    utterance.onend =
+        function () {
+
+            if (verseElement) {
+                verseElement.classList.remove(
+                    "verse-speaking"
+                );
+            }
+
+            if (callback) {
+                callback();
+            }
 
         };
 
-    }
 
-  }
+    utterance.onerror =
+        function (event) {
 
-}
+            console.warn(
+                "Speech error:",
+                event
+            );
 
+            clearVerseHighlight();
 
-/* =====================================================
-   V0.5 STYLE
-   不需要修改 style.css
-===================================================== */
-
-function injectV05Styles() {
-
-  if (
-    document.getElementById("ebrm-v05-style")
-  ) {
-
-    return;
-
-  }
+        };
 
 
-  const style =
-    document.createElement("style");
-
-  style.id =
-    "ebrm-v05-style";
-
-
-  style.textContent = `
-
-    .verse {
-      display: block;
-      cursor: pointer;
-      padding: 8px 6px;
-      margin: 2px 0;
-      border-radius: 8px;
-      transition: all .2s ease;
-    }
-
-    .verse:hover {
-      background: rgba(0,0,0,.04);
-    }
-
-    .verse.active-verse {
-      background: rgba(180,150,90,.16);
-      box-shadow: inset 3px 0 0 rgba(120,90,40,.65);
-    }
-
-    .verse-num {
-      display: inline-block;
-      min-width: 26px;
-      font-weight: 700;
-      opacity: .65;
-    }
-
-    .v05-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .v05-controls button {
-      min-height: 42px;
-    }
-
-    .v05-status {
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: rgba(0,0,0,.035);
-      font-size: .92rem;
-    }
-
-    .v05-current {
-      font-weight: 700;
-    }
-
-    .sentence-btn.active-sentence {
-      border-left: 4px solid #8c6b35;
-      background: rgba(180,150,90,.12);
-    }
-
-    .repeat-active {
-      font-weight: 700;
-    }
-
-    .v05-progress {
-      height: 5px;
-      margin-top: 10px;
-      background: rgba(0,0,0,.08);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .v05-progress-bar {
-      height: 100%;
-      width: 0%;
-      background: currentColor;
-      transition: width .25s ease;
-    }
-
-    .v05-small {
-      font-size: .84rem;
-      opacity: .72;
-    }
-
-  `;
-
-
-  document.head.appendChild(style);
+    window.speechSynthesis
+        .speak(utterance);
 
 }
 
 
-/* =====================================================
-   UNIT LIST
-===================================================== */
+function speakPassage() {
 
-function renderUnits() {
-
-  const grid =
-    $("unitGrid");
-
-  if (!grid) {
-
-    return;
-
-  }
+    if (!currentPassage) {
+        return;
+    }
 
 
-  grid.innerHTML =
+    stopSpeech();
 
-    UNITS.map(function (u, i) {
 
-      return `
+    const text =
+        currentPassage.verses
+            .map(v => v.text)
+            .join(" ");
 
-        <button
-          class="unit ${state.completed[u.id] ? "done" : ""}"
-          onclick="openUnit(${i})">
 
-          <div class="unit-num">
-            UNIT ${String(i + 1).padStart(2, "0")}
-          </div>
-
-          <div class="unit-title">
-            ${esc(u.title)}
-          </div>
-
-          <div class="unit-ref">
-            ${esc(u.ref)}
-            ${state.completed[u.id] ? " ✓" : ""}
-          </div>
-
-        </button>
-
-      `;
-
-    }).join("");
+    speakText(text);
 
 }
 
 
-/* =====================================================
-   OPEN UNIT
-===================================================== */
+function speakVerse(
+    index
+) {
 
-function openUnit(index) {
-
-  stopSpeech();
-
-  currentUnit =
-    UNITS[index];
-
-  currentPassage = [];
-
-  currentVerseIndex = -1;
-
-  autoPlay = false;
-
-  repeatMode = false;
+    if (!currentPassage) {
+        return;
+    }
 
 
-  $("readTitle").textContent =
-    currentUnit.title;
+    const verse =
+        currentPassage.verses[index];
+
+    if (!verse) {
+        return;
+    }
 
 
-  $("readReference").textContent =
-    currentUnit.ref;
+    const elements =
+        document.querySelectorAll(
+            ".verse"
+        );
+
+    const element =
+        elements[index];
 
 
-  $("passageText").textContent =
-    "正在读取经文……";
-
-
-  $("sentenceList").innerHTML =
-    "";
-
-
-  $("productionAnswer").value =
-    "";
-
-
-  $("productionResult").innerHTML =
-    "";
-
-
-  $("quizScore").textContent =
-    "";
-
-
-  $("contextText").textContent =
-    currentUnit.context;
-
-
-  $("productionPrompt").textContent =
-    currentUnit.production;
-
-
-  renderVocabulary();
-
-  renderStructure();
-
-  renderQuestions();
-
-  prepareV05Controls();
-
-  go("read");
-
-  loadPassage();
-
-}
-
-
-/* =====================================================
-   V0.5 READING CONTROLS
-===================================================== */
-
-function prepareV05Controls() {
-
-  const passageCard =
-    document.querySelector(
-      ".passage-card"
+    speakText(
+        verse.text,
+        element
     );
 
-
-  if (!passageCard) {
-
-    return;
-
-  }
+}
 
 
-  const old =
-    document.getElementById(
-      "v05ReadingControls"
+function speakAllVerses(
+    index = 0
+) {
+
+    if (!currentPassage) {
+        return;
+    }
+
+
+    const verses =
+        currentPassage.verses;
+
+
+    if (index >= verses.length) {
+
+        continuousReading = false;
+
+        return;
+    }
+
+
+    if (!continuousReading) {
+        return;
+    }
+
+
+    const elements =
+        document.querySelectorAll(
+            ".verse"
+        );
+
+
+    speakText(
+        verses[index].text,
+        elements[index],
+        function () {
+
+            setTimeout(
+                () => {
+                    speakAllVerses(index + 1);
+                },
+                250
+            );
+
+        }
     );
-
-
-  if (old) {
-
-    old.remove();
-
-  }
-
-
-  const controls =
-    document.createElement("div");
-
-
-  controls.id =
-    "v05ReadingControls";
-
-  controls.className =
-    "v05-controls";
-
-
-  controls.innerHTML = `
-
-    <button
-      onclick="playCurrentVerse()">
-
-      ▶ 当前节
-
-    </button>
-
-    <button
-      onclick="playPreviousVerse()">
-
-      ◀ 上一节
-
-    </button>
-
-    <button
-      onclick="playNextVerse()">
-
-      下一节 ▶
-
-    </button>
-
-    <button
-      onclick="toggleAutoPlay()">
-
-      ▶▶ 自动连续
-
-    </button>
-
-    <button
-      onclick="toggleRepeatMode()">
-
-      🔁 单节循环
-
-    </button>
-
-  `;
-
-
-  const status =
-    document.createElement("div");
-
-
-  status.id =
-    "v05SpeechStatus";
-
-
-  status.className =
-    "v05-status";
-
-
-  status.innerHTML =
-    `准备开始听读。`;
-
-
-  const progress =
-    document.createElement("div");
-
-
-  progress.className =
-    "v05-progress";
-
-
-  progress.innerHTML = `
-
-    <div
-      id="v05ProgressBar"
-      class="v05-progress-bar">
-    </div>
-
-  `;
-
-
-  passageCard.appendChild(
-    controls
-  );
-
-  passageCard.appendChild(
-    status
-  );
-
-  passageCard.appendChild(
-    progress
-  );
 
 }
 
 
-/* =====================================================
-   LOAD BIBLE PASSAGE
-===================================================== */
+function startContinuousReading() {
 
-async function loadPassage() {
+    if (!currentPassage) {
+        return;
+    }
 
-  try {
+    stopSpeech();
+
+    continuousReading = true;
+
+    speakAllVerses(0);
+
+}
+
+
+function stopSpeech() {
+
+    continuousReading = false;
+
+    repeatCount = 0;
+
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+
+    clearVerseHighlight();
+
+}
+
+
+function clearVerseHighlight() {
+
+    document
+        .querySelectorAll(".verse-speaking")
+        .forEach(element => {
+
+            element.classList.remove(
+                "verse-speaking"
+            );
+
+        });
+
+}
+
+
+function toggleSlow() {
+
+    if (
+        speechRate === CONFIG.NORMAL_RATE
+    ) {
+
+        speechRate =
+            CONFIG.SLOW_RATE;
+
+    } else {
+
+        speechRate =
+            CONFIG.NORMAL_RATE;
+
+    }
+
+
+    const label =
+        document.getElementById(
+            "speedLabel"
+        );
+
+    if (label) {
+
+        label.textContent =
+            speechRate === CONFIG.NORMAL_RATE
+                ? "正常速度"
+                : "慢速";
+
+    }
+
+}
+
+
+function speakProductionAnswer() {
+
+    const answer =
+        document.getElementById(
+            "productionAnswer"
+        );
+
+    if (!answer) {
+        return;
+    }
+
+
+    const text =
+        answer.value.trim();
+
+    if (!text) {
+
+        alert(
+            "请先写下你的英文答案。"
+        );
+
+        return;
+    }
+
+
+    speakText(text);
+
+}
+
+
+/* =========================================================
+   5. 朗读三遍训练
+   ========================================================= */
+
+function listenThreeTimes() {
+
+    if (!currentPassage) {
+        return;
+    }
+
+
+    stopSpeech();
+
+    repeatCount = 0;
+
+
+    function play() {
+
+        if (repeatCount >= 3) {
+            return;
+        }
+
+
+        repeatCount++;
+
+
+        const text =
+            currentPassage.verses
+                .map(v => v.text)
+                .join(" ");
+
+
+        speakText(
+            text,
+            null,
+            function () {
+
+                setTimeout(
+                    play,
+                    500
+                );
+
+            }
+        );
+
+    }
+
+
+    play();
+
+}
+
+
+/* =========================================================
+   6. 加载经文
+   ========================================================= */
+
+async function loadPassage(
+    start,
+    end
+) {
+
+    const passageText =
+        document.getElementById(
+            "passageText"
+        );
+
+    if (!passageText) {
+        return;
+    }
+
+
+    passageText.innerHTML =
+        `<div class="loading">
+            Loading Scripture...
+        </div>`;
+
 
     const reference =
-      `John ${currentUnit.start}:${currentUnit.end}`;
+        `John 1:${start}-${end}`;
 
 
-    const url =
-      `${CONFIG.BIBLE_API}/` +
-      `${encodeURIComponent(reference)}` +
-      `?translation=${CONFIG.TRANSLATION}`;
+    try {
+
+        const url =
+            `${CONFIG.BIBLE_API}/${encodeURIComponent(reference)}` +
+            `?translation=${CONFIG.TRANSLATION}`;
 
 
-    const response =
-      await fetch(
-        url,
-        {
-          cache: "no-store"
+        const response =
+            await fetch(url);
+
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
         }
-      );
 
 
-    if (!response.ok) {
+        const data =
+            await response.json();
 
-      throw new Error(
-        "HTTP " + response.status
-      );
+
+        currentPassage = data;
+
+
+        renderPassage(data);
+
+
+    } catch (error) {
+
+        console.error(
+            "Bible API error:",
+            error
+        );
+
+
+        passageText.innerHTML = `
+
+            <div
+                style="
+                    padding:20px;
+                    background:#fff3f3;
+                    border-radius:12px;
+                    color:#b42318;
+                "
+            >
+
+                <strong>
+                    经文加载失败
+                </strong>
+
+                <p>
+                    请检查网络连接后重新打开本课。
+                </p>
+
+                <small>
+                    ${error.message}
+                </small>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   7. 经文显示
+   ========================================================= */
+
+function renderPassage(data) {
+
+    const container =
+        document.getElementById(
+            "passageText"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.verses.forEach(
+        (verse, index) => {
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "verse";
+
+
+            span.dataset.index =
+                index;
+
+
+            span.innerHTML = `
+
+                <sup>
+                    ${verse.verse}
+                </sup>
+
+                ${escapeHTML(
+                    verse.text
+                )}
+
+            `;
+
+
+            span.addEventListener(
+                "click",
+                function () {
+
+                    speakVerse(index);
+
+                }
+            );
+
+
+            container.appendChild(span);
+
+            container.appendChild(
+                document.createTextNode(" ")
+            );
+
+        }
+    );
+
+
+    addSpeechTrainingButtons();
+
+}
+
+
+/* =========================================================
+   8. 朗读控制
+   ========================================================= */
+
+function addSpeechTrainingButtons() {
+
+    const existing =
+        document.getElementById(
+            "ebrmSpeechTools"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+
+
+    const passage =
+        document.getElementById(
+            "passageText"
+        );
+
+    if (!passage) {
+        return;
+    }
+
+
+    const tools =
+        document.createElement("div");
+
+    tools.id =
+        "ebrmSpeechTools";
+
+
+    tools.className =
+        "audio-controls";
+
+
+    tools.innerHTML = `
+
+        <button
+            class="secondary-btn"
+            onclick="speakPassage()"
+        >
+            🔊 整段朗读
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="startContinuousReading()"
+        >
+            ▶️ 连续逐节
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="listenThreeTimes()"
+        >
+            🔁 听3遍
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="toggleSlow()"
+        >
+            🐢 <span id="speedLabel">
+                正常速度
+            </span>
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="stopSpeech()"
+        >
+            ⏹ 停止
+        </button>
+
+    `;
+
+
+    passage.parentNode.insertBefore(
+        tools,
+        passage.nextSibling
+    );
+
+}
+
+
+/* =========================================================
+   9. Vocabulary
+   ========================================================= */
+
+function renderVocabulary() {
+
+    const list =
+        document.getElementById(
+            "vocabularyList"
+        );
+
+    if (!list || !currentUnit) {
+        return;
+    }
+
+
+    list.innerHTML =
+        currentUnit.vocabulary
+            .map((item, index) => `
+
+                <div class="vocab-card">
+
+                    <div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                        "
+                    >
+
+                        <strong>
+                            ${item.word}
+                        </strong>
+
+                        <button
+                            class="mini-btn"
+                            onclick="
+                                speakText(
+                                    '${escapeJS(item.word)}'
+                                )
+                            "
+                        >
+                            🔊
+                        </button>
+
+                    </div>
+
+                    <div>
+                        ${item.meaning}
+                    </div>
+
+                    <small>
+                        ${item.type}
+                    </small>
+
+                </div>
+
+            `)
+            .join("");
+
+}
+
+
+/* =========================================================
+   10. Structure
+   ========================================================= */
+
+function renderStructure() {
+
+    const list =
+        document.getElementById(
+            "structureList"
+        );
+
+    if (!list || !currentUnit) {
+        return;
+    }
+
+
+    list.innerHTML =
+        currentUnit.structures
+            .map(item => `
+
+                <div class="structure-card">
+
+                    <div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            gap:10px;
+                        "
+                    >
+
+                        <strong>
+                            ${item.pattern}
+                        </strong>
+
+                        <button
+                            class="mini-btn"
+                            onclick="
+                                speakText(
+                                    '${escapeJS(item.pattern)}'
+                                )
+                            "
+                        >
+                            🔊
+                        </button>
+
+                    </div>
+
+                    <p>
+                        ${item.explanation}
+                    </p>
+
+                </div>
+
+            `)
+            .join("");
+
+}
+
+
+/* =========================================================
+   11. Questions
+   ========================================================= */
+
+function renderQuestions() {
+
+    const list =
+        document.getElementById(
+            "questionList"
+        );
+
+    if (!list || !currentUnit) {
+        return;
+    }
+
+
+    list.innerHTML =
+        currentUnit.questions
+            .map((item, index) => `
+
+                <div class="question-card">
+
+                    <p>
+                        <strong>
+                            ${index + 1}.
+                            ${item.question}
+                        </strong>
+                    </p>
+
+                    <input
+                        type="text"
+                        class="quiz-input"
+                        data-answer="${escapeHTML(
+                            item.answer
+                        )}"
+                        placeholder="Type your answer..."
+                    >
+
+                </div>
+
+            `)
+            .join("");
+
+
+    const score =
+        document.getElementById(
+            "quizScore"
+        );
+
+    if (score) {
+        score.textContent = "";
+    }
+
+}
+
+
+/* =========================================================
+   12. Quiz
+   ========================================================= */
+
+function checkQuiz() {
+
+    const inputs =
+        document.querySelectorAll(
+            ".quiz-input"
+        );
+
+
+    let correct = 0;
+
+
+    inputs.forEach(input => {
+
+        const user =
+            input.value
+                .trim()
+                .toLowerCase();
+
+
+        const answer =
+            input.dataset.answer
+                .trim()
+                .toLowerCase();
+
+
+        if (
+            user === answer ||
+            user.includes(answer) ||
+            answer.includes(user)
+        ) {
+
+            correct++;
+
+            input.style.border =
+                "2px solid #4caf50";
+
+        } else {
+
+            input.style.border =
+                "2px solid #e57373";
+
+        }
+
+    });
+
+
+    const score =
+        document.getElementById(
+            "quizScore"
+        );
+
+
+    if (score) {
+
+        score.textContent =
+            `Score: ${correct}/${inputs.length}`;
+
+    }
+
+}
+
+
+/* =========================================================
+   13. Production
+   ========================================================= */
+
+function checkProduction() {
+
+    const input =
+        document.getElementById(
+            "productionAnswer"
+        );
+
+    const result =
+        document.getElementById(
+            "productionResult"
+        );
+
+
+    if (!input || !result) {
+        return;
+    }
+
+
+    const answer =
+        input.value.trim();
+
+
+    if (!answer) {
+
+        result.innerHTML =
+            "Please write an English sentence first.";
+
+        return;
+    }
+
+
+    const wordCount =
+        answer
+            .split(/\s+/)
+            .filter(Boolean)
+            .length;
+
+
+    if (wordCount < 4) {
+
+        result.innerHTML =
+            "Try to write a little more. " +
+            "Aim for at least 4 English words.";
+
+    } else {
+
+        result.innerHTML =
+            "Good. You produced an English sentence. " +
+            "Now read it aloud.";
+
+    }
+
+}
+
+
+/* =========================================================
+   14. 打开课程
+   ========================================================= */
+
+function openUnit(unitId) {
+
+    const unit =
+        UNITS.find(
+            u => u.id === unitId
+        );
+
+
+    if (!unit) {
+        return;
+    }
+
+
+    currentUnit =
+        unit;
+
+
+    const title =
+        document.getElementById(
+            "readTitle"
+        );
+
+    const reference =
+        document.getElementById(
+            "readReference"
+        );
+
+
+    if (title) {
+        title.textContent =
+            unit.title;
+    }
+
+
+    if (reference) {
+        reference.textContent =
+            unit.reference;
+    }
+
+
+    const context =
+        document.getElementById(
+            "contextText"
+        );
+
+    if (context) {
+        context.textContent =
+            unit.context;
+    }
+
+
+    const prompt =
+        document.getElementById(
+            "productionPrompt"
+        );
+
+    if (prompt) {
+        prompt.textContent =
+            unit.production;
+    }
+
+
+    loadPassage(
+        unit.start,
+        unit.end
+    );
+
+
+    renderVocabulary();
+    renderStructure();
+    renderQuestions();
+
+
+    renderVoiceSelector();
+
+
+    go("read");
+
+}
+
+
+/* =========================================================
+   15. 完成课程
+   ========================================================= */
+
+function finishUnit() {
+
+    if (!currentUnit) {
+        return;
+    }
+
+
+    const id =
+        currentUnit.id;
+
+
+    state.completed[id] =
+        new Date().toISOString();
+
+
+    state.reviews[id] = {
+
+        day1: getReviewDate(1),
+        day3: getReviewDate(3),
+        day7: getReviewDate(7)
+
+    };
+
+
+    saveState();
+
+
+    const message =
+        document.getElementById(
+            "doneMessage"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            `You completed ${currentUnit.reference}.`;
 
     }
 
 
-    const data =
-      await response.json();
+    renderHome();
 
 
-    currentPassage =
-      (data.verses || [])
-        .map(function (verse) {
+    go("done");
 
-          return {
+}
 
-            n: verse.verse,
 
-            text:
-              verse.text.trim()
+function getReviewDate(days) {
 
-          };
+    const date =
+        new Date();
+
+    date.setDate(
+        date.getDate() + days
+    );
+
+    return date.toISOString();
+
+}
+
+
+/* =========================================================
+   16. Home
+   ========================================================= */
+
+function renderHome() {
+
+    const grid =
+        document.getElementById(
+            "unitGrid"
+        );
+
+    if (!grid) {
+        return;
+    }
+
+
+    grid.innerHTML =
+        UNITS.map((unit, index) => {
+
+            const completed =
+                state.completed[unit.id];
+
+
+            return `
+
+                <div
+                    class="unit-card"
+                    onclick="
+                        openUnit('${unit.id}')
+                    "
+                >
+
+                    <div class="unit-number">
+                        ${index + 1}
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            ${unit.title}
+                        </strong>
+
+                        <div>
+                            ${unit.reference}
+                        </div>
+
+                        ${
+                            completed
+                                ? `
+                                    <small>
+                                        ✓ Completed
+                                    </small>
+                                `
+                                : ""
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   17. Review
+   ========================================================= */
+
+function renderReviews() {
+
+    const list =
+        document.getElementById(
+            "reviewList"
+        );
+
+    if (!list) {
+        return;
+    }
+
+
+    const today =
+        new Date();
+
+
+    const due = [];
+
+
+    UNITS.forEach(unit => {
+
+        const review =
+            state.reviews[unit.id];
+
+
+        if (!review) {
+            return;
+        }
+
+
+        const dates = [
+            {
+                type: "Day 1",
+                date: review.day1
+            },
+            {
+                type: "Day 3",
+                date: review.day3
+            },
+            {
+                type: "Day 7",
+                date: review.day7
+            }
+        ];
+
+
+        dates.forEach(item => {
+
+            if (
+                new Date(item.date) <= today
+            ) {
+
+                due.push({
+                    unit,
+                    type: item.type
+                });
+
+            }
+
+        });
+
+    });
+
+
+    if (!due.length) {
+
+        list.innerHTML = `
+
+            <div class="empty-state">
+                No reviews due today.
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    list.innerHTML =
+        due.map(item => `
+
+            <div class="review-card">
+
+                <strong>
+                    ${item.unit.reference}
+                </strong>
+
+                <div>
+                    ${item.type}
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="
+                        openUnit('${item.unit.id}')
+                    "
+                >
+                    Review
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   18. 页面导航
+   ========================================================= */
+
+function go(screenId) {
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove(
+                "active"
+            );
 
         });
 
 
-    if (!currentPassage.length) {
+    const target =
+        document.getElementById(
+            screenId
+        );
 
-      throw new Error(
-        "没有读取到经文"
-      );
+
+    if (target) {
+
+        target.classList.add(
+            "active"
+        );
 
     }
 
 
-    renderPassage();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-    updateV05Status(
-      "经文已准备好。点击「听整段」或「当前节」开始。"
-    );
 
-  }
+    if (screenId === "home") {
+        renderHome();
+    }
 
-  catch (error) {
 
-    $("passageText").innerHTML = `
+    if (screenId === "review") {
+        renderReviews();
+    }
 
-      <div class="success">
 
-        经文读取失败：
+    if (screenId === "read") {
 
-        ${esc(error.message)}
+        setTimeout(
+            renderVoiceSelector,
+            100
+        );
 
-        <br><br>
-
-        请检查网络后刷新页面。
-
-      </div>
-
-    `;
-
-  }
+    }
 
 }
 
 
-/* =====================================================
-   RENDER PASSAGE
-===================================================== */
+/* =========================================================
+   19. HTML 安全处理
+   ========================================================= */
 
-function renderPassage() {
+function escapeHTML(value) {
 
-  $("passageText").innerHTML =
-
-    currentPassage
-      .map(function (verse, index) {
-
-        return `
-
-          <span
-            id="verse-${index}"
-            class="verse"
-            onclick="playVerse(${index})">
-
-            <span class="verse-num">
-              ${verse.n}
-            </span>
-
-            ${esc(verse.text)}
-
-          </span>
-
-        `;
-
-      })
-      .join("");
-
-
-  $("sentenceList").innerHTML =
-
-    currentPassage
-      .map(function (verse, index) {
-
-        return `
-
-          <button
-            id="sentence-${index}"
-            class="sentence-btn"
-            onclick="playVerse(${index})">
-
-            🔊 听第 ${verse.n} 节
-
-            <span>
-              ${esc(verse.text)}
-            </span>
-
-          </button>
-
-        `;
-
-      })
-      .join("");
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
 
-/* =====================================================
-   PLAY VERSE
-===================================================== */
+function escapeJS(value) {
 
-function playVerse(index) {
-
-  if (
-    !currentPassage.length ||
-    !currentPassage[index]
-  ) {
-
-    return;
-
-  }
-
-
-  autoPlay = false;
-
-  repeatMode = false;
-
-  currentVerseIndex = index;
-
-  highlightVerse(index);
-
-  speakVerse(index);
+    return String(value)
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'")
+        .replace(/\n/g, "\\n")
+        .replace(/\r/g, "");
 
 }
 
 
-/* =====================================================
-   SPEAK CURRENT VERSE
-===================================================== */
+/* =========================================================
+   20. 初始化
+   ========================================================= */
 
-function playCurrentVerse() {
+function init() {
 
-  if (
-    currentVerseIndex < 0
-  ) {
+    renderHome();
 
-    currentVerseIndex = 0;
-
-  }
-
-
-  if (
-    currentVerseIndex >=
-    currentPassage.length
-  ) {
-
-    currentVerseIndex = 0;
-
-  }
-
-
-  highlightVerse(
-    currentVerseIndex
-  );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
-
-}
-
-
-/* =====================================================
-   PREVIOUS VERSE
-===================================================== */
-
-function playPreviousVerse() {
-
-  if (
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  currentVerseIndex =
-    Math.max(
-      0,
-      currentVerseIndex <= 0
-        ? 0
-        : currentVerseIndex - 1
-    );
-
-
-  autoPlay = false;
-
-  repeatMode = false;
-
-
-  highlightVerse(
-    currentVerseIndex
-  );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
-
-}
-
-
-/* =====================================================
-   NEXT VERSE
-===================================================== */
-
-function playNextVerse() {
-
-  if (
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  if (
-    currentVerseIndex <
-    currentPassage.length - 1
-  ) {
-
-    currentVerseIndex++;
-
-  }
-  else {
-
-    currentVerseIndex = 0;
-
-  }
-
-
-  autoPlay = false;
-
-  repeatMode = false;
-
-
-  highlightVerse(
-    currentVerseIndex
-  );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
-
-}
-
-
-/* =====================================================
-   AUTO PLAY
-===================================================== */
-
-function toggleAutoPlay() {
-
-  if (
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  repeatMode = false;
-
-  autoPlay =
-    !autoPlay;
-
-
-  if (autoPlay) {
+    /*
+     * 浏览器第一次启动时，
+     * voices 可能还没有加载完成。
+     */
 
     if (
-      currentVerseIndex < 0 ||
-      currentVerseIndex >=
-      currentPassage.length
+        window.speechSynthesis
     ) {
 
-      currentVerseIndex = 0;
+        initVoices();
+
+
+        window.speechSynthesis
+            .addEventListener(
+                "voiceschanged",
+                function () {
+
+                    initVoices();
+
+                }
+            );
 
     }
 
-
-    updateV05Status(
-      "▶ 自动连续听读中……"
-    );
-
-
-    speakVerse(
-      currentVerseIndex
-    );
-
-  }
-  else {
-
-    stopSpeech();
-
-    updateV05Status(
-      "自动连续听读已停止。"
-    );
-
-  }
-
 }
 
 
-/* =====================================================
-   REPEAT CURRENT VERSE
-===================================================== */
-
-function toggleRepeatMode() {
-
-  if (
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  autoPlay = false;
-
-  repeatMode =
-    !repeatMode;
-
-
-  if (
-    currentVerseIndex < 0
-  ) {
-
-    currentVerseIndex = 0;
-
-  }
-
-
-  if (repeatMode) {
-
-    updateV05Status(
-      "🔁 单节循环中：听 → 跟读 → 再听。"
-    );
-
-
-    speakVerse(
-      currentVerseIndex
-    );
-
-  }
-  else {
-
-    stopSpeech();
-
-    updateV05Status(
-      "单节循环已停止。"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   SPEAK VERSE ENGINE
-===================================================== */
-
-function speakVerse(index) {
-
-  if (
-    !currentPassage[index]
-  ) {
-
-    return;
-
-  }
-
-
-  if (
-    !("speechSynthesis" in window)
-  ) {
-
-    alert(
-      "当前浏览器不支持语音播放。"
-    );
-
-    return;
-
-  }
-
-
-  speechGeneration++;
-
-  const generation =
-    speechGeneration;
-
-
-  speechSynthesis.cancel();
-
-
-  currentVerseIndex =
-    index;
-
-
-  highlightVerse(
-    index
-  );
-
-
-  const utterance =
-    new SpeechSynthesisUtterance(
-      currentPassage[index].text
-    );
-
-
-  utterance.lang =
-    CONFIG.SPEECH_LANG;
-
-
-  utterance.rate =
-    slow ? 0.72 : 0.95;
-
-
-  utterance.pitch =
-    1;
-
-
-  utterance.volume =
-    1;
-
-
-  updateV05Status(
-
-    `正在朗读第 ${currentPassage[index].n} 节 · ` +
-    `${slow ? "慢速" : "正常速度"}`
-
-  );
-
-
-  utterance.onend =
-    function () {
-
-      if (
-        generation !==
-        speechGeneration
-      ) {
-
-        return;
-
-      }
-
-
-      if (repeatMode) {
-
-        setTimeout(
-          function () {
-
-            if (
-              repeatMode
-            ) {
-
-              speakVerse(
-                index
-              );
-
-            }
-
-          },
-          700
-        );
-
-        return;
-
-      }
-
-
-      if (
-        autoPlay &&
-        index <
-        currentPassage.length - 1
-      ) {
-
-        setTimeout(
-          function () {
-
-            if (
-              autoPlay
-            ) {
-
-              currentVerseIndex =
-                index + 1;
-
-              speakVerse(
-                currentVerseIndex
-              );
-
-            }
-
-          },
-          350
-        );
-
-        return;
-
-      }
-
-
-      if (
-        autoPlay &&
-        index ===
-        currentPassage.length - 1
-      ) {
-
-        autoPlay = false;
-
-        updateV05Status(
-          "✓ 整段自动听读完成。"
-        );
-
-        return;
-
-      }
-
-
-      updateV05Status(
-        `第 ${currentPassage[index].n} 节朗读完成。`
-      );
-
-    };
-
-
-  utterance.onerror =
-    function () {
-
-      if (
-        generation !==
-        speechGeneration
-      ) {
-
-        return;
-
-      }
-
-
-      updateV05Status(
-        "语音播放出现问题，请重新点击播放。"
-      );
-
-    };
-
-
-  speechSynthesis.speak(
-    utterance
-  );
-
-}
-
-
-/* =====================================================
-   HIGHLIGHT VERSE
-===================================================== */
-
-function highlightVerse(index) {
-
-  document
-    .querySelectorAll(".verse")
-    .forEach(function (el) {
-
-      el.classList.remove(
-        "active-verse"
-      );
-
-    });
-
-
-  document
-    .querySelectorAll(".sentence-btn")
-    .forEach(function (el) {
-
-      el.classList.remove(
-        "active-sentence"
-      );
-
-    });
-
-
-  const verse =
-    $(
-      "verse-" + index
-    );
-
-
-  const sentence =
-    $(
-      "sentence-" + index
-    );
-
-
-  if (verse) {
-
-    verse.classList.add(
-      "active-verse"
-    );
-
-    verse.scrollIntoView({
-
-      behavior: "smooth",
-
-      block: "center"
-
-    });
-
-  }
-
-
-  if (sentence) {
-
-    sentence.classList.add(
-      "active-sentence"
-    );
-
-  }
-
-
-  updateProgress(
-    index
-  );
-
-}
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-function updateProgress(index) {
-
-  const bar =
-    $("v05ProgressBar");
-
-
-  if (
-    !bar ||
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  const percent =
-    (
-      (index + 1) /
-      currentPassage.length
-    ) * 100;
-
-
-  bar.style.width =
-    percent + "%";
-
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-function updateV05Status(text) {
-
-  const status =
-    $("v05SpeechStatus");
-
-
-  if (!status) {
-
-    return;
-
-  }
-
-
-  status.innerHTML = `
-
-    <span class="v05-current">
-      ${esc(text)}
-    </span>
-
-    <div class="v05-small">
-      ${currentPassage.length
-        ? `第 ${Math.max(currentVerseIndex + 1, 1)} / ${currentPassage.length} 节`
-        : ""}
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   VOCABULARY
-===================================================== */
-
-function renderVocabulary() {
-
-  $("vocabularyList").innerHTML =
-
-    currentUnit.vocab
-      .map(function (item) {
-
-        return `
-
-          <div class="vocab-item">
-
-            <span class="term">
-              ${esc(item[0])}
-            </span>
-
-            <span class="type">
-              ${esc(item[1])}
-            </span>
-
-            <div>
-              ${esc(item[2])}
-            </div>
-
-            <button
-              onclick='speakText(${JSON.stringify(item[0])})'>
-
-              🔊 听发音
-
-            </button>
-
-          </div>
-
-        `;
-
-      })
-      .join("");
-
-}
-
-
-/* =====================================================
-   STRUCTURE
-===================================================== */
-
-function renderStructure() {
-
-  $("structureList").innerHTML =
-
-    currentUnit.structures
-      .map(function (item) {
-
-        return `
-
-          <div class="structure-item">
-
-            <strong>
-              ${esc(item[0])}
-            </strong>
-
-            <div class="muted">
-              ${esc(item[1])}
-            </div>
-
-            <button
-              onclick='speakText(${JSON.stringify(item[0])})'>
-
-              🔊 听句型
-
-            </button>
-
-          </div>
-
-        `;
-
-      })
-      .join("");
-
-}
-
-
-/* =====================================================
-   QUESTIONS
-===================================================== */
-
-function renderQuestions() {
-
-  $("questionList").innerHTML =
-
-    currentUnit.questions
-      .map(function (q, i) {
-
-        return `
-
-          <div class="question">
-
-            <strong>
-
-              ${esc(q[0])}.
-              ${esc(q[1])}
-
-            </strong>
-
-            ${q[2]
-              .map(function (option, j) {
-
-                return `
-
-                  <label>
-
-                    <input
-                      type="radio"
-                      name="q${i}"
-                      value="${j}">
-
-                    ${esc(option)}
-
-                  </label>
-
-                `;
-
-              })
-              .join("")}
-
-          </div>
-
-        `;
-
-      }).join("") +
-
-      `
-
-        <button
-          class="primary"
-          onclick="checkQuiz()">
-
-          检查理解
-
-        </button>
-
-      `;
-
-}
-
-
-/* =====================================================
-   QUIZ
-===================================================== */
-
-function checkQuiz() {
-
-  let score = 0;
-
-
-  currentUnit.questions
-    .forEach(function (q, i) {
-
-      const answer =
-        document.querySelector(
-          `input[name="q${i}"]:checked`
-        );
-
-
-      if (
-        answer &&
-        Number(answer.value) === q[3]
-      ) {
-
-        score++;
-
-      }
-
-    });
-
-
-  $("quizScore").textContent =
-
-    `理解检查：${score}/${currentUnit.questions.length}`;
-
-}
-
-
-/* =====================================================
-   PRODUCTION
-===================================================== */
-
-function checkProduction() {
-
-  const text =
-    $("productionAnswer")
-      .value
-      .trim();
-
-
-  if (!text) {
-
-    $("productionResult").innerHTML = `
-
-      <div class="success">
-
-        请先尝试用英文回答。
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const words =
-    text
-      .split(/\s+/)
-      .filter(Boolean)
-      .length;
-
-
-  $("productionResult").innerHTML = `
-
-    <div class="success">
-
-      已完成英文输出。
-
-      <br>
-
-      约 ${words} 个英文词。
-
-      <br><br>
-
-      🎤 现在请朗读你的答案，
-
-      然后再听一次经文。
-
-      <br><br>
-
-      <button
-        onclick='speakText(${JSON.stringify(text)})'>
-
-        🔊 听我的英文回答
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   GENERAL SPEECH
-===================================================== */
-
-function speakText(text) {
-
-  if (
-    !("speechSynthesis" in window)
-  ) {
-
-    alert(
-      "当前浏览器不支持语音播放。"
-    );
-
-    return;
-
-  }
-
-
-  speechGeneration++;
-
-  autoPlay = false;
-
-  repeatMode = false;
-
-
-  speechSynthesis.cancel();
-
-
-  const utterance =
-    new SpeechSynthesisUtterance(
-      text
-    );
-
-
-  utterance.lang =
-    CONFIG.SPEECH_LANG;
-
-
-  utterance.rate =
-    slow ? 0.72 : 0.95;
-
-
-  utterance.pitch =
-    1;
-
-
-  utterance.volume =
-    1;
-
-
-  speechSynthesis.speak(
-    utterance
-  );
-
-}
-
-
-/* =====================================================
-   WHOLE PASSAGE
-===================================================== */
-
-function speakPassage() {
-
-  if (
-    !currentPassage.length
-  ) {
-
-    return;
-
-  }
-
-
-  autoPlay = true;
-
-  repeatMode = false;
-
-
-  if (
-    currentVerseIndex < 0 ||
-    currentVerseIndex >=
-    currentPassage.length
-  ) {
-
-    currentVerseIndex = 0;
-
-  }
-
-
-  updateV05Status(
-    "▶ 正在连续朗读整段经文……"
-  );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
-
-}
-
-
-/* =====================================================
-   STOP
-===================================================== */
-
-function stopSpeech() {
-
-  speechGeneration++;
-
-  autoPlay = false;
-
-  repeatMode = false;
-
-
-  if (
-    "speechSynthesis" in window
-  ) {
-
-    speechSynthesis.cancel();
-
-  }
-
-
-  updateV05Status(
-    "语音已停止。"
-  );
-
-}
-
-
-/* =====================================================
-   NORMAL / SLOW
-===================================================== */
-
-function toggleSlow() {
-
-  slow =
-    !slow;
-
-
-  const label =
-    $("speedLabel");
-
-
-  if (label) {
-
-    label.textContent =
-      slow ? "慢速" : "正常";
-
-  }
-
-
-  updateV05Status(
-
-    slow
-      ? "已切换为慢速 0.72"
-      : "已切换为正常速度 0.95"
-
-  );
-
-}
-
-
-/* =====================================================
-   COMPLETE UNIT
-===================================================== */
-
-function finishUnit() {
-
-  if (!currentUnit) {
-
-    return;
-
-  }
-
-
-  stopSpeech();
-
-
-  const now =
-    new Date();
-
-
-  state.completed[
-    currentUnit.id
-  ] = true;
-
-
-  state.reviews =
-    state.reviews.filter(
-      function (item) {
-
-        return item.id !==
-          currentUnit.id;
-
-      }
-    );
-
-
-  [0, 2, 6]
-    .forEach(function (days) {
-
-      const date =
-        new Date(now);
-
-
-      date.setDate(
-        date.getDate() + days
-      );
-
-
-      state.reviews.push({
-
-        id:
-          currentUnit.id,
-
-        ref:
-          currentUnit.ref,
-
-        date:
-          date.toISOString()
-            .slice(0, 10),
-
-        day:
-          days + 1
-
-      });
-
-    });
-
-
-  save();
-
-  renderUnits();
-
-  renderReviews();
-
-
-  $("doneMessage").textContent =
-
-    `${currentUnit.ref} 已完成。` +
-    `建议在 Day 1、Day 3、Day 7 回来重新听读。`;
-
-
-  go("done");
-
-}
-
-
-/* =====================================================
-   REVIEW
-===================================================== */
-
-function renderReviews() {
-
-  const reviewList =
-    $("reviewList");
-
-
-  if (!reviewList) {
-
-    return;
-
-  }
-
-
-  const reviews =
-    [...state.reviews]
-      .sort(function (a, b) {
-
-        return a.date
-          .localeCompare(b.date);
-
-      });
-
-
-  if (!reviews.length) {
-
-    reviewList.innerHTML = `
-
-      <div class="muted">
-
-        完成第一个单元后，
-
-        这里会自动生成复习计划。
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  reviewList.innerHTML =
-
-    reviews
-      .map(function (item) {
-
-        return `
-
-          <div class="review-row">
-
-            <div>
-
-              <strong>
-                ${esc(item.ref)}
-              </strong>
-
-              <div class="review-date">
-                Day ${item.day}
-              </div>
-
-            </div>
-
-            <span>
-              ${esc(item.date)}
-            </span>
-
-          </div>
-
-        `;
-
-      })
-      .join("");
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function go(screenId) {
-
-  document
-    .querySelectorAll(".screen")
-    .forEach(function (screen) {
-
-      screen.classList.remove(
-        "active"
-      );
-
-    });
-
-
-  const target =
-    $(screenId);
-
-
-  if (target) {
-
-    target.classList.add(
-      "active"
-    );
-
-  }
-
-
-  window.scrollTo({
-
-    top: 0,
-
-    behavior: "smooth"
-
-  });
-
-}
-
-
-/* =====================================================
-   GLOBAL FUNCTIONS
-   确保 HTML onclick 可以正常调用
-===================================================== */
+/* =========================================================
+   21. 暴露给 HTML onclick
+   ========================================================= */
 
 window.openUnit =
-  openUnit;
-
-window.checkQuiz =
-  checkQuiz;
-
-window.checkProduction =
-  checkProduction;
-
-window.speakText =
-  speakText;
-
-window.speakPassage =
-  speakPassage;
-
-window.stopSpeech =
-  stopSpeech;
-
-window.toggleSlow =
-  toggleSlow;
-
-window.finishUnit =
-  finishUnit;
+    openUnit;
 
 window.go =
-  go;
+    go;
 
-window.playVerse =
-  playVerse;
+window.speakText =
+    speakText;
 
-window.playCurrentVerse =
-  playCurrentVerse;
+window.speakPassage =
+    speakPassage;
 
-window.playPreviousVerse =
-  playPreviousVerse;
+window.speakVerse =
+    speakVerse;
 
-window.playNextVerse =
-  playNextVerse;
+window.startContinuousReading =
+    startContinuousReading;
 
-window.toggleAutoPlay =
-  toggleAutoPlay;
+window.listenThreeTimes =
+    listenThreeTimes;
 
-window.toggleRepeatMode =
-  toggleRepeatMode;
+window.stopSpeech =
+    stopSpeech;
+
+window.toggleSlow =
+    toggleSlow;
+
+window.speakProductionAnswer =
+    speakProductionAnswer;
+
+window.checkQuiz =
+    checkQuiz;
+
+window.checkProduction =
+    checkProduction;
+
+window.finishUnit =
+    finishUnit;
 
 
-/* =====================================================
+/* =========================================================
    START
-===================================================== */
+   ========================================================= */
 
 document.addEventListener(
-  "DOMContentLoaded",
-  init
+    "DOMContentLoaded",
+    init
 );
