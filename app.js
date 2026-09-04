@@ -1,9 +1,21 @@
 /* =========================================================
-   EBRM V0.7
+   EBRM V0.7.1
    Golden Training Unit
    John 1:1–5
 
    GitHub Pages 独立版
+   ---------------------------------------------------------
+   修复：
+   1. 所有 onclick 全局函数
+   2. 页面初始化
+   3. HOME / BASELINE / READ
+   4. NOTICE
+   5. DIRECT COMPREHENSION
+   6. SPEAK
+   7. RE-READ
+   8. FINAL TEST
+   9. REVIEW
+   10. 朗读
 ========================================================= */
 
 
@@ -13,24 +25,26 @@
 
 const CONFIG = {
 
-  BIBLE_API:
-    "https://bible-api.com",
+    BIBLE_API:
+        "https://bible-api.com",
 
-  TRANSLATION:
-    "web",
+    TRANSLATION:
+        "web",
 
-  SPEECH_LANG:
-    "en-US",
+    SPEECH_LANG:
+        "en-US",
 
-  NORMAL_RATE:
-    0.88,
+    NORMAL_RATE:
+        0.88,
 
-  SLOW_RATE:
-    0.62,
+    SLOW_RATE:
+        0.62,
 
-  STATE_KEY:
-    "EBRM_V07_STATE"
+    STATE_KEY:
+        "EBRM_V071_STATE",
 
+    VOICE_KEY:
+        "EBRM_V071_VOICE"
 };
 
 
@@ -40,290 +54,260 @@ const CONFIG = {
 
 const GOLDEN_UNIT = {
 
-  id:
-    "JOHN-1-1-5",
+    id:
+        "JOHN-1-1-5",
 
-  reference:
-    "John 1:1–5",
+    reference:
+        "John 1:1–5",
 
-  start:
-    1,
+    start:
+        1,
 
-  end:
-    5,
+    end:
+        5,
 
-  title:
-    "The Word",
-
-  production:
-    "In simple English, explain who the Word is and what is in the Word.",
-
-
-  vocabulary: [
-
-    {
-      word:
-        "Word",
-
-      meaning:
-        "道",
-
-      english:
-        "the Word"
-    },
-
-    {
-      word:
-        "beginning",
-
-      meaning:
-        "起初；开始",
-
-      english:
-        "the start"
-    },
-
-    {
-      word:
-        "life",
-
-      meaning:
-        "生命",
-
-      english:
-        "life"
-    },
-
-    {
-      word:
-        "light",
-
-      meaning:
-        "光",
-
-      english:
-        "light"
-    },
-
-    {
-      word:
-        "darkness",
-
-      meaning:
-        "黑暗",
-
-      english:
-        "darkness"
-    },
-
-    {
-      word:
-        "overcome",
-
-      meaning:
-        "胜过；制伏",
-
-      english:
-        "defeat"
-    }
-
-  ],
-
-
-  structures: [
-
-    {
-      pattern:
-        "In the beginning was the Word.",
-
-      explanation:
-        "时间背景在前，核心主语 Word 在后。先建立时间场景，再告诉读者谁在那里。"
-    },
-
-    {
-      pattern:
-        "The Word was with God.",
-
-      explanation:
-        "was with 表达 Word 与 God 之间的关系。"
-    },
-
-    {
-      pattern:
-        "The Word was God.",
-
-      explanation:
-        "Subject + be + complement，用于确认身份/本质。"
-    },
-
-    {
-      pattern:
-        "In him was life.",
-
-      explanation:
-        "in him 放在前面，突出生命所在的位置。"
-    },
-
-    {
-      pattern:
-        "The light shines in the darkness.",
-
-      explanation:
-        "主语 the light + 动词 shines + 地点/范围 in the darkness。"
-    }
-
-  ],
-
-
-  notice: [
-
-    {
-      question:
-        "What word is repeated as the main focus?",
-
-      options: [
-        "Word",
-        "Temple",
-        "King"
-      ],
-
-      answer:
-        0
-    },
-
-    {
-      question:
-        "What two ideas are directly contrasted?",
-
-      options: [
-        "Light and darkness",
-        "King and servant",
-        "Life and money"
-      ],
-
-      answer:
-        0
-    },
-
-    {
-      question:
-        "What is connected with the Word?",
-
-      options: [
-        "God, life, and light",
-        "Rome, law, and temple",
-        "Water, fire, and army"
-      ],
-
-      answer:
-        0
-    },
-
-    {
-      question:
-        "What action does the darkness fail to accomplish?",
-
-      options: [
-        "It does not overcome the light",
-        "It creates the light",
-        "It becomes life"
-      ],
-
-      answer:
-        0
-    }
-
-  ],
-
-
-  direct: [
-
-    {
-      question:
-        "Who was with God in the beginning?",
-
-      options: [
+    title:
         "The Word",
-        "John",
-        "Moses"
-      ],
 
-      answer:
-        0,
+    production:
+        "In simple English, explain who the Word is and what is in the Word.",
 
-      chinese:
-        "道与神同在。"
-    },
 
-    {
-      question:
-        "What was in the Word?",
+    vocabulary: [
 
-      options: [
-        "Darkness",
-        "Life",
-        "Death"
-      ],
+        {
+            word: "Word",
+            meaning: "道",
+            english: "the Word"
+        },
 
-      answer:
-        1,
+        {
+            word: "beginning",
+            meaning: "起初；开始",
+            english: "the start"
+        },
 
-      chinese:
-        "生命在祂里面。"
-    },
+        {
+            word: "life",
+            meaning: "生命",
+            english: "life"
+        },
 
-    {
-      question:
-        "What was the life in the Word?",
+        {
+            word: "light",
+            meaning: "光",
+            english: "light"
+        },
 
-      options: [
-        "The light of men",
-        "The law of Moses",
-        "The temple"
-      ],
+        {
+            word: "darkness",
+            meaning: "黑暗",
+            english: "darkness"
+        },
 
-      answer:
-        0,
+        {
+            word: "overcome",
+            meaning: "胜过；制伏",
+            english: "to defeat"
+        }
 
-      chinese:
-        "这生命就是人的光。"
-    },
+    ],
 
-    {
-      question:
-        "Where does the light shine?",
 
-      options: [
-        "In the darkness",
-        "In the temple",
-        "In Rome"
-      ],
+    structures: [
 
-      answer:
-        0,
+        {
+            pattern:
+                "In the beginning was the Word.",
 
-      chinese:
-        "光照在黑暗里。"
-    },
+            explanation:
+                "时间背景在前，核心主语 Word 在后。"
+        },
 
-    {
-      question:
-        "Has the darkness overcome the light?",
+        {
+            pattern:
+                "The Word was with God.",
 
-      options: [
-        "Yes",
-        "No",
-        "The passage does not say"
-      ],
+            explanation:
+                "was with 表达 Word 与 God 的关系。"
+        },
 
-      answer:
-        1,
+        {
+            pattern:
+                "The Word was God.",
 
-      chinese:
-        "黑暗没有胜过光。"
-    }
+            explanation:
+                "Subject + be + complement，表达身份/本质。"
+        },
 
-  ]
+        {
+            pattern:
+                "In him was life.",
+
+            explanation:
+                "in him 放在前面，突出生命所在的位置。"
+        },
+
+        {
+            pattern:
+                "The light shines in the darkness.",
+
+            explanation:
+                "主语 + 动词 + 地点/范围。"
+        }
+
+    ],
+
+
+    notice: [
+
+        {
+            question:
+                "What word is repeated as the main focus?",
+
+            options: [
+                "Word",
+                "Temple",
+                "King"
+            ],
+
+            answer:
+                0
+        },
+
+        {
+            question:
+                "What two ideas are directly contrasted?",
+
+            options: [
+                "Light and darkness",
+                "King and servant",
+                "Life and money"
+            ],
+
+            answer:
+                0
+        },
+
+        {
+            question:
+                "What is connected with the Word?",
+
+            options: [
+                "God, life, and light",
+                "Rome, law, and temple",
+                "Water, fire, and army"
+            ],
+
+            answer:
+                0
+        },
+
+        {
+            question:
+                "What does the darkness fail to do?",
+
+            options: [
+                "Overcome the light",
+                "Create life",
+                "Become the Word"
+            ],
+
+            answer:
+                0
+        }
+
+    ],
+
+
+    direct: [
+
+        {
+            question:
+                "Who was with God in the beginning?",
+
+            options: [
+                "The Word",
+                "John",
+                "Moses"
+            ],
+
+            answer:
+                0,
+
+            chinese:
+                "道与神同在。"
+        },
+
+        {
+            question:
+                "What was in the Word?",
+
+            options: [
+                "Darkness",
+                "Life",
+                "Death"
+            ],
+
+            answer:
+                1,
+
+            chinese:
+                "生命在祂里面。"
+        },
+
+        {
+            question:
+                "What was the life in the Word?",
+
+            options: [
+                "The light of men",
+                "The law of Moses",
+                "The temple"
+            ],
+
+            answer:
+                0,
+
+            chinese:
+                "这生命就是人的光。"
+        },
+
+        {
+            question:
+                "Where does the light shine?",
+
+            options: [
+                "In the darkness",
+                "In the temple",
+                "In Rome"
+            ],
+
+            answer:
+                0,
+
+            chinese:
+                "光照在黑暗里。"
+        },
+
+        {
+            question:
+                "Has the darkness overcome the light?",
+
+            options: [
+                "Yes",
+                "No",
+                "The passage does not say"
+            ],
+
+            answer:
+                1,
+
+            chinese:
+                "黑暗没有胜过光。"
+        }
+
+    ]
 
 };
 
@@ -332,107 +316,105 @@ const GOLDEN_UNIT = {
    STATE
 ========================================================= */
 
-let currentPassage =
-  null;
+let currentPassage = null;
 
-let currentVerseIndex =
-  0;
+let currentVerseIndex = 0;
 
 let speechRate =
-  CONFIG.NORMAL_RATE;
+    CONFIG.NORMAL_RATE;
 
-let selectedVoice =
-  null;
+let selectedVoice = null;
 
-let continuousReading =
-  false;
+let continuousReading = false;
 
-let repeatCurrentVerse =
-  false;
+let repeatCurrentVerse = false;
 
-let baselineScore =
-  0;
+let baselineScore = 0;
 
-let finalScore =
-  0;
+let finalScore = 0;
 
-let baselineSubmitted =
-  false;
+let baselineSubmitted = false;
 
-let finalSubmitted =
-  false;
+let finalSubmitted = false;
 
-let currentFeeling =
-  0;
+let currentFeeling = 0;
+
+let noticeAnswers = {};
+
+let directAnswers = {};
+
+let state = loadState();
 
 
-let state =
-  loadState();
-
+/* =========================================================
+   LOAD STATE
+========================================================= */
 
 function loadState() {
 
-  try {
+    try {
 
-    const saved =
-      localStorage.getItem(
-        CONFIG.STATE_KEY
-      );
+        const saved =
+            localStorage.getItem(
+                CONFIG.STATE_KEY
+            );
 
-    if (saved) {
+        if (saved) {
 
-      return JSON.parse(
-        saved
-      );
+            return JSON.parse(
+                saved
+            );
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "EBRM state error:",
+            error
+        );
 
     }
 
-  } catch (error) {
 
-    console.warn(
-      "EBRM state error:",
-      error
-    );
+    return {
 
-  }
+        completed: false,
 
+        baseline: 0,
 
-  return {
+        final: 0,
 
-    completed:
-      false,
+        feeling: 0,
 
-    baseline:
-      0,
+        completedAt: null,
 
-    final:
-      0,
+        reviewDates: []
 
-    feeling:
-      0,
-
-    completedAt:
-      null,
-
-    reviewDates:
-      []
-
-  };
+    };
 
 }
 
 
 function saveState() {
 
-  localStorage.setItem(
+    try {
 
-    CONFIG.STATE_KEY,
+        localStorage.setItem(
+            CONFIG.STATE_KEY,
+            JSON.stringify(
+                state
+            )
+        );
 
-    JSON.stringify(
-      state
-    )
+    } catch (error) {
 
-  );
+        console.warn(
+            "Save state error:",
+            error
+        );
+
+    }
 
 }
 
@@ -441,70 +423,46 @@ function saveState() {
    HELPERS
 ========================================================= */
 
-function $(
-  id
-) {
+function $(id) {
 
-  return document.getElementById(
-    id
-  );
+    return document.getElementById(id);
 
 }
 
 
-function escapeHTML(
-  value
-) {
+function escapeHTML(value) {
 
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
+    return String(
+        value ?? ""
     )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-function escapeJS(
-  value
-) {
+function safeText(value) {
 
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /\\/g,
-      "\\\\"
-    )
-    .replace(
-      /'/g,
-      "\\'"
-    )
-    .replace(
-      /\r/g,
-      ""
-    )
-    .replace(
-      /\n/g,
-      "\\n"
+    return String(
+        value ?? ""
     );
 
 }
@@ -516,232 +474,234 @@ function escapeJS(
 
 function init() {
 
-  updateHomeProgress();
+    loadSavedScores();
 
-  renderBaselineQuestions();
+    renderBaselineQuestions();
 
-  renderFinalQuestions();
+    renderFinalQuestions();
 
-  initVoices();
+    renderHomeProgress();
 
-}
-
-
-function initVoices() {
-
-  if (
-    !window.speechSynthesis
-  ) {
-
-    return;
-
-  }
-
-
-  selectedVoice =
-    chooseVoice();
-
-
-  speechSynthesis.onvoiceschanged =
-    function() {
-
-      selectedVoice =
-        chooseVoice();
-
-      renderVoicePanel();
-
-    };
+    initSpeech();
 
 }
 
 
-function chooseVoice() {
+/* =========================================================
+   LOAD SAVED SCORES
+========================================================= */
 
-  const voices =
-    speechSynthesis
-      .getVoices()
-      .filter(
-        function(voice) {
+function loadSavedScores() {
 
-          return (
-            voice.lang &&
-            voice.lang
-              .toLowerCase()
-              .startsWith(
-                "en"
-              )
-          );
+    if (
+        typeof state.baseline ===
+        "number"
+    ) {
 
-        }
-      );
+        baselineScore =
+            state.baseline;
 
+        if (
+            baselineScore > 0
+        ) {
 
-  if (!voices.length) {
-
-    return null;
-
-  }
-
-
-  const saved =
-    localStorage.getItem(
-      "EBRM_V07_VOICE"
-    );
-
-
-  if (saved) {
-
-    const found =
-      voices.find(
-        function(voice) {
-
-          return (
-            voice.name ===
-            saved
-          );
+            baselineSubmitted =
+                true;
 
         }
-      );
-
-
-    if (found) {
-
-      return found;
 
     }
 
-  }
+
+    if (
+        typeof state.final ===
+        "number"
+    ) {
+
+        finalScore =
+            state.final;
+
+        if (
+            finalScore > 0
+        ) {
+
+            finalSubmitted =
+                true;
+
+        }
+
+    }
 
 
-  const names = [
-
-    "david",
-    "daniel",
-    "alex",
-    "mark",
-    "james",
-    "george",
-    "guy",
-    "fred"
-
-  ];
-
-
-  const preferred =
-    voices.find(
-      function(voice) {
-
-        const name =
-          voice.name.toLowerCase();
-
-
-        return names.some(
-          function(word) {
-
-            return name.includes(
-              word
-            );
-
-          }
+    currentFeeling =
+        Number(
+            state.feeling || 0
         );
-
-      }
-    );
-
-
-  if (preferred) {
-
-    return preferred;
-
-  }
-
-
-  return (
-    voices.find(
-      function(voice) {
-
-        return (
-          voice.lang
-            .toLowerCase() ===
-          "en-us"
-        );
-
-      }
-    )
-    || voices[0]
-  );
 
 }
 
 
 /* =========================================================
-   HOME
+   HOME PROGRESS
 ========================================================= */
 
-function updateHomeProgress() {
+function renderHomeProgress() {
 
-  const bar =
-    $("goldenProgressBar");
+    const bar =
+        $("goldenProgressBar");
 
-  const text =
-    $("goldenProgressText");
-
-
-  let progress =
-    0;
+    const text =
+        $("goldenProgressText");
 
 
-  if (
-    baselineSubmitted
-  ) {
-
-    progress =
-      12;
-
-  }
+    let progress = 0;
 
 
-  if (
-    finalSubmitted
-  ) {
+    if (
+        baselineSubmitted
+    ) {
 
-    progress =
-      100;
+        progress = 15;
 
-  }
-
-
-  if (bar) {
-
-    bar.style.width =
-      progress + "%";
-
-  }
+    }
 
 
-  if (text) {
+    if (
+        state.completed
+    ) {
 
-    text.textContent =
-      progress + "%";
+        progress = 100;
 
-  }
+    }
+
+
+    if (
+        bar
+    ) {
+
+        bar.style.width =
+            progress + "%";
+
+    }
+
+
+    if (
+        text
+    ) {
+
+        text.textContent =
+            progress + "%";
+
+    }
 
 }
 
 
 /* =========================================================
-   START GOLDEN UNIT
+   START
 ========================================================= */
 
 function startGoldenUnit() {
 
-  go(
-    "read"
-  );
+    currentPassage = null;
 
-  loadPassage();
+    currentVerseIndex = 0;
 
-  updateHomeProgress();
+    showScreen("read");
+
+    loadPassage();
+
+}
+
+
+function startBaseline() {
+
+    renderBaselineQuestions();
+
+    showScreen("baseline");
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function showScreen(
+    screenId
+) {
+
+    document
+        .querySelectorAll(
+            ".screen"
+        )
+        .forEach(
+            function(screen) {
+
+                screen.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    const target =
+        $(screenId);
+
+
+    if (!target) {
+
+        console.warn(
+            "Screen not found:",
+            screenId
+        );
+
+        return;
+
+    }
+
+
+    target.classList.add(
+        "active"
+    );
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior:
+            "smooth"
+
+    });
+
+
+    if (
+        screenId ===
+        "review"
+    ) {
+
+        renderReviews();
+
+    }
+
+
+    if (
+        screenId ===
+        "read"
+    ) {
+
+        setTimeout(
+            function() {
+
+                renderVoicePanel();
+
+            },
+            100
+        );
+
+    }
 
 }
 
@@ -750,665 +710,531 @@ function startGoldenUnit() {
    BASELINE
 ========================================================= */
 
-function startBaseline() {
-
-  renderBaselineQuestions();
-
-  go(
-    "baseline"
-  );
-
-}
-
-
 function renderBaselineQuestions() {
 
-  const container =
-    $("baselineQuestions");
+    const container =
+        $("baselineQuestions");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML = "";
+    }
 
 
-  const questions = [
-
-    [
-      "What was with God in the beginning?",
-      [
-        "The Word",
-        "The darkness",
-        "John"
-      ],
-      0
-    ],
-
-    [
-      "What was in the Word?",
-      [
-        "Life",
-        "Darkness",
-        "Death"
-      ],
-      0
-    ],
-
-    [
-      "Where does the light shine?",
-      [
-        "In the darkness",
-        "In Rome",
-        "In the temple"
-      ],
-      0
-    ]
-
-  ];
+    container.innerHTML = "";
 
 
-  questions.forEach(
-    function(item, index) {
+    const questions = [
 
-      const block =
-        document.createElement(
-          "div"
-        );
+        {
+            question:
+                "What was with God in the beginning?",
 
+            options: [
+                "The Word",
+                "The darkness",
+                "John"
+            ],
 
-      block.className =
-        "notice-question";
+            answer: 0
+        },
 
+        {
+            question:
+                "What was in the Word?",
 
-      const title =
-        document.createElement(
-          "div"
-        );
+            options: [
+                "Life",
+                "Darkness",
+                "Death"
+            ],
 
+            answer: 0
+        },
 
-      title.className =
-        "notice-question-title";
+        {
+            question:
+                "Where does the light shine?",
 
+            options: [
+                "In the darkness",
+                "In Rome",
+                "In the temple"
+            ],
 
-      title.textContent =
-        `${index + 1}. ${item[0]}`;
+            answer: 0
+        }
 
-
-      block.appendChild(
-        title
-      );
-
-
-      item[1].forEach(
-        function(option, optionIndex) {
-
-          const button =
-            document.createElement(
-              "button"
-            );
-
-
-          button.className =
-            "option";
-
-
-          button.textContent =
-            option;
+    ];
 
 
-          button.onclick =
-            function() {
+    questions.forEach(
+        function(item, index) {
 
-              block
-                .querySelectorAll(
-                  ".option"
-                )
-                .forEach(
-                  function(btn) {
-
-                    btn.classList.remove(
-                      "selected"
-                    );
-
-                  }
+            const block =
+                document.createElement(
+                    "div"
                 );
 
 
-              button.classList.add(
-                "selected"
-              );
+            block.className =
+                "notice-question";
 
 
-              button.dataset.answer =
-                optionIndex;
-
-            };
+            block.dataset.correct =
+                item.answer;
 
 
-          block.appendChild(
-            button
-          );
+            const title =
+                document.createElement(
+                    "div"
+                );
+
+
+            title.className =
+                "notice-question-title";
+
+
+            title.textContent =
+                (index + 1) +
+                ". " +
+                item.question;
+
+
+            block.appendChild(
+                title
+            );
+
+
+            item.options.forEach(
+                function(option, optionIndex) {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.className =
+                        "option";
+
+
+                    button.type =
+                        "button";
+
+
+                    button.textContent =
+                        option;
+
+
+                    button.addEventListener(
+                        "click",
+                        function() {
+
+                            block
+                                .querySelectorAll(
+                                    ".option"
+                                )
+                                .forEach(
+                                    function(btn) {
+
+                                        btn.classList.remove(
+                                            "selected"
+                                        );
+
+                                    }
+                                );
+
+
+                            button.classList.add(
+                                "selected"
+                            );
+
+
+                            button.dataset.answer =
+                                optionIndex;
+
+                        }
+                    );
+
+
+                    block.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            container.appendChild(
+                block
+            );
 
         }
-      );
-
-
-      block.dataset.answer =
-        item[2];
-
-
-      container.appendChild(
-        block
-      );
-
-    }
-  );
+    );
 
 }
 
 
 function submitBaseline() {
 
-  const blocks =
-    document.querySelectorAll(
-      "#baselineQuestions .notice-question"
-    );
+    const container =
+        $("baselineQuestions");
 
 
-  let correct =
-    0;
+    if (!container) {
+
+        return;
+
+    }
 
 
-  blocks.forEach(
-    function(block) {
-
-      const selected =
-        block.querySelector(
-          ".option.selected"
+    const blocks =
+        container.querySelectorAll(
+            ".notice-question"
         );
 
 
-      if (
-        selected &&
-        Number(
-          selected.dataset.answer
-        ) ===
-        Number(
-          block.dataset.answer
-        )
-      ) {
+    let correct = 0;
 
-        correct++;
+    let answered = 0;
 
-      }
+
+    blocks.forEach(
+        function(block) {
+
+            const selected =
+                block.querySelector(
+                    ".option.selected"
+                );
+
+
+            if (
+                selected
+            ) {
+
+                answered++;
+
+
+                if (
+                    Number(
+                        selected.dataset.answer
+                    ) ===
+                    Number(
+                        block.dataset.correct
+                    )
+                ) {
+
+                    correct++;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    if (
+        answered <
+        blocks.length
+    ) {
+
+        alert(
+            "请完成全部问题后再提交。"
+        );
+
+        return;
 
     }
-  );
 
 
-  baselineScore =
-    Math.round(
-      (
-        correct /
-        blocks.length
-      ) * 100
-    );
+    baselineScore =
+        Math.round(
+            (
+                correct /
+                blocks.length
+            ) * 100
+        );
 
 
-  baselineSubmitted =
-    true;
+    baselineSubmitted =
+        true;
 
 
-  $("baselineResult")
-    .classList
-    .remove(
-      "hidden"
-    );
+    state.baseline =
+        baselineScore;
 
 
-  $("baselineResult")
-    .innerHTML =
-
-    "<div class='success'>" +
-
-    "第一次理解：" +
-
-    baselineScore +
-
-    "%<br><br>" +
-
-    "现在进入训练。不要回头查答案。" +
-
-    "</div>";
+    saveState();
 
 
-  state.baseline =
-    baselineScore;
+    const result =
+        $("baselineResult");
 
 
-  saveState();
+    if (result) {
 
-  updateHomeProgress();
+        result.classList.remove(
+            "hidden"
+        );
+
+
+        result.innerHTML =
+            "<div class='success'>" +
+
+            "<strong>" +
+
+            "第一次理解：" +
+
+            baselineScore +
+
+            "%</strong>" +
+
+            "<br><br>" +
+
+            "现在开始精读。" +
+
+            "</div>";
+
+    }
+
+
+    renderHomeProgress();
 
 }
 
 
 /* =========================================================
-   LOAD PASSAGE
+   BIBLE API
 ========================================================= */
 
 async function loadPassage() {
 
-  const box =
-    $("passageText");
+    const box =
+        $("passageText");
 
 
-  if (!box) {
+    if (!box) {
 
-    return;
-
-  }
-
-
-  box.innerHTML =
-    "正在读取英文圣经……";
-
-
-  const reference =
-    "John 1:" +
-    GOLDEN_UNIT.start +
-    "-" +
-    GOLDEN_UNIT.end;
-
-
-  const url =
-    CONFIG.BIBLE_API +
-    "/" +
-    encodeURIComponent(
-      reference
-    ) +
-    "?translation=" +
-    CONFIG.TRANSLATION;
-
-
-  try {
-
-    const response =
-      await fetch(
-        url,
-        {
-          cache:
-            "no-store"
-        }
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "HTTP " +
-        response.status
-      );
+        return;
 
     }
 
-
-    const data =
-      await response.json();
-
-
-    if (
-      !data.verses ||
-      !data.verses.length
-    ) {
-
-      throw new Error(
-        "没有返回经文"
-      );
-
-    }
-
-
-    currentPassage = {
-
-      reference:
-        GOLDEN_UNIT.reference,
-
-      verses:
-        data.verses.map(
-          function(item) {
-
-            return {
-
-              verse:
-                item.verse,
-
-              text:
-                String(
-                  item.text
-                ).trim()
-
-            };
-
-          }
-        )
-
-    };
-
-
-    renderPassage();
-
-    renderRereadPassage();
-
-    renderImitationList();
-
-    renderVoicePanel();
-
-    renderAudioControls();
-
-
-  } catch (error) {
 
     box.innerHTML =
+        "<div>正在读取英文圣经……</div>";
 
-      "<div class='success'>" +
 
-      "<strong>经文读取失败</strong>" +
+    const reference =
+        "John 1:" +
+        GOLDEN_UNIT.start +
+        "-" +
+        GOLDEN_UNIT.end;
 
-      "<br><br>" +
 
-      escapeHTML(
-        error.message
-      ) +
+    const url =
+        CONFIG.BIBLE_API +
+        "/" +
+        encodeURIComponent(
+            reference
+        ) +
+        "?translation=" +
+        CONFIG.TRANSLATION;
 
-      "</div>";
 
-  }
+    try {
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method: "GET",
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.verses ||
+            !data.verses.length
+        ) {
+
+            throw new Error(
+                "没有返回经文"
+            );
+
+        }
+
+
+        currentPassage = {
+
+            reference:
+                GOLDEN_UNIT.reference,
+
+            verses:
+                data.verses.map(
+                    function(item) {
+
+                        return {
+
+                            verse:
+                                item.verse,
+
+                            text:
+                                safeText(
+                                    item.text
+                                ).trim()
+
+                        };
+
+                    }
+                )
+
+        };
+
+
+        renderPassage();
+
+        renderVoicePanel();
+
+        renderAudioControls();
+
+        renderImitationList();
+
+        renderRereadPassage();
+
+
+    } catch (error) {
+
+        console.error(
+            "EBRM Bible API:",
+            error
+        );
+
+
+        box.innerHTML =
+
+            "<div class='success'>" +
+
+            "<strong>" +
+
+            "经文读取失败" +
+
+            "</strong>" +
+
+            "<br><br>" +
+
+            escapeHTML(
+                error.message
+            ) +
+
+            "<br><br>" +
+
+            "请刷新页面重试。" +
+
+            "</div>";
+
+    }
 
 }
 
 
 /* =========================================================
-   PASSAGE
+   RENDER PASSAGE
 ========================================================= */
 
 function renderPassage() {
 
-  const container =
-    $("passageText");
+    const box =
+        $("passageText");
 
 
-  if (
-    !container ||
-    !currentPassage
-  ) {
+    if (
+        !box ||
+        !currentPassage
+    ) {
 
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  currentPassage.verses
-    .forEach(
-      function(verse, index) {
-
-        const span =
-          document.createElement(
-            "span"
-          );
-
-
-        span.className =
-          "verse";
-
-
-        span.dataset.index =
-          index;
-
-
-        const number =
-          document.createElement(
-            "sup"
-          );
-
-
-        number.textContent =
-          verse.verse;
-
-
-        span.appendChild(
-          number
-        );
-
-
-        span.appendChild(
-          document.createTextNode(
-            " " +
-            verse.text
-          )
-        );
-
-
-        span.onclick =
-          function() {
-
-            playVerse(
-              index
-            );
-
-          };
-
-
-        container.appendChild(
-          span
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   REREAD
-========================================================= */
-
-function renderRereadPassage() {
-
-  const container =
-    $("rereadPassage");
-
-
-  if (
-    !container ||
-    !currentPassage
-  ) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    currentPassage.verses
-      .map(
-        function(verse) {
-
-          return (
-
-            escapeHTML(
-              String(
-                verse.verse
-              )
-            ) +
-            " " +
-            escapeHTML(
-              verse.text
-            )
-
-          );
-
-        }
-      )
-      .join(
-        "<br><br>"
-      );
-
-}
-
-
-/* =========================================================
-   VOICE PANEL
-========================================================= */
-
-function renderVoicePanel() {
-
-  const panel =
-    $("voicePanel");
-
-
-  if (!panel) {
-
-    return;
-
-  }
-
-
-  panel.innerHTML =
-
-    "<strong>🎙️ English Voice</strong>" +
-
-    "<select " +
-    "id='voiceSelect' " +
-    "style='width:100%;padding:10px;margin-top:8px;border:1px solid #ddd;border-radius:10px;background:white'>" +
-    "</select>" +
-
-    "<div style='margin-top:7px;color:#777;font-size:11px'>" +
-
-    "声音来源于当前设备的浏览器语音系统。" +
-
-    "</div>";
-
-
-  const select =
-    $("voiceSelect");
-
-
-  const voices =
-    speechSynthesis
-      .getVoices()
-      .filter(
-        function(voice) {
-
-          return (
-            voice.lang &&
-            voice.lang
-              .toLowerCase()
-              .startsWith(
-                "en"
-              )
-          );
-
-        }
-      );
-
-
-  voices.forEach(
-    function(voice) {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-
-      option.value =
-        voice.name;
-
-
-      option.textContent =
-        voice.name +
-        " (" +
-        voice.lang +
-        ")";
-
-
-      if (
-        selectedVoice &&
-        selectedVoice.name ===
-        voice.name
-      ) {
-
-        option.selected =
-          true;
-
-      }
-
-
-      select.appendChild(
-        option
-      );
+        return;
 
     }
-  );
 
 
-  if (
-    !voices.length
-  ) {
-
-    const option =
-      document.createElement(
-        "option"
-      );
+    box.innerHTML = "";
 
 
-    option.textContent =
-      "No English voice detected";
+    currentPassage
+        .verses
+        .forEach(
+            function(
+                verse,
+                index
+            ) {
+
+                const span =
+                    document.createElement(
+                        "span"
+                    );
 
 
-    select.appendChild(
-      option
+                span.className =
+                    "verse";
+
+
+                span.dataset.index =
+                    index;
+
+
+                span.innerHTML =
+                    "<sup>" +
+                    escapeHTML(
+                        verse.verse
+                    ) +
+                    "</sup> " +
+                    escapeHTML(
+                        verse.text
+                    );
+
+
+                span.addEventListener(
+                    "click",
+                    function() {
+
+                        playVerse(
+                            index
+                        );
+
+                    }
+                );
+
+
+                box.appendChild(
+                    span
+                );
+
+            }
+        );
+
+
+    highlightVerse(
+        currentVerseIndex
     );
-
-  }
-
-
-  select.onchange =
-    function() {
-
-      selectedVoice =
-        voices.find(
-          function(voice) {
-
-            return (
-              voice.name ===
-              select.value
-            );
-
-          }
-        );
-
-
-      if (selectedVoice) {
-
-        localStorage.setItem(
-          "EBRM_V07_VOICE",
-          selectedVoice.name
-        );
-
-      }
-
-    };
 
 }
 
@@ -1419,89 +1245,314 @@ function renderVoicePanel() {
 
 function renderAudioControls() {
 
-  const container =
-    $("audioControls");
+    const container =
+        $("audioControls");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
+    }
 
 
-  container.innerHTML = `
+    container.innerHTML = "";
 
-    <div class="eyebrow">
-      LISTENING TRAINING
-    </div>
 
-    <div class="audio-controls">
+    const title =
+        document.createElement(
+            "div"
+        );
 
-      <button
-        class="primary"
-        onclick="speakPassage()">
 
-        🔊 听整段
+    title.className =
+        "eyebrow";
 
-      </button>
 
-      <button
-        onclick="startContinuousReading()">
+    title.textContent =
+        "LISTENING TRAINING";
 
-        ▶ 连续逐节
 
-      </button>
+    container.appendChild(
+        title
+    );
 
-      <button
-        onclick="playPreviousVerse()">
 
-        ◀ 上一节
+    const controls =
+        document.createElement(
+            "div"
+        );
 
-      </button>
 
-      <button
-        onclick="playNextVerse()">
+    controls.className =
+        "audio-controls";
 
-        下一节 ▶
 
-      </button>
+    const buttons = [
 
-      <button
-        onclick="toggleRepeatCurrentVerse()">
+        [
+            "🔊 听整段",
+            speakPassage
+        ],
 
-        🔁 当前节
+        [
+            "▶ 连续逐节",
+            startContinuousReading
+        ],
 
-      </button>
+        [
+            "◀ 上一节",
+            playPreviousVerse
+        ],
 
-      <button
-        onclick="toggleSlow()">
+        [
+            "下一节 ▶",
+            playNextVerse
+        ],
 
-        🐢
-        <span id="speedLabel">
-          正常速度
-        </span>
+        [
+            "🔁 当前节",
+            toggleRepeatCurrentVerse
+        ],
 
-      </button>
+        [
+            "🐢 正常/慢速",
+            toggleSlow
+        ],
 
-      <button
-        onclick="stopSpeech()">
+        [
+            "⏹ 停止",
+            stopSpeech
+        ]
 
-        ⏹ 停止
+    ];
 
-      </button>
 
-    </div>
+    buttons.forEach(
+        function(item) {
 
-    <div
-      id="speechStatus"
-      style="margin-top:12px;color:#777;font-size:12px">
+            const button =
+                document.createElement(
+                    "button"
+                );
 
-      点击开始听读
 
-    </div>
+            button.type =
+                "button";
 
-  `;
+
+            button.textContent =
+                item[0];
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    item[1]();
+
+                }
+            );
+
+
+            controls.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    container.appendChild(
+        controls
+    );
+
+
+    const status =
+        document.createElement(
+            "div"
+        );
+
+
+    status.id =
+        "speechStatus";
+
+
+    status.style.marginTop =
+        "10px";
+
+
+    status.style.fontSize =
+        "12px";
+
+
+    status.style.color =
+        "#777";
+
+
+    status.textContent =
+        "点击开始听读";
+
+
+    container.appendChild(
+        status
+    );
+
+}
+
+
+/* =========================================================
+   VOICE PANEL
+========================================================= */
+
+function renderVoicePanel() {
+
+    const panel =
+        $("voicePanel");
+
+
+    if (!panel) {
+
+        return;
+
+    }
+
+
+    panel.innerHTML =
+        "<strong>🎙️ English Voice</strong>" +
+        "<select id='voiceSelect' " +
+        "style='width:100%;padding:10px;margin-top:8px;border:1px solid #ddd;border-radius:10px;background:white'>" +
+        "</select>" +
+        "<div style='margin-top:7px;color:#777;font-size:11px'>" +
+        "声音由当前设备和浏览器提供。" +
+        "</div>";
+
+
+    const select =
+        $("voiceSelect");
+
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        return;
+
+    }
+
+
+    const voices =
+        speechSynthesis
+            .getVoices()
+            .filter(
+                function(voice) {
+
+                    return (
+                        voice.lang &&
+                        voice.lang
+                            .toLowerCase()
+                            .startsWith(
+                                "en"
+                            )
+                    );
+
+                }
+            );
+
+
+    voices.forEach(
+        function(voice) {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                voice.name;
+
+
+            option.textContent =
+                voice.name +
+                " (" +
+                voice.lang +
+                ")";
+
+
+            if (
+                selectedVoice &&
+                selectedVoice.name ===
+                voice.name
+            ) {
+
+                option.selected =
+                    true;
+
+            }
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    if (
+        !voices.length
+    ) {
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.textContent =
+            "No English voice detected";
+
+
+        select.appendChild(
+            option
+        );
+
+    }
+
+
+    select.addEventListener(
+        "change",
+        function() {
+
+            const found =
+                voices.find(
+                    function(voice) {
+
+                        return (
+                            voice.name ===
+                            select.value
+                        );
+
+                    }
+                );
+
+
+            if (found) {
+
+                selectedVoice =
+                    found;
+
+
+                localStorage.setItem(
+                    CONFIG.VOICE_KEY,
+                    found.name
+                );
+
+            }
+
+        }
+    );
 
 }
 
@@ -1511,530 +1562,717 @@ function renderAudioControls() {
 ========================================================= */
 
 function speakText(
-  text,
-  element,
-  callback
+    text,
+    element,
+    callback
 ) {
 
-  if (
-    !window.speechSynthesis
-  ) {
+    if (
+        !window.speechSynthesis
+    ) {
 
-    alert(
-      "当前浏览器不支持语音朗读。"
-    );
-
-    return;
-
-  }
-
-
-  speechSynthesis.cancel();
-
-
-  document
-    .querySelectorAll(
-      ".verse-speaking"
-    )
-    .forEach(
-      function(item) {
-
-        item.classList.remove(
-          "verse-speaking"
+        alert(
+            "当前浏览器不支持语音朗读。"
         );
 
-      }
-    );
+        return;
+
+    }
 
 
-  const utterance =
-    new SpeechSynthesisUtterance(
-      text
-    );
+    speechSynthesis.cancel();
 
 
-  utterance.lang =
-    CONFIG.SPEECH_LANG;
-
-
-  utterance.rate =
-    speechRate;
-
-
-  utterance.pitch =
-    0.95;
-
-
-  utterance.volume =
-    1;
-
-
-  if (selectedVoice) {
-
-    utterance.voice =
-      selectedVoice;
-
-  }
-
-
-  if (element) {
-
-    element.classList.add(
-      "verse-speaking"
-    );
-
-
-    element.scrollIntoView({
-
-      behavior:
-        "smooth",
-
-      block:
-        "center"
-
-    });
-
-  }
-
-
-  updateSpeechStatus(
-    "正在朗读……"
-  );
-
-
-  utterance.onend =
-    function() {
-
-      if (element) {
-
-        element.classList.remove(
-          "verse-speaking"
+    const utterance =
+        new SpeechSynthesisUtterance(
+            text
         );
 
-      }
+
+    utterance.lang =
+        CONFIG.SPEECH_LANG;
 
 
-      if (callback) {
-
-        callback();
-
-      }
+    utterance.rate =
+        speechRate;
 
 
-      updateSpeechStatus(
-        "朗读完成"
-      );
-
-    };
+    utterance.pitch =
+        0.95;
 
 
-  utterance.onerror =
-    function() {
-
-      updateSpeechStatus(
-        "语音播放失败"
-      );
-
-    };
+    utterance.volume =
+        1;
 
 
-  speechSynthesis.speak(
-    utterance
-  );
+    if (selectedVoice) {
+
+        utterance.voice =
+            selectedVoice;
+
+    }
+
+
+    if (element) {
+
+        document
+            .querySelectorAll(
+                ".verse-speaking"
+            )
+            .forEach(
+                function(item) {
+
+                    item.classList.remove(
+                        "verse-speaking"
+                    );
+
+                }
+            );
+
+
+        element.classList.add(
+            "verse-speaking"
+        );
+
+
+        element.scrollIntoView({
+
+            behavior:
+                "smooth",
+
+            block:
+                "center"
+
+        });
+
+    }
+
+
+    updateSpeechStatus(
+        "正在朗读……"
+    );
+
+
+    utterance.onend =
+        function() {
+
+            if (element) {
+
+                element.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
+
+
+            updateSpeechStatus(
+                "朗读完成"
+            );
+
+
+            if (callback) {
+
+                callback();
+
+            }
+
+        };
+
+
+    utterance.onerror =
+        function() {
+
+            updateSpeechStatus(
+                "语音播放失败"
+            );
+
+        };
+
+
+    speechSynthesis.speak(
+        utterance
+    );
 
 }
 
 
 function speakPassage() {
 
-  if (!currentPassage) {
+    if (
+        !currentPassage
+    ) {
 
-    return;
+        alert(
+            "请先等待经文加载完成。"
+        );
 
-  }
+        return;
 
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
-
-
-  const text =
-    currentPassage
-      .verses
-      .map(
-        function(v) {
-
-          return v.text;
-
-        }
-      )
-      .join(" ");
+    }
 
 
-  speakText(
-    text
-  );
+    const text =
+        currentPassage
+            .verses
+            .map(
+                function(verse) {
+
+                    return verse.text;
+
+                }
+            )
+            .join(" ");
+
+
+    speakText(
+        text
+    );
 
 }
 
 
 function playVerse(
-  index
+    index
 ) {
 
-  if (
-    !currentPassage ||
-    !currentPassage.verses[index]
-  ) {
+    if (
+        !currentPassage ||
+        !currentPassage.verses[index]
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
+    }
 
 
-  currentVerseIndex =
-    index;
+    continuousReading =
+        false;
 
 
-  speakVerse(
-    index
-  );
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        index;
+
+
+    speakVerse(
+        index
+    );
 
 }
 
 
 function speakVerse(
-  index
+    index
 ) {
 
-  if (
-    !currentPassage ||
-    !currentPassage.verses[index]
-  ) {
-
-    return;
-
-  }
-
-
-  currentVerseIndex =
-    index;
-
-
-  const elements =
-    document.querySelectorAll(
-      ".verse"
-    );
-
-
-  speakText(
-
-    currentPassage
-      .verses[index]
-      .text,
-
-    elements[index],
-
-    function() {
-
-      if (
-        repeatCurrentVerse
-      ) {
-
-        setTimeout(
-          function() {
-
-            speakVerse(
-              index
-            );
-
-          },
-          700
-        );
-
+    if (
+        !currentPassage ||
+        !currentPassage.verses[index]
+    ) {
 
         return;
 
-      }
-
-
-      if (
-        continuousReading
-      ) {
-
-        const next =
-          index + 1;
-
-
-        if (
-          next <
-          currentPassage
-            .verses
-            .length
-        ) {
-
-          speakVerse(
-            next
-          );
-
-        }
-
-        else {
-
-          continuousReading =
-            false;
-
-          updateSpeechStatus(
-            "连续逐节完成"
-          );
-
-        }
-
-      }
-
     }
 
-  );
+
+    currentVerseIndex =
+        index;
+
+
+    const elements =
+        document.querySelectorAll(
+            ".verse"
+        );
+
+
+    speakText(
+
+        currentPassage
+            .verses[index]
+            .text,
+
+        elements[index],
+
+        function() {
+
+            if (
+                repeatCurrentVerse
+            ) {
+
+                setTimeout(
+                    function() {
+
+                        speakVerse(
+                            index
+                        );
+
+                    },
+                    700
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                continuousReading
+            ) {
+
+                const next =
+                    index + 1;
+
+
+                if (
+                    next <
+                    currentPassage
+                        .verses
+                        .length
+                ) {
+
+                    speakVerse(
+                        next
+                    );
+
+                }
+
+                else {
+
+                    continuousReading =
+                        false;
+
+
+                    updateSpeechStatus(
+                        "✓ 连续逐节完成"
+                    );
+
+                }
+
+            }
+
+        }
+
+    );
 
 }
 
 
 function startContinuousReading() {
 
-  if (!currentPassage) {
+    if (
+        !currentPassage
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  stopSpeech();
-
-
-  continuousReading =
-    true;
-
-  repeatCurrentVerse =
-    false;
+    }
 
 
-  currentVerseIndex =
-    0;
+    stopSpeech();
 
 
-  updateSpeechStatus(
-    "连续逐节朗读中……"
-  );
+    continuousReading =
+        true;
 
 
-  speakVerse(
-    0
-  );
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        0;
+
+
+    updateSpeechStatus(
+        "▶ 连续逐节朗读中……"
+    );
+
+
+    speakVerse(
+        0
+    );
 
 }
 
 
 function toggleRepeatCurrentVerse() {
 
-  if (!currentPassage) {
+    if (
+        !currentPassage
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  continuousReading =
-    false;
+    }
 
 
-  repeatCurrentVerse =
-    !repeatCurrentVerse;
+    continuousReading =
+        false;
 
 
-  if (
-    repeatCurrentVerse
-  ) {
-
-    updateSpeechStatus(
-      "当前节循环中……"
-    );
+    repeatCurrentVerse =
+        !repeatCurrentVerse;
 
 
-    speakVerse(
-      currentVerseIndex
-    );
+    if (
+        repeatCurrentVerse
+    ) {
 
-  }
+        updateSpeechStatus(
+            "🔁 当前节循环中……"
+        );
 
-  else {
 
-    stopSpeech();
+        speakVerse(
+            currentVerseIndex
+        );
 
-  }
+    }
+
+    else {
+
+        stopSpeech();
+
+    }
 
 }
 
 
 function playPreviousVerse() {
 
-  if (!currentPassage) {
+    if (
+        !currentPassage
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
+    }
 
 
-  currentVerseIndex =
-    Math.max(
-      0,
-      currentVerseIndex - 1
+    continuousReading =
+        false;
+
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        Math.max(
+            0,
+            currentVerseIndex - 1
+        );
+
+
+    speakVerse(
+        currentVerseIndex
     );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
 
 }
 
 
 function playNextVerse() {
 
-  if (!currentPassage) {
+    if (
+        !currentPassage
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
+    }
 
 
-  currentVerseIndex =
-    Math.min(
+    continuousReading =
+        false;
 
-      currentPassage
-        .verses
-        .length - 1,
+    repeatCurrentVerse =
+        false;
 
-      currentVerseIndex + 1
 
+    currentVerseIndex =
+        Math.min(
+
+            currentPassage
+                .verses
+                .length - 1,
+
+            currentVerseIndex + 1
+
+        );
+
+
+    speakVerse(
+        currentVerseIndex
     );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
 
 }
 
 
 function stopSpeech() {
 
-  continuousReading =
-    false;
+    continuousReading =
+        false;
 
-  repeatCurrentVerse =
-    false;
-
-
-  if (
-    window.speechSynthesis
-  ) {
-
-    speechSynthesis.cancel();
-
-  }
+    repeatCurrentVerse =
+        false;
 
 
-  document
-    .querySelectorAll(
-      ".verse-speaking"
-    )
-    .forEach(
-      function(item) {
+    if (
+        window.speechSynthesis
+    ) {
 
-        item.classList.remove(
-          "verse-speaking"
+        speechSynthesis.cancel();
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".verse-speaking"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
         );
 
-      }
+
+    updateSpeechStatus(
+        "语音已停止"
     );
-
-
-  updateSpeechStatus(
-    "语音已停止"
-  );
 
 }
 
 
 function toggleSlow() {
 
-  speechRate =
-    speechRate ===
-    CONFIG.NORMAL_RATE
+    if (
+        speechRate ===
+        CONFIG.NORMAL_RATE
+    ) {
 
-      ? CONFIG.SLOW_RATE
+        speechRate =
+            CONFIG.SLOW_RATE;
 
-      : CONFIG.NORMAL_RATE;
+    }
+
+    else {
+
+        speechRate =
+            CONFIG.NORMAL_RATE;
+
+    }
 
 
-  const label =
-    $("speedLabel");
+    const label =
+        $("speedLabel");
 
 
-  if (label) {
+    if (label) {
 
-    label.textContent =
+        label.textContent =
 
-      speechRate ===
-      CONFIG.NORMAL_RATE
+            speechRate ===
+            CONFIG.NORMAL_RATE
 
-        ? "正常速度"
+                ? "正常速度"
 
-        : "慢速";
+                : "慢速";
 
-  }
+    }
+
+
+    updateSpeechStatus(
+
+        speechRate ===
+        CONFIG.NORMAL_RATE
+
+            ? "已切换到正常速度"
+
+            : "已切换到慢速"
+
+    );
 
 }
 
 
 function updateSpeechStatus(
-  text
+    message
 ) {
 
-  const status =
-    $("speechStatus");
+    const status =
+        $("speechStatus");
 
 
-  if (status) {
+    if (status) {
 
-    status.textContent =
-      text;
+        status.textContent =
+            message;
 
-  }
+    }
+
+}
+
+
+/* =========================================================
+   VOICE INIT
+========================================================= */
+
+function initSpeech() {
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        return;
+
+    }
+
+
+    selectedVoice =
+        findSavedVoice();
+
+
+    speechSynthesis.onvoiceschanged =
+        function() {
+
+            selectedVoice =
+                findSavedVoice();
+
+            renderVoicePanel();
+
+        };
+
+}
+
+
+function findSavedVoice() {
+
+    const voices =
+        speechSynthesis
+            .getVoices()
+            .filter(
+                function(voice) {
+
+                    return (
+                        voice.lang &&
+                        voice.lang
+                            .toLowerCase()
+                            .startsWith(
+                                "en"
+                            )
+                    );
+
+                }
+            );
+
+
+    if (!voices.length) {
+
+        return null;
+
+    }
+
+
+    const saved =
+        localStorage.getItem(
+            CONFIG.VOICE_KEY
+        );
+
+
+    if (saved) {
+
+        const match =
+            voices.find(
+                function(voice) {
+
+                    return (
+                        voice.name ===
+                        saved
+                    );
+
+                }
+            );
+
+
+        if (match) {
+
+            return match;
+
+        }
+
+    }
+
+
+    const names = [
+
+        "david",
+        "daniel",
+        "alex",
+        "mark",
+        "james",
+        "george",
+        "guy",
+        "fred",
+        "male"
+
+    ];
+
+
+    const likelyMale =
+        voices.find(
+            function(voice) {
+
+                const name =
+                    voice.name
+                        .toLowerCase();
+
+
+                return names.some(
+                    function(word) {
+
+                        return name
+                            .includes(word);
+
+                    }
+                );
+
+            }
+        );
+
+
+    if (likelyMale) {
+
+        return likelyMale;
+
+    }
+
+
+    const us =
+        voices.find(
+            function(voice) {
+
+                return (
+                    voice.lang
+                        .toLowerCase() ===
+                    "en-us"
+                );
+
+            }
+        );
+
+
+    return (
+        us ||
+        voices[0]
+    );
 
 }
 
@@ -2045,126 +2283,136 @@ function updateSpeechStatus(
 
 function goToNotice() {
 
-  renderNotice();
+    renderNotice();
 
-  go(
-    "notice"
-  );
+    showScreen(
+        "notice"
+    );
 
 }
 
 
 function renderNotice() {
 
-  const container =
-    $("noticeQuestions");
+    const container =
+        $("noticeQuestions");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT.notice
-    .forEach(
-      function(item, index) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        block.className =
-          "notice-question";
+    GOLDEN_UNIT.notice
+        .forEach(
+            function(item, index) {
 
-
-        const title =
-          document.createElement(
-            "div"
-          );
-
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          `${index + 1}. ${item.question}`;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
-            function(option, optionIndex) {
-
-              const button =
-                document.createElement(
-                  "button"
-                );
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.onclick =
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
-                    .forEach(
-                      function(btn) {
-
-                        btn.classList.remove(
-                          "selected"
-                        );
-
-                      }
+                const block =
+                    document.createElement(
+                        "div"
                     );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.className =
+                    "notice-question";
 
 
-                  button.dataset.answer =
-                    optionIndex;
+                const title =
+                    document.createElement(
+                        "div"
+                    );
 
-                };
+
+                title.className =
+                    "notice-question-title";
 
 
-              block.appendChild(
-                button
-              );
+                title.textContent =
+                    "NOTICE " +
+                    (index + 1) +
+                    " · " +
+                    item.question;
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item.options
+                    .forEach(
+                        function(
+                            option,
+                            optionIndex
+                        ) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.className =
+                                "option";
+
+
+                            button.type =
+                                "button";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.onclick =
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(btn) {
+
+                                                btn.classList.remove(
+                                                    "selected"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    button.dataset.answer =
+                                        optionIndex;
+
+                                };
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        container.appendChild(
-          block
         );
-
-      }
-    );
 
 }
 
@@ -2175,116 +2423,157 @@ function renderNotice() {
 
 function goToVocabulary() {
 
-  renderVocabulary();
+    renderVocabulary();
 
-  go(
-    "vocabulary"
-  );
+    showScreen(
+        "vocabulary"
+    );
 
 }
 
 
 function renderVocabulary() {
 
-  const container =
-    $("vocabularyList");
+    const container =
+        $("vocabularyList");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML = "";
+    }
 
 
-  GOLDEN_UNIT
-    .vocabulary
-    .forEach(
-      function(item) {
-
-        const div =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        div.className =
-          "vocab-item";
+    GOLDEN_UNIT.vocabulary
+        .forEach(
+            function(item) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        div.innerHTML = `
-
-          <div class="vocab-top">
-
-            <div class="term">
-              ${escapeHTML(
-                item.word
-              )}
-            </div>
-
-          </div>
-
-          <div class="vocab-meaning">
-
-            ${escapeHTML(
-              item.meaning
-            )}
-
-          </div>
-
-          <div class="vocab-en">
-
-            ${escapeHTML(
-              item.english
-            )}
-
-          </div>
-
-        `;
+                div.className =
+                    "vocab-item";
 
 
-        const button =
-          document.createElement(
-            "button"
-          );
+                const top =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        button.className =
-          "mini";
+                top.className =
+                    "vocab-top";
 
 
-        button.textContent =
-          "🔊 发音";
+                const word =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        button.onclick =
-          function() {
-
-            speakText(
-              item.word
-            );
-
-          };
+                word.className =
+                    "term";
 
 
-        div
-          .querySelector(
-            ".vocab-top"
-          )
-          .appendChild(
-            button
-          );
+                word.textContent =
+                    item.word;
 
 
-        container.appendChild(
-          div
+                top.appendChild(
+                    word
+                );
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.className =
+                    "mini";
+
+
+                button.type =
+                    "button";
+
+
+                button.textContent =
+                    "🔊 发音";
+
+
+                button.onclick =
+                    function() {
+
+                        speakText(
+                            item.word
+                        );
+
+                    };
+
+
+                top.appendChild(
+                    button
+                );
+
+
+                div.appendChild(
+                    top
+                );
+
+
+                const meaning =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                meaning.className =
+                    "vocab-meaning";
+
+
+                meaning.textContent =
+                    item.meaning;
+
+
+                div.appendChild(
+                    meaning
+                );
+
+
+                const english =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                english.className =
+                    "vocab-en";
+
+
+                english.textContent =
+                    item.english;
+
+
+                div.appendChild(
+                    english
+                );
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
         );
-
-      }
-    );
 
 }
 
@@ -2295,103 +2584,104 @@ function renderVocabulary() {
 
 function goToStructure() {
 
-  renderStructure();
+    renderStructure();
 
-  go(
-    "structure"
-  );
+    showScreen(
+        "structure"
+    );
 
 }
 
 
 function renderStructure() {
 
-  const container =
-    $("structureList");
+    const container =
+        $("structureList");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .structures
-    .forEach(
-      function(item) {
-
-        const div =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        div.className =
-          "structure-item";
+    GOLDEN_UNIT.structures
+        .forEach(
+            function(item) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        div.innerHTML = `
-
-          <div class="structure-pattern">
-
-            ${escapeHTML(
-              item.pattern
-            )}
-
-          </div>
-
-          <div class="structure-explanation">
-
-            ${escapeHTML(
-              item.explanation
-            )}
-
-          </div>
-
-        `;
+                div.className =
+                    "structure-item";
 
 
-        const button =
-          document.createElement(
-            "button"
-          );
+                div.innerHTML =
+
+                    "<div class='structure-pattern'>" +
+
+                    escapeHTML(
+                        item.pattern
+                    ) +
+
+                    "</div>" +
+
+                    "<div class='structure-explanation'>" +
+
+                    escapeHTML(
+                        item.explanation
+                    ) +
+
+                    "</div>";
 
 
-        button.textContent =
-          "🔊 听句型";
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
 
-        button.style.marginTop =
-          "9px";
+                button.type =
+                    "button";
 
 
-        button.onclick =
-          function() {
-
-            speakText(
-              item.pattern
-            );
-
-          };
+                button.textContent =
+                    "🔊 听句型";
 
 
-        div.appendChild(
-          button
+                button.style.marginTop =
+                    "8px";
+
+
+                button.onclick =
+                    function() {
+
+                        speakText(
+                            item.pattern
+                        );
+
+                    };
+
+
+                div.appendChild(
+                    button
+                );
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
         );
-
-
-        container.appendChild(
-          div
-        );
-
-      }
-    );
 
 }
 
@@ -2402,272 +2692,281 @@ function renderStructure() {
 
 function goToDirect() {
 
-  renderDirect();
+    renderDirect();
 
-  go(
-    "direct"
-  );
+    showScreen(
+        "direct"
+    );
 
 }
 
 
 function renderDirect() {
 
-  const container =
-    $("directQuestions");
+    const container =
+        $("directQuestions");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .direct
-    .forEach(
-      function(item, index) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        block.className =
-          "notice-question";
+    directAnswers =
+        {};
 
 
-        const title =
-          document.createElement(
-            "div"
-          );
+    GOLDEN_UNIT.direct
+        .forEach(
+            function(item, index) {
 
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          `${index + 1}. ${item.question}`;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
-            function(option, optionIndex) {
-
-              const button =
-                document.createElement(
-                  "button"
-                );
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.onclick =
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
-                    .forEach(
-                      function(btn) {
-
-                        btn.classList.remove(
-                          "selected"
-                        );
-
-                      }
+                const block =
+                    document.createElement(
+                        "div"
                     );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.className =
+                    "notice-question";
 
 
-                  button.dataset.answer =
-                    optionIndex;
+                const title =
+                    document.createElement(
+                        "div"
+                    );
 
-                };
+
+                title.className =
+                    "notice-question-title";
 
 
-              block.appendChild(
-                button
-              );
+                title.textContent =
+                    "DIRECT " +
+                    (index + 1) +
+                    " · " +
+                    item.question;
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item.options
+                    .forEach(
+                        function(
+                            option,
+                            optionIndex
+                        ) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.className =
+                                "option";
+
+
+                            button.type =
+                                "button";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.onclick =
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(btn) {
+
+                                                btn.classList.remove(
+                                                    "selected"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    directAnswers[
+                                        index
+                                    ] =
+                                        optionIndex;
+
+
+                                    updateDirectScore();
+
+                                };
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                const chineseButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                chineseButton.type =
+                    "button";
+
+
+                chineseButton.textContent =
+                    "中文确认";
+
+
+                chineseButton.style.marginTop =
+                    "8px";
+
+
+                chineseButton.onclick =
+                    function() {
+
+                        let box =
+                            block.querySelector(
+                                ".chinese-confirm"
+                            );
+
+
+                        if (!box) {
+
+                            box =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            box.className =
+                                "success";
+
+
+                            box.style.marginTop =
+                                "8px";
+
+
+                            box.textContent =
+                                item.chinese;
+
+
+                            block.appendChild(
+                                box
+                            );
+
+                        }
+
+                        else {
+
+                            box.remove();
+
+                        }
+
+                    };
+
+
+                block.appendChild(
+                    chineseButton
+                );
+
+
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        const confirm =
-          document.createElement(
-            "button"
-          );
-
-
-        confirm.textContent =
-          "中文确认";
-
-
-        confirm.style.marginTop =
-          "9px";
-
-
-        confirm.onclick =
-          function() {
-
-            const answer =
-              document.createElement(
-                "div"
-              );
-
-
-            answer.className =
-              "success";
-
-
-            answer.textContent =
-              item.chinese;
-
-
-            if (
-              block
-                .querySelector(
-                  ".success"
-                )
-            ) {
-
-              block
-                .querySelector(
-                  ".success"
-                )
-                .remove();
-
-            }
-
-
-            block.appendChild(
-              answer
-            );
-
-          };
-
-
-        block.appendChild(
-          confirm
         );
 
 
-        container.appendChild(
-          block
-        );
-
-      }
-    );
-
-
-  const score =
-    $("directScore");
-
-
-  if (score) {
-
-    score.innerHTML =
-      "选择答案后，会自动统计 Direct Comprehension。";
-
-  }
-
-
-  updateDirectScore();
+    updateDirectScore();
 
 }
 
 
 function updateDirectScore() {
 
-  const blocks =
-    document.querySelectorAll(
-      "#directQuestions .notice-question"
-    );
+    const score =
+        $("directScore");
 
 
-  if (!blocks.length) {
+    if (!score) {
 
-    return;
+        return;
 
-  }
-
-
-  let correct =
-    0;
-
-  let answered =
-    0;
+    }
 
 
-  blocks.forEach(
-    function(block, index) {
+    let correct = 0;
 
-      const selected =
-        block.querySelector(
-          ".option.selected"
+    let answered = 0;
+
+
+    GOLDEN_UNIT.direct
+        .forEach(
+            function(item, index) {
+
+                if (
+                    directAnswers[index] !==
+                    undefined
+                ) {
+
+                    answered++;
+
+
+                    if (
+                        directAnswers[index] ===
+                        item.answer
+                    ) {
+
+                        correct++;
+
+                    }
+
+                }
+
+            }
         );
 
 
-      if (
-        selected
-      ) {
-
-        answered++;
-
-
-        if (
-          Number(
-            selected.dataset.answer
-          ) ===
-          GOLDEN_UNIT
-            .direct[index]
-            .answer
-        ) {
-
-          correct++;
-
-        }
-
-      }
-
-    }
-  );
-
-
-  const score =
-    $("directScore");
-
-
-  if (score) {
-
     score.textContent =
-      `Direct Comprehension：${correct}/${blocks.length} · 已回答 ${answered}/${blocks.length}`;
 
-  }
+        "Direct Comprehension：" +
+
+        correct +
+
+        "/" +
+
+        GOLDEN_UNIT.direct.length +
+
+        " · 已回答 " +
+
+        answered +
+
+        "/" +
+
+        GOLDEN_UNIT.direct.length;
 
 }
 
@@ -2678,207 +2977,262 @@ function updateDirectScore() {
 
 function goToSpeak() {
 
-  $("speakPrompt").textContent =
-    GOLDEN_UNIT.production;
+    const prompt =
+        $("speakPrompt");
 
 
-  renderImitationList();
+    if (prompt) {
+
+        prompt.textContent =
+            GOLDEN_UNIT.production;
+
+    }
 
 
-  go(
-    "speak"
-  );
+    renderImitationList();
+
+    showScreen(
+        "speak"
+    );
 
 }
 
 
 function checkSpeak() {
 
-  const input =
-    $("speakAnswer");
+    const input =
+        $("speakAnswer");
 
 
-  const result =
-    $("speakResult");
+    const result =
+        $("speakResult");
 
 
-  const text =
-    input.value.trim();
+    if (
+        !input ||
+        !result
+    ) {
+
+        return;
+
+    }
 
 
-  if (!text) {
+    const text =
+        input.value.trim();
+
 
     result.classList.remove(
-      "hidden"
+        "hidden"
     );
+
+
+    if (!text) {
+
+        result.innerHTML =
+
+            "<div class='success'>" +
+
+            "请先写一句英文。" +
+
+            "</div>";
+
+        return;
+
+    }
+
+
+    const lower =
+        text.toLowerCase();
+
+
+    const keywords = [
+
+        "word",
+        "god",
+        "life",
+        "light",
+        "darkness"
+
+    ];
+
+
+    let hits = 0;
+
+
+    keywords.forEach(
+        function(word) {
+
+            if (
+                lower.includes(word)
+            ) {
+
+                hits++;
+
+            }
+
+        }
+    );
+
+
+    const wordCount =
+        text
+            .split(/\s+/)
+            .filter(Boolean)
+            .length;
+
+
+    let score =
+        Math.round(
+            (
+                hits /
+                keywords.length
+            ) * 70
+        );
+
+
+    if (
+        wordCount >= 6
+    ) {
+
+        score +=
+            15;
+
+    }
+
+
+    if (
+        lower.includes("and") ||
+        lower.includes("because")
+    ) {
+
+        score +=
+            15;
+
+    }
+
+
+    score =
+        Math.min(
+            100,
+            score
+        );
 
 
     result.innerHTML =
-      "<div class='success'>" +
-      "请先写一句英文。" +
-      "</div>";
 
-    return;
+        "<div class='success'>" +
 
-  }
+        "<strong>" +
 
+        "英文表达：" +
 
-  const lower =
-    text.toLowerCase();
+        score +
 
+        "/100" +
 
-  const keywords = [
+        "</strong>" +
 
-    "word",
-    "god",
-    "life",
-    "light",
-    "darkness"
+        "<br><br>" +
 
-  ];
+        "关键词：" +
 
+        hits +
 
-  let hits =
-    0;
+        "/5" +
 
+        "<br>" +
 
-  keywords.forEach(
-    function(word) {
+        "单词数：" +
 
-      if (
-        lower.includes(word)
-      ) {
+        wordCount +
 
-        hits++;
+        "<br><br>" +
 
-      }
+        (
+            score >= 80
 
-    }
-  );
+                ? "很好，你已经能够抓住经文核心。"
 
+                : score >= 60
 
-  const wordCount =
-    text
-      .split(/\s+/)
-      .filter(Boolean)
-      .length;
+                    ? "不错，继续让表达更完整。"
+
+                    : "先准确表达核心内容，不必追求复杂。"
+
+        ) +
+
+        "</div>";
 
 
-  let score =
-    Math.round(
-      (
-        Math.min(
-          hits,
-          5
-        ) / 5
-      ) *
-      70
-    );
+    const listen =
+        document.createElement(
+            "button"
+        );
 
 
-  if (
-    wordCount >= 6
-  ) {
-
-    score +=
-      15;
-
-  }
+    listen.type =
+        "button";
 
 
-  if (
-    lower.includes(
-      "because"
-    )
-    ||
-    lower.includes(
-      "and"
-    )
-  ) {
-
-    score +=
-      15;
-
-  }
+    listen.textContent =
+        "🔊 听我的英文答案";
 
 
-  score =
-    Math.min(
-      100,
-      score
-    );
+    listen.style.marginTop =
+        "8px";
 
 
-  result.classList.remove(
-    "hidden"
-  );
+    listen.onclick =
+        function() {
+
+            speakText(
+                text
+            );
+
+        };
 
 
-  result.innerHTML =
-
-    "<div class='success'>" +
-
-    "<strong>" +
-
-    "英文表达：" +
-
-    score +
-
-    "/100" +
-
-    "</strong>" +
-
-    "<br><br>" +
-
-    "关键词：" +
-
-    hits +
-
-    "/5" +
-
-    "<br>" +
-
-    "单词数：" +
-
-    wordCount +
-
-    "<br><br>" +
-
-    (
-      score >= 80
-        ? "很好，你已经能够用英文抓住这段经文。"
-        : score >= 60
-          ? "不错，继续尝试让英文表达更完整。"
-          : "先不要追求复杂，准确说出核心内容。"
-    ) +
-
-    "</div>";
+    result
+        .firstElementChild
+        .appendChild(
+            listen
+        );
 
 }
 
 
 function listenToMyAnswer() {
 
-  const text =
-    $("speakAnswer")
-      .value
-      .trim();
+    const input =
+        $("speakAnswer");
 
 
-  if (!text) {
+    if (!input) {
 
-    alert(
-      "请先写下你的英文答案。"
+        return;
+
+    }
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+
+        alert(
+            "请先写下英文答案。"
+        );
+
+        return;
+
+    }
+
+
+    speakText(
+        text
     );
-
-    return;
-
-  }
-
-
-  speakText(
-    text
-  );
 
 }
 
@@ -2889,84 +3243,97 @@ function listenToMyAnswer() {
 
 function renderImitationList() {
 
-  const container =
-    $("imitationList");
+    const container =
+        $("imitationList");
 
 
-  if (!container || !currentPassage) {
+    if (
+        !container ||
+        !currentPassage
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  currentPassage
-    .verses
-    .forEach(
-      function(verse) {
-
-        const item =
-          document.createElement(
-            "div"
-          );
+    }
 
 
-        item.className =
-          "imitation-item";
+    container.innerHTML =
+        "";
 
 
-        item.innerHTML = `
+    currentPassage
+        .verses
+        .forEach(
+            function(verse) {
 
-          <div class="imitation-sentence">
-
-            ${escapeHTML(
-              verse.text
-            )}
-
-          </div>
-
-        `;
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        const button =
-          document.createElement(
-            "button"
-          );
+                item.className =
+                    "imitation-item";
 
 
-        button.textContent =
-          "🔊 听这一句";
+                const sentence =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        button.style.marginTop =
-          "8px";
+                sentence.className =
+                    "imitation-sentence";
 
 
-        button.onclick =
-          function() {
-
-            speakText(
-              verse.text
-            );
-
-          };
+                sentence.textContent =
+                    verse.text;
 
 
-        item.appendChild(
-          button
+                item.appendChild(
+                    sentence
+                );
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.textContent =
+                    "🔊 听这一句";
+
+
+                button.style.marginTop =
+                    "8px";
+
+
+                button.onclick =
+                    function() {
+
+                        speakText(
+                            verse.text
+                        );
+
+                    };
+
+
+                item.appendChild(
+                    button
+                );
+
+
+                container.appendChild(
+                    item
+                );
+
+            }
         );
-
-
-        container.appendChild(
-          item
-        );
-
-      }
-    );
 
 }
 
@@ -2977,49 +3344,122 @@ function renderImitationList() {
 
 function goToReread() {
 
-  renderRereadPassage();
+    renderRereadPassage();
 
-  go(
-    "reread"
-  );
+    showScreen(
+        "reread"
+    );
 
 }
 
 
-function setFeeling(
-  score,
-  button
-) {
+function renderRereadPassage() {
 
-  currentFeeling =
-    score;
+    const container =
+        $("rereadPassage");
 
 
-  document
-    .querySelectorAll(
-      ".feeling-options button"
-    )
-    .forEach(
-      function(item) {
+    if (
+        !container ||
+        !currentPassage
+    ) {
 
-        item.classList.remove(
-          "selected"
+        return;
+
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    currentPassage
+        .verses
+        .forEach(
+            function(verse) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.style.marginBottom =
+                    "18px";
+
+
+                div.textContent =
+                    verse.verse +
+                    " " +
+                    verse.text;
+
+
+                div.onclick =
+                    function() {
+
+                        speakText(
+                            verse.text
+                        );
+
+                    };
+
+
+                div.style.cursor =
+                    "pointer";
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
         );
 
-      }
-    );
+}
 
 
-  button.classList.add(
-    "selected"
-  );
+/* =========================================================
+   FEELING
+========================================================= */
+
+function setFeeling(
+    score,
+    button
+) {
+
+    currentFeeling =
+        score;
 
 
-  state.feeling =
-    score;
+    document
+        .querySelectorAll(
+            ".feeling-options button"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "selected"
+                );
+
+            }
+        );
 
 
-  saveState();
+    if (button) {
+
+        button.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    state.feeling =
+        score;
+
+
+    saveState();
 
 }
 
@@ -3030,591 +3470,601 @@ function setFeeling(
 
 function goToFinalTest() {
 
-  renderFinalQuestions();
+    renderFinalQuestions();
 
-  go(
-    "finalTest"
-  );
+    showScreen(
+        "finalTest"
+    );
 
 }
 
 
 function renderFinalQuestions() {
 
-  const container =
-    $("finalQuestions");
+    const container =
+        $("finalQuestions");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .direct
-    .slice(
-      0,
-      4
-    )
-    .forEach(
-      function(item, index) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        block.className =
-          "notice-question";
+    GOLDEN_UNIT.direct
+        .slice(
+            0,
+            4
+        )
+        .forEach(
+            function(item, index) {
 
-
-        const title =
-          document.createElement(
-            "div"
-          );
-
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          `${index + 1}. ${item.question}`;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
-            function(option, optionIndex) {
-
-              const button =
-                document.createElement(
-                  "button"
-                );
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.onclick =
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
-                    .forEach(
-                      function(btn) {
-
-                        btn.classList.remove(
-                          "selected"
-                        );
-
-                      }
+                const block =
+                    document.createElement(
+                        "div"
                     );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.className =
+                    "notice-question";
 
 
-                  button.dataset.answer =
-                    optionIndex;
-
-                };
+                block.dataset.correct =
+                    item.answer;
 
 
-              block.appendChild(
-                button
-              );
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.className =
+                    "notice-question-title";
+
+
+                title.textContent =
+                    (index + 1) +
+                    ". " +
+                    item.question;
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item.options
+                    .forEach(
+                        function(
+                            option,
+                            optionIndex
+                        ) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.type =
+                                "button";
+
+
+                            button.className =
+                                "option";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.onclick =
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(btn) {
+
+                                                btn.classList.remove(
+                                                    "selected"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    button.dataset.answer =
+                                        optionIndex;
+
+                                };
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        block.dataset.answer =
-          item.answer;
-
-
-        container.appendChild(
-          block
         );
-
-      }
-    );
 
 }
 
 
 function submitFinalTest() {
 
-  const blocks =
-    document.querySelectorAll(
-      "#finalQuestions .notice-question"
-    );
-
-
-  let correct =
-    0;
-
-
-  blocks.forEach(
-    function(block) {
-
-      const selected =
-        block.querySelector(
-          ".option.selected"
+    const blocks =
+        document.querySelectorAll(
+            "#finalQuestions .notice-question"
         );
 
 
-      if (
-        selected &&
-        Number(
-          selected.dataset.answer
-        ) ===
-        Number(
-          block.dataset.answer
-        )
-      ) {
+    if (!blocks.length) {
 
-        correct++;
-
-      }
+        return;
 
     }
-  );
 
 
-  finalScore =
-    Math.round(
-      (
-        correct /
+    let correct = 0;
+
+    let answered = 0;
+
+
+    blocks.forEach(
+        function(block) {
+
+            const selected =
+                block.querySelector(
+                    ".option.selected"
+                );
+
+
+            if (
+                selected
+            ) {
+
+                answered++;
+
+
+                if (
+                    Number(
+                        selected.dataset.answer
+                    ) ===
+                    Number(
+                        block.dataset.correct
+                    )
+                ) {
+
+                    correct++;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    if (
+        answered <
         blocks.length
-      ) * 100
+    ) {
+
+        alert(
+            "请完成全部问题后再提交。"
+        );
+
+        return;
+
+    }
+
+
+    finalScore =
+        Math.round(
+            (
+                correct /
+                blocks.length
+            ) * 100
+        );
+
+
+    finalSubmitted =
+        true;
+
+
+    state.final =
+        finalScore;
+
+
+    saveState();
+
+
+    const result =
+        $("finalResult");
+
+
+    if (result) {
+
+        result.classList.remove(
+            "hidden"
+        );
+
+
+        result.innerHTML =
+
+            "<div class='success'>" +
+
+            "<strong>" +
+
+            "第二次理解：" +
+
+            finalScore +
+
+            "%</strong>" +
+
+            "</div>";
+
+    }
+
+
+    setTimeout(
+        function() {
+
+            showFinalResult();
+
+        },
+        600
     );
-
-
-  finalSubmitted =
-    true;
-
-
-  state.final =
-    finalScore;
-
-
-  saveState();
-
-
-  $("finalResult")
-    .classList
-    .remove(
-      "hidden"
-    );
-
-
-  $("finalResult")
-    .innerHTML =
-
-    "<div class='success'>" +
-
-    "第二次理解：" +
-
-    finalScore +
-
-    "%" +
-
-    "<br><br>" +
-
-    "你的结果已经记录。" +
-
-    "</div>";
-
-
-  setTimeout(
-    showFinalResult,
-    800
-  );
 
 }
 
 
 /* =========================================================
-   RESULT
+   FINAL RESULT
 ========================================================= */
 
 function showFinalResult() {
 
-  $("baselineScore")
-    .textContent =
-    baselineScore +
-    "%";
+    const baseline =
+        $("baselineScore");
 
 
-  $("finalScore")
-    .textContent =
-    finalScore +
-    "%";
+    const final =
+        $("finalScore");
 
 
-  const improvement =
-    finalScore -
-    baselineScore;
+    const improvementBox =
+        $("improvementBox");
 
 
-  const box =
-    $("improvementBox");
+    if (baseline) {
+
+        baseline.textContent =
+            baselineScore +
+            "%";
+
+    }
 
 
-  if (
-    improvement > 0
-  ) {
+    if (final) {
 
-    box.innerHTML =
+        final.textContent =
+            finalScore +
+            "%";
 
-      "<strong>" +
-
-      "理解提升 +" +
-
-      improvement +
-
-      "%</strong>" +
-
-      "<div style='margin-top:6px;font-size:12px'>" +
-
-      "训练后，你对这段英文经文的直接理解有所提升。" +
-
-      "</div>";
-
-  }
-
-  else if (
-    improvement === 0
-  ) {
-
-    box.innerHTML =
-
-      "<strong>理解保持不变</strong>" +
-
-      "<div style='margin-top:6px;font-size:12px'>" +
-
-      "再经过几次间隔复习，继续观察变化。" +
-
-      "</div>";
-
-  }
-
-  else {
-
-    box.innerHTML =
-
-      "<strong>这次没有提升</strong>" +
-
-      "<div style='margin-top:6px;font-size:12px'>" +
-
-      "这并不意味着失败。建议重新听读后再测。" +
-
-      "</div>";
-
-  }
+    }
 
 
-  state.completed =
-    true;
+    const improvement =
+        finalScore -
+        baselineScore;
 
 
-  state.completedAt =
-    new Date().toISOString();
+    if (
+        improvementBox
+    ) {
+
+        if (
+            improvement > 0
+        ) {
+
+            improvementBox.innerHTML =
+                "<strong>" +
+                "理解提升 +" +
+                improvement +
+                "%</strong>" +
+                "<div>" +
+                "训练后，你对这段英文经文的直接理解有所提升。" +
+                "</div>";
+
+        }
+
+        else if (
+            improvement === 0
+        ) {
+
+            improvementBox.innerHTML =
+                "<strong>" +
+                "理解保持不变" +
+                "</strong>" +
+                "<div>" +
+                "继续进行间隔复习。" +
+                "</div>";
+
+        }
+
+        else {
+
+            improvementBox.innerHTML =
+                "<strong>" +
+                "这一次没有提升" +
+                "</strong>" +
+                "<div>" +
+                "建议重新听读后再次复习。" +
+                "</div>";
+
+        }
+
+    }
 
 
-  state.reviewDates = [
-
-    addDays(
-      new Date(),
-      1
-    ),
-
-    addDays(
-      new Date(),
-      3
-    ),
-
-    addDays(
-      new Date(),
-      7
-    )
-
-  ];
+    state.completed =
+        true;
 
 
-  saveState();
+    state.completedAt =
+        new Date()
+            .toISOString();
 
-  updateHomeProgress();
+
+    state.reviewDates = [
+
+        addDays(
+            new Date(),
+            1
+        ),
+
+        addDays(
+            new Date(),
+            3
+        ),
+
+        addDays(
+            new Date(),
+            7
+        )
+
+    ];
 
 
-  go(
-    "result"
-  );
+    saveState();
+
+    renderHomeProgress();
+
+
+    showScreen(
+        "result"
+    );
 
 }
 
 
 function addDays(
-  date,
-  days
+    date,
+    days
 ) {
 
-  const result =
-    new Date(
-      date
+    const result =
+        new Date(
+            date
+        );
+
+
+    result.setDate(
+        result.getDate() +
+        days
     );
 
 
-  result.setDate(
-    result.getDate() +
-    days
-  );
-
-
-  return result
-    .toISOString()
-    .slice(
-      0,
-      10
-    );
+    return result
+        .toISOString()
+        .slice(
+            0,
+            10
+        );
 
 }
 
 
 /* =========================================================
-   REVIEW
+   REVIEWS
 ========================================================= */
 
 function renderReviews() {
 
-  const container =
-    $("reviewList");
+    const container =
+        $("reviewList");
 
 
-  if (!container) {
+    if (!container) {
 
-    return;
+        return;
 
-  }
+    }
 
 
-  if (
-    !state.completed ||
-    !state.reviewDates
-  ) {
+    if (
+        !state.reviewDates ||
+        !state.reviewDates.length
+    ) {
+
+        container.innerHTML =
+            "<div class='muted'>" +
+            "完成黄金训练后，这里会显示 Day 1 / Day 3 / Day 7。" +
+            "</div>";
+
+        return;
+
+    }
+
 
     container.innerHTML =
+        "";
 
-      "<div class='muted'>" +
-
-      "完成黄金单元后，这里会自动生成复习日期。" +
-
-      "</div>";
-
-    return;
-
-  }
-
-
-  container.innerHTML =
 
     state.reviewDates
-      .map(
-        function(date, index) {
+        .forEach(
+            function(date, index) {
 
-          return `
-
-            <div class="review-row">
-
-              <strong>
-                Day ${
-                  index === 0
-                    ? 1
-                    : index === 1
-                      ? 3
-                      : 7
-                }
-              </strong>
-
-              <small>
-                ${date}
-              </small>
-
-            </div>
-
-          `;
-
-        }
-      )
-      .join("");
-
-}
+                const row =
+                    document.createElement(
+                        "div"
+                    );
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+                row.className =
+                    "review-row";
 
-function go(
-  screenId
-) {
 
-  document
-    .querySelectorAll(
-      ".screen"
-    )
-    .forEach(
-      function(screen) {
+                const day =
+                    index === 0
+                        ? 1
+                        : index === 1
+                            ? 3
+                            : 7;
 
-        screen.classList.remove(
-          "active"
+
+                row.innerHTML =
+
+                    "<strong>" +
+                    "Day " +
+                    day +
+                    "</strong>" +
+
+                    "<span>" +
+                    date +
+                    "</span>";
+
+
+                container.appendChild(
+                    row
+                );
+
+            }
         );
 
-      }
-    );
-
-
-  const target =
-    $(screenId);
-
-
-  if (target) {
-
-    target.classList.add(
-      "active"
-    );
-
-  }
-
-
-  if (
-    screenId ===
-    "review"
-  ) {
-
-    renderReviews();
-
-  }
-
-
-  window.scrollTo({
-
-    top: 0,
-
-    behavior:
-      "smooth"
-
-  });
-
 }
 
 
 /* =========================================================
-   EXPORT FUNCTIONS TO HTML
+   GLOBAL FUNCTIONS
 ========================================================= */
 
 window.go =
-  go;
+    showScreen;
+
+window.showScreen =
+    showScreen;
 
 window.startGoldenUnit =
-  startGoldenUnit;
+    startGoldenUnit;
 
 window.startBaseline =
-  startBaseline;
+    startBaseline;
 
 window.submitBaseline =
-  submitBaseline;
+    submitBaseline;
 
 window.goToNotice =
-  goToNotice;
+    goToNotice;
 
 window.goToVocabulary =
-  goToVocabulary;
+    goToVocabulary;
 
 window.goToStructure =
-  goToStructure;
+    goToStructure;
 
 window.goToDirect =
-  goToDirect;
+    goToDirect;
 
 window.goToSpeak =
-  goToSpeak;
+    goToSpeak;
 
 window.goToReread =
-  goToReread;
+    goToReread;
 
 window.goToFinalTest =
-  goToFinalTest;
+    goToFinalTest;
 
 window.submitFinalTest =
-  submitFinalTest;
+    submitFinalTest;
 
 window.speakText =
-  speakText;
+    speakText;
 
 window.speakPassage =
-  speakPassage;
+    speakPassage;
 
 window.playVerse =
-  playVerse;
+    playVerse;
 
 window.speakVerse =
-  speakVerse;
+    speakVerse;
 
 window.startContinuousReading =
-  startContinuousReading;
+    startContinuousReading;
 
 window.toggleRepeatCurrentVerse =
-  toggleRepeatCurrentVerse;
+    toggleRepeatCurrentVerse;
 
 window.playPreviousVerse =
-  playPreviousVerse;
+    playPreviousVerse;
 
 window.playNextVerse =
-  playNextVerse;
+    playNextVerse;
 
 window.stopSpeech =
-  stopSpeech;
+    stopSpeech;
 
 window.toggleSlow =
-  toggleSlow;
+    toggleSlow;
 
 window.checkSpeak =
-  checkSpeak;
+    checkSpeak;
 
 window.listenToMyAnswer =
-  listenToMyAnswer;
+    listenToMyAnswer;
 
 window.setFeeling =
-  setFeeling;
+    setFeeling;
 
 
 /* =========================================================
-   DOM READY
+   START
 ========================================================= */
 
 document.addEventListener(
-  "DOMContentLoaded",
-  init
+    "DOMContentLoaded",
+    init
 );
