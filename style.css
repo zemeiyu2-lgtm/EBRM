@@ -6,15 +6,19 @@
 :root {
 
   --bg: #f5f1e7;
+
   --paper: #fffdf8;
 
   --ink: #28332d;
+
   --muted: #778078;
 
   --accent: #496b59;
+
   --accent-soft: #e6eee7;
 
   --gold: #9a7740;
+
   --gold-soft: #f3ead8;
 
   --danger: #965f55;
@@ -24,6 +28,11 @@
   --shadow:
     0 8px 28px rgba(50,50,40,.07);
 
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 
@@ -50,19 +59,76 @@ body {
 }
 
 
+button,
+textarea,
+select {
+
+  font: inherit;
+
+}
+
+
+button {
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    10px;
+
+  background:
+    white;
+
+  color:
+    var(--ink);
+
+  padding:
+    10px 13px;
+
+  cursor:
+    pointer;
+
+  transition:
+    .15s ease;
+
+}
+
+
+button:hover {
+
+  border-color:
+    #b7ad9d;
+
+}
+
+
+button:active {
+
+  transform:
+    scale(.98);
+
+}
+
+
 .topbar {
 
-  position: sticky;
+  position:
+    sticky;
 
-  top: 0;
+  top:
+    0;
 
-  z-index: 50;
+  z-index:
+    50;
 
-  display: flex;
+  display:
+    flex;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  align-items: center;
+  align-items:
+    center;
 
   padding:
     13px 18px;
@@ -117,17 +183,17 @@ body {
 
 .app {
 
-  width:
-    100%;
-
   max-width:
     850px;
+
+  width:
+    100%;
 
   margin:
     0 auto;
 
   padding:
-    18px 16px 70px;
+    18px 16px 75px;
 
 }
 
@@ -184,7 +250,7 @@ body {
     serif;
 
   font-size:
-    clamp(35px, 9vw, 58px);
+    clamp(36px, 9vw, 60px);
 
   line-height:
     1.05;
@@ -202,7 +268,7 @@ body {
     serif;
 
   font-size:
-    18px;
+    19px;
 
 }
 
@@ -210,7 +276,7 @@ body {
 .hero-description {
 
   max-width:
-    600px;
+    620px;
 
   color:
     var(--muted);
@@ -220,29 +286,6 @@ body {
 
   line-height:
     1.8;
-
-}
-
-
-.card {
-
-  margin:
-    13px 0;
-
-  padding:
-    19px;
-
-  background:
-    var(--paper);
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    18px;
-
-  box-shadow:
-    var(--shadow);
 
 }
 
@@ -301,7 +344,7 @@ body {
     serif;
 
   font-size:
-    28px;
+    29px;
 
 }
 
@@ -475,33 +518,31 @@ body {
   height:
     40px;
 
-  border:
-    1px solid var(--line);
-
   border-radius:
     50%;
-
-  background:
-    var(--paper);
-
-  font-size:
-    20px;
 
 }
 
 
-.passage {
+.card {
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  margin:
+    13px 0;
 
-  font-size:
-    20px;
+  padding:
+    19px;
 
-  line-height:
-    1.95;
+  background:
+    var(--paper);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    18px;
+
+  box-shadow:
+    var(--shadow);
 
 }
 
@@ -517,14 +558,14 @@ body {
   align-items:
     center;
 
+  margin-bottom:
+    10px;
+
   color:
     var(--muted);
 
   font-size:
     12px;
-
-  margin-bottom:
-    13px;
 
 }
 
@@ -551,6 +592,36 @@ body {
 
   font-weight:
     800;
+
+}
+
+
+.passage-status {
+
+  margin-bottom:
+    12px;
+
+  color:
+    var(--accent);
+
+  font-size:
+    11px;
+
+}
+
+
+.passage {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    20px;
+
+  line-height:
+    1.95;
 
 }
 
@@ -615,51 +686,6 @@ body {
 }
 
 
-.instruction-card {
-
-  margin:
-    13px 0;
-
-  padding:
-    16px;
-
-  border:
-    1px solid var(--line);
-
-  border-left:
-    4px solid var(--accent);
-
-  border-radius:
-    12px;
-
-  background:
-    #fbfaf5;
-
-}
-
-
-.instruction-card strong {
-
-  display:
-    block;
-
-}
-
-
-.instruction-card p {
-
-  margin:
-    6px 0 0;
-
-  color:
-    var(--muted);
-
-  font-size:
-    12px;
-
-}
-
-
 .audio-controls {
 
   display:
@@ -674,44 +700,10 @@ body {
 }
 
 
-button {
+.audio-controls button {
 
-  font:
-    inherit;
-
-  padding:
-    10px 13px;
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    10px;
-
-  background:
-    white;
-
-  cursor:
-    pointer;
-
-  transition:
-    .15s ease;
-
-}
-
-
-button:active {
-
-  transform:
-    scale(.98);
-
-}
-
-
-button:hover {
-
-  border-color:
-    #b9b0a0;
+  min-height:
+    42px;
 
 }
 
@@ -752,10 +744,39 @@ button:hover {
 }
 
 
-.hidden {
+.instruction-card {
 
-  display:
-    none !important;
+  margin:
+    13px 0;
+
+  padding:
+    16px;
+
+  border:
+    1px solid var(--line);
+
+  border-left:
+    4px solid var(--accent);
+
+  border-radius:
+    12px;
+
+  background:
+    #fbfaf5;
+
+}
+
+
+.instruction-card p {
+
+  margin:
+    7px 0 0;
+
+  color:
+    var(--muted);
+
+  font-size:
+    12px;
 
 }
 
@@ -810,14 +831,8 @@ button:hover {
   margin:
     7px 0;
 
-  padding:
-    11px;
-
   text-align:
     left;
-
-  background:
-    white;
 
 }
 
@@ -836,7 +851,7 @@ button:hover {
 .option.correct {
 
   background:
-    var(--accent-soft);
+    #e6eee7;
 
   border-color:
     var(--accent);
@@ -847,7 +862,7 @@ button:hover {
 .option.wrong {
 
   background:
-    #f7ebe8;
+    #f6e9e6;
 
   border-color:
     var(--danger);
@@ -1003,14 +1018,14 @@ button:hover {
   text-align:
     center;
 
+  background:
+    #faf9f4;
+
   border:
     1px solid var(--line);
 
   border-radius:
     16px;
-
-  background:
-    #faf9f4;
 
   font-weight:
     700;
@@ -1052,14 +1067,11 @@ textarea {
   border-radius:
     12px;
 
-  outline:
-    none;
-
-  font:
-    inherit;
-
   background:
     white;
+
+  outline:
+    none;
 
 }
 
@@ -1125,6 +1137,9 @@ textarea:focus {
   font-size:
     17px;
 
+  line-height:
+    1.8;
+
 }
 
 
@@ -1134,7 +1149,7 @@ textarea:focus {
     grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    repeat(3, 1fr);
 
   gap:
     8px;
@@ -1309,14 +1324,28 @@ textarea:focus {
   padding:
     18px;
 
-  border-radius:
-    16px;
-
   background:
     var(--accent-soft);
 
+  border-radius:
+    16px;
+
   text-align:
     center;
+
+}
+
+
+.improvement-card div {
+
+  margin-top:
+    6px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    12px;
 
 }
 
@@ -1366,6 +1395,56 @@ textarea:focus {
 }
 
 
+.review-row span {
+
+  color:
+    var(--muted);
+
+  font-size:
+    12px;
+
+}
+
+
+.hidden {
+
+  display:
+    none !important;
+
+}
+
+
+.success {
+
+  margin-top:
+    12px;
+
+  padding:
+    12px;
+
+  border-radius:
+    10px;
+
+  background:
+    var(--accent-soft);
+
+  color:
+    var(--accent);
+
+  font-size:
+    13px;
+
+}
+
+
+.muted {
+
+  color:
+    var(--muted);
+
+}
+
+
 footer {
 
   padding:
@@ -1383,25 +1462,6 @@ footer {
 }
 
 
-@media (min-width: 680px) {
-
-  .app {
-
-    padding:
-      28px 30px 90px;
-
-  }
-
-  .passage {
-
-    font-size:
-      22px;
-
-  }
-
-}
-
-
 @media (max-width: 500px) {
 
   .feeling-options {
@@ -1411,12 +1471,14 @@ footer {
 
   }
 
+
   .score-comparison {
 
     grid-template-columns:
       1fr;
 
   }
+
 
   .arrow {
 
