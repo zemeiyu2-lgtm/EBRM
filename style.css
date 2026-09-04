@@ -32,13 +32,17 @@
 
 
 html {
-  scroll-behavior: smooth;
+
+  scroll-behavior:
+    smooth;
+
 }
 
 
 body {
 
-  margin: 0;
+  margin:
+    0;
 
   background:
     var(--bg);
@@ -63,7 +67,8 @@ button,
 textarea,
 select {
 
-  font: inherit;
+  font:
+    inherit;
 
 }
 
@@ -183,11 +188,11 @@ button:active {
 
 .app {
 
-  max-width:
-    850px;
-
   width:
     100%;
+
+  max-width:
+    850px;
 
   margin:
     0 auto;
@@ -290,6 +295,29 @@ button:active {
 }
 
 
+.card {
+
+  margin:
+    13px 0;
+
+  padding:
+    19px;
+
+  background:
+    var(--paper);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    18px;
+
+  box-shadow:
+    var(--shadow);
+
+}
+
+
 .golden-card {
 
   margin:
@@ -372,7 +400,7 @@ button:active {
     10px;
 
   line-height:
-    2.2;
+    2.3;
 
 }
 
@@ -384,26 +412,6 @@ button:active {
 
   opacity:
     .4;
-
-}
-
-
-.baseline-card {
-
-  margin:
-    13px 0;
-
-  padding:
-    18px;
-
-  background:
-    var(--paper);
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    18px;
 
 }
 
@@ -524,29 +532,6 @@ button:active {
 }
 
 
-.card {
-
-  margin:
-    13px 0;
-
-  padding:
-    19px;
-
-  background:
-    var(--paper);
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    18px;
-
-  box-shadow:
-    var(--shadow);
-
-}
-
-
 .passage-meta {
 
   display:
@@ -559,7 +544,7 @@ button:active {
     center;
 
   margin-bottom:
-    10px;
+    12px;
 
   color:
     var(--muted);
@@ -571,9 +556,6 @@ button:active {
 
 
 .badge {
-
-  display:
-    inline-block;
 
   padding:
     4px 8px;
@@ -592,20 +574,6 @@ button:active {
 
   font-weight:
     800;
-
-}
-
-
-.passage-status {
-
-  margin-bottom:
-    12px;
-
-  color:
-    var(--accent);
-
-  font-size:
-    11px;
 
 }
 
@@ -632,16 +600,13 @@ button:active {
     block;
 
   padding:
-    8px 7px;
+    9px 7px;
 
   border-radius:
     10px;
 
   cursor:
     pointer;
-
-  transition:
-    .2s ease;
 
 }
 
@@ -708,42 +673,6 @@ button:active {
 }
 
 
-.primary {
-
-  background:
-    var(--accent) !important;
-
-  color:
-    white !important;
-
-  border-color:
-    var(--accent) !important;
-
-}
-
-
-.secondary {
-
-  background:
-    white !important;
-
-  color:
-    var(--ink) !important;
-
-}
-
-
-.wide {
-
-  width:
-    100%;
-
-  margin-top:
-    10px;
-
-}
-
-
 .instruction-card {
 
   margin:
@@ -777,6 +706,64 @@ button:active {
 
   font-size:
     12px;
+
+}
+
+
+.primary {
+
+  background:
+    var(--accent) !important;
+
+  color:
+    white !important;
+
+  border-color:
+    var(--accent) !important;
+
+}
+
+
+.wide {
+
+  width:
+    100%;
+
+  margin-top:
+    10px;
+
+}
+
+
+.hidden {
+
+  display:
+    none !important;
+
+}
+
+
+.muted {
+
+  color:
+    var(--muted);
+
+}
+
+
+.rule-box {
+
+  padding:
+    14px;
+
+  background:
+    #faf8f1;
+
+  border-radius:
+    12px;
+
+  margin-bottom:
+    15px;
 
 }
 
@@ -831,6 +818,9 @@ button:active {
   margin:
     7px 0;
 
+  padding:
+    11px;
+
   text-align:
     left;
 
@@ -851,7 +841,7 @@ button:active {
 .option.correct {
 
   background:
-    #e6eee7;
+    #e7efe8;
 
   border-color:
     var(--accent);
@@ -873,7 +863,7 @@ button:active {
 .vocab-item {
 
   padding:
-    14px 0;
+    15px 0;
 
   border-top:
     1px solid var(--line);
@@ -910,7 +900,7 @@ button:active {
     serif;
 
   font-size:
-    20px;
+    21px;
 
   font-weight:
     700;
@@ -1033,6 +1023,76 @@ button:active {
 }
 
 
+.substitute-box {
+
+  padding:
+    15px;
+
+  background:
+    #faf8f1;
+
+  border-radius:
+    12px;
+
+}
+
+
+.model-sentence {
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    18px;
+
+  font-weight:
+    700;
+
+}
+
+
+.substitute-label {
+
+  margin:
+    12px 0 6px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+}
+
+
+.substitute-examples {
+
+  display:
+    grid;
+
+  gap:
+    7px;
+
+}
+
+
+.substitute-examples button {
+
+  text-align:
+    left;
+
+}
+
+
+#substituteAudio {
+
+  margin-top:
+    9px;
+
+}
+
+
 .speak-prompt {
 
   font-weight:
@@ -1058,20 +1118,20 @@ textarea {
   padding:
     13px;
 
-  resize:
-    vertical;
-
   border:
     1px solid var(--line);
 
   border-radius:
     12px;
 
-  background:
-    white;
-
   outline:
     none;
+
+  resize:
+    vertical;
+
+  background:
+    white;
 
 }
 
@@ -1168,10 +1228,33 @@ textarea:focus {
 }
 
 
+.success {
+
+  margin-top:
+    12px;
+
+  padding:
+    12px;
+
+  background:
+    var(--accent-soft);
+
+  border-radius:
+    10px;
+
+  color:
+    var(--accent);
+
+  font-size:
+    13px;
+
+}
+
+
 .result-hero {
 
   padding:
-    44px 10px 25px;
+    42px 10px 24px;
 
   text-align:
     center;
@@ -1222,9 +1305,6 @@ textarea:focus {
   font-family:
     Georgia,
     serif;
-
-  font-size:
-    31px;
 
 }
 
@@ -1297,7 +1377,7 @@ textarea:focus {
     4px;
 
   font-size:
-    27px;
+    28px;
 
 }
 
@@ -1339,7 +1419,7 @@ textarea:focus {
 .improvement-card div {
 
   margin-top:
-    6px;
+    7px;
 
   color:
     var(--muted);
@@ -1375,72 +1455,11 @@ textarea:focus {
   justify-content:
     space-between;
 
-  gap:
-    12px;
-
   padding:
     13px 0;
 
   border-top:
     1px solid var(--line);
-
-}
-
-
-.review-row:first-child {
-
-  border-top:
-    0;
-
-}
-
-
-.review-row span {
-
-  color:
-    var(--muted);
-
-  font-size:
-    12px;
-
-}
-
-
-.hidden {
-
-  display:
-    none !important;
-
-}
-
-
-.success {
-
-  margin-top:
-    12px;
-
-  padding:
-    12px;
-
-  border-radius:
-    10px;
-
-  background:
-    var(--accent-soft);
-
-  color:
-    var(--accent);
-
-  font-size:
-    13px;
-
-}
-
-
-.muted {
-
-  color:
-    var(--muted);
 
 }
 
