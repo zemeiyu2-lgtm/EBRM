@@ -2,21 +2,35 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <meta name="theme-color" content="#f6f1e7">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-  <title>EBRM V0.7｜John 1:1–5 黄金训练单元</title>
+  <meta
+    name="theme-color"
+    content="#f5f1e7"
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <title>
+    EBRM V0.7.2｜John 1:1–5
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=072"
+  >
 </head>
 
+
 <body>
+
 
 <header class="topbar">
 
   <div>
+
     <div class="brand">
       EBRM
     </div>
@@ -24,13 +38,15 @@
     <div class="subtitle">
       English Bible Reading Model
     </div>
+
   </div>
 
   <div class="version">
-    V0.7
+    V0.7.2
   </div>
 
 </header>
+
 
 
 <main class="app">
@@ -38,9 +54,12 @@
 
 <!-- =====================================================
      HOME
-====================================================== -->
+===================================================== -->
 
-<section id="home" class="screen active">
+<section
+  id="home"
+  class="screen active"
+>
 
   <div class="hero">
 
@@ -52,25 +71,26 @@
       John 1:1–5
     </h1>
 
-    <p>
+    <p class="hero-subtitle">
       The Word · Life · Light
     </p>
 
-    <div class="hero-description">
+    <p class="hero-description">
 
-      第一课不是“学一段英文”。
+      这一课不是单纯学习英文单词。
 
       <br>
 
-      而是训练自己：
+      而是训练：
 
       <strong>
-        直接从英文进入经文意义。
+        从英文直接进入圣经意义。
       </strong>
 
-    </div>
+    </p>
 
   </div>
+
 
 
   <div class="golden-card">
@@ -79,49 +99,46 @@
       GOLDEN UNIT
     </div>
 
-    <div class="golden-title">
-      John 1:1–5
-    </div>
+    <h2>
+      The Word
+    </h2>
 
-    <div class="golden-subtitle">
-      The Word · Life · Light
+    <div class="golden-reference">
+      John 1:1–5
     </div>
 
     <div class="golden-flow">
 
       READ
-
       <span>→</span>
 
       LISTEN
-
       <span>→</span>
 
       NOTICE
-
       <span>→</span>
 
       UNDERSTAND
-
       <span>→</span>
 
       SPEAK
-
       <span>→</span>
 
       RE-READ
 
     </div>
 
+
     <button
+      id="startGoldenBtn"
       class="primary wide"
-      onclick="startGoldenUnit()">
-
+      type="button"
+    >
       开始黄金训练 →
-
     </button>
 
   </div>
+
 
 
   <div class="baseline-card">
@@ -135,19 +152,20 @@
     </h3>
 
     <p>
-      在训练之前先回答几个简单问题。
       不查中文，不查词典。
+      只根据英文经文回答。
     </p>
 
     <button
+      id="startBaselineBtn"
       class="secondary wide"
-      onclick="startBaseline()">
-
+      type="button"
+    >
       开始第一次理解测试
-
     </button>
 
   </div>
+
 
 
   <div class="progress-card">
@@ -168,13 +186,12 @@
 
       <div
         id="goldenProgressBar"
-        class="progress-fill">
-      </div>
+        class="progress-fill"
+      ></div>
 
     </div>
 
   </div>
-
 
 </section>
 
@@ -182,18 +199,21 @@
 
 <!-- =====================================================
      BASELINE
-====================================================== -->
+===================================================== -->
 
-<section id="baseline" class="screen">
+<section
+  id="baseline"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="baselineBackBtn"
       class="back"
-      onclick="go('home')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -222,7 +242,7 @@
       <p>
         不查中文。
         不查词典。
-        只根据英文经文回答。
+        只根据英文理解。
       </p>
 
     </div>
@@ -232,18 +252,18 @@
 
 
     <button
+      id="submitBaselineBtn"
       class="primary wide"
-      onclick="submitBaseline()">
-
+      type="button"
+    >
       提交第一次理解
-
     </button>
 
 
     <div
       id="baselineResult"
-      class="hidden">
-    </div>
+      class="hidden"
+    ></div>
 
   </div>
 
@@ -253,18 +273,21 @@
 
 <!-- =====================================================
      READ
-====================================================== -->
+===================================================== -->
 
-<section id="read" class="screen">
+<section
+  id="read"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="readBackBtn"
       class="back"
-      onclick="go('home')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -299,25 +322,27 @@
 
     <div
       id="passageText"
-      class="passage">
-
-      正在读取经文……
-
+      class="passage"
+    >
+      正在读取英文圣经……
     </div>
 
   </div>
 
 
+
   <div
     id="voicePanel"
-    class="card">
-  </div>
+    class="card"
+  ></div>
+
 
 
   <div
     id="audioControls"
-    class="card">
-  </div>
+    class="card"
+  ></div>
+
 
 
   <div class="instruction-card">
@@ -327,26 +352,29 @@
     </strong>
 
     <p>
-      不翻译。
 
-      不停下来查每一个词。
+      不要急着翻译。
 
-      只问：
+      <br>
+
+      先问：
 
       <strong>
         What is happening?
       </strong>
+
     </p>
 
   </div>
 
 
+
   <button
+    id="noticeBtn"
     class="primary wide"
-    onclick="goToNotice()">
-
+    type="button"
+  >
     我已经读完 → 开始观察
-
   </button>
 
 </section>
@@ -355,18 +383,21 @@
 
 <!-- =====================================================
      NOTICE
-====================================================== -->
+===================================================== -->
 
-<section id="notice" class="screen">
+<section
+  id="notice"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="noticeBackBtn"
       class="back"
-      onclick="go('read')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -396,7 +427,7 @@
 
     <p>
       找重复、对比、人物、动作、
-      关系和重要词语。
+      关系和重要表达。
     </p>
 
   </div>
@@ -406,11 +437,11 @@
 
 
   <button
+    id="vocabularyBtn"
     class="primary wide"
-    onclick="goToVocabulary()">
-
+    type="button"
+  >
     完成观察 → 词汇
-
   </button>
 
 </section>
@@ -419,18 +450,21 @@
 
 <!-- =====================================================
      VOCABULARY
-====================================================== -->
+===================================================== -->
 
-<section id="vocabulary" class="screen">
+<section
+  id="vocabulary"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="vocabBackBtn"
       class="back"
-      onclick="go('notice')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -452,7 +486,7 @@
 
     <p class="muted">
 
-      只学习真正影响这段经文理解的词。
+      只处理真正影响经文理解的词。
 
     </p>
 
@@ -463,11 +497,11 @@
 
 
   <button
+    id="structureBtn"
     class="primary wide"
-    onclick="goToStructure()">
-
+    type="button"
+  >
     下一步：句子结构 →
-
   </button>
 
 </section>
@@ -476,18 +510,21 @@
 
 <!-- =====================================================
      STRUCTURE
-====================================================== -->
+===================================================== -->
 
-<section id="structure" class="screen">
+<section
+  id="structure"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="structureBackBtn"
       class="back"
-      onclick="go('vocabulary')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -509,9 +546,9 @@
 
     <p class="muted">
 
-      不只是“知道语法名称”。
+      不是只记语法名称。
 
-      要看懂英语是怎样组织意义的。
+      要看懂英文怎样组织意义。
 
     </p>
 
@@ -522,11 +559,11 @@
 
 
   <button
+    id="directBtn"
     class="primary wide"
-    onclick="goToDirect()">
-
-    下一步：英文直接理解 →
-
+    type="button"
+  >
+    下一步：直接理解 →
   </button>
 
 </section>
@@ -535,18 +572,21 @@
 
 <!-- =====================================================
      DIRECT
-====================================================== -->
+===================================================== -->
 
-<section id="direct" class="screen">
+<section
+  id="direct"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="directBackBtn"
       class="back"
-      onclick="go('structure')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -575,7 +615,6 @@
     </h3>
 
     <p>
-      看英文问题，
       回到英文经文，
       直接判断意义。
     </p>
@@ -588,16 +627,18 @@
 
   <div
     id="directScore"
-    class="score-card">
+    class="score-card"
+  >
+    尚未回答
   </div>
 
 
   <button
+    id="speakBtn"
     class="primary wide"
-    onclick="goToSpeak()">
-
+    type="button"
+  >
     下一步：用英语表达 →
-
   </button>
 
 </section>
@@ -606,18 +647,21 @@
 
 <!-- =====================================================
      SPEAK
-====================================================== -->
+===================================================== -->
 
-<section id="speak" class="screen">
+<section
+  id="speak"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="speakBackBtn"
       class="back"
-      onclick="go('direct')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -637,39 +681,39 @@
 
   <div class="card">
 
-    <div class="prompt-label">
+    <div class="eyebrow">
       YOUR TASK
     </div>
 
     <p
       id="speakPrompt"
-      class="speak-prompt">
-    </p>
+      class="speak-prompt"
+    ></p>
 
 
     <textarea
       id="speakAnswer"
       rows="6"
-      placeholder="Write your answer in simple English...">
-    </textarea>
+      placeholder="Write your answer in simple English..."
+    ></textarea>
 
 
     <div class="speak-buttons">
 
       <button
+        id="checkSpeakBtn"
         class="primary"
-        onclick="checkSpeak()">
-
+        type="button"
+      >
         检查表达
-
       </button>
 
 
       <button
-        onclick="listenToMyAnswer()">
-
+        id="listenAnswerBtn"
+        type="button"
+      >
         🔊 听我的答案
-
       </button>
 
     </div>
@@ -677,20 +721,21 @@
 
     <div
       id="speakResult"
-      class="hidden">
-    </div>
+      class="hidden"
+    ></div>
 
   </div>
+
 
 
   <div class="card">
 
     <h3>
-      模仿一句
+      🎤 模仿经文
     </h3>
 
     <p class="muted">
-      选择你最喜欢的一句话，听，然后自己重复。
+      听一句，然后自己重复。
     </p>
 
     <div id="imitationList"></div>
@@ -698,12 +743,13 @@
   </div>
 
 
+
   <button
+    id="rereadBtn"
     class="primary wide"
-    onclick="goToReread()">
-
+    type="button"
+  >
     重新阅读 →
-
   </button>
 
 </section>
@@ -711,19 +757,22 @@
 
 
 <!-- =====================================================
-     RE-READ
-====================================================== -->
+     REREAD
+===================================================== -->
 
-<section id="reread" class="screen">
+<section
+  id="reread"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="rereadBackBtn"
       class="back"
-      onclick="go('speak')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -748,15 +797,15 @@
     </div>
 
     <h3>
-      现在再读 John 1:1–5
+      现在重新阅读 John 1:1–5
     </h3>
 
     <p class="muted">
 
-      注意一个问题：
+      注意：
 
       <strong>
-        现在是不是比第一次更容易直接理解？
+        现在是否比第一次更容易直接理解？
       </strong>
 
     </p>
@@ -766,8 +815,8 @@
 
   <div
     id="rereadPassage"
-    class="card passage">
-  </div>
+    class="card passage"
+  ></div>
 
 
   <div class="card">
@@ -778,16 +827,25 @@
 
     <div class="feeling-options">
 
-      <button onclick="setFeeling(3,this)">
+      <button
+        type="button"
+        data-feeling="3"
+      >
         很直接
       </button>
 
-      <button onclick="setFeeling(2,this)">
+      <button
+        type="button"
+        data-feeling="2"
+      >
         基本可以
       </button>
 
-      <button onclick="setFeeling(1,this)">
-        仍然需要翻译
+      <button
+        type="button"
+        data-feeling="1"
+      >
+        仍需要翻译
       </button>
 
     </div>
@@ -796,11 +854,11 @@
 
 
   <button
+    id="finalTestBtn"
     class="primary wide"
-    onclick="goToFinalTest()">
-
-    最后测试 → 查看进步
-
+    type="button"
+  >
+    最后测试 →
   </button>
 
 </section>
@@ -809,24 +867,27 @@
 
 <!-- =====================================================
      FINAL TEST
-====================================================== -->
+===================================================== -->
 
-<section id="finalTest" class="screen">
+<section
+  id="finalTest"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="finalBackBtn"
       class="back"
-      onclick="go('reread')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
 
       <div class="eyebrow">
-        STEP 8 · FINAL
+        STEP 8 · FINAL TEST
       </div>
 
       <h2>
@@ -841,11 +902,8 @@
   <div class="card">
 
     <p class="muted">
-
-      现在重新回答问题。
-
+      再回答一次。
       不看中文。
-
     </p>
 
 
@@ -853,18 +911,18 @@
 
 
     <button
+      id="submitFinalBtn"
       class="primary wide"
-      onclick="submitFinalTest()">
-
+      type="button"
+    >
       提交最后测试
-
     </button>
 
 
     <div
       id="finalResult"
-      class="hidden">
-    </div>
+      class="hidden"
+    ></div>
 
   </div>
 
@@ -874,9 +932,12 @@
 
 <!-- =====================================================
      RESULT
-====================================================== -->
+===================================================== -->
 
-<section id="result" class="screen">
+<section
+  id="result"
+  class="screen"
+>
 
   <div class="result-hero">
 
@@ -907,8 +968,7 @@
         第一次理解
       </span>
 
-      <strong
-        id="baselineScore">
+      <strong id="baselineScore">
         0%
       </strong>
 
@@ -926,8 +986,7 @@
         第二次理解
       </span>
 
-      <strong
-        id="finalScore">
+      <strong id="finalScore">
         0%
       </strong>
 
@@ -938,41 +997,24 @@
 
   <div
     id="improvementBox"
-    class="improvement-card">
-  </div>
+    class="improvement-card"
+  ></div>
 
 
   <div class="card">
 
     <h3>
-      今天建立了什么？
+      本课完成
     </h3>
 
     <div class="achievement-list">
 
-      <div>
-        ✓ 阅读英文经文
-      </div>
-
-      <div>
-        ✓ 听读训练
-      </div>
-
-      <div>
-        ✓ Notice 观察
-      </div>
-
-      <div>
-        ✓ 英文直接理解
-      </div>
-
-      <div>
-        ✓ 英文表达
-      </div>
-
-      <div>
-        ✓ 再读与复测
-      </div>
+      <div>✓ READ</div>
+      <div>✓ LISTEN</div>
+      <div>✓ NOTICE</div>
+      <div>✓ DIRECT COMPREHENSION</div>
+      <div>✓ SPEAK</div>
+      <div>✓ RE-READ</div>
 
     </div>
 
@@ -980,20 +1022,20 @@
 
 
   <button
+    id="resultHomeBtn"
     class="primary wide"
-    onclick="go('home')">
-
+    type="button"
+  >
     返回首页
-
   </button>
 
 
   <button
+    id="resultReviewBtn"
     class="wide"
-    onclick="go('review')">
-
+    type="button"
+  >
     查看复习
-
   </button>
 
 </section>
@@ -1002,18 +1044,21 @@
 
 <!-- =====================================================
      REVIEW
-====================================================== -->
+===================================================== -->
 
-<section id="review" class="screen">
+<section
+  id="review"
+  class="screen"
+>
 
   <div class="screen-head">
 
     <button
+      id="reviewBackBtn"
       class="back"
-      onclick="go('home')">
-
+      type="button"
+    >
       ←
-
     </button>
 
     <div>
@@ -1034,9 +1079,15 @@
   <div class="card">
 
     <p class="muted">
+
       建议重新完成：
-      听 → 读 → 直接理解。
+
+      <br>
+
+      听 → 读 → 直接理解
+
     </p>
+
 
     <div id="reviewList"></div>
 
@@ -1048,15 +1099,19 @@
 </main>
 
 
+
 <footer>
-  EBRM · English Bible Reading Model · V0.7
+
+  EBRM · English Bible Reading Model · V0.7.2
+
 </footer>
 
 
-<<script
-  src="app.js?v=071"
-  defer>
-</script>
+
+<script
+  src="app.js?v=072"
+  defer
+></script>
 
 </body>
 </html>
