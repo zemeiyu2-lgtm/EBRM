@@ -1,1672 +1,776 @@
 /* =========================================================
-   EBRM V0.6
+   EBRM V0.6.1
    English Bible Reading Model
 
    GitHub Pages 独立版
-
-   V0.6 核心升级：
-   1. Bible API
-   2. 经文阅读
-   3. 英文朗读
-   4. 单节朗读
-   5. 单词发音
-   6. 句型朗读
-   7. 正常 / 慢速
-   8. 自动连续朗读
-   9. 当前经文高亮
-   10. Notice 观察训练
-   11. Direct Comprehension 直接理解训练
-   12. 中文延迟显示
-   13. 结构观察
-   14. 英文输出
-   15. 再读
-   16. Day 1 / 3 / 7 复习
-========================================================= */
+   修复 SyntaxError
+   ========================================================= */
 
 
 /* =========================================================
    CONFIG
-========================================================= */
+   ========================================================= */
 
 const CONFIG = {
-
-    BIBLE_API:
-        "https://bible-api.com",
-
-    TRANSLATION:
-        "web",
-
-    SPEECH_LANG:
-        "en-US",
-
-    NORMAL_RATE:
-        0.88,
-
-    SLOW_RATE:
-        0.62,
-
-    STATE_KEY:
-        "EBRM_V06_STATE"
-
+    BIBLE_API: "https://bible-api.com",
+    TRANSLATION: "web",
+    SPEECH_LANG: "en-US",
+    NORMAL_RATE: 0.88,
+    SLOW_RATE: 0.62,
+    STATE_KEY: "EBRM_V061_STATE"
 };
 
 
 /* =========================================================
-   TRAINING UNITS
-========================================================= */
+   TRAINING DATA
+   ========================================================= */
 
 const UNITS = [
-
     {
         id: "J1-01",
-
-        title:
-            "The Word",
-
-        reference:
-            "John 1:1–5",
-
-        start:
-            1,
-
-        end:
-            5,
+        title: "The Word",
+        reference: "John 1:1–5",
+        start: 1,
+        end: 5,
 
         vocabulary: [
-
             {
-                word:
-                    "Word",
-
-                meaning:
-                    "道",
-
-                english:
-                    "the Word"
+                word: "Word",
+                meaning: "道",
+                english: "the Word"
             },
-
             {
-                word:
-                    "beginning",
-
-                meaning:
-                    "起初；开始",
-
-                english:
-                    "the start"
+                word: "beginning",
+                meaning: "起初；开始",
+                english: "the start"
             },
-
             {
-                word:
-                    "life",
-
-                meaning:
-                    "生命",
-
-                english:
-                    "life; being alive"
+                word: "life",
+                meaning: "生命",
+                english: "life"
             },
-
             {
-                word:
-                    "light",
-
-                meaning:
-                    "光",
-
-                english:
-                    "light"
+                word: "light",
+                meaning: "光",
+                english: "light"
             },
-
             {
-                word:
-                    "darkness",
-
-                meaning:
-                    "黑暗",
-
-                english:
-                    "darkness"
+                word: "darkness",
+                meaning: "黑暗",
+                english: "darkness"
             },
-
             {
-                word:
-                    "overcome",
-
-                meaning:
-                    "胜过；制伏",
-
-                english:
-                    "defeat; overcome"
+                word: "overcome",
+                meaning: "胜过",
+                english: "to defeat"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "In the beginning was the Word.",
-
-                explanation:
-                    "先出现时间背景，再出现主语 Word。"
+                pattern: "In the beginning was the Word.",
+                explanation: "先出现时间背景，再出现主语。"
             },
-
             {
-                pattern:
-                    "The Word was with God.",
-
-                explanation:
-                    "be + with 表达关系。"
+                pattern: "The Word was with God.",
+                explanation: "was with 表达关系。"
             },
-
             {
-                pattern:
-                    "The Word was God.",
-
-                explanation:
-                    "be 动词连接主语和身份/表语。"
+                pattern: "The Word was God.",
+                explanation: "be 动词连接主语和表语。"
             },
-
             {
-                pattern:
-                    "The light shines in the darkness.",
-
-                explanation:
-                    "主语 + 动词 + 介词短语。"
+                pattern: "The light shines in the darkness.",
+                explanation: "主语 + 动词 + 介词短语。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What word or idea is repeated in this passage?",
-
-                type:
-                    "repeat",
-
-                options: [
-
-                    "Word",
-
-                    "Temple",
-
-                    "King"
-
-                ],
-
-                answer:
-                    0
+                question: "What word is repeated in the passage?",
+                options: ["Word", "Temple", "King"],
+                answer: 0
             },
-
             {
-                question:
-                    "What two images are strongly contrasted?",
-
-                type:
-                    "contrast",
-
+                question: "What two ideas are contrasted?",
                 options: [
-
-                    "Life and death",
-
                     "Light and darkness",
-
-                    "King and servant"
-
+                    "King and servant",
+                    "Life and money"
                 ],
-
-                answer:
-                    1
+                answer: 0
             },
-
             {
-                question:
-                    "Who is at the center of the opening passage?",
-
-                type:
-                    "focus",
-
-                options: [
-
-                    "John",
-
-                    "The Word",
-
-                    "Moses"
-
-                ],
-
-                answer:
-                    1
+                question: "Who is at the center of the passage?",
+                options: ["John", "The Word", "Moses"],
+                answer: 1
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "Who was with God in the beginning?",
-
-                chineseHint:
-                    "想一想：起初谁与神同在？",
-
+                question: "Who was with God in the beginning?",
+                hint: "先根据英文问题直接找答案。",
                 options: [
-
                     "The Word",
-
                     "John",
-
                     "Moses"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "道与神同在。"
+                answer: 0,
+                chinese: "道与神同在。"
             },
-
             {
-                englishQuestion:
-                    "What was in the Word?",
-
-                chineseHint:
-                    "想一想：道里面有什么？",
-
+                question: "What was in the Word?",
+                hint: "注意 in the Word。",
                 options: [
-
                     "Darkness",
-
                     "Life",
-
                     "Death"
-
                 ],
-
-                answer:
-                    1,
-
-                chineseAnswer:
-                    "生命在祂里面。"
+                answer: 1,
+                chinese: "生命在祂里面。"
             },
-
             {
-                englishQuestion:
-                    "What shines in the darkness?",
-
-                chineseHint:
-                    "想一想：什么照在黑暗里？",
-
+                question: "What shines in the darkness?",
+                hint: "注意 shines。",
                 options: [
-
                     "The law",
-
                     "The temple",
-
                     "The light"
-
                 ],
-
-                answer:
-                    2,
-
-                chineseAnswer:
-                    "光照在黑暗里。"
+                answer: 2,
+                chinese: "光照在黑暗里。"
             }
-
         ],
 
         context:
-            "John opens his Gospel with the Word. The Word is presented in relation to God, creation, life, and light. The passage establishes the identity of the Word before the story of Jesus' earthly ministry begins.",
+            "John opens his Gospel by presenting the Word in relation to God, creation, life, and light.",
 
         production:
-            "In simple English, explain who the Word is and what is in the Word."
-
+            "In simple English, explain who the Word is."
     },
 
-
     {
-        id:
-            "J1-02",
-
-        title:
-            "The Witness",
-
-        reference:
-            "John 1:6–13",
-
-        start:
-            6,
-
-        end:
-            13,
+        id: "J1-02",
+        title: "The Witness",
+        reference: "John 1:6–13",
+        start: 6,
+        end: 13,
 
         vocabulary: [
-
             {
-                word:
-                    "witness",
-
-                meaning:
-                    "见证人",
-
-                english:
-                    "a person who gives testimony"
+                word: "witness",
+                meaning: "见证人",
+                english: "a person who gives testimony"
             },
-
             {
-                word:
-                    "believe",
-
-                meaning:
-                    "相信",
-
-                english:
-                    "to trust"
+                word: "believe",
+                meaning: "相信",
+                english: "to trust"
             },
-
             {
-                word:
-                    "receive",
-
-                meaning:
-                    "接受；领受",
-
-                english:
-                    "to accept"
+                word: "receive",
+                meaning: "接受；领受",
+                english: "to accept"
             },
-
             {
-                word:
-                    "true",
-
-                meaning:
-                    "真实的",
-
-                english:
-                    "real; genuine"
+                word: "true",
+                meaning: "真实的",
+                english: "real; genuine"
             },
-
             {
-                word:
-                    "children",
-
-                meaning:
-                    "儿女",
-
-                english:
-                    "sons and daughters"
+                word: "children",
+                meaning: "儿女",
+                english: "sons and daughters"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "There was a man sent from God.",
-
-                explanation:
-                    "There was 用来引出一个人物。"
+                pattern: "There was a man sent from God.",
+                explanation: "There was 用于引出一个人物。"
             },
-
             {
-                pattern:
-                    "He came as a witness.",
-
-                explanation:
-                    "as + 身份，表示作为……。"
+                pattern: "He came as a witness.",
+                explanation: "as + 身份。"
             },
-
             {
-                pattern:
-                    "those who believe",
-
-                explanation:
-                    "who 引导关系从句。"
-            },
-
-            {
-                pattern:
-                    "children of God",
-
-                explanation:
-                    "of 表达所属关系。"
+                pattern: "those who believe",
+                explanation: "who 引导关系从句。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What role does John have in the passage?",
-
-                type:
-                    "role",
-
+                question: "What was John's role?",
                 options: [
-
                     "Witness",
-
                     "King",
-
                     "Savior"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What response to the light is emphasized?",
-
-                type:
-                    "response",
-
+                question: "What response is emphasized?",
                 options: [
-
                     "Receive and believe",
-
                     "Hide",
-
                     "Fight"
-
                 ],
-
-                answer:
-                    0
-            },
-
-            {
-                question:
-                    "What phrase identifies a new relationship with God?",
-
-                type:
-                    "identity",
-
-                options: [
-
-                    "Children of God",
-
-                    "Citizens of Rome",
-
-                    "Servants of Caesar"
-
-                ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "Why did John come?",
-
-                chineseHint:
-                    "想一想：约翰为什么来？",
-
+                question: "Why did John come?",
+                hint: "先找 to bear witness。",
                 options: [
-
                     "To bear witness to the light",
-
                     "To become the light",
-
                     "To build a temple"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "约翰来为光作见证。"
+                answer: 0,
+                chinese: "约翰来为光作见证。"
             },
-
             {
-                englishQuestion:
-                    "What happens to people who receive the Word?",
-
-                chineseHint:
-                    "想一想：领受祂的人有什么身份？",
-
+                question: "What happens to those who receive the Word?",
+                hint: "观察 children of God。",
                 options: [
-
                     "They become children of God",
-
-                    "They become kings",
-
-                    "They become angels"
-
+                    "They become angels",
+                    "They become kings"
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "他们成为神的儿女。"
+                answer: 0,
+                chinese: "他们成为神的儿女。"
             }
-
         ],
 
         context:
-            "John the Baptist is presented as a witness, not the light itself. The passage emphasizes the human response to the light: receiving and believing.",
+            "John the Baptist is introduced as a witness who points people toward the light.",
 
         production:
-            "In simple English, explain John's role and the response of believers."
-
+            "Explain John's role in simple English."
     },
 
-
     {
-        id:
-            "J1-03",
-
-        title:
-            "The Word Became Flesh",
-
-        reference:
-            "John 1:14–18",
-
-        start:
-            14,
-
-        end:
-            18,
+        id: "J1-03",
+        title: "The Word Became Flesh",
+        reference: "John 1:14–18",
+        start: 14,
+        end: 18,
 
         vocabulary: [
-
             {
-                word:
-                    "flesh",
-
-                meaning:
-                    "肉身",
-
-                english:
-                    "human bodily existence"
+                word: "flesh",
+                meaning: "肉身",
+                english: "human bodily existence"
             },
-
             {
-                word:
-                    "dwelt",
-
-                meaning:
-                    "住在",
-
-                english:
-                    "lived among"
+                word: "dwelt",
+                meaning: "住在",
+                english: "lived among"
             },
-
             {
-                word:
-                    "glory",
-
-                meaning:
-                    "荣耀",
-
-                english:
-                    "greatness and honor"
+                word: "glory",
+                meaning: "荣耀",
+                english: "greatness and honor"
             },
-
             {
-                word:
-                    "grace",
-
-                meaning:
-                    "恩典",
-
-                english:
-                    "undeserved kindness"
+                word: "grace",
+                meaning: "恩典",
+                english: "undeserved kindness"
             },
-
             {
-                word:
-                    "truth",
-
-                meaning:
-                    "真理",
-
-                english:
-                    "what is true"
+                word: "truth",
+                meaning: "真理",
+                english: "what is true"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "The Word became flesh.",
-
-                explanation:
-                    "became + 名词，表示成为。"
+                pattern: "The Word became flesh.",
+                explanation: "became + 名词表示成为。"
             },
-
             {
-                pattern:
-                    "We have seen his glory.",
-
-                explanation:
-                    "现在完成时表达已经看见并仍具意义。"
+                pattern: "We have seen his glory.",
+                explanation: "现在完成时表示已经看见。"
             },
-
             {
-                pattern:
-                    "full of grace and truth",
-
-                explanation:
-                    "full of 表示充满。"
+                pattern: "full of grace and truth",
+                explanation: "full of 表示充满。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What major change in state do you notice?",
-
-                type:
-                    "change",
-
+                question: "What major change happens?",
                 options: [
-
                     "The Word became flesh",
-
                     "John became king",
-
                     "Light became darkness"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "Which pair is repeated as a major theme?",
-
-                type:
-                    "theme",
-
+                question: "Which pair is emphasized?",
                 options: [
-
                     "Grace and truth",
-
                     "Law and temple",
-
                     "King and army"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "What did the Word become?",
-
-                chineseHint:
-                    "想一想：道成了什么？",
-
+                question: "What did the Word become?",
+                hint: "找 become 后面的词。",
                 options: [
-
                     "Flesh",
-
                     "Light",
-
                     "Darkness"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "道成了肉身。"
+                answer: 0,
+                chinese: "道成了肉身。"
             },
-
             {
-                englishQuestion:
-                    "What did the witnesses see?",
-
-                chineseHint:
-                    "想一想：他们看见了什么？",
-
+                question: "What did the witnesses see?",
+                hint: "注意 have seen。",
                 options: [
-
                     "His glory",
-
                     "His temple",
-
-                    "His kingdom on earth"
-
+                    "His childhood"
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "他们看见了祂的荣耀。"
+                answer: 0,
+                chinese: "他们看见了祂的荣耀。"
             }
-
         ],
 
         context:
-            "John 1:14 moves the reader from the eternal Word to the incarnation. The Word becomes flesh and reveals glory, grace, and truth.",
+            "John 1:14 presents the incarnation: the Word became flesh and revealed glory, grace, and truth.",
 
         production:
-            "In simple English, explain what John means by 'the Word became flesh.'"
-
+            "Explain what 'the Word became flesh' means."
     },
 
-
     {
-        id:
-            "J1-04",
-
-        title:
-            "John's Testimony",
-
-        reference:
-            "John 1:19–28",
-
-        start:
-            19,
-
-        end:
-            28,
+        id: "J1-04",
+        title: "John's Testimony",
+        reference: "John 1:19–28",
+        start: 19,
+        end: 28,
 
         vocabulary: [
-
             {
-                word:
-                    "testimony",
-
-                meaning:
-                    "见证",
-
-                english:
-                    "testimony"
+                word: "testimony",
+                meaning: "见证",
+                english: "testimony"
             },
-
             {
-                word:
-                    "Christ",
-
-                meaning:
-                    "基督",
-
-                english:
-                    "the Messiah"
+                word: "Christ",
+                meaning: "基督",
+                english: "the Messiah"
             },
-
             {
-                word:
-                    "prophet",
-
-                meaning:
-                    "先知",
-
-                english:
-                    "a person who speaks God's message"
+                word: "prophet",
+                meaning: "先知",
+                english: "a person who speaks God's message"
             },
-
             {
-                word:
-                    "voice",
-
-                meaning:
-                    "声音",
-
-                english:
-                    "voice"
+                word: "voice",
+                meaning: "声音",
+                english: "voice"
             },
-
             {
-                word:
-                    "baptize",
-
-                meaning:
-                    "施洗",
-
-                english:
-                    "to baptize"
+                word: "baptize",
+                meaning: "施洗",
+                english: "to baptize"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "Who are you?",
-
-                explanation:
-                    "疑问句直接寻找身份。"
+                pattern: "Who are you?",
+                explanation: "寻找身份。"
             },
-
             {
-                pattern:
-                    "I am not the Christ.",
-
-                explanation:
-                    "否定身份。"
+                pattern: "I am not the Christ.",
+                explanation: "否定身份。"
             },
-
             {
-                pattern:
-                    "I am the voice...",
-
-                explanation:
-                    "I am + 名词，说明身份和使命。"
+                pattern: "I am the voice...",
+                explanation: "说明身份与使命。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What does John repeatedly deny?",
-
-                type:
-                    "identity",
-
+                question: "What does John deny?",
                 options: [
-
-                    "He is the Christ",
-
-                    "He is a witness",
-
-                    "He baptizes with water"
-
+                    "That he is the Christ",
+                    "That he is a witness",
+                    "That he baptizes"
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What identity does John accept?",
-
-                type:
-                    "identity",
-
+                question: "How does John describe himself?",
                 options: [
-
                     "The voice in the wilderness",
-
                     "The Messiah",
-
                     "The King"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "Was John the Christ?",
-
-                chineseHint:
-                    "答案就在经文中。",
-
+                question: "Was John the Christ?",
+                hint: "这是最直接的问题。",
                 options: [
-
                     "Yes",
-
                     "No",
-
                     "We do not know"
-
                 ],
-
-                answer:
-                    1,
-
-                chineseAnswer:
-                    "不是。"
+                answer: 1,
+                chinese: "不是。"
             },
-
             {
-                englishQuestion:
-                    "What did John call himself?",
-
-                chineseHint:
-                    "约翰怎样描述自己的身份？",
-
+                question: "What did John call himself?",
+                hint: "注意 voice。",
                 options: [
-
                     "The voice in the wilderness",
-
                     "The Christ",
-
-                    "The King of Israel"
-
+                    "The King"
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "他称自己是旷野中的声音。"
+                answer: 0,
+                chinese: "他称自己是旷野中的声音。"
             }
-
         ],
 
         context:
-            "John's identity is defined in relation to Jesus. He refuses glory for himself and identifies his mission as preparing the way.",
+            "John defines his identity in relation to the coming Christ and refuses to take the glory for himself.",
 
         production:
-            "Describe John's identity and mission in simple English."
-
+            "Describe John's mission in simple English."
     },
 
-
     {
-        id:
-            "J1-05",
-
-        title:
-            "The Lamb of God",
-
-        reference:
-            "John 1:29–34",
-
-        start:
-            29,
-
-        end:
-            34,
+        id: "J1-05",
+        title: "The Lamb of God",
+        reference: "John 1:29–34",
+        start: 29,
+        end: 34,
 
         vocabulary: [
-
             {
-                word:
-                    "Lamb",
-
-                meaning:
-                    "羔羊",
-
-                english:
-                    "a lamb"
+                word: "Lamb",
+                meaning: "羔羊",
+                english: "a lamb"
             },
-
             {
-                word:
-                    "sin",
-
-                meaning:
-                    "罪",
-
-                english:
-                    "sin"
+                word: "sin",
+                meaning: "罪",
+                english: "sin"
             },
-
             {
-                word:
-                    "Spirit",
-
-                meaning:
-                    "圣灵",
-
-                english:
-                    "the Holy Spirit"
+                word: "Spirit",
+                meaning: "圣灵",
+                english: "the Holy Spirit"
             },
-
             {
-                word:
-                    "remain",
-
-                meaning:
-                    "停留；常住",
-
-                english:
-                    "stay"
+                word: "remain",
+                meaning: "停留",
+                english: "stay"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "Behold, the Lamb of God.",
-
-                explanation:
-                    "Behold 用来引起注意。"
+                pattern: "Behold, the Lamb of God.",
+                explanation: "Behold 用于引起注意。"
             },
-
             {
-                pattern:
-                    "who takes away the sin of the world",
-
-                explanation:
-                    "who 引导关系从句，说明 Lamb 的工作。"
+                pattern: "who takes away the sin of the world",
+                explanation: "who 引导关系从句。"
             },
-
             {
-                pattern:
-                    "the Spirit descend and remain",
-
-                explanation:
-                    "多个动作组成见证过程。"
+                pattern: "the Spirit descend and remain",
+                explanation: "多个动作构成见证过程。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What title does John give Jesus?",
-
-                type:
-                    "title",
-
+                question: "What title does John give Jesus?",
                 options: [
-
                     "The Lamb of God",
-
-                    "The prophet",
-
-                    "The voice"
-
+                    "The Prophet",
+                    "The Voice"
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What is the Lamb connected with?",
-
-                type:
-                    "work",
-
+                question: "What does the Lamb take away?",
                 options: [
-
-                    "Taking away sin",
-
-                    "Building the temple",
-
-                    "Leading Rome"
-
+                    "Sin",
+                    "The temple",
+                    "The law"
                 ],
-
-                answer:
-                    0
-            },
-
-            {
-                question:
-                    "What does the Spirit do?",
-
-                type:
-                    "action",
-
-                options: [
-
-                    "Descends and remains",
-
-                    "Leaves immediately",
-
-                    "Builds a house"
-
-                ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "Who is Jesus according to John?",
-
-                chineseHint:
-                    "约翰给耶稣什么称号？",
-
+                question: "Who is Jesus according to John?",
+                hint: "注意 John 给出的称号。",
                 options: [
-
                     "The Lamb of God",
-
                     "The prophet only",
-
                     "The Roman king"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "耶稣是神的羔羊。"
+                answer: 0,
+                chinese: "耶稣是神的羔羊。"
             },
-
             {
-                englishQuestion:
-                    "What does the Lamb take away?",
-
-                chineseHint:
-                    "注意 take away 后面的宾语。",
-
+                question: "What does the Lamb take away?",
+                hint: "注意 takes away 后面的宾语。",
                 options: [
-
                     "The law",
-
                     "The sin of the world",
-
                     "The temple"
-
                 ],
-
-                answer:
-                    1,
-
-                chineseAnswer:
-                    "除去世人的罪。"
+                answer: 1,
+                chinese: "除去世人的罪。"
             }
-
         ],
 
         context:
-            "John's witness becomes more explicit: Jesus is the Lamb of God. The descent and remaining of the Spirit serves as confirmation of Jesus' identity.",
+            "John identifies Jesus as the Lamb of God and connects him with the work of the Spirit.",
 
         production:
-            "Explain in simple English what John says about Jesus."
+            "Explain what John says about Jesus."
     },
 
-
     {
-        id:
-            "J1-06",
-
-        title:
-            "Come and See",
-
-        reference:
-            "John 1:35–42",
-
-        start:
-            35,
-
-        end:
-            42,
+        id: "J1-06",
+        title: "Come and See",
+        reference: "John 1:35–42",
+        start: 35,
+        end: 42,
 
         vocabulary: [
-
             {
-                word:
-                    "disciple",
-
-                meaning:
-                    "门徒",
-
-                english:
-                    "a learner and follower"
+                word: "disciple",
+                meaning: "门徒",
+                english: "a follower"
             },
-
             {
-                word:
-                    "follow",
-
-                meaning:
-                    "跟随",
-
-                english:
-                    "to go after"
+                word: "follow",
+                meaning: "跟随",
+                english: "to go after"
             },
-
             {
-                word:
-                    "Rabbi",
-
-                meaning:
-                    "拉比；夫子",
-
-                english:
-                    "teacher"
+                word: "Rabbi",
+                meaning: "拉比",
+                english: "teacher"
             },
-
             {
-                word:
-                    "Messiah",
-
-                meaning:
-                    "弥赛亚",
-
-                english:
-                    "the promised Messiah"
+                word: "Messiah",
+                meaning: "弥赛亚",
+                english: "the promised Messiah"
             },
-
             {
-                word:
-                    "stay",
-
-                meaning:
-                    "停留；住",
-
-                english:
-                    "remain"
+                word: "stay",
+                meaning: "停留",
+                english: "remain"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "What are you seeking?",
-
-                explanation:
-                    "现在进行时询问当前正在寻找什么。"
+                pattern: "What are you seeking?",
+                explanation: "现在进行时询问当前寻找什么。"
             },
-
             {
-                pattern:
-                    "Come and you will see.",
-
-                explanation:
-                    "邀请 + 结果。"
+                pattern: "Come and you will see.",
+                explanation: "邀请 + 结果。"
             },
-
             {
-                pattern:
-                    "We have found the Messiah.",
-
-                explanation:
-                    "现在完成时表达已经发现。"
+                pattern: "We have found the Messiah.",
+                explanation: "现在完成时。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What action begins the discipleship movement?",
-
-                type:
-                    "action",
-
+                question: "What action begins the discipleship movement?",
                 options: [
-
                     "They follow Jesus",
-
-                    "They leave Jesus",
-
-                    "They hide"
-
+                    "They hide",
+                    "They leave"
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What invitation does Jesus give?",
-
-                type:
-                    "invitation",
-
+                question: "What invitation does Jesus give?",
                 options: [
-
                     "Come and see",
-
                     "Go away",
-
                     "Stay outside"
-
                 ],
-
-                answer:
-                    0
-            },
-
-            {
-                question:
-                    "Who does Andrew bring to Jesus?",
-
-                type:
-                    "relationship",
-
-                options: [
-
-                    "Simon",
-
-                    "Moses",
-
-                    "Pilate"
-
-                ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "What did the disciples do after hearing John?",
-
-                chineseHint:
-                    "他们听见约翰说话之后做了什么？",
-
+                question: "What did the disciples do after hearing John?",
+                hint: "注意 followed。",
                 options: [
-
                     "They followed Jesus",
-
                     "They went home",
-
                     "They followed Moses"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "他们跟随了耶稣。"
+                answer: 0,
+                chinese: "他们跟随了耶稣。"
             },
-
             {
-                englishQuestion:
-                    "What did Jesus say?",
-
-                chineseHint:
-                    "耶稣邀请他们做什么？",
-
+                question: "What did Jesus say?",
+                hint: "注意 Jesus 的邀请。",
                 options: [
-
                     "Come and see",
-
                     "Go and hide",
-
                     "Wait outside"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "来，你们就必看见。"
+                answer: 0,
+                chinese: "来，你们就必看见。"
             }
-
         ],
 
         context:
-            "John's testimony leads to personal discipleship. The disciples follow Jesus, stay with him, and one of them immediately brings another person to Jesus.",
+            "The movement from testimony to discipleship is clear: hear, follow, stay, and invite others.",
 
         production:
-            "Describe the first steps of following Jesus in simple English."
+            "Write one sentence about following Jesus."
     },
 
-
     {
-        id:
-            "J1-07",
-
-        title:
-            "Follow Me",
-
-        reference:
-            "John 1:43–51",
-
-        start:
-            43,
-
-        end:
-            51,
+        id: "J1-07",
+        title: "Follow Me",
+        reference: "John 1:43–51",
+        start: 43,
+        end: 51,
 
         vocabulary: [
-
             {
-                word:
-                    "follow",
-
-                meaning:
-                    "跟随",
-
-                english:
-                    "to go after"
+                word: "follow",
+                meaning: "跟随",
+                english: "to go after"
             },
-
             {
-                word:
-                    "Nazareth",
-
-                meaning:
-                    "拿撒勒",
-
-                english:
-                    "Nazareth"
+                word: "Nazareth",
+                meaning: "拿撒勒",
+                english: "Nazareth"
             },
-
             {
-                word:
-                    "Nathanael",
-
-                meaning:
-                    "拿但业",
-
-                english:
-                    "Nathanael"
+                word: "Nathanael",
+                meaning: "拿但业",
+                english: "Nathanael"
             },
-
             {
-                word:
-                    "heaven",
-
-                meaning:
-                    "天",
-
-                english:
-                    "heaven"
+                word: "heaven",
+                meaning: "天",
+                english: "heaven"
             },
-
             {
-                word:
-                    "angels",
-
-                meaning:
-                    "天使",
-
-                english:
-                    "angels"
+                word: "angels",
+                meaning: "天使",
+                english: "angels"
             }
-
         ],
 
         structures: [
-
             {
-                pattern:
-                    "Follow me.",
-
-                explanation:
-                    "最简洁的祈使句呼召。"
+                pattern: "Follow me.",
+                explanation: "祈使句呼召。"
             },
-
             {
-                pattern:
-                    "Can anything good come out of Nazareth?",
-
-                explanation:
-                    "Can + 主语 + 动词构成一般疑问句。"
+                pattern: "Can anything good come out of Nazareth?",
+                explanation: "Can + 主语 + 动词。"
             },
-
             {
-                pattern:
-                    "You will see heaven opened.",
-
-                explanation:
-                    "will 表达未来。"
+                pattern: "You will see heaven opened.",
+                explanation: "will 表达未来。"
             }
-
         ],
 
         notice: [
-
             {
-                question:
-                    "What does Jesus directly say to Philip?",
-
-                type:
-                    "call",
-
+                question: "What does Jesus say to Philip?",
                 options: [
-
                     "Follow me",
-
                     "Go home",
-
                     "Wait for John"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What does Philip do next?",
-
-                type:
-                    "response",
-
+                question: "What does Philip do?",
                 options: [
-
                     "He finds Nathanael",
-
                     "He leaves",
-
                     "He hides"
-
                 ],
-
-                answer:
-                    0
+                answer: 0
             },
-
             {
-                question:
-                    "What future vision does Jesus promise?",
-
-                type:
-                    "vision",
-
+                question: "What future vision is promised?",
                 options: [
-
                     "Heaven opened",
-
-                    "The temple destroyed",
-
-                    "Rome defeated"
-
+                    "A new temple",
+                    "The Roman army"
                 ],
-
-                answer:
-                    0
+                answer: 0
             }
-
         ],
 
         directComprehension: [
-
             {
-                englishQuestion:
-                    "Who said, 'Follow me'?",
-
-                chineseHint:
-                    "是谁呼召腓力？",
-
+                question: "Who said, 'Follow me'?",
+                hint: "先直接找人物。",
                 options: [
-
                     "Jesus",
-
                     "John",
-
                     "Nathanael"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "耶稣说：跟从我。"
+                answer: 0,
+                chinese: "耶稣说：跟从我。"
             },
-
             {
-                englishQuestion:
-                    "What did Nathanael come to recognize?",
-
-                chineseHint:
-                    "拿但业最后怎样认识耶稣？",
-
+                question: "What did Nathanael recognize?",
+                hint: "注意 Son of God。",
                 options: [
-
                     "Jesus as the Son of God",
-
                     "Jesus as a Roman leader",
-
                     "Jesus as only a teacher"
-
                 ],
-
-                answer:
-                    0,
-
-                chineseAnswer:
-                    "他承认耶稣是神的儿子。"
+                answer: 0,
+                chinese: "拿但业承认耶稣是神的儿子。"
             }
-
         ],
 
         context:
-            "Jesus calls Philip, Philip brings Nathanael, and the encounter moves from questions to recognition. The section ends with a larger revelation concerning the Son of Man.",
+            "Jesus calls Philip, Philip brings Nathanael, and the encounter moves toward recognition of Jesus' identity.",
 
         production:
             "Describe how Jesus calls Philip and how Philip responds."
     }
-
 ];
 
 
@@ -1674,55 +778,37 @@ const UNITS = [
    STATE
 ========================================================= */
 
-let currentUnit =
-    null;
+let currentUnit = null;
+let currentPassage = null;
+let currentVerseIndex = 0;
+let speechRate = CONFIG.NORMAL_RATE;
+let selectedVoice = null;
+let continuousReading = false;
+let repeatCurrentVerse = false;
 
-let currentPassage =
-    null;
+let noticeAnswers = {};
+let directAnswers = {};
 
-let currentVerseIndex =
-    0;
-
-let speechRate =
-    CONFIG.NORMAL_RATE;
-
-let selectedVoice =
-    null;
-
-let continuousReading =
-    false;
-
-let repeatCurrentVerse =
-    false;
-
-
-/* =========================================================
-   SAVE STATE
-========================================================= */
-
-let state =
-    loadState();
+let state = loadState();
 
 
 function loadState() {
 
     try {
 
-        const raw =
-            localStorage.getItem(
-                CONFIG.STATE_KEY
-            );
+        const saved =
+            localStorage.getItem(CONFIG.STATE_KEY);
 
-        if (raw) {
+        if (saved) {
 
-            return JSON.parse(raw);
+            return JSON.parse(saved);
 
         }
 
     } catch (error) {
 
         console.warn(
-            "EBRM state load error:",
+            "State error:",
             error
         );
 
@@ -1730,15 +816,8 @@ function loadState() {
 
 
     return {
-
         completed: {},
-
-        reviews: {},
-
-        scores: {},
-
-        lastUnit: null
-
+        reviews: {}
     };
 
 }
@@ -1747,18 +826,15 @@ function loadState() {
 function saveState() {
 
     localStorage.setItem(
-
         CONFIG.STATE_KEY,
-
         JSON.stringify(state)
-
     );
 
 }
 
 
 /* =========================================================
-   HELPER
+   HELPERS
 ========================================================= */
 
 function $(id) {
@@ -1768,42 +844,36 @@ function $(id) {
 }
 
 
-function esc(value) {
+function escapeHTML(value) {
 
     return String(value ?? "")
-        .replace(
-            /[&<>"']/g,
-            function(match) {
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-                return {
+}
 
-                    "&": "&amp;",
 
-                    "<": "&lt;",
+function escapeJS(value) {
 
-                    ">": "&gt;",
-
-                    '"': "&quot;",
-
-                    "'": "&#39;"
-
-                }[match];
-
-            }
-        );
+    return String(value ?? "")
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'")
+        .replace(/\r/g, "")
+        .replace(/\n/g, "\\n");
 
 }
 
 
 /* =========================================================
-   INITIALIZE
+   INIT
 ========================================================= */
 
 function init() {
 
     renderHome();
-
-    renderReviews();
 
     initSpeech();
 
@@ -1821,20 +891,15 @@ function initSpeech() {
     }
 
 
-    /*
-     * 浏览器首次启动时
-     * voices 可能尚未加载。
-     */
-
     selectedVoice =
-        chooseBestEnglishVoice();
+        chooseVoice();
 
 
     speechSynthesis.onvoiceschanged =
         function() {
 
             selectedVoice =
-                chooseBestEnglishVoice();
+                chooseVoice();
 
             renderVoicePanel();
 
@@ -1844,48 +909,25 @@ function initSpeech() {
 
 
 /* =========================================================
-   VOICE SELECTION
+   VOICE
 ========================================================= */
 
-function getVoices() {
-
-    if (
-        !("speechSynthesis" in window)
-    ) {
-
-        return [];
-
-    }
-
-    return speechSynthesis
-        .getVoices();
-
-}
-
-
-function englishVoices() {
-
-    return getVoices()
-        .filter(function(voice) {
-
-            const lang =
-                (voice.lang || "")
-                .toLowerCase();
-
-            return (
-                lang.startsWith("en-") ||
-                lang === "en"
-            );
-
-        });
-
-}
-
-
-function chooseBestEnglishVoice() {
+function chooseVoice() {
 
     const voices =
-        englishVoices();
+        speechSynthesis
+            .getVoices()
+            .filter(function(voice) {
+
+                return (
+                    voice.lang &&
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("en")
+                );
+
+            });
+
 
     if (!voices.length) {
 
@@ -1896,49 +938,50 @@ function chooseBestEnglishVoice() {
 
     const saved =
         localStorage.getItem(
-            "EBRM_V06_VOICE"
+            "EBRM_V061_VOICE"
         );
 
 
     if (saved) {
 
-        const match =
+        const found =
             voices.find(
                 function(voice) {
 
                     return (
-                        voice.name === saved
+                        voice.name ===
+                        saved
                     );
 
                 }
             );
 
-        if (match) {
 
-            return match;
+        if (found) {
+
+            return found;
 
         }
 
     }
 
 
-    const maleNames = [
+    const preferredNames = [
 
-        "male",
-        "man",
         "david",
         "daniel",
         "alex",
-        "mark",
-        "james",
         "george",
+        "james",
+        "mark",
         "guy",
-        "fred"
+        "fred",
+        "male"
 
     ];
 
 
-    const male =
+    const preferred =
         voices.find(
             function(voice) {
 
@@ -1946,11 +989,12 @@ function chooseBestEnglishVoice() {
                     voice.name
                         .toLowerCase();
 
-                return maleNames.some(
+                return preferredNames.some(
                     function(word) {
 
-                        return name
-                            .includes(word);
+                        return name.includes(
+                            word
+                        );
 
                     }
                 );
@@ -1959,9 +1003,9 @@ function chooseBestEnglishVoice() {
         );
 
 
-    if (male) {
+    if (preferred) {
 
-        return male;
+        return preferred;
 
     }
 
@@ -1988,7 +1032,7 @@ function chooseBestEnglishVoice() {
 function renderVoicePanel() {
 
     const readScreen =
-        document.getElementById("read");
+        $("read");
 
 
     if (!readScreen) {
@@ -1999,9 +1043,7 @@ function renderVoicePanel() {
 
 
     let panel =
-        document.getElementById(
-            "ebrmVoicePanel"
-        );
+        $("ebrmVoicePanel");
 
 
     if (!panel) {
@@ -2019,9 +1061,7 @@ function renderVoicePanel() {
 
 
         const passage =
-            document.getElementById(
-                "passageText"
-            );
+            $("passageText");
 
 
         if (
@@ -2035,674 +1075,140 @@ function renderVoicePanel() {
                     passage
                 );
 
+        } else {
+
+            readScreen.prepend(
+                panel
+            );
+
         }
 
     }
 
 
     const voices =
-        englishVoices();
+        speechSynthesis
+            .getVoices()
+            .filter(function(voice) {
+
+                return (
+                    voice.lang &&
+                    voice.lang
+                        .toLowerCase()
+                        .startsWith("en")
+                );
+
+            });
 
 
-    panel.innerHTML = `
+    let options = "";
 
-        <strong>
-            🎙️ English Voice
-        </strong>
 
-        <select
-            id="ebrmVoiceSelect"
-            style="
-                width:100%;
-                padding:10px;
-                margin-top:10px;
-                border:1px solid #ddd;
-                border-radius:10px;
-                background:white;
-            "
-        >
+    voices.forEach(
+        function(voice) {
 
-            ${
-                voices.length
-                    ? voices.map(
-                        function(voice) {
+            options +=
+                "<option value=\"" +
+                escapeHTML(
+                    voice.name
+                ) +
+                "\"" +
+                (
+                    selectedVoice &&
+                    selectedVoice.name ===
+                    voice.name
+                        ? " selected"
+                        : ""
+                ) +
+                ">" +
+                escapeHTML(
+                    voice.name
+                ) +
+                " (" +
+                escapeHTML(
+                    voice.lang
+                ) +
+                ")" +
+                "</option>";
 
-                            const selected =
-                                selectedVoice &&
-                                voice.name ===
-                                selectedVoice.name
-                                    ? "selected"
-                                    : "";
+        }
+    );
 
-                            return `
 
-                                <option
-                                    value="${esc(
-                                        voice.name
-                                    )}"
-                                    ${selected}
-                                >
+    if (!options) {
 
-                                    ${esc(
-                                        voice.name
-                                    )}
-                                    ·
-                                    ${esc(
-                                        voice.lang
-                                    )}
+        options =
+            "<option>未检测到英文声音</option>";
 
-                                </option>
+    }
 
-                            `;
 
-                        }
-                    ).join("")
-                    : `
-                        <option>
-                            未检测到英文系统声音
-                        </option>
-                    `
-            }
+    panel.innerHTML =
 
-        </select>
+        "<strong>🎙️ English Voice</strong>" +
 
-        <div
-            style="
-                margin-top:7px;
-                color:#777;
-                font-size:12px;
-            "
-        >
-            建议优先选择英语男性声音。
-        </div>
+        "<select " +
+        "id=\"ebrmVoiceSelect\" " +
+        "style=\"" +
+        "width:100%;" +
+        "padding:10px;" +
+        "margin-top:8px;" +
+        "border:1px solid #ddd;" +
+        "border-radius:10px;" +
+        "background:white;" +
+        "\">" +
 
-    `;
+        options +
+
+        "</select>" +
+
+        "<div " +
+        "style=\"" +
+        "margin-top:7px;" +
+        "color:#777;" +
+        "font-size:12px;" +
+        "\">" +
+        "可用声音取决于当前设备和浏览器。" +
+        "</div>";
 
 
     const select =
-        document.getElementById(
-            "ebrmVoiceSelect"
-        );
+        $("ebrmVoiceSelect");
 
 
-    if (!select) {
+    if (select) {
 
-        return;
+        select.onchange =
+            function() {
 
-    }
+                const voicesNow =
+                    speechSynthesis
+                        .getVoices();
 
-
-    select.onchange =
-        function() {
-
-            const voice =
-                voices.find(
-                    function(item) {
-
-                        return (
-                            item.name ===
-                            select.value
-                        );
-
-                    }
-                );
-
-
-            if (voice) {
 
                 selectedVoice =
-                    voice;
-
-
-                localStorage.setItem(
-
-                    "EBRM_V06_VOICE",
-
-                    voice.name
-
-                );
-
-            }
-
-        };
-
-}
-
-
-/* =========================================================
-   HOME
-========================================================= */
-
-function renderHome() {
-
-    const grid =
-        document.getElementById(
-            "unitGrid"
-        );
-
-
-    if (!grid) {
-
-        return;
-
-    }
-
-
-    grid.innerHTML =
-        UNITS
-            .map(function(unit, index) {
-
-                const completed =
-                    !!state.completed[
-                        unit.id
-                    ];
-
-
-                return `
-
-                    <button
-                        class="unit ${
-                            completed
-                                ? "done"
-                                : ""
-                        }"
-                        onclick="
-                            openUnit(
-                                '${unit.id}'
-                            )
-                        "
-                    >
-
-                        <div class="unit-num">
-
-                            UNIT
-                            ${String(index + 1)
-                                .padStart(2, "0")}
-
-                        </div>
-
-                        <div class="unit-title">
-
-                            ${esc(
-                                unit.title
-                            )}
-
-                        </div>
-
-                        <div class="unit-ref">
-
-                            ${esc(
-                                unit.reference
-                            )}
-
-                            ${
-                                completed
-                                    ? " ✓"
-                                    : ""
-                            }
-
-                        </div>
-
-                    </button>
-
-                `;
-
-            })
-            .join("");
-
-}
-
-
-/* =========================================================
-   OPEN UNIT
-========================================================= */
-
-function openUnit(
-    unitId
-) {
-
-    stopSpeech();
-
-
-    currentUnit =
-        UNITS.find(
-            function(unit) {
-
-                return (
-                    unit.id ===
-                    unitId
-                );
-
-            }
-        );
-
-
-    if (!currentUnit) {
-
-        return;
-
-    }
-
-
-    state.lastUnit =
-        currentUnit.id;
-
-
-    saveState();
-
-
-    currentPassage =
-        null;
-
-
-    currentVerseIndex =
-        0;
-
-
-    continuousReading =
-        false;
-
-
-    repeatCurrentVerse =
-        false;
-
-
-    const title =
-        $("readTitle");
-
-
-    if (title) {
-
-        title.textContent =
-            currentUnit.title;
-
-    }
-
-
-    const reference =
-        $("readReference");
-
-
-    if (reference) {
-
-        reference.textContent =
-            currentUnit.reference;
-
-    }
-
-
-    const context =
-        $("contextText");
-
-
-    if (context) {
-
-        context.textContent =
-            currentUnit.context;
-
-    }
-
-
-    const production =
-        $("productionPrompt");
-
-
-    if (production) {
-
-        production.textContent =
-            currentUnit.production;
-
-    }
-
-
-    const answer =
-        $("productionAnswer");
-
-
-    if (answer) {
-
-        answer.value = "";
-
-    }
-
-
-    renderVocabulary();
-
-    renderStructures();
-
-    renderNotice();
-
-    renderDirectComprehension();
-
-    showScreen(
-        "read"
-    );
-
-
-    loadPassage();
-
-
-    setTimeout(
-        function() {
-
-            renderVoicePanel();
-
-        },
-        250
-    );
-
-}
-
-
-/* =========================================================
-   SHOW SCREEN
-========================================================= */
-
-function showScreen(
-    screenId
-) {
-
-    document
-        .querySelectorAll(
-            ".screen"
-        )
-        .forEach(function(screen) {
-
-            screen.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    const target =
-        document.getElementById(
-            screenId
-        );
-
-
-    if (target) {
-
-        target.classList.add(
-            "active"
-        );
-
-    }
-
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-
-    if (
-        screenId ===
-        "review"
-    ) {
-
-        renderReviews();
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD PASSAGE
-========================================================= */
-
-async function loadPassage() {
-
-    const box =
-        $("passageText");
-
-
-    if (!box) {
-
-        return;
-
-    }
-
-
-    box.innerHTML = `
-
-        <div class="loading">
-
-            正在读取英文圣经……
-
-        </div>
-
-    `;
-
-
-    const reference =
-        `John 1:${currentUnit.start}-${currentUnit.end}`;
-
-
-    const url =
-        `${CONFIG.BIBLE_API}/` +
-        `${encodeURIComponent(reference)}` +
-        `?translation=${CONFIG.TRANSLATION}`;
-
-
-    try {
-
-        const response =
-            await fetch(
-                url,
-                {
-                    cache:
-                        "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (
-            !data.verses ||
-            !data.verses.length
-        ) {
-
-            throw new Error(
-                "没有读取到经文"
-            );
-
-        }
-
-
-        currentPassage = {
-
-            reference:
-                currentUnit.reference,
-
-            verses:
-                data.verses.map(
-                    function(item) {
-
-                        return {
-
-                            verse:
-                                item.verse,
-
-                            text:
-                                item.text
-                                    .trim()
-
-                        };
-
-                    }
-                )
-
-        };
-
-
-        renderPassage();
-
-        updateSpeechStatus(
-            "经文已加载，可以开始 NOTICE。"
-        );
-
-
-    } catch (error) {
-
-        box.innerHTML = `
-
-            <div class="success">
-
-                <strong>
-                    经文读取失败
-                </strong>
-
-                <br><br>
-
-                ${esc(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   RENDER PASSAGE
-========================================================= */
-
-function renderPassage() {
-
-    const box =
-        $("passageText");
-
-
-    if (
-        !box ||
-        !currentPassage
-    ) {
-
-        return;
-
-    }
-
-
-    box.innerHTML = "";
-
-
-    currentPassage.verses
-        .forEach(
-            function(verse, index) {
-
-                const el =
-                    document.createElement(
-                        "span"
+                    voicesNow.find(
+                        function(voice) {
+
+                            return (
+                                voice.name ===
+                                select.value
+                            );
+
+                        }
                     );
 
 
-                el.className =
-                    "verse";
+                if (selectedVoice) {
 
+                    localStorage.setItem(
+                        "EBRM_V061_VOICE",
+                        selectedVoice.name
+                    );
 
-                el.dataset.index =
-                    index;
+                }
 
-
-                el.innerHTML = `
-
-                    <sup>
-                        ${verse.verse}
-                    </sup>
-
-                    ${esc(
-                        verse.text
-                    )}
-
-                `;
-
-
-                el.onclick =
-                    function() {
-
-                        playVerse(
-                            index
-                        );
-
-                    };
-
-
-                box.appendChild(
-                    el
-                );
-
-
-                box.appendChild(
-                    document.createTextNode(
-                        " "
-                    )
-                );
-
-            }
-        );
-
-
-    highlightVerse(
-        currentVerseIndex
-    );
-
-}
-
-
-/* =========================================================
-   HIGHLIGHT
-========================================================= */
-
-function highlightVerse(
-    index
-) {
-
-    document
-        .querySelectorAll(
-            ".verse"
-        )
-        .forEach(function(el) {
-
-            el.classList.remove(
-                "active-verse",
-                "verse-speaking"
-            );
-
-        });
-
-
-    const target =
-        document.querySelector(
-            `.verse[data-index="${index}"]`
-        );
-
-
-    if (target) {
-
-        target.classList.add(
-            "active-verse"
-        );
+            };
 
     }
 
@@ -2715,12 +1221,12 @@ function highlightVerse(
 
 function speakText(
     text,
-    element = null,
-    callback = null
+    element,
+    callback
 ) {
 
     if (
-        !window.speechSynthesis
+        !("speechSynthesis" in window)
     ) {
 
         alert(
@@ -2767,11 +1273,25 @@ function speakText(
 
     if (element) {
 
-        clearVerseHighlight();
+        document
+            .querySelectorAll(
+                ".verse"
+            )
+            .forEach(
+                function(item) {
+
+                    item.classList.remove(
+                        "verse-speaking"
+                    );
+
+                }
+            );
+
 
         element.classList.add(
             "verse-speaking"
         );
+
 
         element.scrollIntoView({
 
@@ -2825,68 +1345,36 @@ function speakText(
 }
 
 
-function clearVerseHighlight() {
+function speakPassage() {
 
-    document
-        .querySelectorAll(
-            ".verse-speaking"
-        )
-        .forEach(function(el) {
-
-            el.classList.remove(
-                "verse-speaking"
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   PLAY VERSE
-========================================================= */
-
-function playVerse(
-    index
-) {
-
-    if (
-        !currentPassage ||
-        !currentPassage.verses[index]
-    ) {
+    if (!currentPassage) {
 
         return;
 
     }
 
 
-    continuousReading =
-        false;
+    continuousReading = false;
+
+    repeatCurrentVerse = false;
 
 
-    repeatCurrentVerse =
-        false;
+    const text =
+        currentPassage.verses
+            .map(function(item) {
+
+                return item.text;
+
+            })
+            .join(" ");
 
 
-    currentVerseIndex =
-        index;
-
-
-    highlightVerse(
-        index
-    );
-
-
-    speakVerse(
-        index
-    );
+    speakText(text);
 
 }
 
 
-function speakVerse(
-    index
-) {
+function speakVerse(index) {
 
     if (
         !currentPassage ||
@@ -2913,13 +1401,10 @@ function speakVerse(
 
 
     speakText(
-
         currentPassage
             .verses[index]
             .text,
-
         element,
-
         function() {
 
             if (
@@ -2934,12 +1419,15 @@ function speakVerse(
                         );
 
                     },
-                    700
+                    600
                 );
+
+                return;
 
             }
 
-            else if (
+
+            if (
                 continuousReading
             ) {
 
@@ -2958,44 +1446,20 @@ function speakVerse(
                         next
                     );
 
-                }
-
-                else {
+                } else {
 
                     continuousReading =
                         false;
 
-
-                    updateSpeechStatus(
-                        "✓ 连续听读完成。"
-                    );
-
                 }
 
             }
 
-            else {
-
-                updateSpeechStatus(
-                    `第 ${
-                        currentPassage
-                            .verses[index]
-                            .verse
-                    } 节朗读完成。`
-                );
-
-            }
-
         }
-
     );
 
 }
 
-
-/* =========================================================
-   CONTINUOUS
-========================================================= */
 
 function startContinuousReading() {
 
@@ -3012,7 +1476,6 @@ function startContinuousReading() {
     continuousReading =
         true;
 
-
     repeatCurrentVerse =
         false;
 
@@ -3021,21 +1484,12 @@ function startContinuousReading() {
         0;
 
 
-    updateSpeechStatus(
-        "▶ 连续逐节听读中……"
-    );
-
-
     speakVerse(
-        currentVerseIndex
+        0
     );
 
 }
 
-
-/* =========================================================
-   REPEAT
-========================================================= */
 
 function toggleRepeatCurrentVerse() {
 
@@ -3054,15 +1508,6 @@ function toggleRepeatCurrentVerse() {
         !repeatCurrentVerse;
 
 
-    updateSpeechStatus(
-
-        repeatCurrentVerse
-            ? "🔁 当前节循环中……"
-            : "当前节循环已停止。"
-
-    );
-
-
     if (
         repeatCurrentVerse
     ) {
@@ -3071,14 +1516,14 @@ function toggleRepeatCurrentVerse() {
             currentVerseIndex
         );
 
+    } else {
+
+        stopSpeech();
+
     }
 
 }
 
-
-/* =========================================================
-   PREVIOUS
-========================================================= */
 
 function playPreviousVerse() {
 
@@ -3110,10 +1555,6 @@ function playPreviousVerse() {
 }
 
 
-/* =========================================================
-   NEXT
-========================================================= */
-
 function playNextVerse() {
 
     if (!currentPassage) {
@@ -3132,13 +1573,10 @@ function playNextVerse() {
 
     currentVerseIndex =
         Math.min(
-
             currentPassage
                 .verses
                 .length - 1,
-
             currentVerseIndex + 1
-
         );
 
 
@@ -3148,10 +1586,6 @@ function playNextVerse() {
 
 }
 
-
-/* =========================================================
-   STOP
-========================================================= */
 
 function stopSpeech() {
 
@@ -3163,7 +1597,7 @@ function stopSpeech() {
 
 
     if (
-        window.speechSynthesis
+        "speechSynthesis" in window
     ) {
 
         speechSynthesis.cancel();
@@ -3171,24 +1605,39 @@ function stopSpeech() {
     }
 
 
-    clearVerseHighlight();
+    document
+        .querySelectorAll(
+            ".verse-speaking"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
+        );
 
 }
 
 
-/* =========================================================
-   SPEED
-========================================================= */
-
 function toggleSlow() {
 
-    speechRate =
+    if (
         speechRate ===
-            CONFIG.NORMAL_RATE
+        CONFIG.NORMAL_RATE
+    ) {
 
-            ? CONFIG.SLOW_RATE
+        speechRate =
+            CONFIG.SLOW_RATE;
 
-            : CONFIG.NORMAL_RATE;
+    } else {
+
+        speechRate =
+            CONFIG.NORMAL_RATE;
+
+    }
 
 
     const label =
@@ -3200,7 +1649,7 @@ function toggleSlow() {
         label.textContent =
 
             speechRate ===
-                CONFIG.NORMAL_RATE
+            CONFIG.NORMAL_RATE
 
                 ? "正常速度"
 
@@ -3212,96 +1661,248 @@ function toggleSlow() {
 
 
 /* =========================================================
-   STATUS
+   LOAD PASSAGE
 ========================================================= */
 
-function updateSpeechStatus(
-    message
-) {
+async function loadPassage() {
 
-    let status =
-        document.getElementById(
-            "ebrmSpeechStatus"
-        );
+    const box =
+        $("passageText");
 
 
-    if (!status) {
+    if (!box) {
 
-        const passage =
-            $("passageText");
-
-
-        if (!passage) {
-
-            return;
-
-        }
-
-
-        status =
-            document.createElement(
-                "div"
-            );
-
-
-        status.id =
-            "ebrmSpeechStatus";
-
-
-        status.className =
-            "card";
-
-
-        passage.parentNode
-            .insertBefore(
-                status,
-                passage.nextSibling
-            );
+        return;
 
     }
 
 
-    status.innerHTML = `
+    box.innerHTML =
+        "<div class=\"loading\">" +
+        "正在读取英文圣经……" +
+        "</div>";
 
-        <strong>
-            ${esc(message)}
-        </strong>
 
-        ${
-            currentPassage
-                ? `
-                    <div
-                        style="
-                            margin-top:5px;
-                            color:#777;
-                            font-size:12px;
-                        "
-                    >
-                        当前：
-                        第 ${
-                            Math.max(
-                                currentVerseIndex + 1,
-                                1
-                            )
-                        } /
-                        ${
-                            currentPassage.verses.length
-                        } 节
-                    </div>
-                `
-                : ""
+    const reference =
+        "John 1:" +
+        currentUnit.start +
+        "-" +
+        currentUnit.end;
+
+
+    const url =
+        CONFIG.BIBLE_API +
+        "/" +
+        encodeURIComponent(reference) +
+        "?translation=" +
+        CONFIG.TRANSLATION;
+
+
+    try {
+
+        const response =
+            await fetch(
+                url,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
         }
 
-    `;
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.verses ||
+            !data.verses.length
+        ) {
+
+            throw new Error(
+                "没有返回经文"
+            );
+
+        }
+
+
+        currentPassage = {
+
+            verses:
+                data.verses.map(
+                    function(item) {
+
+                        return {
+
+                            verse:
+                                item.verse,
+
+                            text:
+                                String(
+                                    item.text
+                                ).trim()
+
+                        };
+
+                    }
+                )
+
+        };
+
+
+        renderPassage();
+
+
+    } catch (error) {
+
+        box.innerHTML =
+
+            "<div class=\"success\">" +
+
+            "<strong>" +
+            "经文读取失败" +
+            "</strong>" +
+
+            "<br><br>" +
+
+            escapeHTML(
+                error.message
+            ) +
+
+            "</div>";
+
+    }
 
 }
 
 
 /* =========================================================
-   V5/V6 AUDIO CONTROLS
+   RENDER PASSAGE
 ========================================================= */
 
-function addAdvancedControls() {
+function renderPassage() {
+
+    const box =
+        $("passageText");
+
+
+    if (
+        !box ||
+        !currentPassage
+    ) {
+
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+
+    currentPassage.verses
+        .forEach(
+            function(verse, index) {
+
+                const element =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                element.className =
+                    "verse";
+
+
+                element.dataset.index =
+                    index;
+
+
+                const number =
+                    document.createElement(
+                        "sup"
+                    );
+
+
+                number.textContent =
+                    verse.verse;
+
+
+                const text =
+                    document.createTextNode(
+                        " " +
+                        verse.text
+                    );
+
+
+                element.appendChild(
+                    number
+                );
+
+
+                element.appendChild(
+                    text
+                );
+
+
+                element.addEventListener(
+                    "click",
+                    function() {
+
+                        speakVerse(
+                            index
+                        );
+
+                    }
+                );
+
+
+                box.appendChild(
+                    element
+                );
+
+
+                box.appendChild(
+                    document.createTextNode(
+                        " "
+                    )
+                );
+
+            }
+        );
+
+
+    addReadingControls();
+
+    renderVoicePanel();
+
+}
+
+
+/* =========================================================
+   READING CONTROLS
+========================================================= */
+
+function addReadingControls() {
+
+    const existing =
+        $("ebrmReadingControls");
+
+
+    if (existing) {
+
+        existing.remove();
+
+    }
+
 
     const passage =
         $("passageText");
@@ -3314,19 +1915,6 @@ function addAdvancedControls() {
     }
 
 
-    const old =
-        document.getElementById(
-            "ebrmAdvancedControls"
-        );
-
-
-    if (old) {
-
-        old.remove();
-
-    }
-
-
     const controls =
         document.createElement(
             "div"
@@ -3334,414 +1922,304 @@ function addAdvancedControls() {
 
 
     controls.id =
-        "ebrmAdvancedControls";
+        "ebrmReadingControls";
 
     controls.className =
         "audio-controls";
 
 
-    controls.innerHTML = `
+    controls.innerHTML =
 
-        <button
-            onclick="speakPassage()">
+        "<button onclick=\"speakPassage()\">" +
+        "🔊 整段" +
+        "</button>" +
 
-            🔊 整段
+        "<button onclick=\"startContinuousReading()\">" +
+        "▶️ 连续逐节" +
+        "</button>" +
 
-        </button>
+        "<button onclick=\"playPreviousVerse()\">" +
+        "◀ 上一节" +
+        "</button>" +
 
-        <button
-            onclick="startContinuousReading()">
+        "<button onclick=\"playNextVerse()\">" +
+        "下一节 ▶" +
+        "</button>" +
 
-            ▶️ 连续逐节
+        "<button onclick=\"toggleRepeatCurrentVerse()\">" +
+        "🔁 当前节" +
+        "</button>" +
 
-        </button>
+        "<button onclick=\"toggleSlow()\">" +
+        "🐢 <span id=\"speedLabel\">正常速度</span>" +
+        "</button>" +
 
-        <button
-            onclick="playPreviousVerse()">
-
-            ◀ 上一节
-
-        </button>
-
-        <button
-            onclick="playNextVerse()">
-
-            下一节 ▶
-
-        </button>
-
-        <button
-            onclick="
-                toggleRepeatCurrentVerse()
-            ">
-
-            🔁 当前节
-
-        </button>
-
-        <button
-            onclick="toggleSlow()">
-
-            🐢
-            <span id="speedLabel">
-                正常速度
-            </span>
-
-        </button>
-
-        <button
-            onclick="stopSpeech()">
-
-            ⏹ 停止
-
-        </button>
-
-    `;
+        "<button onclick=\"stopSpeech()\">" +
+        "⏹ 停止" +
+        "</button>";
 
 
     passage.parentNode.insertBefore(
         controls,
-        passage
-    );
-
-}
-
-
-function speakPassage() {
-
-    if (!currentPassage) {
-
-        return;
-
-    }
-
-
-    continuousReading =
-        false;
-
-    repeatCurrentVerse =
-        false;
-
-
-    const text =
-        currentPassage.verses
-            .map(
-                function(item) {
-
-                    return item.text;
-
-                }
-            )
-            .join(" ");
-
-
-    speakText(
-        text
+        passage.nextSibling
     );
 
 }
 
 
 /* =========================================================
-   NOTICE TRAINING
+   NOTICE
 ========================================================= */
 
 function renderNotice() {
 
-    const container =
-        document.getElementById(
-            "noticeList"
-        );
-
-
-    if (!container) {
-
-        /*
-         * 当前 index.html 没有 noticeList 时，
-         * 自动插入 V0.6 区块。
-         */
-
-        injectNoticeSection();
-
-        return;
-
-    }
-
-
-    renderNoticeInto(
-        container
-    );
-
-}
-
-
-function renderNoticeInto(
-    container
-) {
-
-    container.innerHTML =
-
-        currentUnit.notice
-            .map(
-                function(item, index) {
-
-                    return `
-
-                        <div
-                            class="notice-question"
-                            style="
-                                padding:15px 0;
-                                border-top:1px solid #eee;
-                            "
-                        >
-
-                            <div
-                                style="
-                                    color:#888;
-                                    font-size:11px;
-                                    font-weight:700;
-                                "
-                            >
-                                NOTICE ${index + 1}
-                            </div>
-
-                            <div
-                                style="
-                                    margin:6px 0 10px;
-                                    font-weight:700;
-                                "
-                            >
-                                ${esc(
-                                    item.question
-                                )}
-                            </div>
-
-                            <div>
-
-                                ${item.options
-                                    .map(
-                                        function(
-                                            option,
-                                            optionIndex
-                                        ) {
-
-                                            return `
-
-                                                <button
-                                                    class="
-                                                        notice-option
-                                                    "
-                                                    data-q="
-                                                        ${index}
-                                                    "
-                                                    data-option="
-                                                        ${optionIndex}
-                                                    "
-                                                    style="
-                                                        display:block;
-                                                        width:100%;
-                                                        text-align:left;
-                                                        padding:10px;
-                                                        margin:6px 0;
-                                                        border:1px solid #ddd;
-                                                        border-radius:9px;
-                                                        background:white;
-                                                    "
-                                                    onclick="
-                                                        answerNotice(
-                                                            ${index},
-                                                            ${optionIndex},
-                                                            this
-                                                        )
-                                                    "
-                                                >
-
-                                                    ${esc(
-                                                        option
-                                                    )}
-
-                                                </button>
-
-                                            `;
-
-                                        }
-                                    )
-                                    .join("")}
-
-                            </div>
-
-                            <div
-                                id="
-                                    noticeFeedback-${index}
-                                "
-                                style="
-                                    margin-top:8px;
-                                    color:#777;
-                                    font-size:12px;
-                                "
-                            ></div>
-
-                        </div>
-
-                    `;
-
-                }
-            )
-            .join("");
+    injectNoticeSection();
 
 }
 
 
 function injectNoticeSection() {
 
-    const readScreen =
-        document.getElementById(
-            "read"
-        );
+    const read =
+        $("read");
 
 
-    if (!readScreen) {
+    if (!read) {
 
         return;
 
     }
 
 
-    const existing =
-        document.getElementById(
-            "ebrmNoticeSection"
-        );
+    let section =
+        $("ebrmNoticeSection");
 
 
-    if (existing) {
+    if (!section) {
 
-        return;
-
-    }
-
-
-    const section =
-        document.createElement(
-            "div"
-        );
-
-
-    section.id =
-        "ebrmNoticeSection";
-
-    section.className =
-        "card";
-
-
-    section.innerHTML = `
-
-        <div
-            style="
-                color:#496b59;
-                font-size:11px;
-                font-weight:800;
-                letter-spacing:.12em;
-            "
-        >
-            NOTICE
-        </div>
-
-        <h3 style="margin-top:6px;">
-            先观察，不急着翻译
-        </h3>
-
-        <p
-            style="
-                color:#777;
-                font-size:12px;
-            "
-        >
-            找重复、对比、人物、动作和关系。
-            选择你在英文经文中真正观察到的内容。
-        </p>
-
-        <div id="noticeList"></div>
-
-        <div
-            id="noticeScore"
-            style="
-                margin-top:12px;
-                font-weight:700;
-            "
-        ></div>
-
-        <button
-            class="primary"
-            style="
-                width:100%;
-                margin-top:12px;
-            "
-            onclick="
-                continueFromNotice()
-            "
-        >
-            进入直接理解 →
-        </button>
-
-    `;
-
-
-    const passageCard =
-        readScreen.querySelector(
-            ".passage-card"
-        );
-
-
-    if (passageCard) {
-
-        passageCard.parentNode
-            .insertBefore(
-                section,
-                passageCard.nextSibling
+        section =
+            document.createElement(
+                "div"
             );
 
-    }
 
-    else {
+        section.id =
+            "ebrmNoticeSection";
 
-        readScreen.appendChild(
+        section.className =
+            "card";
+
+
+        read.appendChild(
             section
         );
 
     }
 
 
-    renderNoticeInto(
-        document.getElementById(
-            "noticeList"
-        )
-    );
+    section.innerHTML =
+
+        "<div class=\"eyebrow\">" +
+        "NOTICE" +
+        "</div>" +
+
+        "<h3>" +
+        "先观察，不急着翻译" +
+        "</h3>" +
+
+        "<p class=\"muted\">" +
+        "注意重复、对比、人物、动作和关系。" +
+        "</p>" +
+
+        "<div id=\"noticeList\"></div>" +
+
+        "<div id=\"noticeScore\" " +
+        "style=\"margin-top:12px;font-weight:700\">" +
+        "</div>" +
+
+        "<button " +
+        "class=\"primary\" " +
+        "style=\"width:100%;margin-top:12px\" " +
+        "onclick=\"scrollToDirect()\">" +
+        "进入 Direct Comprehension →" +
+        "</button>";
+
+
+    const list =
+        $("noticeList");
+
+
+    if (!list) {
+
+        return;
+
+    }
+
+
+    noticeAnswers = {};
+
+
+    currentUnit.notice
+        .forEach(
+            function(item, index) {
+
+                const block =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                block.className =
+                    "notice-question";
+
+
+                block.style.padding =
+                    "14px 0";
+
+
+                block.style.borderTop =
+                    "1px solid #eee";
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.innerHTML =
+                    "<strong>" +
+                    "NOTICE " +
+                    (index + 1) +
+                    "</strong>";
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                const question =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                question.textContent =
+                    item.question;
+
+
+                question.style.margin =
+                    "7px 0 10px";
+
+
+                block.appendChild(
+                    question
+                );
+
+
+                item.options
+                    .forEach(
+                        function(option, optionIndex) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.style.display =
+                                "block";
+
+
+                            button.style.width =
+                                "100%";
+
+
+                            button.style.textAlign =
+                                "left";
+
+
+                            button.style.padding =
+                                "10px";
+
+
+                            button.style.margin =
+                                "6px 0";
+
+
+                            button.style.border =
+                                "1px solid #ddd";
+
+
+                            button.style.borderRadius =
+                                "9px";
+
+
+                            button.style.background =
+                                "white";
+
+
+                            button.addEventListener(
+                                "click",
+                                function() {
+
+                                    answerNotice(
+                                        index,
+                                        optionIndex,
+                                        button
+                                    );
+
+                                }
+                            );
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                list.appendChild(
+                    block
+                );
+
+            }
+        );
 
 }
 
 
-const noticeAnswers = {};
-
+/* =========================================================
+   NOTICE ANSWER
+========================================================= */
 
 function answerNotice(
-    questionIndex,
+    index,
     optionIndex,
     button
 ) {
 
-    noticeAnswers[
-        questionIndex
-    ] =
+    noticeAnswers[index] =
         optionIndex;
 
 
-    const buttons =
-        document.querySelectorAll(
-            `.notice-option[data-q="${questionIndex}"]`
-        );
+    const parent =
+        button.parentNode;
 
 
-    buttons.forEach(
+    Array.from(
+        parent.querySelectorAll(
+            "button"
+        )
+    )
+    .forEach(
         function(item) {
 
             item.style.background =
@@ -3757,51 +2235,24 @@ function answerNotice(
     button.style.background =
         "#e8eee8";
 
+
     button.style.borderColor =
         "#496b59";
 
 
-    const question =
-        currentUnit.notice[
-            questionIndex
-        ];
-
-
-    const feedback =
-        document.getElementById(
-            `noticeFeedback-${questionIndex}`
-        );
-
-
-    if (feedback) {
-
-        feedback.textContent =
-            "已记录。继续观察下一项。";
-
-    }
-
-
-    updateNoticeScore();
-
-}
-
-
-function updateNoticeScore() {
-
-    let correct =
-        0;
+    let score = 0;
 
 
     currentUnit.notice
         .forEach(
-            function(question, index) {
+            function(item, i) {
 
                 if (
-                    noticeAnswers[index] ===
-                    question.answer
+                    noticeAnswers[i] ===
+                    item.answer
                 ) {
 
-                    correct++;
+                    score++;
 
                 }
 
@@ -3809,29 +2260,37 @@ function updateNoticeScore() {
         );
 
 
-    const total =
-        currentUnit.notice.length;
+    const result =
+        $("noticeScore");
 
 
-    const score =
-        document.getElementById(
-            "noticeScore"
-        );
+    if (result) {
 
-
-    if (score) {
-
-        score.textContent =
-            `NOTICE：${correct}/${total}`;
+        result.textContent =
+            "NOTICE："
+            + score
+            + "/"
+            + currentUnit.notice.length;
 
     }
 
 }
 
 
-function continueFromNotice() {
+function scrollToDirect() {
 
-    scrollToDirectComprehension();
+    const section =
+        $("ebrmDirectSection");
+
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 
 }
 
@@ -3840,323 +2299,390 @@ function continueFromNotice() {
    DIRECT COMPREHENSION
 ========================================================= */
 
-const directAnswers = {};
-
-
 function renderDirectComprehension() {
 
-    const container =
-        document.getElementById(
-            "directComprehensionList"
-        );
+    injectDirectSection();
+
+}
 
 
-    if (!container) {
+function injectDirectSection() {
 
-        injectDirectComprehension();
+    const read =
+        $("read");
+
+
+    if (!read) {
 
         return;
 
     }
 
 
-    renderDirectInto(
-        container
-    );
-
-}
+    let section =
+        $("ebrmDirectSection");
 
 
-function renderDirectInto(
-    container
-) {
+    if (!section) {
 
-    container.innerHTML =
-
-        currentUnit.directComprehension
-            .map(
-                function(item, index) {
-
-                    return `
-
-                        <div
-                            class="direct-question"
-                            style="
-                                padding:16px 0;
-                                border-top:1px solid #eee;
-                            "
-                        >
-
-                            <div
-                                style="
-                                    font-size:11px;
-                                    color:#496b59;
-                                    font-weight:800;
-                                "
-                            >
-                                DIRECT ${index + 1}
-                            </div>
-
-                            <div
-                                style="
-                                    margin:7px 0 5px;
-                                    font-weight:800;
-                                "
-                            >
-                                ${esc(
-                                    item.englishQuestion
-                                )}
-                            </div>
-
-                            <div
-                                style="
-                                    color:#999;
-                                    font-size:11px;
-                                    margin-bottom:9px;
-                                "
-                            >
-                                ${esc(
-                                    item.chineseHint
-                                )}
-                            </div>
-
-                            ${
-                                item.options
-                                    .map(
-                                        function(
-                                            option,
-                                            optionIndex
-                                        ) {
-
-                                            return `
-
-                                                <button
-                                                    class="
-                                                        direct-option
-                                                    "
-                                                    data-q="
-                                                        ${index}
-                                                    "
-                                                    onclick="
-                                                        answerDirect(
-                                                            ${index},
-                                                            ${optionIndex},
-                                                            this
-                                                        )
-                                                    "
-                                                    style="
-                                                        display:block;
-                                                        width:100%;
-                                                        text-align:left;
-                                                        padding:11px;
-                                                        margin:6px 0;
-                                                        border:1px solid #ddd;
-                                                        border-radius:9px;
-                                                        background:white;
-                                                    "
-                                                >
-
-                                                    ${esc(
-                                                        option
-                                                    )}
-
-                                                </button>
-
-                                            `;
-
-                                        }
-                                    )
-                                    .join("")
-                            }
-
-                            <div
-                                id="
-                                    directFeedback-${index}
-                                "
-                                style="
-                                    margin-top:8px;
-                                    font-size:12px;
-                                "
-                            ></div>
-
-                            <button
-                                id="
-                                    directChinese-${index}
-                                "
-                                style="
-                                    display:none;
-                                    margin-top:7px;
-                                    border:0;
-                                    background:#f3f0e8;
-                                    padding:7px 9px;
-                                    border-radius:7px;
-                                    color:#777;
-                                    font-size:11px;
-                                "
-                                onclick="
-                                    revealChinese(
-                                        ${index}
-                                    )
-                                "
-                            >
-                                中文确认
-                            </button>
-
-                            <div
-                                id="
-                                    directChineseText-${index}
-                                "
-                                style="
-                                    display:none;
-                                    margin-top:6px;
-                                    padding:10px;
-                                    background:#f8f7f2;
-                                    border-radius:8px;
-                                    color:#666;
-                                    font-size:12px;
-                                "
-                            >
-                                ${esc(
-                                    item.chineseAnswer
-                                )}
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            )
-            .join("");
-
-}
+        section =
+            document.createElement(
+                "div"
+            );
 
 
-function injectDirectComprehension() {
+        section.id =
+            "ebrmDirectSection";
 
-    const readScreen =
-        document.getElementById(
-            "read"
+        section.className =
+            "card";
+
+
+        read.appendChild(
+            section
         );
-
-
-    if (!readScreen) {
-
-        return;
 
     }
 
 
-    const existing =
-        document.getElementById(
-            "ebrmDirectSection"
+    section.innerHTML =
+
+        "<div class=\"eyebrow\">" +
+        "DIRECT COMPREHENSION" +
+        "</div>" +
+
+        "<h3>" +
+        "先用英文理解" +
+        "</h3>" +
+
+        "<p class=\"muted\">" +
+        "先看英文问题，根据经文直接判断。" +
+        "中文只作为最后确认。" +
+        "</p>" +
+
+        "<div id=\"directList\"></div>" +
+
+        "<div id=\"directScore\" " +
+        "style=\"margin-top:12px;font-weight:700\">" +
+        "</div>";
+
+
+    const list =
+        $("directList");
+
+
+    directAnswers = {};
+
+
+    currentUnit.directComprehension
+        .forEach(
+            function(item, index) {
+
+                const block =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                block.style.padding =
+                    "15px 0";
+
+
+                block.style.borderTop =
+                    "1px solid #eee";
+
+
+                const label =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                label.style.fontSize =
+                    "11px";
+
+
+                label.style.color =
+                    "#496b59";
+
+
+                label.style.fontWeight =
+                    "800";
+
+
+                label.textContent =
+                    "DIRECT " +
+                    (index + 1);
+
+
+                block.appendChild(
+                    label
+                );
+
+
+                const question =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                question.style.fontWeight =
+                    "700";
+
+
+                question.style.margin =
+                    "6px 0";
+
+
+                question.textContent =
+                    item.question;
+
+
+                block.appendChild(
+                    question
+                );
+
+
+                const hint =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                hint.style.fontSize =
+                    "11px";
+
+
+                hint.style.color =
+                    "#999";
+
+
+                hint.style.marginBottom =
+                    "9px";
+
+
+                hint.textContent =
+                    item.hint;
+
+
+                block.appendChild(
+                    hint
+                );
+
+
+                item.options
+                    .forEach(
+                        function(option, optionIndex) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.style.display =
+                                "block";
+
+
+                            button.style.width =
+                                "100%";
+
+
+                            button.style.textAlign =
+                                "left";
+
+
+                            button.style.padding =
+                                "10px";
+
+
+                            button.style.margin =
+                                "6px 0";
+
+
+                            button.style.border =
+                                "1px solid #ddd";
+
+
+                            button.style.borderRadius =
+                                "9px";
+
+
+                            button.style.background =
+                                "white";
+
+
+                            button.addEventListener(
+                                "click",
+                                function() {
+
+                                    answerDirect(
+                                        index,
+                                        optionIndex,
+                                        button
+                                    );
+
+                                }
+                            );
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                const chinese =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                chinese.textContent =
+                    "中文确认";
+
+
+                chinese.style.marginTop =
+                    "7px";
+
+
+                chinese.style.display =
+                    "none";
+
+
+                chinese.style.border =
+                    "0";
+
+
+                chinese.style.background =
+                    "#f3f0e8";
+
+
+                chinese.style.padding =
+                    "7px 9px";
+
+
+                chinese.style.borderRadius =
+                    "7px";
+
+
+                chinese.addEventListener(
+                    "click",
+                    function() {
+
+                        answerBox.style.display =
+                            answerBox.style.display ===
+                            "none"
+                                ? "block"
+                                : "none";
+
+                    }
+                );
+
+
+                block.appendChild(
+                    chinese
+                );
+
+
+                const answerBox =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                answerBox.style.display =
+                    "none";
+
+
+                answerBox.style.marginTop =
+                    "6px";
+
+
+                answerBox.style.padding =
+                    "10px";
+
+
+                answerBox.style.background =
+                    "#f8f7f2";
+
+
+                answerBox.style.borderRadius =
+                    "8px";
+
+
+                answerBox.style.color =
+                    "#666";
+
+
+                answerBox.style.fontSize =
+                    "12px";
+
+
+                answerBox.textContent =
+                    item.chinese;
+
+
+                block.appendChild(
+                    answerBox
+                );
+
+
+                block.dataset.chineseButton =
+                    "yes";
+
+
+                list.appendChild(
+                    block
+                );
+
+            }
         );
-
-
-    if (existing) {
-
-        return;
-
-    }
-
-
-    const section =
-        document.createElement(
-            "div"
-        );
-
-
-    section.id =
-        "ebrmDirectSection";
-
-    section.className =
-        "card";
-
-
-    section.innerHTML = `
-
-        <div
-            style="
-                color:#496b59;
-                font-size:11px;
-                font-weight:800;
-                letter-spacing:.12em;
-            "
-        >
-            DIRECT COMPREHENSION
-        </div>
-
-        <h3 style="margin-top:6px;">
-            先用英文理解
-        </h3>
-
-        <p
-            style="
-                color:#777;
-                font-size:12px;
-                line-height:1.7;
-            "
-        >
-            先看英文问题，依据经文直接选择答案。
-            中文只是确认，不是第一步。
-        </p>
-
-        <div
-            id="directComprehensionList"
-        ></div>
-
-        <div
-            id="directScore"
-            style="
-                margin-top:12px;
-                font-weight:700;
-            "
-        ></div>
-
-    `;
-
-
-    readScreen.appendChild(
-        section
-    );
-
-
-    renderDirectInto(
-        document.getElementById(
-            "directComprehensionList"
-        )
-    );
 
 }
 
+
+/* =========================================================
+   DIRECT ANSWER
+========================================================= */
 
 function answerDirect(
-    questionIndex,
+    index,
     optionIndex,
     button
 ) {
 
-    directAnswers[
-        questionIndex
-    ] =
+    directAnswers[index] =
         optionIndex;
 
 
-    const question =
-        currentUnit
-            .directComprehension[
-                questionIndex
-            ];
+    const parent =
+        button.parentNode;
 
 
-    const buttons =
-        document.querySelectorAll(
-            `.direct-option[data-q="${questionIndex}"]`
-        );
-
-
-    buttons.forEach(
+    Array.from(
+        parent.querySelectorAll(
+            "button"
+        )
+    )
+    .forEach(
         function(item) {
+
+            if (
+                item.textContent ===
+                "中文确认"
+            ) {
+
+                return;
+
+            }
+
 
             item.style.background =
                 "white";
@@ -4166,6 +2692,11 @@ function answerDirect(
 
         }
     );
+
+
+    const question =
+        currentUnit
+            .directComprehension[index];
 
 
     if (
@@ -4190,101 +2721,48 @@ function answerDirect(
     }
 
 
-    const feedback =
-        document.getElementById(
-            `directFeedback-${questionIndex}`
+    const children =
+        Array.from(
+            parent.children
         );
 
 
-    const chineseButton =
-        document.getElementById(
-            `directChinese-${questionIndex}`
-        );
+    children
+        .filter(
+            function(item) {
 
+                return (
+                    item.tagName ===
+                    "BUTTON" &&
+                    item.textContent ===
+                    "中文确认"
+                );
 
-    if (
-        optionIndex ===
-        question.answer
-    ) {
-
-        if (feedback) {
-
-            feedback.textContent =
-                "✓ Correct. 先用英文直接理解。";
-
-            feedback.style.color =
-                "#496b59";
-
-        }
-
-    } else {
-
-        if (feedback) {
-
-            feedback.textContent =
-                "再读一次相关经文，然后重新判断。";
-
-            feedback.style.color =
-                "#9b706a";
-
-        }
-
-    }
-
-
-    if (chineseButton) {
-
-        chineseButton.style.display =
-            "inline-block";
-
-    }
-
-
-    updateDirectScore();
-
-}
-
-
-function revealChinese(
-    index
-) {
-
-    const text =
-        document.getElementById(
-            `directChineseText-${index}`
-        );
-
-
-    if (text) {
-
-        text.style.display =
-            text.style.display ===
-                "none"
-                ? "block"
-                : "none";
-
-    }
-
-}
-
-
-function updateDirectScore() {
-
-    let correct =
-        0;
-
-
-    currentUnit
-        .directComprehension
+            }
+        )
         .forEach(
-            function(question, index) {
+            function(item) {
+
+                item.style.display =
+                    "inline-block";
+
+            }
+        );
+
+
+    let score = 0;
+
+
+    currentUnit.directComprehension
+        .forEach(
+            function(item, i) {
 
                 if (
-                    directAnswers[index] ===
-                    question.answer
+                    directAnswers[i] ===
+                    item.answer
                 ) {
 
-                    correct++;
+                    score++;
 
                 }
 
@@ -4292,47 +2770,18 @@ function updateDirectScore() {
         );
 
 
-    const total =
-        currentUnit
-            .directComprehension
-            .length;
+    const result =
+        $("directScore");
 
 
-    const score =
-        document.getElementById(
-            "directScore"
-        );
+    if (result) {
 
-
-    if (score) {
-
-        score.textContent =
-            `Direct Comprehension：${correct}/${total}`;
-
-    }
-
-}
-
-
-function scrollToDirectComprehension() {
-
-    const section =
-        document.getElementById(
-            "ebrmDirectSection"
-        );
-
-
-    if (section) {
-
-        section.scrollIntoView({
-
-            behavior:
-                "smooth",
-
-            block:
-                "start"
-
-        });
+        result.textContent =
+            "Direct Comprehension："
+            + score
+            + "/"
+            + currentUnit
+                .directComprehension.length;
 
     }
 
@@ -4345,187 +2794,184 @@ function scrollToDirectComprehension() {
 
 function renderVocabulary() {
 
-    const container =
+    const list =
         $("vocabularyList");
 
 
-    if (!container || !currentUnit) {
+    if (!list || !currentUnit) {
 
         return;
 
     }
 
 
-    container.innerHTML =
+    list.innerHTML = "";
 
-        currentUnit
-            .vocabulary
-            .map(
-                function(item) {
 
-                    return `
+    currentUnit.vocabulary
+        .forEach(
+            function(item) {
 
-                        <div
-                            class="vocab-item"
-                            style="
-                                padding:14px 0;
-                                border-top:1px solid #eee;
-                            "
-                        >
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-                            <div
-                                style="
-                                    display:flex;
-                                    justify-content:space-between;
-                                    align-items:center;
-                                "
-                            >
 
-                                <strong>
+                card.style.padding =
+                    "14px 0";
 
-                                    ${esc(
-                                        item.word
-                                    )}
 
-                                </strong>
+                card.style.borderTop =
+                    "1px solid #eee";
 
-                                <button
-                                    onclick="
-                                        speakText(
-                                            '${escapeJS(
-                                                item.word
-                                            )}'
-                                        )
-                                    "
-                                >
 
-                                    🔊
+                card.innerHTML =
+                    "<strong>" +
+                    escapeHTML(
+                        item.word
+                    ) +
+                    "</strong>" +
 
-                                </button>
+                    "<div>" +
+                    escapeHTML(
+                        item.meaning
+                    ) +
+                    "</div>" +
 
-                            </div>
+                    "<small>" +
+                    escapeHTML(
+                        item.english
+                    ) +
+                    "</small>";
 
-                            <div
-                                style="
-                                    margin-top:4px;
-                                "
-                            >
 
-                                ${esc(
-                                    item.meaning
-                                )}
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-                            </div>
 
-                            <small
-                                style="
-                                    color:#777;
-                                "
-                            >
+                button.textContent =
+                    "🔊";
 
-                                ${esc(
-                                    item.english
-                                )}
 
-                            </small>
+                button.style.marginLeft =
+                    "8px";
 
-                        </div>
 
-                    `;
+                button.addEventListener(
+                    "click",
+                    function() {
 
-                }
-            )
-            .join("");
+                        speakText(
+                            item.word
+                        );
+
+                    }
+                );
+
+
+                card.appendChild(
+                    button
+                );
+
+
+                list.appendChild(
+                    card
+                );
+
+            }
+        );
 
 }
 
 
 /* =========================================================
-   STRUCTURE
+   STRUCTURES
 ========================================================= */
 
 function renderStructures() {
 
-    const container =
+    const list =
         $("structureList");
 
 
-    if (!container || !currentUnit) {
+    if (!list || !currentUnit) {
 
         return;
 
     }
 
 
-    container.innerHTML =
+    list.innerHTML = "";
 
-        currentUnit.structures
-            .map(
-                function(item) {
 
-                    return `
+    currentUnit.structures
+        .forEach(
+            function(item) {
 
-                        <div
-                            class="structure-item"
-                            style="
-                                padding:14px 0;
-                                border-top:1px solid #eee;
-                            "
-                        >
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-                            <div
-                                style="
-                                    display:flex;
-                                    justify-content:space-between;
-                                    gap:10px;
-                                "
-                            >
 
-                                <strong>
+                card.style.padding =
+                    "14px 0";
 
-                                    ${esc(
-                                        item.pattern
-                                    )}
 
-                                </strong>
+                card.style.borderTop =
+                    "1px solid #eee";
 
-                                <button
-                                    onclick="
-                                        speakText(
-                                            '${escapeJS(
-                                                item.pattern
-                                            )}'
-                                        )
-                                    "
-                                >
 
-                                    🔊
+                card.innerHTML =
+                    "<strong>" +
+                    escapeHTML(
+                        item.pattern
+                    ) +
+                    "</strong>" +
 
-                                </button>
+                    "<p>" +
+                    escapeHTML(
+                        item.explanation
+                    ) +
+                    "</p>";
 
-                            </div>
 
-                            <p
-                                style="
-                                    margin:6px 0 0;
-                                    color:#777;
-                                    font-size:12px;
-                                "
-                            >
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-                                ${esc(
-                                    item.explanation
-                                )}
 
-                            </p>
+                button.textContent =
+                    "🔊 听句型";
 
-                        </div>
 
-                    `;
+                button.addEventListener(
+                    "click",
+                    function() {
 
-                }
-            )
-            .join("");
+                        speakText(
+                            item.pattern
+                        );
+
+                    }
+                );
+
+
+                card.appendChild(
+                    button
+                );
+
+
+                list.appendChild(
+                    card
+                );
+
+            }
+        );
 
 }
 
@@ -4551,99 +2997,78 @@ function checkProduction() {
     }
 
 
-    const text =
+    const answer =
         input.value.trim();
 
 
-    if (!text) {
+    if (!answer) {
 
-        result.innerHTML = `
-
-            <div class="success">
-
-                请先用英文写一句。
-
-            </div>
-
-        `;
+        result.innerHTML =
+            "<div class=\"success\">" +
+            "请先写一句英文。" +
+            "</div>";
 
         return;
 
     }
 
 
-    const words =
-        text
+    const wordCount =
+        answer
             .split(/\s+/)
-            .filter(Boolean);
+            .filter(Boolean)
+            .length;
 
 
-    result.innerHTML = `
+    result.innerHTML =
+        "<div class=\"success\">" +
 
-        <div class="success">
+        "✓ 已完成英文输出。" +
 
-            ✓ 已完成英文输出
+        "<br>" +
 
-            <br>
+        "约 " +
+        wordCount +
+        " 个英文单词。" +
 
-            ${words.length}
-            English words
+        "<br><br>" +
 
-            <br><br>
+        "</div>";
 
-            <button
-                onclick="
-                    speakText(
-                        '${escapeJS(text)}'
-                    )
-                "
-            >
 
-                🔊 听我的英文
+    const button =
+        document.createElement(
+            "button"
+        );
 
-            </button>
 
-        </div>
+    button.textContent =
+        "🔊 听我的英文答案";
 
-    `;
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            speakText(
+                answer
+            );
+
+        }
+    );
+
+
+    result
+        .firstElementChild
+        .appendChild(
+            button
+        );
 
 }
 
 
 /* =========================================================
-   RE-READ SUPPORT
-========================================================= */
-
-function rereadPassage() {
-
-    if (!currentPassage) {
-
-        return;
-
-    }
-
-
-    stopSpeech();
-
-
-    currentVerseIndex =
-        0;
-
-
-    highlightVerse(
-        0
-    );
-
-
-    speakVerse(
-        0
-    );
-
-}
-
-
-/* =========================================================
-   COMPLETE
+   FINISH
 ========================================================= */
 
 function finishUnit() {
@@ -4665,7 +3090,7 @@ function finishUnit() {
             .toISOString();
 
 
-    const now =
+    const today =
         new Date();
 
 
@@ -4675,19 +3100,19 @@ function finishUnit() {
 
         day1:
             addDays(
-                now,
+                today,
                 1
             ),
 
         day3:
             addDays(
-                now,
+                today,
                 3
             ),
 
         day7:
             addDays(
-                now,
+                today,
                 7
             )
 
@@ -4704,25 +3129,20 @@ function finishUnit() {
     if (message) {
 
         message.textContent =
-            `${currentUnit.reference} 已完成。`;
+            currentUnit.reference +
+            " 已完成。";
 
     }
 
 
     renderHome();
 
-    renderReviews();
-
-    showScreen(
+    go(
         "done"
     );
 
 }
 
-
-/* =========================================================
-   REVIEW
-========================================================= */
 
 function addDays(
     date,
@@ -4744,32 +3164,267 @@ function addDays(
 }
 
 
-function renderReviews() {
+/* =========================================================
+   HOME
+========================================================= */
 
-    const container =
-        $("reviewList");
+function renderHome() {
+
+    const grid =
+        $("unitGrid");
 
 
-    if (!container) {
+    if (!grid) {
 
         return;
 
     }
 
 
-    const items = [];
+    grid.innerHTML = "";
+
+
+    UNITS.forEach(
+        function(unit, index) {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "unit";
+
+
+            if (
+                state.completed[
+                    unit.id
+                ]
+            ) {
+
+                button.classList.add(
+                    "done"
+                );
+
+            }
+
+
+            button.innerHTML =
+                "<div class=\"unit-num\">" +
+                "UNIT " +
+                String(
+                    index + 1
+                ).padStart(
+                    2,
+                    "0"
+                ) +
+                "</div>" +
+
+                "<div class=\"unit-title\">" +
+                escapeHTML(
+                    unit.title
+                ) +
+                "</div>" +
+
+                "<div class=\"unit-ref\">" +
+                escapeHTML(
+                    unit.reference
+                ) +
+                "</div>";
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    openUnit(
+                        unit.id
+                    );
+
+                }
+            );
+
+
+            grid.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN UNIT
+========================================================= */
+
+function openUnit(
+    unitId
+) {
+
+    const found =
+        UNITS.find(
+            function(unit) {
+
+                return (
+                    unit.id ===
+                    unitId
+                );
+
+            }
+        );
+
+
+    if (!found) {
+
+        return;
+
+    }
+
+
+    stopSpeech();
+
+
+    currentUnit =
+        found;
+
+
+    currentPassage =
+        null;
+
+
+    currentVerseIndex =
+        0;
+
+
+    noticeAnswers =
+        {};
+
+    directAnswers =
+        {};
+
+
+    $("readTitle").textContent =
+        currentUnit.title;
+
+
+    $("readReference").textContent =
+        currentUnit.reference;
+
+
+    $("contextText").textContent =
+        currentUnit.context;
+
+
+    $("productionPrompt").textContent =
+        currentUnit.production;
+
+
+    renderVocabulary();
+
+    renderStructures();
+
+    showScreen(
+        "read"
+    );
+
+
+    loadPassage();
+
+
+    renderNotice();
+
+    renderDirectComprehension();
+
+
+    setTimeout(
+        function() {
+
+            renderVoicePanel();
+
+        },
+        300
+    );
+
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+function showScreen(
+    id
+) {
+
+    document
+        .querySelectorAll(
+            ".screen"
+        )
+        .forEach(
+            function(screen) {
+
+                screen.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    const screen =
+        $(id);
+
+
+    if (screen) {
+
+        screen.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function renderReviews() {
+
+    const list =
+        $("reviewList");
+
+
+    if (!list) {
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
 
 
     UNITS.forEach(
         function(unit) {
 
-            const record =
+            const review =
                 state.reviews[
                     unit.id
                 ];
 
 
-            if (!record) {
+            if (!review) {
 
                 return;
 
@@ -4777,36 +3432,43 @@ function renderReviews() {
 
 
             [
-
-                ["Day 1", record.day1],
-
-                ["Day 3", record.day3],
-
-                ["Day 7", record.day7]
-
-            ].forEach(
+                ["Day 1", review.day1],
+                ["Day 3", review.day3],
+                ["Day 7", review.day7]
+            ]
+            .forEach(
                 function(item) {
 
-                    const due =
-                        new Date(item[1]) <=
-                        new Date();
+                    const row =
+                        document.createElement(
+                            "div"
+                        );
 
 
-                    items.push({
+                    row.className =
+                        "review-row";
 
-                        unit:
-                            unit,
 
-                        label:
-                            item[0],
+                    row.innerHTML =
+                        "<strong>" +
+                        escapeHTML(
+                            unit.reference
+                        ) +
+                        "</strong>" +
 
-                        date:
-                            item[1],
+                        "<span>" +
+                        item[0] +
+                        " · " +
+                        new Date(
+                            item[1]
+                        )
+                            .toLocaleDateString() +
+                        "</span>";
 
-                        due:
-                            due
 
-                    });
+                    list.appendChild(
+                        row
+                    );
 
                 }
             );
@@ -4814,137 +3476,18 @@ function renderReviews() {
         }
     );
 
-
-    if (!items.length) {
-
-        container.innerHTML = `
-
-            <div class="muted">
-
-                完成训练后，
-
-                Day 1 / Day 3 / Day 7
-                会在这里出现。
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        items
-            .map(
-                function(item) {
-
-                    return `
-
-                        <div
-                            class="review-row"
-                            style="
-                                padding:13px 0;
-                                border-top:1px solid #eee;
-                            "
-                        >
-
-                            <div>
-
-                                <strong>
-
-                                    ${esc(
-                                        item.unit.reference
-                                    )}
-
-                                </strong>
-
-                                <div
-                                    class="review-date"
-                                >
-
-                                    ${item.label}
-
-                                </div>
-
-                            </div>
-
-                            <div
-                                style="
-                                    text-align:right;
-                                "
-                            >
-
-                                <div>
-
-                                    ${
-                                        item.due
-                                            ? "需要复习"
-                                            : "未到期"
-                                    }
-
-                                </div>
-
-                                <small>
-
-                                    ${esc(
-                                        item.date
-                                    )}
-
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            )
-            .join("");
-
-}
-
-
-/* =========================================================
-   UTILS
-========================================================= */
-
-function escapeJS(
-    value
-) {
-
-    return String(value ?? "")
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        )
-        .replace(
-            /\r/g,
-            ""
-        )
-        .replace(
-            /\n/g,
-            "\\n"
-        );
-
 }
 
 
 /* =========================================================
    GLOBAL FUNCTIONS
-========================================================= */
+   ========================================================= */
 
 window.openUnit =
     openUnit;
 
 window.go =
-    go;
+    showScreen;
 
 window.showScreen =
     showScreen;
@@ -4957,9 +3500,6 @@ window.speakPassage =
 
 window.speakVerse =
     speakVerse;
-
-window.playVerse =
-    playVerse;
 
 window.startContinuousReading =
     startContinuousReading;
@@ -4979,29 +3519,17 @@ window.stopSpeech =
 window.toggleSlow =
     toggleSlow;
 
-window.checkQuiz =
-    checkQuiz;
-
 window.checkProduction =
     checkProduction;
 
 window.finishUnit =
     finishUnit;
 
-window.rereadPassage =
-    rereadPassage;
-
 window.answerNotice =
     answerNotice;
 
-window.continueFromNotice =
-    continueFromNotice;
-
-window.answerDirect =
-    answerDirect;
-
-window.revealChinese =
-    revealChinese;
+window.scrollToDirect =
+    scrollToDirect;
 
 
 /* =========================================================
