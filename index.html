@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,13 +16,14 @@
   >
 
   <title>
-    EBRM V0.7.2｜John 1:1–5
+    EBRM V0.7.3｜John 1:1–5
   </title>
 
   <link
     rel="stylesheet"
-    href="style.css?v=072"
+    href="style.css?v=073"
   >
+
 </head>
 
 
@@ -42,7 +45,7 @@
   </div>
 
   <div class="version">
-    V0.7.2
+    V0.7.3
   </div>
 
 </header>
@@ -53,8 +56,8 @@
 
 
 <!-- =====================================================
-     HOME
-===================================================== -->
+HOME
+====================================================== -->
 
 <section
   id="home"
@@ -77,7 +80,7 @@
 
     <p class="hero-description">
 
-      这一课不是单纯学习英文单词。
+      这一课不是单纯学习英文。
 
       <br>
 
@@ -107,6 +110,7 @@
       John 1:1–5
     </div>
 
+
     <div class="golden-flow">
 
       READ
@@ -134,7 +138,9 @@
       class="primary wide"
       type="button"
     >
+
       开始黄金训练 →
+
     </button>
 
   </div>
@@ -153,15 +159,18 @@
 
     <p>
       不查中文，不查词典。
-      只根据英文经文回答。
+      先用英文理解。
     </p>
+
 
     <button
       id="startBaselineBtn"
       class="secondary wide"
       type="button"
     >
+
       开始第一次理解测试
+
     </button>
 
   </div>
@@ -176,11 +185,14 @@
         黄金单元进度
       </span>
 
-      <strong id="goldenProgressText">
+      <strong
+        id="goldenProgressText"
+      >
         0%
       </strong>
 
     </div>
+
 
     <div class="progress-track">
 
@@ -198,8 +210,8 @@
 
 
 <!-- =====================================================
-     BASELINE
-===================================================== -->
+BASELINE
+====================================================== -->
 
 <section
   id="baseline"
@@ -242,13 +254,15 @@
       <p>
         不查中文。
         不查词典。
-        只根据英文理解。
+        只根据英文经文理解。
       </p>
 
     </div>
 
 
-    <div id="baselineQuestions"></div>
+    <div
+      id="baselineQuestions"
+    ></div>
 
 
     <button
@@ -256,7 +270,9 @@
       class="primary wide"
       type="button"
     >
+
       提交第一次理解
+
     </button>
 
 
@@ -272,8 +288,8 @@
 
 
 <!-- =====================================================
-     READ
-===================================================== -->
+READ
+====================================================== -->
 
 <section
   id="read"
@@ -305,6 +321,7 @@
   </div>
 
 
+
   <div class="card">
 
     <div class="passage-meta">
@@ -321,11 +338,17 @@
 
 
     <div
+      id="passageStatus"
+      class="passage-status"
+    >
+      经文已内置，无需网络读取。
+    </div>
+
+
+    <div
       id="passageText"
       class="passage"
-    >
-      正在读取英文圣经……
-    </div>
+    ></div>
 
   </div>
 
@@ -353,7 +376,7 @@
 
     <p>
 
-      不要急着翻译。
+      不急着翻译。
 
       <br>
 
@@ -374,7 +397,9 @@
     class="primary wide"
     type="button"
   >
+
     我已经读完 → 开始观察
+
   </button>
 
 </section>
@@ -382,8 +407,8 @@
 
 
 <!-- =====================================================
-     NOTICE
-===================================================== -->
+NOTICE
+====================================================== -->
 
 <section
   id="notice"
@@ -415,6 +440,7 @@
   </div>
 
 
+
   <div class="notice-intro card">
 
     <div class="eyebrow">
@@ -433,7 +459,9 @@
   </div>
 
 
+
   <div id="noticeQuestions"></div>
+
 
 
   <button
@@ -441,7 +469,9 @@
     class="primary wide"
     type="button"
   >
+
     完成观察 → 词汇
+
   </button>
 
 </section>
@@ -449,8 +479,8 @@
 
 
 <!-- =====================================================
-     VOCABULARY
-===================================================== -->
+VOCABULARY
+====================================================== -->
 
 <section
   id="vocabulary"
@@ -482,18 +512,20 @@
   </div>
 
 
+
   <div class="card">
 
     <p class="muted">
-
-      只处理真正影响经文理解的词。
-
+      只处理真正影响理解的词。
     </p>
 
 
-    <div id="vocabularyList"></div>
+    <div
+      id="vocabularyList"
+    ></div>
 
   </div>
+
 
 
   <button
@@ -501,7 +533,9 @@
     class="primary wide"
     type="button"
   >
+
     下一步：句子结构 →
+
   </button>
 
 </section>
@@ -509,8 +543,8 @@
 
 
 <!-- =====================================================
-     STRUCTURE
-===================================================== -->
+STRUCTURE
+====================================================== -->
 
 <section
   id="structure"
@@ -542,20 +576,26 @@
   </div>
 
 
+
   <div class="card">
 
     <p class="muted">
 
-      不是只记语法名称。
+      不只是记语法名称。
 
-      要看懂英文怎样组织意义。
+      <br>
+
+      要看见英语如何组织意义。
 
     </p>
 
 
-    <div id="structureList"></div>
+    <div
+      id="structureList"
+    ></div>
 
   </div>
+
 
 
   <button
@@ -563,7 +603,9 @@
     class="primary wide"
     type="button"
   >
+
     下一步：直接理解 →
+
   </button>
 
 </section>
@@ -571,8 +613,8 @@
 
 
 <!-- =====================================================
-     DIRECT
-===================================================== -->
+DIRECT
+====================================================== -->
 
 <section
   id="direct"
@@ -604,6 +646,7 @@
   </div>
 
 
+
   <div class="direct-rule card">
 
     <div class="eyebrow">
@@ -622,7 +665,11 @@
   </div>
 
 
-  <div id="directQuestions"></div>
+
+  <div
+    id="directQuestions"
+  ></div>
+
 
 
   <div
@@ -633,12 +680,15 @@
   </div>
 
 
+
   <button
     id="speakBtn"
     class="primary wide"
     type="button"
   >
+
     下一步：用英语表达 →
+
   </button>
 
 </section>
@@ -646,8 +696,8 @@
 
 
 <!-- =====================================================
-     SPEAK
-===================================================== -->
+SPEAK
+====================================================== -->
 
 <section
   id="speak"
@@ -679,11 +729,13 @@
   </div>
 
 
+
   <div class="card">
 
     <div class="eyebrow">
       YOUR TASK
     </div>
+
 
     <p
       id="speakPrompt"
@@ -705,7 +757,9 @@
         class="primary"
         type="button"
       >
+
         检查表达
+
       </button>
 
 
@@ -713,7 +767,9 @@
         id="listenAnswerBtn"
         type="button"
       >
+
         🔊 听我的答案
+
       </button>
 
     </div>
@@ -738,7 +794,10 @@
       听一句，然后自己重复。
     </p>
 
-    <div id="imitationList"></div>
+
+    <div
+      id="imitationList"
+    ></div>
 
   </div>
 
@@ -749,7 +808,9 @@
     class="primary wide"
     type="button"
   >
+
     重新阅读 →
+
   </button>
 
 </section>
@@ -757,8 +818,8 @@
 
 
 <!-- =====================================================
-     REREAD
-===================================================== -->
+REREAD
+====================================================== -->
 
 <section
   id="reread"
@@ -790,6 +851,7 @@
   </div>
 
 
+
   <div class="card">
 
     <div class="eyebrow">
@@ -802,15 +864,12 @@
 
     <p class="muted">
 
-      注意：
-
-      <strong>
-        现在是否比第一次更容易直接理解？
-      </strong>
+      现在是否比第一次更容易直接理解？
 
     </p>
 
   </div>
+
 
 
   <div
@@ -819,11 +878,13 @@
   ></div>
 
 
+
   <div class="card">
 
     <h3>
       现在的感觉
     </h3>
+
 
     <div class="feeling-options">
 
@@ -834,12 +895,14 @@
         很直接
       </button>
 
+
       <button
         type="button"
         data-feeling="2"
       >
         基本可以
       </button>
+
 
       <button
         type="button"
@@ -853,12 +916,15 @@
   </div>
 
 
+
   <button
     id="finalTestBtn"
     class="primary wide"
     type="button"
   >
+
     最后测试 →
+
   </button>
 
 </section>
@@ -866,8 +932,8 @@
 
 
 <!-- =====================================================
-     FINAL TEST
-===================================================== -->
+FINAL TEST
+====================================================== -->
 
 <section
   id="finalTest"
@@ -899,15 +965,23 @@
   </div>
 
 
+
   <div class="card">
 
     <p class="muted">
+
       再回答一次。
+
+      <br>
+
       不看中文。
+
     </p>
 
 
-    <div id="finalQuestions"></div>
+    <div
+      id="finalQuestions"
+    ></div>
 
 
     <button
@@ -915,7 +989,9 @@
       class="primary wide"
       type="button"
     >
+
       提交最后测试
+
     </button>
 
 
@@ -931,8 +1007,8 @@
 
 
 <!-- =====================================================
-     RESULT
-===================================================== -->
+RESULT
+====================================================== -->
 
 <section
   id="result"
@@ -960,6 +1036,7 @@
   </div>
 
 
+
   <div class="score-comparison">
 
     <div class="score-box">
@@ -968,7 +1045,9 @@
         第一次理解
       </span>
 
-      <strong id="baselineScore">
+      <strong
+        id="baselineScore"
+      >
         0%
       </strong>
 
@@ -986,7 +1065,9 @@
         第二次理解
       </span>
 
-      <strong id="finalScore">
+      <strong
+        id="finalScore"
+      >
         0%
       </strong>
 
@@ -995,10 +1076,12 @@
   </div>
 
 
+
   <div
     id="improvementBox"
     class="improvement-card"
   ></div>
+
 
 
   <div class="card">
@@ -1009,16 +1092,34 @@
 
     <div class="achievement-list">
 
-      <div>✓ READ</div>
-      <div>✓ LISTEN</div>
-      <div>✓ NOTICE</div>
-      <div>✓ DIRECT COMPREHENSION</div>
-      <div>✓ SPEAK</div>
-      <div>✓ RE-READ</div>
+      <div>
+        ✓ READ
+      </div>
+
+      <div>
+        ✓ LISTEN
+      </div>
+
+      <div>
+        ✓ NOTICE
+      </div>
+
+      <div>
+        ✓ DIRECT COMPREHENSION
+      </div>
+
+      <div>
+        ✓ SPEAK
+      </div>
+
+      <div>
+        ✓ RE-READ
+      </div>
 
     </div>
 
   </div>
+
 
 
   <button
@@ -1026,7 +1127,9 @@
     class="primary wide"
     type="button"
   >
+
     返回首页
+
   </button>
 
 
@@ -1035,7 +1138,9 @@
     class="wide"
     type="button"
   >
+
     查看复习
+
   </button>
 
 </section>
@@ -1043,8 +1148,8 @@
 
 
 <!-- =====================================================
-     REVIEW
-===================================================== -->
+REVIEW
+====================================================== -->
 
 <section
   id="review"
@@ -1076,6 +1181,7 @@
   </div>
 
 
+
   <div class="card">
 
     <p class="muted">
@@ -1089,7 +1195,9 @@
     </p>
 
 
-    <div id="reviewList"></div>
+    <div
+      id="reviewList"
+    ></div>
 
   </div>
 
@@ -1102,16 +1210,18 @@
 
 <footer>
 
-  EBRM · English Bible Reading Model · V0.7.2
+  EBRM · English Bible Reading Model · V0.7.3
 
 </footer>
 
 
 
 <script
-  src="app.js?v=072"
+  src="app.js?v=073"
   defer
 ></script>
 
+
 </body>
+
 </html>
