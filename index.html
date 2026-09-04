@@ -16,12 +16,12 @@
   >
 
   <title>
-    EBRM V0.7.3｜John 1:1–5
+    EBRM V0.8｜John 1:1–5 精读训练
   </title>
 
   <link
     rel="stylesheet"
-    href="style.css?v=073"
+    href="style.css?v=080"
   >
 
 </head>
@@ -45,7 +45,7 @@
   </div>
 
   <div class="version">
-    V0.7.3
+    V0.8
   </div>
 
 </header>
@@ -80,14 +80,10 @@ HOME
 
     <p class="hero-description">
 
-      这一课不是单纯学习英文。
-
-      <br>
-
-      而是训练：
+      训练目标：
 
       <strong>
-        从英文直接进入圣经意义。
+        不依赖中文，直接从英文进入经文意义。
       </strong>
 
     </p>
@@ -122,6 +118,12 @@ HOME
       NOTICE
       <span>→</span>
 
+      VOCABULARY
+      <span>→</span>
+
+      STRUCTURE
+      <span>→</span>
+
       UNDERSTAND
       <span>→</span>
 
@@ -134,44 +136,40 @@ HOME
 
 
     <button
-      id="startGoldenBtn"
+      id="startBaselineBtn"
       class="primary wide"
       type="button"
     >
-
-      开始黄金训练 →
-
+      开始训练 →
     </button>
 
   </div>
 
 
 
-  <div class="baseline-card">
+  <div class="card">
 
     <div class="eyebrow">
-      DIRECT COMPREHENSION BASELINE
+      CURRENT UNIT
     </div>
 
     <h3>
-      先测一次
+      John 1:1–5
     </h3>
 
-    <p>
-      不查中文，不查词典。
-      先用英文理解。
+    <p class="muted">
+
+      The Word was with God.
+
+      <br>
+
+      In him was life.
+
+      <br>
+
+      The light shines in the darkness.
+
     </p>
-
-
-    <button
-      id="startBaselineBtn"
-      class="secondary wide"
-      type="button"
-    >
-
-      开始第一次理解测试
-
-    </button>
 
   </div>
 
@@ -182,28 +180,26 @@ HOME
     <div class="progress-header">
 
       <span>
-        黄金单元进度
+        本课完成度
       </span>
 
-      <strong
-        id="goldenProgressText"
-      >
+      <strong id="progressText">
         0%
       </strong>
 
     </div>
 
-
     <div class="progress-track">
 
       <div
-        id="goldenProgressBar"
+        id="progressBar"
         class="progress-fill"
       ></div>
 
     </div>
 
   </div>
+
 
 </section>
 
@@ -231,11 +227,11 @@ BASELINE
     <div>
 
       <div class="eyebrow">
-        STEP 0
+        STEP 1 · BASELINE
       </div>
 
       <h2>
-        第一次理解测试
+        第一次理解
       </h2>
 
     </div>
@@ -245,24 +241,20 @@ BASELINE
 
   <div class="card">
 
-    <div class="test-rule">
+    <div class="rule-box">
 
       <strong>
-        规则
+        不查中文
       </strong>
 
       <p>
-        不查中文。
-        不查词典。
-        只根据英文经文理解。
+        不查词典，只根据你的英文理解回答。
       </p>
 
     </div>
 
 
-    <div
-      id="baselineQuestions"
-    ></div>
+    <div id="baselineQuestions"></div>
 
 
     <button
@@ -270,9 +262,7 @@ BASELINE
       class="primary wide"
       type="button"
     >
-
       提交第一次理解
-
     </button>
 
 
@@ -309,7 +299,7 @@ READ
     <div>
 
       <div class="eyebrow">
-        STEP 1 · READ
+        STEP 2 · READ + LISTEN
       </div>
 
       <h2>
@@ -319,7 +309,6 @@ READ
     </div>
 
   </div>
-
 
 
   <div class="card">
@@ -334,14 +323,6 @@ READ
         WEB
       </span>
 
-    </div>
-
-
-    <div
-      id="passageStatus"
-      class="passage-status"
-    >
-      经文已内置，无需网络读取。
     </div>
 
 
@@ -371,19 +352,31 @@ READ
   <div class="instruction-card">
 
     <strong>
-      第一次阅读
+      训练方式
     </strong>
 
     <p>
 
-      不急着翻译。
+      第一次：
+
+      <strong>
+        只读
+      </strong>
 
       <br>
 
-      先问：
+      第二次：
 
       <strong>
-        What is happening?
+        听 + 看
+      </strong>
+
+      <br>
+
+      第三次：
+
+      <strong>
+        听 + 跟读
       </strong>
 
     </p>
@@ -397,9 +390,7 @@ READ
     class="primary wide"
     type="button"
   >
-
-    我已经读完 → 开始观察
-
+    下一步：Notice →
   </button>
 
 </section>
@@ -428,11 +419,11 @@ NOTICE
     <div>
 
       <div class="eyebrow">
-        STEP 2 · NOTICE
+        STEP 3 · NOTICE
       </div>
 
       <h2>
-        观察经文
+        观察
       </h2>
 
     </div>
@@ -441,19 +432,22 @@ NOTICE
 
 
 
-  <div class="notice-intro card">
+  <div class="card notice-intro">
 
     <div class="eyebrow">
-      DON'T TRANSLATE YET
+      NOTICE BEFORE TRANSLATION
     </div>
 
     <h3>
-      先观察英文
+      先看见，再理解
     </h3>
 
-    <p>
-      找重复、对比、人物、动作、
-      关系和重要表达。
+    <p class="muted">
+
+      找出经文中的：
+
+      重复 · 对比 · 关系 · 动作 · 焦点
+
     </p>
 
   </div>
@@ -469,9 +463,7 @@ NOTICE
     class="primary wide"
     type="button"
   >
-
-    完成观察 → 词汇
-
+    下一步：核心词汇 →
   </button>
 
 </section>
@@ -500,7 +492,7 @@ VOCABULARY
     <div>
 
       <div class="eyebrow">
-        STEP 3 · VOCABULARY
+        STEP 4 · VOCABULARY
       </div>
 
       <h2>
@@ -512,17 +504,18 @@ VOCABULARY
   </div>
 
 
-
   <div class="card">
 
     <p class="muted">
-      只处理真正影响理解的词。
+
+      每一个词都必须重新放回经文。
+
+      不只是背中文。
+
     </p>
 
 
-    <div
-      id="vocabularyList"
-    ></div>
+    <div id="vocabularyList"></div>
 
   </div>
 
@@ -533,9 +526,7 @@ VOCABULARY
     class="primary wide"
     type="button"
   >
-
-    下一步：句子结构 →
-
+    下一步：结构观察 →
   </button>
 
 </section>
@@ -564,7 +555,7 @@ STRUCTURE
     <div>
 
       <div class="eyebrow">
-        STEP 4 · STRUCTURE
+        STEP 5 · STRUCTURE
       </div>
 
       <h2>
@@ -576,23 +567,20 @@ STRUCTURE
   </div>
 
 
-
   <div class="card">
 
     <p class="muted">
 
-      不只是记语法名称。
+      不是只学习语法术语。
 
       <br>
 
-      要看见英语如何组织意义。
+      要看见英语怎样组织意义。
 
     </p>
 
 
-    <div
-      id="structureList"
-    ></div>
+    <div id="structureList"></div>
 
   </div>
 
@@ -603,9 +591,7 @@ STRUCTURE
     class="primary wide"
     type="button"
   >
-
     下一步：直接理解 →
-
   </button>
 
 </section>
@@ -634,7 +620,7 @@ DIRECT
     <div>
 
       <div class="eyebrow">
-        STEP 5 · DIRECT COMPREHENSION
+        STEP 6 · DIRECT COMPREHENSION
       </div>
 
       <h2>
@@ -646,8 +632,7 @@ DIRECT
   </div>
 
 
-
-  <div class="direct-rule card">
+  <div class="card direct-rule">
 
     <div class="eyebrow">
       ENGLISH → MEANING
@@ -658,18 +643,13 @@ DIRECT
     </h3>
 
     <p>
-      回到英文经文，
-      直接判断意义。
+      回到英文经文，直接理解。
     </p>
 
   </div>
 
 
-
-  <div
-    id="directQuestions"
-  ></div>
-
+  <div id="directQuestions"></div>
 
 
   <div
@@ -680,15 +660,12 @@ DIRECT
   </div>
 
 
-
   <button
     id="speakBtn"
     class="primary wide"
     type="button"
   >
-
-    下一步：用英语表达 →
-
+    下一步：英文表达 →
   </button>
 
 </section>
@@ -717,7 +694,7 @@ SPEAK
     <div>
 
       <div class="eyebrow">
-        STEP 6 · SPEAK
+        STEP 7 · SPEAK
       </div>
 
       <h2>
@@ -733,9 +710,91 @@ SPEAK
   <div class="card">
 
     <div class="eyebrow">
-      YOUR TASK
+      TASK A · IMITATE
     </div>
 
+    <h3>
+      模仿一句
+    </h3>
+
+    <p class="muted">
+      听一句 → 跟读一句。
+    </p>
+
+    <div id="imitationList"></div>
+
+  </div>
+
+
+
+  <div class="card">
+
+    <div class="eyebrow">
+      TASK B · SUBSTITUTE
+    </div>
+
+    <h3>
+      替换训练
+    </h3>
+
+    <p class="muted">
+      保持句型，只替换核心词。
+    </p>
+
+
+    <div class="substitute-box">
+
+      <div class="model-sentence">
+        The light shines in the darkness.
+      </div>
+
+      <div class="substitute-label">
+        Try:
+      </div>
+
+      <div class="substitute-examples">
+
+        <button
+          type="button"
+          data-substitute="The light shines in the world."
+        >
+          The light shines in the world.
+        </button>
+
+        <button
+          type="button"
+          data-substitute="The light shines in our hearts."
+        >
+          The light shines in our hearts.
+        </button>
+
+        <button
+          type="button"
+          data-substitute="Life shines in the darkness."
+        >
+          Life shines in the darkness.
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="substituteAudio"></div>
+
+  </div>
+
+
+
+  <div class="card">
+
+    <div class="eyebrow">
+      TASK C · PRODUCE
+    </div>
+
+    <h3>
+      自己表达
+    </h3>
 
     <p
       id="speakPrompt"
@@ -746,7 +805,7 @@ SPEAK
     <textarea
       id="speakAnswer"
       rows="6"
-      placeholder="Write your answer in simple English..."
+      placeholder="Write simple English..."
     ></textarea>
 
 
@@ -757,19 +816,14 @@ SPEAK
         class="primary"
         type="button"
       >
-
         检查表达
-
       </button>
-
 
       <button
         id="listenAnswerBtn"
         type="button"
       >
-
         🔊 听我的答案
-
       </button>
 
     </div>
@@ -784,33 +838,12 @@ SPEAK
 
 
 
-  <div class="card">
-
-    <h3>
-      🎤 模仿经文
-    </h3>
-
-    <p class="muted">
-      听一句，然后自己重复。
-    </p>
-
-
-    <div
-      id="imitationList"
-    ></div>
-
-  </div>
-
-
-
   <button
     id="rereadBtn"
     class="primary wide"
     type="button"
   >
-
-    重新阅读 →
-
+    下一步：重新阅读 →
   </button>
 
 </section>
@@ -839,7 +872,7 @@ REREAD
     <div>
 
       <div class="eyebrow">
-        STEP 7 · RE-READ
+        STEP 8 · RE-READ
       </div>
 
       <h2>
@@ -859,12 +892,16 @@ REREAD
     </div>
 
     <h3>
-      现在重新阅读 John 1:1–5
+      回到经文
     </h3>
 
     <p class="muted">
 
-      现在是否比第一次更容易直接理解？
+      现在不要分析。
+
+      <br>
+
+      只重新阅读 John 1:1–5。
 
     </p>
 
@@ -882,8 +919,12 @@ REREAD
   <div class="card">
 
     <h3>
-      现在的感觉
+      英文直接感受
     </h3>
+
+    <p class="muted">
+      现在读这段经文，你的感觉是：
+    </p>
 
 
     <div class="feeling-options">
@@ -895,7 +936,6 @@ REREAD
         很直接
       </button>
 
-
       <button
         type="button"
         data-feeling="2"
@@ -903,12 +943,11 @@ REREAD
         基本可以
       </button>
 
-
       <button
         type="button"
         data-feeling="1"
       >
-        仍需要翻译
+        仍要翻译
       </button>
 
     </div>
@@ -922,9 +961,7 @@ REREAD
     class="primary wide"
     type="button"
   >
-
-    最后测试 →
-
+    最后理解测试 →
   </button>
 
 </section>
@@ -953,11 +990,11 @@ FINAL TEST
     <div>
 
       <div class="eyebrow">
-        STEP 8 · FINAL TEST
+        STEP 9 · FINAL TEST
       </div>
 
       <h2>
-        第二次理解测试
+        第二次理解
       </h2>
 
     </div>
@@ -965,23 +1002,22 @@ FINAL TEST
   </div>
 
 
-
   <div class="card">
 
-    <p class="muted">
+    <div class="test-rule">
 
-      再回答一次。
+      <strong>
+        最后一次
+      </strong>
 
-      <br>
+      <p>
+        重新根据英文经文回答。
+      </p>
 
-      不看中文。
-
-    </p>
+    </div>
 
 
-    <div
-      id="finalQuestions"
-    ></div>
+    <div id="finalQuestions"></div>
 
 
     <button
@@ -989,9 +1025,7 @@ FINAL TEST
       class="primary wide"
       type="button"
     >
-
-      提交最后测试
-
+      查看我的进步
     </button>
 
 
@@ -1046,7 +1080,7 @@ RESULT
       </span>
 
       <strong
-        id="baselineScore"
+        id="resultBaseline"
       >
         0%
       </strong>
@@ -1066,7 +1100,7 @@ RESULT
       </span>
 
       <strong
-        id="finalScore"
+        id="resultFinal"
       >
         0%
       </strong>
@@ -1078,7 +1112,7 @@ RESULT
 
 
   <div
-    id="improvementBox"
+    id="resultImprovement"
     class="improvement-card"
   ></div>
 
@@ -1087,34 +1121,26 @@ RESULT
   <div class="card">
 
     <h3>
-      本课完成
+      今天完成
     </h3>
 
     <div class="achievement-list">
 
-      <div>
-        ✓ READ
-      </div>
+      <div>✓ READ</div>
 
-      <div>
-        ✓ LISTEN
-      </div>
+      <div>✓ LISTEN</div>
 
-      <div>
-        ✓ NOTICE
-      </div>
+      <div>✓ NOTICE</div>
 
-      <div>
-        ✓ DIRECT COMPREHENSION
-      </div>
+      <div>✓ VOCABULARY</div>
 
-      <div>
-        ✓ SPEAK
-      </div>
+      <div>✓ STRUCTURE</div>
 
-      <div>
-        ✓ RE-READ
-      </div>
+      <div>✓ DIRECT COMPREHENSION</div>
+
+      <div>✓ SPEAK</div>
+
+      <div>✓ RE-READ</div>
 
     </div>
 
@@ -1127,9 +1153,7 @@ RESULT
     class="primary wide"
     type="button"
   >
-
     返回首页
-
   </button>
 
 
@@ -1138,9 +1162,7 @@ RESULT
     class="wide"
     type="button"
   >
-
     查看复习
-
   </button>
 
 </section>
@@ -1181,23 +1203,20 @@ REVIEW
   </div>
 
 
-
   <div class="card">
 
     <p class="muted">
 
-      建议重新完成：
+      建议：
 
       <br>
 
-      听 → 读 → 直接理解
+      Day 1 → Day 3 → Day 7
 
     </p>
 
 
-    <div
-      id="reviewList"
-    ></div>
+    <div id="reviewList"></div>
 
   </div>
 
@@ -1210,18 +1229,17 @@ REVIEW
 
 <footer>
 
-  EBRM · English Bible Reading Model · V0.7.3
+  EBRM · English Bible Reading Model · V0.8
 
 </footer>
 
 
 
 <script
-  src="app.js?v=073"
+  src="app.js?v=080"
   defer
 ></script>
 
 
 </body>
-
 </html>
