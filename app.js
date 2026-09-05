@@ -1,11 +1,22 @@
 /* =========================================================
-   EBRM V0.8
+   EBRM V0.9
    English Bible Reading Model
 
-   Golden Training Unit:
-   John 1:1–5
+   JOHN 1 COMPLETE COURSE ENGINE
 
-   V0.8:
+   7 Training Units
+   ---------------------------------------------------------
+   Unit 01 : John 1:1–5
+   Unit 02 : John 1:6–13
+   Unit 03 : John 1:14–18
+   Unit 04 : John 1:19–28
+   Unit 05 : John 1:29–34
+   Unit 06 : John 1:35–42
+   Unit 07 : John 1:43–51
+
+   Training Flow
+   ---------------------------------------------------------
+   BASELINE
    READ
    LISTEN
    NOTICE
@@ -15,6 +26,7 @@
    SPEAK
    RE-READ
    FINAL TEST
+   RESULT
    REVIEW
 ========================================================= */
 
@@ -25,467 +37,1461 @@
 
 const CONFIG = {
 
-  LANGUAGE:
-    "en-US",
+    LANGUAGE:
+        "en-US",
 
-  NORMAL_RATE:
-    0.88,
+    NORMAL_RATE:
+        0.88,
 
-  SLOW_RATE:
-    0.62,
+    SLOW_RATE:
+        0.62,
 
-  STATE_KEY:
-    "EBRM_V08_STATE",
+    STATE_KEY:
+        "EBRM_V09_STATE",
 
-  VOICE_KEY:
-    "EBRM_V08_VOICE"
+    VOICE_KEY:
+        "EBRM_V09_VOICE"
 
 };
 
 
 /* =========================================================
-   GOLDEN UNIT
+   JOHN 1 COURSE
 ========================================================= */
 
-const GOLDEN_UNIT = {
+const COURSE = [
 
-  id:
-    "JOHN-1-1-5",
-
-  reference:
-    "John 1:1–5",
-
-  title:
-    "The Word",
-
-  production:
-    "In simple English, explain who the Word is and what is in the Word.",
-
-
-  /* -------------------------------------------------------
-     JOHN 1:1–5
-     WEB / Public Domain text
-  ------------------------------------------------------- */
-
-  verses: [
+    /* =====================================================
+       UNIT 01
+    ===================================================== */
 
     {
-      verse:
-        1,
 
-      text:
-        "In the beginning was the Word, and the Word was with God, and the Word was God."
+        id:
+            "john1-01",
+
+        number:
+            1,
+
+        reference:
+            "John 1:1–5",
+
+        title:
+            "The Word · Life · Light",
+
+        verses: [
+
+            {
+                verse: 1,
+                text:
+                    "In the beginning was the Word, and the Word was with God, and the Word was God."
+            },
+
+            {
+                verse: 2,
+                text:
+                    "The same was in the beginning with God."
+            },
+
+            {
+                verse: 3,
+                text:
+                    "All things were made through him. Without him, nothing was made that has been made."
+            },
+
+            {
+                verse: 4,
+                text:
+                    "In him was life, and the life was the light of men."
+            },
+
+            {
+                verse: 5,
+                text:
+                    "The light shines in the darkness, and the darkness hasn’t overcome it."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["Word", "道", "the Word"],
+
+            ["beginning", "起初", "the start"],
+
+            ["with", "与……同在", "together with"],
+
+            ["life", "生命", "life"],
+
+            ["light", "光", "light"],
+
+            ["darkness", "黑暗", "darkness"],
+
+            ["overcome", "胜过", "to defeat"]
+
+        ],
+
+        structures: [
+
+            [
+                "In the beginning was the Word.",
+                "时间背景 + 核心主语。"
+            ],
+
+            [
+                "The Word was with God.",
+                "was with 表达关系。"
+            ],
+
+            [
+                "The Word was God.",
+                "Subject + be + complement。"
+            ],
+
+            [
+                "In him was life.",
+                "in him 放在前面突出生命所在。"
+            ],
+
+            [
+                "The light shines in the darkness.",
+                "主语 + 动作 + 环境。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What word is repeated as a major focus?",
+                [
+                    "Word",
+                    "Temple",
+                    "King"
+                ],
+                0
+            ],
+
+            [
+                "What two ideas are contrasted?",
+                [
+                    "Light and darkness",
+                    "King and servant",
+                    "Life and money"
+                ],
+                0
+            ],
+
+            [
+                "What is connected with the Word?",
+                [
+                    "God, creation, life, and light",
+                    "Rome, law, and temple",
+                    "Water, fire, and army"
+                ],
+                0
+            ],
+
+            [
+                "What does the darkness fail to do?",
+                [
+                    "Overcome the light",
+                    "Create life",
+                    "Become the Word"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "Who was with God in the beginning?",
+                [
+                    "The Word",
+                    "John",
+                    "Moses"
+                ],
+                0,
+                "道与神同在。"
+            ],
+
+            [
+                "What was in the Word?",
+                [
+                    "Darkness",
+                    "Life",
+                    "Death"
+                ],
+                1,
+                "生命在祂里面。"
+            ],
+
+            [
+                "What was the life in the Word?",
+                [
+                    "The light of men",
+                    "The law of Moses",
+                    "The temple"
+                ],
+                0,
+                "这生命就是人的光。"
+            ],
+
+            [
+                "Where does the light shine?",
+                [
+                    "In the darkness",
+                    "In the temple",
+                    "In Rome"
+                ],
+                0,
+                "光照在黑暗里。"
+            ],
+
+            [
+                "Has the darkness overcome the light?",
+                [
+                    "Yes",
+                    "No",
+                    "The passage does not say"
+                ],
+                1,
+                "黑暗没有胜过光。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, explain who the Word is and what is in the Word."
+
     },
 
-    {
-      verse:
-        2,
 
-      text:
-        "The same was in the beginning with God."
+    /* =====================================================
+       UNIT 02
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-02",
+
+        number:
+            2,
+
+        reference:
+            "John 1:6–13",
+
+        title:
+            "The Light Comes into the World",
+
+        verses: [
+
+            {
+                verse: 6,
+                text:
+                    "There came a man, sent from God, whose name was John."
+            },
+
+            {
+                verse: 7,
+                text:
+                    "The same came as a witness, that he might testify about the light, that all might believe through him."
+            },
+
+            {
+                verse: 8,
+                text:
+                    "He was not the light, but was sent that he might testify about the light."
+            },
+
+            {
+                verse: 9,
+                text:
+                    "The true light that enlightens everyone was coming into the world."
+            },
+
+            {
+                verse: 10,
+                text:
+                    "He was in the world, and the world was made through him, and the world didn’t recognize him."
+            },
+
+            {
+                verse: 11,
+                text:
+                    "He came to his own, and those who were his own didn’t receive him."
+            },
+
+            {
+                verse: 12,
+                text:
+                    "But as many as received him, to them he gave the right to become God’s children, to those who believe in his name."
+            },
+
+            {
+                verse: 13,
+                text:
+                    "Who were born not of blood, nor of the will of the flesh, nor of the will of man, but of God."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["witness", "见证人", "a person who gives testimony"],
+
+            ["testify", "作见证", "to give evidence"],
+
+            ["true", "真实的", "real or genuine"],
+
+            ["recognize", "认识", "to know or identify"],
+
+            ["receive", "领受", "to accept"],
+
+            ["believe", "相信", "to trust"],
+
+            ["children", "儿女", "children"]
+
+        ],
+
+        structures: [
+
+            [
+                "There came a man, sent from God.",
+                "there + 动词结构引入人物。"
+            ],
+
+            [
+                "that he might testify about the light",
+                "that + 主语 + might 表达目的。"
+            ],
+
+            [
+                "He was not the light.",
+                "be 动词否定结构。"
+            ],
+
+            [
+                "He came to his own.",
+                "come + to 表达来到某处/某群体。"
+            ],
+
+            [
+                "he gave the right to become God's children",
+                "give + 人 + 名词 + to do。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What was John's main role?",
+                [
+                    "To bear witness",
+                    "To become the light",
+                    "To create the world"
+                ],
+                0
+            ],
+
+            [
+                "What happened when the light came into the world?",
+                [
+                    "Everyone received him",
+                    "The world did not recognize him",
+                    "Everyone became prophets"
+                ],
+                1
+            ],
+
+            [
+                "What can people become?",
+                [
+                    "God's children",
+                    "Angels",
+                    "Kings"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "Who sent John?",
+                [
+                    "God",
+                    "Rome",
+                    "Moses"
+                ],
+                0,
+                "约翰是从神那里来的。"
+            ],
+
+            [
+                "Why was John sent?",
+                [
+                    "To testify about the light",
+                    "To become the light",
+                    "To build a temple"
+                ],
+                0,
+                "约翰为光作见证。"
+            ],
+
+            [
+                "Did the world recognize him?",
+                [
+                    "Yes",
+                    "No",
+                    "Only Rome did"
+                ],
+                1,
+                "世界却不认识祂。"
+            ],
+
+            [
+                "What does God give to those who receive him?",
+                [
+                    "The right to become God's children",
+                    "Political power",
+                    "Money"
+                ],
+                0,
+                "赐他们成为神儿女的权柄。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, explain John's role and the response of the world to the light."
+
     },
 
-    {
-      verse:
-        3,
 
-      text:
-        "All things were made through him. Without him, nothing was made that has been made."
+    /* =====================================================
+       UNIT 03
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-03",
+
+        number:
+            3,
+
+        reference:
+            "John 1:14–18",
+
+        title:
+            "The Word Became Flesh",
+
+        verses: [
+
+            {
+                verse: 14,
+                text:
+                    "The Word became flesh and lived among us. We saw his glory, such glory as of the only born Son of the Father, full of grace and truth."
+            },
+
+            {
+                verse: 15,
+                text:
+                    "John testified about him. He cried out, saying, 'This was he of whom I said, He who comes after me has surpassed me, for he was before me.'"
+            },
+
+            {
+                verse: 16,
+                text:
+                    "From his fullness we all received grace upon grace."
+            },
+
+            {
+                verse: 17,
+                text:
+                    "For the law was given through Moses. Grace and truth came through Jesus Christ."
+            },
+
+            {
+                verse: 18,
+                text:
+                    "No one has seen God at any time. The only born Son, who is in the bosom of the Father, has declared him."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["flesh", "肉身", "human bodily existence"],
+
+            ["dwelt", "居住", "lived among"],
+
+            ["glory", "荣耀", "splendor and honor"],
+
+            ["fullness", "丰盛", "complete abundance"],
+
+            ["grace", "恩典", "undeserved favor"],
+
+            ["truth", "真理", "what is true"],
+
+            ["declared", "显明", "made known"]
+
+        ],
+
+        structures: [
+
+            [
+                "The Word became flesh.",
+                "became + 名词，表达进入新的状态。"
+            ],
+
+            [
+                "We saw his glory.",
+                "主语 + 动词 + 宾语。"
+            ],
+
+            [
+                "From his fullness we all received grace.",
+                "from 突出来源。"
+            ],
+
+            [
+                "Grace and truth came through Jesus Christ.",
+                "came through 表达媒介/途径。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What did the Word become?",
+                [
+                    "Flesh",
+                    "An angel",
+                    "A prophet"
+                ],
+                0
+            ],
+
+            [
+                "What was the Word full of?",
+                [
+                    "Grace and truth",
+                    "Money and power",
+                    "Fear and judgment"
+                ],
+                0
+            ],
+
+            [
+                "What did the witnesses see?",
+                [
+                    "His glory",
+                    "His palace",
+                    "His army"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "What did the Word become?",
+                [
+                    "Flesh",
+                    "Light",
+                    "Darkness"
+                ],
+                0,
+                "道成了肉身。"
+            ],
+
+            [
+                "What did people receive from his fullness?",
+                [
+                    "Grace upon grace",
+                    "Political power",
+                    "Wealth"
+                ],
+                0,
+                "从祂丰盛里领受恩典。"
+            ],
+
+            [
+                "Through whom did grace and truth come?",
+                [
+                    "Moses",
+                    "Jesus Christ",
+                    "John"
+                ],
+                1,
+                "恩典和真理由耶稣基督而来。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, explain why John 1:14 is important."
+
     },
 
-    {
-      verse:
-        4,
 
-      text:
-        "In him was life, and the life was the light of men."
+    /* =====================================================
+       UNIT 04
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-04",
+
+        number:
+            4,
+
+        reference:
+            "John 1:19–28",
+
+        title:
+            "John's Witness",
+
+        verses: [
+
+            {
+                verse: 19,
+                text:
+                    "This is John’s testimony, when the Jews sent priests and Levites from Jerusalem to ask him, 'Who are you?'"
+            },
+
+            {
+                verse: 20,
+                text:
+                    "He declared, and didn’t deny, but he declared, 'I am not the Christ.'"
+            },
+
+            {
+                verse: 21,
+                text:
+                    "They asked him, 'What then? Are you Elijah?' He said, 'I am not.' 'Are you the prophet?' He answered, 'No.'"
+            },
+
+            {
+                verse: 22,
+                text:
+                    "They said therefore to him, 'Who are you? Give us an answer, that we may give an answer to those who sent us. What do you say about yourself?'"
+            },
+
+            {
+                verse: 23,
+                text:
+                    "He said, 'I am the voice of one crying in the wilderness, Make straight the way of the Lord, as Isaiah the prophet said.'"
+            },
+
+            {
+                verse: 24,
+                text:
+                    "The ones who had been sent were from the Pharisees."
+            },
+
+            {
+                verse: 25,
+                text:
+                    "They asked him, 'Why then do you baptize, if you are not the Christ, nor Elijah, nor the prophet?'"
+            },
+
+            {
+                verse: 26,
+                text:
+                    "John answered them, 'I baptize in water, but among you stands one whom you don’t know.'"
+            },
+
+            {
+                verse: 27,
+                text:
+                    "He is the one who comes after me, who has come to be before me, whose sandal strap I’m not worthy to untie.'"
+            },
+
+            {
+                verse: 28,
+                text:
+                    "These things were done in Bethany beyond the Jordan, where John was baptizing."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["testimony", "见证", "testimony"],
+
+            ["confess", "承认", "to openly state"],
+
+            ["Christ", "基督", "Messiah"],
+
+            ["prophet", "先知", "prophet"],
+
+            ["voice", "声音", "voice"],
+
+            ["wilderness", "旷野", "desert region"],
+
+            ["worthy", "配得", "deserving"]
+
+        ],
+
+        structures: [
+
+            [
+                "Who are you?",
+                "疑问句推动身份确认。"
+            ],
+
+            [
+                "I am not the Christ.",
+                "be + not + 名词。"
+            ],
+
+            [
+                "I am the voice of one crying...",
+                "I am + 名词定义身份。"
+            ],
+
+            [
+                "Make straight the way of the Lord.",
+                "祈使句，表达使命。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "Who was John not?",
+                [
+                    "The Christ",
+                    "A witness",
+                    "A voice"
+                ],
+                0
+            ],
+
+            [
+                "What did John call himself?",
+                [
+                    "The king",
+                    "The voice",
+                    "The Messiah"
+                ],
+                1
+            ],
+
+            [
+                "Who did John point toward?",
+                [
+                    "The coming Lord",
+                    "Himself",
+                    "Rome"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "Was John the Christ?",
+                [
+                    "Yes",
+                    "No",
+                    "The passage does not say"
+                ],
+                1,
+                "约翰不是基督。"
+            ],
+
+            [
+                "What did John call himself?",
+                [
+                    "The voice",
+                    "The king",
+                    "The light"
+                ],
+                0,
+                "约翰说自己是声音。"
+            ],
+
+            [
+                "What was John preparing?",
+                [
+                    "The way of the Lord",
+                    "A palace",
+                    "A kingdom"
+                ],
+                0,
+                "他预备主的道路。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, explain how John understood his own role."
+
     },
 
-    {
-      verse:
-        5,
 
-      text:
-        "The light shines in the darkness, and the darkness hasn’t overcome it."
+    /* =====================================================
+       UNIT 05
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-05",
+
+        number:
+            5,
+
+        reference:
+            "John 1:29–34",
+
+        title:
+            "The Lamb of God",
+
+        verses: [
+
+            {
+                verse: 29,
+                text:
+                    "The next day, he saw Jesus coming to him, and said, 'Behold, the Lamb of God, who takes away the sin of the world!'"
+            },
+
+            {
+                verse: 30,
+                text:
+                    "This is he of whom I said, 'After me comes a man who is before me, for he was before me.'"
+            },
+
+            {
+                verse: 31,
+                text:
+                    "I didn’t recognize him, but for this reason I came baptizing in water: that he would be revealed to Israel."
+            },
+
+            {
+                verse: 32,
+                text:
+                    "John testified, saying, 'I have seen the Spirit descending like a dove out of heaven, and it remained on him.'"
+            },
+
+            {
+                verse: 33,
+                text:
+                    "I didn’t recognize him, but he who sent me to baptize in water, he said to me, 'On whomever you will see the Spirit descending and remaining on him, the same is he who baptizes in the Holy Spirit.'"
+            },
+
+            {
+                verse: 34,
+                text:
+                    "I have seen and have testified that this is the Son of God."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["Lamb", "羔羊", "Lamb"],
+
+            ["sin", "罪", "sin"],
+
+            ["take away", "除去", "remove"],
+
+            ["Spirit", "圣灵", "Spirit"],
+
+            ["descend", "降下", "come down"],
+
+            ["remain", "停留", "stay"],
+
+            ["testified", "作见证", "gave testimony"]
+
+        ],
+
+        structures: [
+
+            [
+                "Behold, the Lamb of God.",
+                "behold 用来引起注意。"
+            ],
+
+            [
+                "who takes away the sin of the world",
+                "关系从句说明人物的行动。"
+            ],
+
+            [
+                "I have seen the Spirit descending.",
+                "现在完成时 + 感官动作。"
+            ],
+
+            [
+                "this is the Son of God",
+                "this is + 身份确认。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What title does John give Jesus?",
+                [
+                    "The Lamb of God",
+                    "The King of Rome",
+                    "The Prophet"
+                ],
+                0
+            ],
+
+            [
+                "What does the Lamb take away?",
+                [
+                    "The sin of the world",
+                    "The temple",
+                    "The law"
+                ],
+                0
+            ],
+
+            [
+                "What descended on Jesus?",
+                [
+                    "The Spirit",
+                    "Fire",
+                    "Water"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "Who is the Lamb of God?",
+                [
+                    "Jesus",
+                    "John",
+                    "Moses"
+                ],
+                0,
+                "耶稣是神的羔羊。"
+            ],
+
+            [
+                "What does the Lamb take away?",
+                [
+                    "The sin of the world",
+                    "The temple",
+                    "The law"
+                ],
+                0,
+                "除去世人的罪。"
+            ],
+
+            [
+                "What remained on Jesus?",
+                [
+                    "The Spirit",
+                    "The crown",
+                    "The book"
+                ],
+                0,
+                "圣灵停留在祂身上。"
+            ],
+
+            [
+                "What did John testify?",
+                [
+                    "Jesus is the Son of God",
+                    "John is the Son of God",
+                    "Jesus is a Roman king"
+                ],
+                0,
+                "约翰见证耶稣是神的儿子。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, explain what John says Jesus came to do."
+
+    },
+
+
+    /* =====================================================
+       UNIT 06
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-06",
+
+        number:
+            6,
+
+        reference:
+            "John 1:35–42",
+
+        title:
+            "Come and See",
+
+        verses: [
+
+            {
+                verse: 35,
+                text:
+                    "Again, the next day, John was standing with two of his disciples,"
+            },
+
+            {
+                verse: 36,
+                text:
+                    "and he looked at Jesus as he walked, and said, 'Behold, the Lamb of God!'"
+            },
+
+            {
+                verse: 37,
+                text:
+                    "The two disciples heard him speak, and they followed Jesus."
+            },
+
+            {
+                verse: 38,
+                text:
+                    "Jesus turned and saw them following, and said to them, 'What are you looking for?' They said to him, 'Rabbi,' which is to say, being interpreted, 'Teacher, where are you staying?'"
+            },
+
+            {
+                verse: 39,
+                text:
+                    "He said to them, 'Come and see.' They came and saw where he was staying, and they stayed with him that day. It was about the tenth hour."
+            },
+
+            {
+                verse: 40,
+                text:
+                    "One of the two who heard John and followed him was Andrew, Simon Peter’s brother."
+            },
+
+            {
+                verse: 41,
+                text:
+                    "He first found his own brother, Simon, and said to him, 'We have found the Messiah!' which is, being interpreted, Christ."
+            },
+
+            {
+                verse: 42,
+                text:
+                    "He brought him to Jesus. Jesus looked at him, and said, 'You are Simon the son of Jonah. You shall be called Cephas,' which is by interpretation, Peter."
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["disciple", "门徒", "follower"],
+
+            ["follow", "跟随", "go after"],
+
+            ["Rabbi", "拉比", "teacher"],
+
+            ["Messiah", "弥赛亚", "Christ"],
+
+            ["stay", "停留", "remain"],
+
+            ["found", "找到", "discovered"],
+
+            ["bring", "带来", "take someone to another person"]
+
+        ],
+
+        structures: [
+
+            [
+                "They followed Jesus.",
+                "主语 + 动词 + 宾语。"
+            ],
+
+            [
+                "What are you looking for?",
+                "现在进行时疑问句。"
+            ],
+
+            [
+                "Come and see.",
+                "祈使句 + and + 结果。"
+            ],
+
+            [
+                "We have found the Messiah.",
+                "现在完成时表达刚刚发现并产生当前意义。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What did the disciples do?",
+                [
+                    "They followed Jesus",
+                    "They rejected Jesus",
+                    "They ignored John"
+                ],
+                0
+            ],
+
+            [
+                "What invitation did Jesus give?",
+                [
+                    "Come and see",
+                    "Go and hide",
+                    "Write a book"
+                ],
+                0
+            ],
+
+            [
+                "Who did Andrew bring to Jesus?",
+                [
+                    "Simon",
+                    "John",
+                    "Moses"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "What did the two disciples do?",
+                [
+                    "They followed Jesus",
+                    "They followed Rome",
+                    "They returned home"
+                ],
+                0,
+                "他们跟随了耶稣。"
+            ],
+
+            [
+                "What did Jesus say?",
+                [
+                    "Come and see",
+                    "Go away",
+                    "Stay home"
+                ],
+                0,
+                "耶稣说：来，你们就看见了。"
+            ],
+
+            [
+                "Who did Andrew find?",
+                [
+                    "Simon",
+                    "John",
+                    "Philip"
+                ],
+                0,
+                "安得烈找到了他的兄弟西门。"
+            ],
+
+            [
+                "What did Andrew say they had found?",
+                [
+                    "The Messiah",
+                    "The prophet",
+                    "The king of Rome"
+                ],
+                0,
+                "我们找到了弥赛亚。"
+            ]
+
+        ],
+
+        production:
+            "In simple English, describe how the disciples began following Jesus and bringing others to him."
+
+    },
+
+
+    /* =====================================================
+       UNIT 07
+    ===================================================== */
+
+    {
+
+        id:
+            "john1-07",
+
+        number:
+            7,
+
+        reference:
+            "John 1:43–51",
+
+        title:
+            "Follow Me",
+
+        verses: [
+
+            {
+                verse: 43,
+                text:
+                    "On the next day, he was determined to go out into Galilee, and he found Philip. Jesus said to him, 'Follow me.'"
+            },
+
+            {
+                verse: 44,
+                text:
+                    "Now Philip was from Bethsaida, the city of Andrew and Peter."
+            },
+
+            {
+                verse: 45,
+                text:
+                    "Philip found Nathanael and said to him, 'We have found him, of whom Moses in the law, and the prophets, wrote: Jesus of Nazareth, the son of Joseph.'"
+            },
+
+            {
+                verse: 46,
+                text:
+                    "Nathanael said to him, 'Can any good thing come out of Nazareth?' Philip said to him, 'Come and see.'"
+            },
+
+            {
+                verse: 47,
+                text:
+                    "Jesus saw Nathanael coming to him, and said about him, 'Behold, an Israelite indeed, in whom is no deceit!'"
+            },
+
+            {
+                verse: 48,
+                text:
+                    "Nathanael said to him, 'How do you know me?' Jesus answered him, 'Before Philip called you, when you were under the fig tree, I saw you.'"
+            },
+
+            {
+                verse: 49,
+                text:
+                    "Nathanael answered him, 'Rabbi, you are the Son of God! You are King of Israel!'"
+            },
+
+            {
+                verse: 50,
+                text:
+                    "Jesus answered him, 'Because I told you, I saw you underneath the fig tree, do you believe? You will see greater things than these.'"
+            },
+
+            {
+                verse: 51,
+                text:
+                    "He said to him, 'Most certainly, I tell you, hereafter you will see heaven opened, and the angels of God ascending and descending on the Son of Man.'"
+            }
+
+        ],
+
+        vocabulary: [
+
+            ["follow", "跟随", "go after"],
+
+            ["Nazareth", "拿撒勒", "Nazareth"],
+
+            ["Israelite", "以色列人", "a person of Israel"],
+
+            ["deceit", "诡诈", "deception"],
+
+            ["fig tree", "无花果树", "fig tree"],
+
+            ["heaven", "天", "heaven"],
+
+            ["Son of Man", "人子", "Son of Man"]
+
+        ],
+
+        structures: [
+
+            [
+                "Follow me.",
+                "最简洁的命令式呼召。"
+            ],
+
+            [
+                "Can any good thing come out of Nazareth?",
+                "Can + 主语 + 动词表达可能性。"
+            ],
+
+            [
+                "You will see greater things.",
+                "will + 动词表达将来的经历。"
+            ],
+
+            [
+                "You will see heaven opened.",
+                "will + see + 宾语 + 过去分词。"
+            ]
+
+        ],
+
+        notice: [
+
+            [
+                "What did Jesus say to Philip?",
+                [
+                    "Follow me",
+                    "Stay here",
+                    "Go home"
+                ],
+                0
+            ],
+
+            [
+                "What did Nathanael initially question?",
+                [
+                    "Nazareth",
+                    "Galilee",
+                    "Jerusalem"
+                ],
+                0
+            ],
+
+            [
+                "What did Nathanael call Jesus?",
+                [
+                    "Son of God and King of Israel",
+                    "Roman governor",
+                    "Prophet of Moses"
+                ],
+                0
+            ],
+
+            [
+                "What did Jesus promise Nathanael would see?",
+                [
+                    "Greater things and heaven opened",
+                    "The Roman army",
+                    "A new temple"
+                ],
+                0
+            ]
+
+        ],
+
+        direct: [
+
+            [
+                "What did Jesus say to Philip?",
+                [
+                    "Follow me",
+                    "Go away",
+                    "Wait here"
+                ],
+                0,
+                "耶稣呼召腓力跟从祂。"
+            ],
+
+            [
+                "Where was Jesus from?",
+                [
+                    "Nazareth",
+                    "Rome",
+                    "Bethany"
+                ],
+                0,
+                "耶稣来自拿撒勒。"
+            ],
+
+            [
+                "What did Nathanael call Jesus?",
+                [
+                    "Son of God and King of Israel",
+                    "A Roman soldier",
+                    "A priest"
+                ],
+                0,
+                "拿但业称耶稣为神的儿子、以色列的王。"
+            ],
+
+            [
+                "What did Jesus say Nathanael would see?",
+                [
+                    "Greater things",
+                    "The Roman army",
+                    "A palace"
+                ],
+                0,
+                "他将看见更大的事。"
+            ]
+
+        ],
+
+        production:
+            "Describe in simple English how Jesus calls people, how people respond, and how they bring others to Jesus."
+
     }
 
-  ],
-
-
-  /* -------------------------------------------------------
-     VOCABULARY
-  ------------------------------------------------------- */
-
-  vocabulary: [
-
-    {
-      word:
-        "Word",
-
-      meaning:
-        "道",
-
-      english:
-        "the Word"
-    },
-
-    {
-      word:
-        "beginning",
-
-      meaning:
-        "起初；开始",
-
-      english:
-        "the start"
-    },
-
-    {
-      word:
-        "with",
-
-      meaning:
-        "与……同在",
-
-      english:
-        "together with"
-    },
-
-    {
-      word:
-        "life",
-
-      meaning:
-        "生命",
-
-      english:
-        "life"
-    },
-
-    {
-      word:
-        "light",
-
-      meaning:
-        "光",
-
-      english:
-        "light"
-    },
-
-    {
-      word:
-        "darkness",
-
-      meaning:
-        "黑暗",
-
-      english:
-        "darkness"
-    },
-
-    {
-      word:
-        "overcome",
-
-      meaning:
-        "胜过；克服",
-
-      english:
-        "to defeat"
-    }
-
-  ],
-
-
-  /* -------------------------------------------------------
-     STRUCTURE
-  ------------------------------------------------------- */
-
-  structures: [
-
-    {
-      pattern:
-        "In the beginning was the Word.",
-
-      explanation:
-        "时间背景放在前面，再出现核心主语 Word。"
-    },
-
-    {
-      pattern:
-        "The Word was with God.",
-
-      explanation:
-        "was with 表达关系。"
-    },
-
-    {
-      pattern:
-        "The Word was God.",
-
-      explanation:
-        "Subject + be + complement，表达身份/本质。"
-    },
-
-    {
-      pattern:
-        "In him was life.",
-
-      explanation:
-        "in him 放在前面，突出生命所在的位置。"
-    },
-
-    {
-      pattern:
-        "The light shines in the darkness.",
-
-      explanation:
-        "主语 + 动词 + 地点/环境。"
-    }
-
-  ],
-
-
-  /* -------------------------------------------------------
-     NOTICE
-  ------------------------------------------------------- */
-
-  notice: [
-
-    {
-      question:
-        "What word is repeated as a major focus?",
-
-      options: [
-
-        "Word",
-
-        "Temple",
-
-        "King"
-
-      ],
-
-      answer:
-        0
-
-    },
-
-    {
-      question:
-        "What two ideas are contrasted?",
-
-      options: [
-
-        "Light and darkness",
-
-        "King and servant",
-
-        "Life and money"
-
-      ],
-
-      answer:
-        0
-
-    },
-
-    {
-      question:
-        "What is connected with the Word?",
-
-      options: [
-
-        "God, creation, life, and light",
-
-        "Rome, law, and temple",
-
-        "Water, fire, and army"
-
-      ],
-
-      answer:
-        0
-
-    },
-
-    {
-      question:
-        "What does the darkness fail to do?",
-
-      options: [
-
-        "Overcome the light",
-
-        "Create life",
-
-        "Become the Word"
-
-      ],
-
-      answer:
-        0
-
-    }
-
-  ],
-
-
-  /* -------------------------------------------------------
-     DIRECT COMPREHENSION
-  ------------------------------------------------------- */
-
-  direct: [
-
-    {
-      question:
-        "Who was with God in the beginning?",
-
-      options: [
-
-        "The Word",
-
-        "John",
-
-        "Moses"
-
-      ],
-
-      answer:
-        0,
-
-      chinese:
-        "道与神同在。"
-
-    },
-
-    {
-      question:
-        "What was in the Word?",
-
-      options: [
-
-        "Darkness",
-
-        "Life",
-
-        "Death"
-
-      ],
-
-      answer:
-        1,
-
-      chinese:
-        "生命在祂里面。"
-
-    },
-
-    {
-      question:
-        "What was the life in the Word?",
-
-      options: [
-
-        "The light of men",
-
-        "The law of Moses",
-
-        "The temple"
-
-      ],
-
-      answer:
-        0,
-
-      chinese:
-        "这生命就是人的光。"
-
-    },
-
-    {
-      question:
-        "Where does the light shine?",
-
-      options: [
-
-        "In the darkness",
-
-        "In the temple",
-
-        "In Rome"
-
-      ],
-
-      answer:
-        0,
-
-      chinese:
-        "光照在黑暗里。"
-
-    },
-
-    {
-      question:
-        "Has the darkness overcome the light?",
-
-      options: [
-
-        "Yes",
-
-        "No",
-
-        "The passage does not say"
-
-      ],
-
-      answer:
-        1,
-
-      chinese:
-        "黑暗没有胜过光。"
-
-    }
-
-  ]
-
-};
+];
 
 
 /* =========================================================
-   VARIABLES
+   STATE
 ========================================================= */
+
+let currentUnitIndex =
+    0;
+
+let currentUnit =
+    COURSE[0];
 
 let currentVerseIndex =
-  0;
+    0;
 
 let speechRate =
-  CONFIG.NORMAL_RATE;
+    CONFIG.NORMAL_RATE;
 
 let selectedVoice =
-  null;
+    null;
 
 let continuousReading =
-  false;
+    false;
 
 let repeatCurrentVerse =
-  false;
+    false;
 
 let baselineScore =
-  0;
+    0;
 
 let finalScore =
-  0;
+    0;
 
 let currentFeeling =
-  0;
+    0;
 
 let currentDirectAnswers =
-  {};
+    {};
+
 
 let state =
-  loadState();
+    loadState();
 
 
 /* =========================================================
@@ -494,153 +1500,228 @@ let state =
 
 function loadState() {
 
-  try {
+    try {
 
-    const raw =
-      localStorage.getItem(
-        CONFIG.STATE_KEY
-      );
+        const raw =
+            localStorage.getItem(
+                CONFIG.STATE_KEY
+            );
 
 
-    if (raw) {
+        if (raw) {
 
-      return JSON.parse(
-        raw
-      );
+            const parsed =
+                JSON.parse(
+                    raw
+                );
+
+
+            if (
+                parsed &&
+                typeof parsed ===
+                "object"
+            ) {
+
+                return parsed;
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "EBRM V0.9 state error:",
+            error
+        );
 
     }
 
-  } catch (error) {
 
-    console.warn(
-      "EBRM state load error:",
-      error
-    );
+    return {
 
-  }
+        units: {},
 
+        currentUnit:
+            0
 
-  return {
-
-    baseline:
-      null,
-
-    final:
-      null,
-
-    feeling:
-      null,
-
-    completed:
-      false,
-
-    completedAt:
-      null,
-
-    reviews:
-      []
-
-  };
+    };
 
 }
 
 
 function saveState() {
 
-  try {
+    try {
 
-    localStorage.setItem(
+        localStorage.setItem(
 
-      CONFIG.STATE_KEY,
+            CONFIG.STATE_KEY,
 
-      JSON.stringify(
-        state
-      )
+            JSON.stringify(
+                state
+            )
 
-    );
+        );
 
-  } catch (error) {
+    } catch (error) {
 
-    console.warn(
-      "EBRM state save error:",
-      error
-    );
+        console.warn(
+            "EBRM save error:",
+            error
+        );
 
-  }
+    }
 
 }
 
 
 /* =========================================================
-   HELPER
+   HELPERS
 ========================================================= */
 
-function $(
-  id
-) {
+function $(id) {
 
-  return document.getElementById(
-    id
-  );
-
-}
-
-
-function escapeHTML(
-  value
-) {
-
-  return String(
-    value ?? ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
+    return document.getElementById(
+        id
     );
 
 }
 
 
+function escapeHTML(value) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function getUnitState(
+    index
+) {
+
+    const unit =
+        COURSE[index];
+
+
+    if (
+        !state.units
+    ) {
+
+        state.units =
+            {};
+
+    }
+
+
+    if (
+        !state.units[unit.id]
+    ) {
+
+        state.units[unit.id] = {
+
+            baseline:
+                null,
+
+            final:
+                null,
+
+            feeling:
+                null,
+
+            completed:
+                false,
+
+            completedAt:
+                null,
+
+            reviews:
+                []
+
+        };
+
+    }
+
+
+    return state.units[
+        unit.id
+    ];
+
+}
+
+
 /* =========================================================
-   INITIALIZE
+   INIT
 ========================================================= */
 
 document.addEventListener(
-  "DOMContentLoaded",
-  function() {
+    "DOMContentLoaded",
+    init
+);
+
+
+function init() {
+
+    if (
+        typeof state.currentUnit ===
+        "number"
+    ) {
+
+        currentUnitIndex =
+            Math.max(
+                0,
+                Math.min(
+                    COURSE.length - 1,
+                    state.currentUnit
+                )
+            );
+
+    }
+
+
+    currentUnit =
+        COURSE[currentUnitIndex];
+
 
     bindEvents();
 
     initSpeech();
 
-    renderHome();
+    renderCourseHome();
 
     renderBaseline();
 
-    renderFinal();
+    renderUnitPassage();
+
+    renderVocabulary();
+
+    renderStructure();
 
     renderReviews();
 
-    renderRereadPassage();
-
-  }
-);
+}
 
 
 /* =========================================================
@@ -649,430 +1730,528 @@ document.addEventListener(
 
 function bindEvents() {
 
-  bind(
-    "startBaselineBtn",
-    startTraining
-  );
-
-
-  bind(
-    "baselineBackBtn",
-    function() {
-
-      go("home");
-
-    }
-  );
-
-
-  bind(
-    "submitBaselineBtn",
-    submitBaseline
-  );
-
-
-  bind(
-    "readBackBtn",
-    function() {
-
-      go("baseline");
-
-    }
-  );
-
-
-  bind(
-    "noticeBtn",
-    goToNotice
-  );
-
-
-  bind(
-    "noticeBackBtn",
-    function() {
-
-      go("read");
-
-    }
-  );
-
-
-  bind(
-    "vocabularyBtn",
-    goToVocabulary
-  );
-
-
-  bind(
-    "vocabBackBtn",
-    function() {
-
-      go("notice");
-
-    }
-  );
-
-
-  bind(
-    "structureBtn",
-    goToStructure
-  );
-
-
-  bind(
-    "structureBackBtn",
-    function() {
-
-      go("vocabulary");
-
-    }
-  );
-
-
-  bind(
-    "directBtn",
-    goToDirect
-  );
-
-
-  bind(
-    "directBackBtn",
-    function() {
-
-      go("structure");
-
-    }
-  );
-
-
-  bind(
-    "speakBtn",
-    goToSpeak
-  );
-
-
-  bind(
-    "speakBackBtn",
-    function() {
-
-      go("direct");
-
-    }
-  );
-
-
-  bind(
-    "checkSpeakBtn",
-    checkSpeak
-  );
-
-
-  bind(
-    "listenAnswerBtn",
-    listenToMyAnswer
-  );
-
-
-  bind(
-    "rereadBtn",
-    goToReread
-  );
-
-
-  bind(
-    "rereadBackBtn",
-    function() {
-
-      go("speak");
-
-    }
-  );
-
-
-  bind(
-    "finalTestBtn",
-    goToFinalTest
-  );
-
-
-  bind(
-    "finalBackBtn",
-    function() {
-
-      go("reread");
-
-    }
-  );
-
-
-  bind(
-    "submitFinalBtn",
-    submitFinalTest
-  );
-
-
-  bind(
-    "resultHomeBtn",
-    function() {
-
-      go("home");
-
-    }
-  );
-
-
-  bind(
-    "resultReviewBtn",
-    function() {
-
-      go("review");
-
-    }
-  );
-
-
-  bind(
-    "reviewBackBtn",
-    function() {
-
-      go("home");
-
-    }
-  );
-
-
-  document
-    .querySelectorAll(
-      ".feeling-options button"
-    )
-    .forEach(
-      function(button) {
-
-        button.addEventListener(
-          "click",
-          function() {
-
-            setFeeling(
-              Number(
-                button.dataset.feeling
-              ),
-              button
-            );
-
-          }
-        );
-
-      }
+    bind(
+        "startBaselineBtn",
+        startTraining
     );
 
 
-  document
-    .querySelectorAll(
-      "[data-substitute]"
-    )
-    .forEach(
-      function(button) {
+    bind(
+        "baselineBackBtn",
+        function() {
 
-        button.addEventListener(
-          "click",
-          function() {
+            go("home");
 
-            speakText(
-              button.dataset.substitute
-            );
+        }
+    );
 
 
-            const box =
-              $("substituteAudio");
+    bind(
+        "submitBaselineBtn",
+        submitBaseline
+    );
 
 
-            if (box) {
+    bind(
+        "readBackBtn",
+        function() {
 
-              box.textContent =
-                "🔊 正在朗读： " +
-                button.dataset.substitute;
+            go("baseline");
+
+        }
+    );
+
+
+    bind(
+        "noticeBtn",
+        goToNotice
+    );
+
+
+    bind(
+        "noticeBackBtn",
+        function() {
+
+            go("read");
+
+        }
+    );
+
+
+    bind(
+        "vocabularyBtn",
+        goToVocabulary
+    );
+
+
+    bind(
+        "vocabBackBtn",
+        function() {
+
+            go("notice");
+
+        }
+    );
+
+
+    bind(
+        "structureBtn",
+        goToStructure
+    );
+
+
+    bind(
+        "structureBackBtn",
+        function() {
+
+            go("vocabulary");
+
+        }
+    );
+
+
+    bind(
+        "directBtn",
+        goToDirect
+    );
+
+
+    bind(
+        "directBackBtn",
+        function() {
+
+            go("structure");
+
+        }
+    );
+
+
+    bind(
+        "speakBtn",
+        goToSpeak
+    );
+
+
+    bind(
+        "speakBackBtn",
+        function() {
+
+            go("direct");
+
+        }
+    );
+
+
+    bind(
+        "checkSpeakBtn",
+        checkSpeak
+    );
+
+
+    bind(
+        "listenAnswerBtn",
+        listenToMyAnswer
+    );
+
+
+    bind(
+        "rereadBtn",
+        goToReread
+    );
+
+
+    bind(
+        "rereadBackBtn",
+        function() {
+
+            go("speak");
+
+        }
+    );
+
+
+    bind(
+        "finalTestBtn",
+        goToFinalTest
+    );
+
+
+    bind(
+        "finalBackBtn",
+        function() {
+
+            go("reread");
+
+        }
+    );
+
+
+    bind(
+        "submitFinalBtn",
+        submitFinalTest
+    );
+
+
+    bind(
+        "resultHomeBtn",
+        function() {
+
+            go("home");
+
+        }
+    );
+
+
+    bind(
+        "resultReviewBtn",
+        function() {
+
+            go("review");
+
+        }
+    );
+
+
+    bind(
+        "reviewBackBtn",
+        function() {
+
+            go("home");
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(
+            ".feeling-options button"
+        )
+        .forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        setFeeling(
+                            Number(
+                                button.dataset.feeling
+                            ),
+                            button
+                        );
+
+                    }
+                );
 
             }
-
-          }
         );
-
-      }
-    );
 
 }
 
 
 function bind(
-  id,
-  handler
+    id,
+    handler
 ) {
 
-  const element =
-    $(id);
+    const element =
+        $(id);
 
 
-  if (
-    !element
-  ) {
+    if (
+        !element
+    ) {
 
-    console.warn(
-      "Missing element:",
-      id
+        return;
+
+    }
+
+
+    element.addEventListener(
+        "click",
+        handler
     );
-
-    return;
-
-  }
-
-
-  element.addEventListener(
-    "click",
-    handler
-  );
 
 }
 
 
 /* =========================================================
-   NAVIGATION
+   COURSE HOME
 ========================================================= */
 
-function go(
-  screenId
-) {
+function renderCourseHome() {
 
-  document
-    .querySelectorAll(
-      ".screen"
-    )
-    .forEach(
-      function(screen) {
+    /*
+     * 当前 index.html 是 V0.8 的单课首页。
+     *
+     * 如果 V0.9 首页有 chapterGrid，
+     * 自动显示完整 John 1 单元列表。
+     */
 
-        screen.classList.remove(
-          "active"
+    const grid =
+        $("chapterGrid");
+
+
+    if (
+        grid
+    ) {
+
+        renderChapterGrid(
+            grid
         );
 
-      }
+    }
+
+
+    updateCourseProgress();
+
+}
+
+
+function renderChapterGrid(
+    container
+) {
+
+    container.innerHTML =
+        "";
+
+
+    COURSE.forEach(
+        function(unit, index) {
+
+            const item =
+                getUnitState(
+                    index
+                );
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "unit-button";
+
+
+            if (
+                item.completed
+            ) {
+
+                button.classList.add(
+                    "done"
+                );
+
+            }
+
+
+            button.innerHTML =
+
+                "<strong>" +
+
+                "UNIT " +
+
+                String(
+                    unit.number
+                ).padStart(
+                    2,
+                    "0"
+                ) +
+
+                "</strong>" +
+
+                "<span>" +
+
+                escapeHTML(
+                    unit.reference
+                ) +
+
+                "</span>" +
+
+                "<small>" +
+
+                escapeHTML(
+                    unit.title
+                ) +
+
+                (
+
+                    item.completed
+                        ? " ✓"
+                        : ""
+
+                ) +
+
+                "</small>";
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    selectUnit(
+                        index
+                    );
+
+                }
+            );
+
+
+            container.appendChild(
+                button
+            );
+
+        }
     );
 
-
-  const target =
-    $(screenId);
+}
 
 
-  if (!target) {
+function selectUnit(
+    index
+) {
 
-    return;
+    if (
+        !COURSE[index]
+    ) {
 
-  }
+        return;
 
-
-  target.classList.add(
-    "active"
-  );
-
-
-  window.scrollTo({
-
-    top:
-      0,
-
-    behavior:
-      "smooth"
-
-  });
+    }
 
 
-  if (
-    screenId ===
-    "review"
-  ) {
+    stopSpeech();
 
-    renderReviews();
 
-  }
+    currentUnitIndex =
+        index;
+
+
+    currentUnit =
+        COURSE[index];
+
+
+    state.currentUnit =
+        index;
+
+
+    saveState();
+
+
+    resetCurrentTraining();
+
+
+    renderCourseHome();
+
+
+    startTraining();
+
+}
+
+
+function resetCurrentTraining() {
+
+    currentVerseIndex =
+        0;
+
+    baselineScore =
+        0;
+
+    finalScore =
+        0;
+
+    currentFeeling =
+        0;
+
+    currentDirectAnswers =
+        {};
 
 }
 
 
 /* =========================================================
-   HOME
+   COURSE PROGRESS
 ========================================================= */
 
-function renderHome() {
+function updateCourseProgress() {
 
-  updateProgress();
-
-}
-
-
-function updateProgress() {
-
-  let progress =
-    0;
+    const total =
+        COURSE.length;
 
 
-  if (
-    state.baseline !==
-    null
-  ) {
+    const completed =
+        COURSE.filter(
+            function(unit, index) {
 
-    progress =
-      20;
+                return getUnitState(
+                    index
+                ).completed;
 
-  }
-
-
-  if (
-    state.completed
-  ) {
-
-    progress =
-      100;
-
-  }
+            }
+        ).length;
 
 
-  const bar =
-    $("progressBar");
+    const percent =
+        Math.round(
+            (
+                completed /
+                total
+            ) *
+            100
+        );
 
 
-  const text =
-    $("progressText");
+    const bar =
+        $("progressBar");
 
 
-  if (bar) {
-
-    bar.style.width =
-      progress +
-      "%";
-
-  }
+    const text =
+        $("progressText");
 
 
-  if (text) {
+    if (bar) {
 
-    text.textContent =
-      progress +
-      "%";
+        bar.style.width =
+            percent + "%";
 
-  }
+    }
+
+
+    if (text) {
+
+        text.textContent =
+            completed +
+            "/" +
+            total +
+            " · " +
+            percent +
+            "%";
+
+    }
 
 }
 
 
 /* =========================================================
-   START
+   TRAINING START
 ========================================================= */
 
 function startTraining() {
 
-  renderBaseline();
+    resetCurrentTraining();
 
-  go(
-    "baseline"
-  );
+
+    renderBaseline();
+
+
+    go(
+        "baseline"
+    );
 
 }
 
@@ -1083,1538 +2262,1072 @@ function startTraining() {
 
 function renderBaseline() {
 
-  const container =
-    $("baselineQuestions");
+    const container =
+        $("baselineQuestions");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  const questions = [
-
-    {
-
-      question:
-        "Who was with God in the beginning?",
-
-      options: [
-
-        "The Word",
-
-        "John",
-
-        "Moses"
-
-      ],
-
-      answer:
-        0
-
-    },
-
-    {
-
-      question:
-        "What was in the Word?",
-
-      options: [
-
-        "Life",
-
-        "Darkness",
-
-        "Death"
-
-      ],
-
-      answer:
-        0
-
-    },
-
-    {
-
-      question:
-        "Where does the light shine?",
-
-      options: [
-
-        "In the darkness",
-
-        "In Rome",
-
-        "In the temple"
-
-      ],
-
-      answer:
-        0
+        return;
 
     }
 
-  ];
+
+    container.innerHTML =
+        "";
 
 
-  questions.forEach(
-    function(item, index) {
+    const questions =
+        buildBaselineQuestions();
 
-      const block =
+
+    questions.forEach(
+        function(item, index) {
+
+            const block =
+                createQuestionBlock(
+                    item,
+                    index
+                );
+
+
+            container.appendChild(
+                block
+            );
+
+        }
+    );
+
+}
+
+
+function buildBaselineQuestions() {
+
+    return [
+
+        {
+
+            question:
+                currentUnit.reference +
+                " — Who is the central figure in this passage?",
+
+            options:
+                getBaselineOptions(
+                    "central"
+                ),
+
+            answer:
+                getBaselineAnswer(
+                    "central"
+                )
+
+        },
+
+        {
+
+            question:
+                "What major idea appears in this passage?",
+
+            options:
+                getBaselineOptions(
+                    "idea"
+                ),
+
+            answer:
+                getBaselineAnswer(
+                    "idea"
+                )
+
+        },
+
+        {
+
+            question:
+                "What is the main movement of the passage?",
+
+            options:
+                getBaselineOptions(
+                    "movement"
+                ),
+
+            answer:
+                getBaselineAnswer(
+                    "movement"
+                )
+
+        }
+
+    ];
+
+}
+
+
+function getBaselineOptions(
+    type
+) {
+
+    if (
+        currentUnit.number ===
+        1
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "The Word",
+                "John",
+                "Moses"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "Light and life",
+                "Roman politics",
+                "Temple construction"
+            ];
+
+        }
+
+
+        return [
+            "Word → life → light",
+            "Rome → temple → king",
+            "Law → army → nation"
+        ];
+
+    }
+
+
+    if (
+        currentUnit.number ===
+        2
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "The light and John",
+                "Moses",
+                "Rome"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "Witness and receiving the light",
+                "War",
+                "Temple construction"
+            ];
+
+        }
+
+
+        return [
+            "Witness → light → response",
+            "King → army → battle",
+            "Law → temple → sacrifice"
+        ];
+
+    }
+
+
+    if (
+        currentUnit.number ===
+        3
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "The Word",
+                "John",
+                "Moses"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "The Word becoming flesh",
+                "Political power",
+                "Temple worship"
+            ];
+
+        }
+
+
+        return [
+            "Word → flesh → grace and truth",
+            "Law → army → kingdom",
+            "Temple → priest → sacrifice"
+        ];
+
+    }
+
+
+    if (
+        currentUnit.number ===
+        4
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "John's witness",
+                "The Roman governor",
+                "Moses"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "John points away from himself",
+                "John becomes king",
+                "Rome controls Israel"
+            ];
+
+        }
+
+
+        return [
+            "Question → identity → witness",
+            "War → victory → peace",
+            "Law → temple → sacrifice"
+        ];
+
+    }
+
+
+    if (
+        currentUnit.number ===
+        5
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "Jesus",
+                "John",
+                "Elijah"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "The Lamb of God",
+                "Roman government",
+                "Temple building"
+            ];
+
+        }
+
+
+        return [
+            "Jesus → Spirit → testimony",
+            "Rome → army → war",
+            "Law → temple → priest"
+        ];
+
+    }
+
+
+    if (
+        currentUnit.number ===
+        6
+    ) {
+
+        if (
+            type ===
+            "central"
+        ) {
+
+            return [
+                "Jesus and his disciples",
+                "Pilate",
+                "Moses"
+            ];
+
+        }
+
+
+        if (
+            type ===
+            "idea"
+        ) {
+
+            return [
+                "Following and inviting",
+                "Military power",
+                "Temple worship"
+            ];
+
+        }
+
+
+        return [
+            "Witness → follow → bring others",
+            "War → victory → peace",
+            "Law → sacrifice → temple"
+        ];
+
+    }
+
+
+    return [
+
+        currentUnit.number ===
+        7
+
+            ? "Jesus"
+
+            : "The Word",
+
+        "Moses",
+
+        "Rome"
+
+    ];
+
+}
+
+
+function getBaselineAnswer(
+    type
+) {
+
+    if (
+        currentUnit.number ===
+        7
+    ) {
+
+        return 0;
+
+    }
+
+
+    return 0;
+
+}
+
+
+function createQuestionBlock(
+    item,
+    index
+) {
+
+    const block =
         document.createElement(
-          "div"
+            "div"
         );
 
 
-      block.className =
+    block.className =
         "notice-question";
 
 
-      block.dataset.correct =
+    block.dataset.correct =
         item.answer;
 
 
-      const title =
+    const title =
         document.createElement(
-          "div"
+            "div"
         );
 
 
-      title.className =
+    title.className =
         "notice-question-title";
 
 
-      title.textContent =
+    title.textContent =
         (
-          index +
-          1
+            index + 1
         ) +
         ". " +
         item.question;
 
 
-      block.appendChild(
+    block.appendChild(
         title
-      );
+    );
 
 
-      item.options.forEach(
-        function(
-          option,
-          optionIndex
-        ) {
+    item.options.forEach(
+        function(option, optionIndex) {
 
-          const button =
-            document.createElement(
-              "button"
-            );
-
-
-          button.type =
-            "button";
-
-
-          button.className =
-            "option";
-
-
-          button.textContent =
-            option;
-
-
-          button.addEventListener(
-            "click",
-            function() {
-
-              block
-                .querySelectorAll(
-                  ".option"
-                )
-                .forEach(
-                  function(
-                    itemButton
-                  ) {
-
-                    itemButton.classList.remove(
-                      "selected",
-                      "correct",
-                      "wrong"
-                    );
-
-                  }
+            const button =
+                document.createElement(
+                    "button"
                 );
 
 
-              button.classList.add(
-                "selected"
-              );
+            button.type =
+                "button";
 
 
-              button.dataset.answer =
-                optionIndex;
-
-            }
-          );
+            button.className =
+                "option";
 
 
-          block.appendChild(
-            button
-          );
+            button.textContent =
+                option;
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    block
+                        .querySelectorAll(
+                            ".option"
+                        )
+                        .forEach(
+                            function(
+                                other
+                            ) {
+
+                                other.classList.remove(
+                                    "selected",
+                                    "correct",
+                                    "wrong"
+                                );
+
+                            }
+                        );
+
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+
+                    button.dataset.answer =
+                        optionIndex;
+
+                }
+            );
+
+
+            block.appendChild(
+                button
+            );
 
         }
-      );
+    );
 
 
-      container.appendChild(
-        block
-      );
-
-    }
-  );
+    return block;
 
 }
 
 
 function submitBaseline() {
 
-  const blocks =
-    document.querySelectorAll(
-      "#baselineQuestions .notice-question"
+    const container =
+        $("baselineQuestions");
+
+
+    const blocks =
+        container
+            ? container.querySelectorAll(
+                ".notice-question"
+            )
+            : [];
+
+
+    let correct =
+        0;
+
+
+    let answered =
+        0;
+
+
+    blocks.forEach(
+        function(block) {
+
+            const selected =
+                block.querySelector(
+                    ".option.selected"
+                );
+
+
+            if (!selected) {
+
+                return;
+
+            }
+
+
+            answered++;
+
+
+            if (
+                Number(
+                    selected.dataset.answer
+                ) ===
+                Number(
+                    block.dataset.correct
+                )
+            ) {
+
+                correct++;
+
+                selected.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                selected.classList.add(
+                    "wrong"
+                );
+
+            }
+
+        }
     );
 
 
-  let correct =
-    0;
-
-  let answered =
-    0;
-
-
-  blocks.forEach(
-    function(block) {
-
-      const selected =
-        block.querySelector(
-          ".option.selected"
-        );
-
-
-      if (!selected) {
-
-        return;
-
-      }
-
-
-      answered++;
-
-
-      if (
-        Number(
-          selected.dataset.answer
-        ) ===
-        Number(
-          block.dataset.correct
-        )
-      ) {
-
-        correct++;
-
-        selected.classList.add(
-          "correct"
-        );
-
-      }
-
-      else {
-
-        selected.classList.add(
-          "wrong"
-        );
-
-      }
-
-    }
-  );
-
-
-  if (
-    answered <
-    blocks.length
-  ) {
-
-    alert(
-      "请完成全部问题后再提交。"
-    );
-
-    return;
-
-  }
-
-
-  baselineScore =
-    Math.round(
-      (
-        correct /
+    if (
+        answered <
         blocks.length
-      ) *
-      100
-    );
+    ) {
 
-
-  state.baseline =
-    baselineScore;
-
-
-  saveState();
-
-
-  updateProgress();
-
-
-  const result =
-    $("baselineResult");
-
-
-  if (result) {
-
-    result.classList.remove(
-      "hidden"
-    );
-
-
-    result.innerHTML =
-
-      "<div class='success'>" +
-
-      "<strong>" +
-
-      "第一次理解：" +
-
-      baselineScore +
-
-      "%</strong>" +
-
-      "<br><br>" +
-
-      "现在进入精读。"
-
-      + "</div>";
-
-  }
-
-
-  setTimeout(
-    function() {
-
-      go(
-        "read"
-      );
-
-      renderPassage();
-
-      renderVoicePanel();
-
-      renderAudioControls();
-
-    },
-    700
-  );
-
-}
-
-
-/* =========================================================
-   PASSAGE
-========================================================= */
-
-function renderPassage() {
-
-  const container =
-    $("passageText");
-
-
-  if (!container) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  GOLDEN_UNIT
-    .verses
-    .forEach(
-      function(
-        verse,
-        index
-      ) {
-
-        const span =
-          document.createElement(
-            "span"
-          );
-
-
-        span.className =
-          "verse";
-
-
-        span.dataset.index =
-          index;
-
-
-        const sup =
-          document.createElement(
-            "sup"
-          );
-
-
-        sup.textContent =
-          verse.verse;
-
-
-        span.appendChild(
-          sup
+        alert(
+            "请完成全部问题后再提交。"
         );
-
-
-        span.appendChild(
-          document.createTextNode(
-            " " +
-            verse.text
-          )
-        );
-
-
-        span.addEventListener(
-          "click",
-          function() {
-
-            playVerse(
-              index
-            );
-
-          }
-        );
-
-
-        container.appendChild(
-          span
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   REREAD
-========================================================= */
-
-function renderRereadPassage() {
-
-  const container =
-    $("rereadPassage");
-
-
-  if (!container) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  GOLDEN_UNIT
-    .verses
-    .forEach(
-      function(verse) {
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.style.marginBottom =
-          "18px";
-
-
-        div.style.cursor =
-          "pointer";
-
-
-        div.textContent =
-          verse.verse +
-          ". " +
-          verse.text;
-
-
-        div.addEventListener(
-          "click",
-          function() {
-
-            speakText(
-              verse.text
-            );
-
-          }
-        );
-
-
-        container.appendChild(
-          div
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   AUDIO CONTROLS
-========================================================= */
-
-function renderAudioControls() {
-
-  const container =
-    $("audioControls");
-
-
-  if (!container) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  const label =
-    document.createElement(
-      "div"
-    );
-
-
-  label.className =
-    "eyebrow";
-
-
-  label.textContent =
-    "LISTENING TRAINING";
-
-
-  container.appendChild(
-    label
-  );
-
-
-  const controls =
-    document.createElement(
-      "div"
-    );
-
-
-  controls.className =
-    "audio-controls";
-
-
-  addAudioButton(
-    controls,
-    "🔊 听整段",
-    speakPassage
-  );
-
-
-  addAudioButton(
-    controls,
-    "▶ 连续逐节",
-    startContinuousReading
-  );
-
-
-  addAudioButton(
-    controls,
-    "◀ 上一节",
-    playPreviousVerse
-  );
-
-
-  addAudioButton(
-    controls,
-    "下一节 ▶",
-    playNextVerse
-  );
-
-
-  addAudioButton(
-    controls,
-    "🔁 当前节",
-    toggleRepeatCurrentVerse
-  );
-
-
-  addAudioButton(
-    controls,
-    "🐢 正常 / 慢速",
-    toggleSlow
-  );
-
-
-  addAudioButton(
-    controls,
-    "⏹ 停止",
-    stopSpeech
-  );
-
-
-  container.appendChild(
-    controls
-  );
-
-
-  const status =
-    document.createElement(
-      "div"
-    );
-
-
-  status.id =
-    "speechStatus";
-
-
-  status.style.marginTop =
-    "10px";
-
-
-  status.style.color =
-    "#777";
-
-
-  status.style.fontSize =
-    "12px";
-
-
-  status.textContent =
-    "点击开始听读";
-
-
-  container.appendChild(
-    status
-  );
-
-}
-
-
-function addAudioButton(
-  parent,
-  text,
-  handler
-) {
-
-  const button =
-    document.createElement(
-      "button"
-    );
-
-
-  button.type =
-    "button";
-
-
-  button.textContent =
-    text;
-
-
-  button.addEventListener(
-    "click",
-    handler
-  );
-
-
-  parent.appendChild(
-    button
-  );
-
-}
-
-
-/* =========================================================
-   VOICE
-========================================================= */
-
-function initSpeech() {
-
-  if (
-    !window.speechSynthesis
-  ) {
-
-    return;
-
-  }
-
-
-  selectedVoice =
-    chooseVoice();
-
-
-  speechSynthesis.onvoiceschanged =
-    function() {
-
-      selectedVoice =
-        chooseVoice();
-
-      renderVoicePanel();
-
-    };
-
-}
-
-
-function chooseVoice() {
-
-  const voices =
-    speechSynthesis
-      .getVoices()
-      .filter(
-        function(voice) {
-
-          return (
-            voice.lang &&
-            voice.lang
-              .toLowerCase()
-              .startsWith(
-                "en"
-              )
-          );
-
-        }
-      );
-
-
-  if (!voices.length) {
-
-    return null;
-
-  }
-
-
-  const saved =
-    localStorage.getItem(
-      CONFIG.VOICE_KEY
-    );
-
-
-  if (saved) {
-
-    const savedVoice =
-      voices.find(
-        function(voice) {
-
-          return (
-            voice.name ===
-            saved
-          );
-
-        }
-      );
-
-
-    if (savedVoice) {
-
-      return savedVoice;
-
-    }
-
-  }
-
-
-  const likelyMaleNames = [
-
-    "david",
-    "daniel",
-    "alex",
-    "mark",
-    "james",
-    "george",
-    "guy",
-    "fred"
-
-  ];
-
-
-  const likelyMale =
-    voices.find(
-      function(voice) {
-
-        const name =
-          voice.name
-            .toLowerCase();
-
-
-        return likelyMaleNames.some(
-          function(word) {
-
-            return name.includes(
-              word
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-  if (likelyMale) {
-
-    return likelyMale;
-
-  }
-
-
-  const us =
-    voices.find(
-      function(voice) {
-
-        return (
-          voice.lang
-            .toLowerCase() ===
-          "en-us"
-        );
-
-      }
-    );
-
-
-  return (
-    us ||
-    voices[0]
-  );
-
-}
-
-
-function renderVoicePanel() {
-
-  const panel =
-    $("voicePanel");
-
-
-  if (!panel) {
-
-    return;
-
-  }
-
-
-  panel.innerHTML =
-    "";
-
-
-  const title =
-    document.createElement(
-      "strong"
-    );
-
-
-  title.textContent =
-    "🎙️ English Voice";
-
-
-  panel.appendChild(
-    title
-  );
-
-
-  if (
-    !window.speechSynthesis
-  ) {
-
-    return;
-
-  }
-
-
-  const select =
-    document.createElement(
-      "select"
-    );
-
-
-  select.id =
-    "voiceSelect";
-
-
-  select.style.width =
-    "100%";
-
-
-  select.style.padding =
-    "10px";
-
-
-  select.style.marginTop =
-    "8px";
-
-
-  select.style.border =
-    "1px solid #ddd";
-
-
-  select.style.borderRadius =
-    "10px";
-
-
-  select.style.background =
-    "white";
-
-
-  panel.appendChild(
-    select
-  );
-
-
-  const voices =
-    speechSynthesis
-      .getVoices()
-      .filter(
-        function(voice) {
-
-          return (
-            voice.lang &&
-            voice.lang
-              .toLowerCase()
-              .startsWith(
-                "en"
-              )
-          );
-
-        }
-      );
-
-
-  voices.forEach(
-    function(voice) {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-
-      option.value =
-        voice.name;
-
-
-      option.textContent =
-        voice.name +
-        " (" +
-        voice.lang +
-        ")";
-
-
-      if (
-        selectedVoice &&
-        selectedVoice.name ===
-        voice.name
-      ) {
-
-        option.selected =
-          true;
-
-      }
-
-
-      select.appendChild(
-        option
-      );
-
-    }
-  );
-
-
-  if (!voices.length) {
-
-    const option =
-      document.createElement(
-        "option"
-      );
-
-
-    option.textContent =
-      "No English voice detected";
-
-
-    select.appendChild(
-      option
-    );
-
-  }
-
-
-  select.addEventListener(
-    "change",
-    function() {
-
-      selectedVoice =
-        voices.find(
-          function(voice) {
-
-            return (
-              voice.name ===
-              select.value
-            );
-
-          }
-        );
-
-
-      if (
-        selectedVoice
-      ) {
-
-        localStorage.setItem(
-          CONFIG.VOICE_KEY,
-          selectedVoice.name
-        );
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   SPEECH ENGINE
-========================================================= */
-
-function speakText(
-  text,
-  element,
-  callback
-) {
-
-  if (
-    !window.speechSynthesis
-  ) {
-
-    alert(
-      "当前浏览器不支持语音朗读。"
-    );
-
-    return;
-
-  }
-
-
-  speechSynthesis.cancel();
-
-
-  document
-    .querySelectorAll(
-      ".verse-speaking"
-    )
-    .forEach(
-      function(item) {
-
-        item.classList.remove(
-          "verse-speaking"
-        );
-
-      }
-    );
-
-
-  const utterance =
-    new SpeechSynthesisUtterance(
-      text
-    );
-
-
-  utterance.lang =
-    CONFIG.LANGUAGE;
-
-
-  utterance.rate =
-    speechRate;
-
-
-  utterance.pitch =
-    0.95;
-
-
-  utterance.volume =
-    1;
-
-
-  if (
-    selectedVoice
-  ) {
-
-    utterance.voice =
-      selectedVoice;
-
-  }
-
-
-  if (
-    element
-  ) {
-
-    element.classList.add(
-      "verse-speaking"
-    );
-
-
-    element.scrollIntoView({
-
-      behavior:
-        "smooth",
-
-      block:
-        "center"
-
-    });
-
-  }
-
-
-  updateSpeechStatus(
-    "正在朗读……"
-  );
-
-
-  utterance.onend =
-    function() {
-
-      if (
-        element
-      ) {
-
-        element.classList.remove(
-          "verse-speaking"
-        );
-
-      }
-
-
-      updateSpeechStatus(
-        "朗读完成"
-      );
-
-
-      if (
-        callback
-      ) {
-
-        callback();
-
-      }
-
-    };
-
-
-  utterance.onerror =
-    function() {
-
-      updateSpeechStatus(
-        "语音播放失败"
-      );
-
-    };
-
-
-  speechSynthesis.speak(
-    utterance
-  );
-
-}
-
-
-function speakPassage() {
-
-  const text =
-    GOLDEN_UNIT
-      .verses
-      .map(
-        function(verse) {
-
-          return verse.text;
-
-        }
-      )
-      .join(" ");
-
-
-  continuousReading =
-    false;
-
-
-  repeatCurrentVerse =
-    false;
-
-
-  speakText(
-    text
-  );
-
-}
-
-
-function playVerse(
-  index
-) {
-
-  if (
-    !GOLDEN_UNIT
-      .verses[index]
-  ) {
-
-    return;
-
-  }
-
-
-  continuousReading =
-    false;
-
-
-  repeatCurrentVerse =
-    false;
-
-
-  currentVerseIndex =
-    index;
-
-
-  speakVerse(
-    index
-  );
-
-}
-
-
-function speakVerse(
-  index
-) {
-
-  if (
-    !GOLDEN_UNIT
-      .verses[index]
-  ) {
-
-    return;
-
-  }
-
-
-  currentVerseIndex =
-    index;
-
-
-  const elements =
-    document.querySelectorAll(
-      ".verse"
-    );
-
-
-  speakText(
-
-    GOLDEN_UNIT
-      .verses[index]
-      .text,
-
-    elements[index],
-
-    function() {
-
-      if (
-        repeatCurrentVerse
-      ) {
-
-        setTimeout(
-          function() {
-
-            speakVerse(
-              index
-            );
-
-          },
-          700
-        );
-
 
         return;
 
-      }
+    }
 
 
-      if (
-        continuousReading
-      ) {
-
-        const next =
-          index + 1;
-
-
-        if (
-          next <
-          GOLDEN_UNIT
-            .verses
-            .length
-        ) {
-
-          speakVerse(
-            next
-          );
-
-        }
-
-        else {
-
-          continuousReading =
-            false;
+    baselineScore =
+        Math.round(
+            (
+                correct /
+                blocks.length
+            ) *
+            100
+        );
 
 
-          updateSpeechStatus(
-            "✓ 连续逐节完成"
-          );
+    const unitState =
+        getUnitState(
+            currentUnitIndex
+        );
 
-        }
 
-      }
+    unitState.baseline =
+        baselineScore;
+
+
+    saveState();
+
+
+    updateCourseProgress();
+
+
+    const result =
+        $("baselineResult");
+
+
+    if (result) {
+
+        result.classList.remove(
+            "hidden"
+        );
+
+
+        result.innerHTML =
+
+            "<div class='success'>" +
+
+            "<strong>" +
+
+            "第一次理解：" +
+
+            baselineScore +
+
+            "%</strong>" +
+
+            "<br><br>" +
+
+            currentUnit.reference +
+
+            "<br>" +
+
+            "现在开始精读。"
+
+            + "</div>";
 
     }
 
-  );
 
-}
+    setTimeout(
+        function() {
 
+            renderUnitPassage();
 
-function startContinuousReading() {
+            renderVocabulary();
 
-  stopSpeech();
+            renderStructure();
 
+            renderReviews();
 
-  continuousReading =
-    true;
+            go("read");
 
-
-  repeatCurrentVerse =
-    false;
-
-
-  currentVerseIndex =
-    0;
-
-
-  updateSpeechStatus(
-    "连续逐节朗读中……"
-  );
-
-
-  speakVerse(
-    0
-  );
-
-}
-
-
-function toggleRepeatCurrentVerse() {
-
-  continuousReading =
-    false;
-
-
-  repeatCurrentVerse =
-    !repeatCurrentVerse;
-
-
-  if (
-    repeatCurrentVerse
-  ) {
-
-    updateSpeechStatus(
-      "🔁 当前节循环中……"
+        },
+        650
     );
 
-
-    speakVerse(
-      currentVerseIndex
-    );
-
-  }
-
-  else {
-
-    stopSpeech();
-
-  }
-
 }
 
 
-function playPreviousVerse() {
+/* =========================================================
+   READ
+========================================================= */
 
-  continuousReading =
-    false;
+function renderUnitPassage() {
 
-  repeatCurrentVerse =
-    false;
-
-
-  currentVerseIndex =
-    Math.max(
-      0,
-      currentVerseIndex - 1
-    );
+    const container =
+        $("passageText");
 
 
-  speakVerse(
-    currentVerseIndex
-  );
+    if (
+        !container
+    ) {
 
-}
+        return;
 
-
-function playNextVerse() {
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
+    }
 
 
-  currentVerseIndex =
-    Math.min(
+    container.innerHTML =
+        "";
 
-      GOLDEN_UNIT
+
+    currentUnit
         .verses
-        .length - 1,
+        .forEach(
+            function(
+                verse,
+                index
+            ) {
 
-      currentVerseIndex + 1
-
-    );
-
-
-  speakVerse(
-    currentVerseIndex
-  );
-
-}
+                const span =
+                    document.createElement(
+                        "span"
+                    );
 
 
-function stopSpeech() {
-
-  continuousReading =
-    false;
-
-  repeatCurrentVerse =
-    false;
+                span.className =
+                    "verse";
 
 
-  if (
-    window.speechSynthesis
-  ) {
-
-    speechSynthesis.cancel();
-
-  }
+                span.dataset.index =
+                    index;
 
 
-  document
-    .querySelectorAll(
-      ".verse-speaking"
-    )
-    .forEach(
-      function(item) {
+                const number =
+                    document.createElement(
+                        "sup"
+                    );
 
-        item.classList.remove(
-          "verse-speaking"
+
+                number.textContent =
+                    verse.verse;
+
+
+                span.appendChild(
+                    number
+                );
+
+
+                span.appendChild(
+
+                    document.createTextNode(
+                        " " +
+                        verse.text
+                    )
+
+                );
+
+
+                span.addEventListener(
+                    "click",
+                    function() {
+
+                        playVerse(
+                            index
+                        );
+
+                    }
+                );
+
+
+                container.appendChild(
+                    span
+                );
+
+            }
         );
 
-      }
-    );
+
+    const title =
+        document.querySelector(
+            "#read h2"
+        );
 
 
-  updateSpeechStatus(
-    "语音已停止"
-  );
+    if (
+        title
+    ) {
 
-}
+        title.textContent =
+            currentUnit.reference;
 
-
-function toggleSlow() {
-
-  if (
-    speechRate ===
-    CONFIG.NORMAL_RATE
-  ) {
-
-    speechRate =
-      CONFIG.SLOW_RATE;
-
-  }
-
-  else {
-
-    speechRate =
-      CONFIG.NORMAL_RATE;
-
-  }
+    }
 
 
-  updateSpeechStatus(
+    const meta =
+        document.querySelector(
+            ".passage-meta span"
+        );
 
-    speechRate ===
-      CONFIG.NORMAL_RATE
 
-      ? "已切换到正常速度"
+    if (
+        meta
+    ) {
 
-      : "已切换到慢速"
+        meta.textContent =
+            currentUnit.reference;
 
-  );
+    }
 
 }
 
 
-function updateSpeechStatus(
-  message
-) {
+/* =========================================================
+   VOCABULARY
+========================================================= */
 
-  const status =
-    $("speechStatus");
+function renderVocabulary() {
+
+    const container =
+        $("vocabularyList");
 
 
-  if (
-    status
-  ) {
+    if (
+        !container
+    ) {
 
-    status.textContent =
-      message;
+        return;
 
-  }
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    currentUnit
+        .vocabulary
+        .forEach(
+            function(item) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "vocab-item";
+
+
+                const top =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                top.className =
+                    "vocab-top";
+
+
+                const word =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                word.className =
+                    "term";
+
+
+                word.textContent =
+                    item[0];
+
+
+                top.appendChild(
+                    word
+                );
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.className =
+                    "mini";
+
+
+                button.textContent =
+                    "🔊 发音";
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        speakText(
+                            item[0]
+                        );
+
+                    }
+                );
+
+
+                top.appendChild(
+                    button
+                );
+
+
+                div.appendChild(
+                    top
+                );
+
+
+                const meaning =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                meaning.className =
+                    "vocab-meaning";
+
+
+                meaning.textContent =
+                    item[1];
+
+
+                div.appendChild(
+                    meaning
+                );
+
+
+                const english =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                english.className =
+                    "vocab-en";
+
+
+                english.textContent =
+                    item[2];
+
+
+                div.appendChild(
+                    english
+                );
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   STRUCTURE
+========================================================= */
+
+function renderStructure() {
+
+    const container =
+        $("structureList");
+
+
+    if (
+        !container
+    ) {
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    currentUnit
+        .structures
+        .forEach(
+            function(item) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "structure-item";
+
+
+                const pattern =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                pattern.className =
+                    "structure-pattern";
+
+
+                pattern.textContent =
+                    item[0];
+
+
+                div.appendChild(
+                    pattern
+                );
+
+
+                const explanation =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                explanation.className =
+                    "structure-explanation";
+
+
+                explanation.textContent =
+                    item[1];
+
+
+                div.appendChild(
+                    explanation
+                );
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.textContent =
+                    "🔊 听句型";
+
+
+                button.style.marginTop =
+                    "8px";
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        speakText(
+                            item[0]
+                        );
+
+                    }
+                );
+
+
+                div.appendChild(
+                    button
+                );
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
+        );
 
 }
 
@@ -2625,734 +3338,480 @@ function updateSpeechStatus(
 
 function goToNotice() {
 
-  renderNotice();
+    renderNotice();
 
-  go(
-    "notice"
-  );
+    go("notice");
 
 }
 
 
 function renderNotice() {
 
-  const container =
-    $("noticeQuestions");
+    const container =
+        $("noticeQuestions");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .notice
-    .forEach(
-      function(
-        item,
-        index
-      ) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        block.className =
-          "notice-question";
-
-
-        const title =
-          document.createElement(
-            "div"
-          );
-
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          "NOTICE " +
-          (index + 1) +
-          " · " +
-          item.question;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
+    currentUnit
+        .notice
+        .forEach(
             function(
-              option,
-              optionIndex
+                item,
+                index
             ) {
 
-              const button =
-                document.createElement(
-                  "button"
-                );
-
-
-              button.type =
-                "button";
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.addEventListener(
-                "click",
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
-                    .forEach(
-                      function(
-                        itemButton
-                      ) {
-
-                        itemButton.classList.remove(
-                          "selected"
-                        );
-
-                      }
+                const block =
+                    document.createElement(
+                        "div"
                     );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.className =
+                    "notice-question";
 
 
-                  button.dataset.answer =
-                    optionIndex;
+                const title =
+                    document.createElement(
+                        "div"
+                    );
 
-                }
-              );
+
+                title.className =
+                    "notice-question-title";
 
 
-              block.appendChild(
-                button
-              );
+                title.textContent =
+                    "NOTICE " +
+                    (
+                        index +
+                        1
+                    ) +
+                    " · " +
+                    item[0];
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item[1]
+                    .forEach(
+                        function(
+                            option,
+                            optionIndex
+                        ) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.type =
+                                "button";
+
+
+                            button.className =
+                                "option";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.addEventListener(
+                                "click",
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(
+                                                other
+                                            ) {
+
+                                                other.classList.remove(
+                                                    "selected"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    button.dataset.answer =
+                                        optionIndex;
+
+                                }
+                            );
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        container.appendChild(
-          block
         );
-
-      }
-    );
 
 }
 
 
 /* =========================================================
-   VOCABULARY
-========================================================= */
-
-function goToVocabulary() {
-
-  renderVocabulary();
-
-  go(
-    "vocabulary"
-  );
-
-}
-
-
-function renderVocabulary() {
-
-  const container =
-    $("vocabularyList");
-
-
-  if (!container) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  GOLDEN_UNIT
-    .vocabulary
-    .forEach(
-      function(item) {
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "vocab-item";
-
-
-        const top =
-          document.createElement(
-            "div"
-          );
-
-
-        top.className =
-          "vocab-top";
-
-
-        const word =
-          document.createElement(
-            "div"
-          );
-
-
-        word.className =
-          "term";
-
-
-        word.textContent =
-          item.word;
-
-
-        top.appendChild(
-          word
-        );
-
-
-        const button =
-          document.createElement(
-            "button"
-          );
-
-
-        button.type =
-          "button";
-
-
-        button.className =
-          "mini";
-
-
-        button.textContent =
-          "🔊 发音";
-
-
-        button.addEventListener(
-          "click",
-          function() {
-
-            speakText(
-              item.word
-            );
-
-          }
-        );
-
-
-        top.appendChild(
-          button
-        );
-
-
-        div.appendChild(
-          top
-        );
-
-
-        const meaning =
-          document.createElement(
-            "div"
-          );
-
-
-        meaning.className =
-          "vocab-meaning";
-
-
-        meaning.textContent =
-          item.meaning;
-
-
-        div.appendChild(
-          meaning
-        );
-
-
-        const english =
-          document.createElement(
-            "div"
-          );
-
-
-        english.className =
-          "vocab-en";
-
-
-        english.textContent =
-          item.english;
-
-
-        div.appendChild(
-          english
-        );
-
-
-        container.appendChild(
-          div
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   STRUCTURE
-========================================================= */
-
-function goToStructure() {
-
-  renderStructure();
-
-  go(
-    "structure"
-  );
-
-}
-
-
-function renderStructure() {
-
-  const container =
-    $("structureList");
-
-
-  if (!container) {
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    "";
-
-
-  GOLDEN_UNIT
-    .structures
-    .forEach(
-      function(item) {
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "structure-item";
-
-
-        div.innerHTML =
-
-          "<div class='structure-pattern'>" +
-
-          escapeHTML(
-            item.pattern
-          ) +
-
-          "</div>" +
-
-          "<div class='structure-explanation'>" +
-
-          escapeHTML(
-            item.explanation
-          ) +
-
-          "</div>";
-
-
-        const button =
-          document.createElement(
-            "button"
-          );
-
-
-        button.type =
-          "button";
-
-
-        button.textContent =
-          "🔊 听句型";
-
-
-        button.style.marginTop =
-          "8px";
-
-
-        button.addEventListener(
-          "click",
-          function() {
-
-            speakText(
-              item.pattern
-            );
-
-          }
-        );
-
-
-        div.appendChild(
-          button
-        );
-
-
-        container.appendChild(
-          div
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   DIRECT
+   DIRECT COMPREHENSION
 ========================================================= */
 
 function goToDirect() {
 
-  renderDirect();
+    renderDirect();
 
-  go(
-    "direct"
-  );
+    go(
+        "direct"
+    );
 
 }
 
 
 function renderDirect() {
 
-  const container =
-    $("directQuestions");
+    const container =
+        $("directQuestions");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  currentDirectAnswers =
-    {};
+    container.innerHTML =
+        "";
 
 
-  GOLDEN_UNIT
-    .direct
-    .forEach(
-      function(
-        item,
-        index
-      ) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    currentDirectAnswers =
+        {};
 
 
-        block.className =
-          "notice-question";
-
-
-        const title =
-          document.createElement(
-            "div"
-          );
-
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          "DIRECT " +
-          (index + 1) +
-          " · " +
-          item.question;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
+    currentUnit
+        .direct
+        .forEach(
             function(
-              option,
-              optionIndex
+                item,
+                index
             ) {
 
-              const button =
-                document.createElement(
-                  "button"
+                const block =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                block.className =
+                    "notice-question";
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.className =
+                    "notice-question-title";
+
+
+                title.textContent =
+                    "DIRECT " +
+                    (
+                        index +
+                        1
+                    ) +
+                    " · " +
+                    item[0];
+
+
+                block.appendChild(
+                    title
                 );
 
 
-              button.type =
-                "button";
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.addEventListener(
-                "click",
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
+                item[1]
                     .forEach(
-                      function(
-                        itemButton
-                      ) {
+                        function(
+                            option,
+                            optionIndex
+                        ) {
 
-                        itemButton.classList.remove(
-                          "selected",
-                          "correct",
-                          "wrong"
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.type =
+                                "button";
+
+
+                            button.className =
+                                "option";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.addEventListener(
+                                "click",
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(
+                                                other
+                                            ) {
+
+                                                other.classList.remove(
+                                                    "selected",
+                                                    "correct",
+                                                    "wrong"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    if (
+                                        optionIndex ===
+                                        item[2]
+                                    ) {
+
+                                        button.classList.add(
+                                            "correct"
+                                        );
+
+                                    } else {
+
+                                        button.classList.add(
+                                            "wrong"
+                                        );
+
+                                    }
+
+
+                                    currentDirectAnswers[
+                                        index
+                                    ] =
+                                        optionIndex;
+
+
+                                    updateDirectScore();
+
+                                }
+                            );
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                const confirm =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                confirm.type =
+                    "button";
+
+
+                confirm.textContent =
+                    "中文确认";
+
+
+                confirm.style.marginTop =
+                    "8px";
+
+
+                confirm.addEventListener(
+                    "click",
+                    function() {
+
+                        let answer =
+                            block.querySelector(
+                                ".success"
+                            );
+
+
+                        if (
+                            answer
+                        ) {
+
+                            answer.remove();
+
+                            return;
+
+                        }
+
+
+                        answer =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        answer.className =
+                            "success";
+
+
+                        answer.textContent =
+                            item[3];
+
+
+                        block.appendChild(
+                            answer
                         );
 
-                      }
-                    );
+                    }
+                );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.appendChild(
+                    confirm
+                );
 
 
-                  button.dataset.answer =
-                    optionIndex;
-
-
-                  if (
-                    optionIndex ===
-                    item.answer
-                  ) {
-
-                    button.classList.add(
-                      "correct"
-                    );
-
-                  }
-
-                  else {
-
-                    button.classList.add(
-                      "wrong"
-                    );
-
-                  }
-
-
-                  currentDirectAnswers[
-                    index
-                  ] =
-                    optionIndex;
-
-
-                  updateDirectScore();
-
-                }
-              );
-
-
-              block.appendChild(
-                button
-              );
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        const confirm =
-          document.createElement(
-            "button"
-          );
-
-
-        confirm.type =
-          "button";
-
-
-        confirm.textContent =
-          "中文确认";
-
-
-        confirm.style.marginTop =
-          "8px";
-
-
-        confirm.addEventListener(
-          "click",
-          function() {
-
-            let box =
-              block.querySelector(
-                ".success"
-              );
-
-
-            if (box) {
-
-              box.remove();
-
-              return;
-
-            }
-
-
-            box =
-              document.createElement(
-                "div"
-              );
-
-
-            box.className =
-              "success";
-
-
-            box.textContent =
-              item.chinese;
-
-
-            block.appendChild(
-              box
-            );
-
-          }
         );
 
 
-        block.appendChild(
-          confirm
-        );
-
-
-        container.appendChild(
-          block
-        );
-
-      }
-    );
-
-
-  updateDirectScore();
+    updateDirectScore();
 
 }
 
 
 function updateDirectScore() {
 
-  const score =
-    $("directScore");
+    const score =
+        $("directScore");
 
 
-  if (!score) {
+    if (
+        !score
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  let correct =
-    0;
-
-  let answered =
-    0;
+    }
 
 
-  GOLDEN_UNIT
-    .direct
-    .forEach(
-      function(item, index) {
-
-        if (
-          currentDirectAnswers[index]
-          !== undefined
-        ) {
-
-          answered++;
+    let correct =
+        0;
 
 
-          if (
-            currentDirectAnswers[index]
-            === item.answer
-          ) {
-
-            correct++;
-
-          }
-
-        }
-
-      }
-    );
+    let answered =
+        0;
 
 
-  score.textContent =
-    "Direct Comprehension：" +
-    correct +
-    "/" +
-    GOLDEN_UNIT
-      .direct
-      .length +
-    " · 已回答 " +
-    answered +
-    "/" +
-    GOLDEN_UNIT
-      .direct
-      .length;
+    currentUnit
+        .direct
+        .forEach(
+            function(
+                item,
+                index
+            ) {
+
+                if (
+                    currentDirectAnswers[
+                        index
+                    ] !== undefined
+                ) {
+
+                    answered++;
+
+
+                    if (
+                        currentDirectAnswers[
+                            index
+                        ] ===
+                        item[2]
+                    ) {
+
+                        correct++;
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    score.textContent =
+
+        "Direct Comprehension：" +
+
+        correct +
+
+        "/" +
+
+        currentUnit
+            .direct
+            .length +
+
+        " · 已回答 " +
+
+        answered +
+
+        "/" +
+
+        currentUnit
+            .direct
+            .length;
 
 }
 
@@ -3363,323 +3822,368 @@ function updateDirectScore() {
 
 function goToSpeak() {
 
-  const prompt =
-    $("speakPrompt");
+    const prompt =
+        $("speakPrompt");
 
 
-  if (prompt) {
+    if (
+        prompt
+    ) {
 
-    prompt.textContent =
-      GOLDEN_UNIT.production;
+        prompt.textContent =
+            currentUnit.production;
 
-  }
-
-
-  renderImitationList();
+    }
 
 
-  go(
-    "speak"
-  );
+    renderImitationList();
+
+
+    go(
+        "speak"
+    );
 
 }
 
 
 function renderImitationList() {
 
-  const container =
-    $("imitationList");
+    const container =
+        $("imitationList");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .verses
-    .forEach(
-      function(verse) {
-
-        const item =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        item.className =
-          "imitation-item";
+    currentUnit
+        .verses
+        .forEach(
+            function(verse) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        const text =
-          document.createElement(
-            "div"
-          );
+                item.className =
+                    "imitation-item";
 
 
-        text.className =
-          "imitation-sentence";
+                const sentence =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        text.textContent =
-          verse.text;
+                sentence.className =
+                    "imitation-sentence";
 
 
-        item.appendChild(
-          text
+                sentence.textContent =
+                    verse.text;
+
+
+                item.appendChild(
+                    sentence
+                );
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.textContent =
+                    "🔊 听这一节";
+
+
+                button.style.marginTop =
+                    "8px";
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        speakText(
+                            verse.text
+                        );
+
+                    }
+                );
+
+
+                item.appendChild(
+                    button
+                );
+
+
+                container.appendChild(
+                    item
+                );
+
+            }
         );
-
-
-        const button =
-          document.createElement(
-            "button"
-          );
-
-
-        button.type =
-          "button";
-
-
-        button.textContent =
-          "🔊 听这一节";
-
-
-        button.style.marginTop =
-          "8px";
-
-
-        button.addEventListener(
-          "click",
-          function() {
-
-            speakText(
-              verse.text
-            );
-
-          }
-        );
-
-
-        item.appendChild(
-          button
-        );
-
-
-        container.appendChild(
-          item
-        );
-
-      }
-    );
 
 }
 
 
 function checkSpeak() {
 
-  const input =
-    $("speakAnswer");
+    const input =
+        $("speakAnswer");
 
 
-  const result =
-    $("speakResult");
+    const result =
+        $("speakResult");
 
 
-  if (
-    !input ||
-    !result
-  ) {
+    if (
+        !input ||
+        !result
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  const text =
-    input.value.trim();
+    }
 
 
-  result.classList.remove(
-    "hidden"
-  );
+    const text =
+        input.value.trim();
 
 
-  if (!text) {
+    result.classList.remove(
+        "hidden"
+    );
+
+
+    if (
+        !text
+    ) {
+
+        result.innerHTML =
+            "<div class='success'>" +
+            "请先写一句英文。" +
+            "</div>";
+
+        return;
+
+    }
+
+
+    const lower =
+        text.toLowerCase();
+
+
+    const keywords =
+        getSpeechKeywords();
+
+
+    let hits =
+        0;
+
+
+    keywords.forEach(
+        function(keyword) {
+
+            if (
+                lower.includes(
+                    keyword
+                )
+            ) {
+
+                hits++;
+
+            }
+
+        }
+    );
+
+
+    const wordCount =
+        text
+            .split(/\s+/)
+            .filter(Boolean)
+            .length;
+
+
+    let score =
+        Math.round(
+            (
+                hits /
+                keywords.length
+            ) *
+            70
+        );
+
+
+    if (
+        wordCount >=
+        6
+    ) {
+
+        score +=
+            15;
+
+    }
+
+
+    if (
+        lower.includes("and")
+        ||
+        lower.includes("because")
+    ) {
+
+        score +=
+            15;
+
+    }
+
+
+    score =
+        Math.min(
+            100,
+            score
+        );
+
 
     result.innerHTML =
-      "<div class='success'>" +
-      "请先写一句英文。" +
-      "</div>";
 
-    return;
+        "<div class='success'>" +
 
-  }
+        "<strong>" +
 
+        "英文表达：" +
 
-  const lower =
-    text.toLowerCase();
+        score +
 
+        "/100</strong>" +
 
-  const keywords = [
+        "<br><br>" +
 
-    "word",
-    "god",
-    "life",
-    "light",
-    "darkness"
+        "关键词：" +
 
-  ];
+        hits +
 
+        "/" +
 
-  let hits =
-    0;
+        keywords.length +
 
+        "<br>" +
 
-  keywords.forEach(
-    function(keyword) {
+        "单词数：" +
 
-      if (
-        lower.includes(
-          keyword
-        )
-      ) {
+        wordCount +
 
-        hits++;
+        "<br><br>" +
 
-      }
+        (
+            score >= 80
 
-    }
-  );
+                ? "很好，你已经抓住本段核心。"
 
+                : score >= 60
 
-  const count =
-    text
-      .split(/\s+/)
-      .filter(Boolean)
-      .length;
+                    ? "不错，继续把核心意义说完整。"
+
+                    : "先准确表达核心，不必追求复杂。"
+
+        ) +
+
+        "</div>";
 
 
-  let score =
-    Math.round(
-      (
-        hits /
-        keywords.length
-      ) *
-      70
+    const listen =
+        document.createElement(
+            "button"
+        );
+
+
+    listen.type =
+        "button";
+
+
+    listen.textContent =
+        "🔊 听我的答案";
+
+
+    listen.style.marginTop =
+        "8px";
+
+
+    listen.addEventListener(
+        "click",
+        function() {
+
+            speakText(
+                text
+            );
+
+        }
     );
 
 
-  if (
-    count >= 6
-  ) {
+    result
+        .firstElementChild
+        .appendChild(
+            listen
+        );
 
-    score +=
-      15;
-
-  }
-
-
-  if (
-    lower.includes("and")
-    ||
-    lower.includes("because")
-  ) {
-
-    score +=
-      15;
-
-  }
+}
 
 
-  score =
-    Math.min(
-      100,
-      score
-    );
+function getSpeechKeywords() {
+
+    const words =
+        [];
 
 
-  result.innerHTML =
+    currentUnit
+        .vocabulary
+        .forEach(
+            function(item) {
 
-    "<div class='success'>" +
-
-    "<strong>" +
-
-    "英文表达：" +
-
-    score +
-    "/100" +
-
-    "</strong>" +
-
-    "<br><br>" +
-
-    "关键词：" +
-    hits +
-    "/5" +
-
-    "<br>" +
-
-    "单词数：" +
-    count +
-
-    "<br><br>" +
-
-    (
-      score >= 80
-
-        ? "很好，你抓住了经文核心。"
-
-        : score >= 60
-
-          ? "不错，继续提高表达完整度。"
-
-          : "先准确表达核心内容。"
-
-    ) +
-
-    "</div>";
+                const word =
+                    item[0]
+                        .toLowerCase();
 
 
-  const button =
-    document.createElement(
-      "button"
-    );
+                if (
+                    word.indexOf(
+                        " "
+                    ) ===
+                    -1
+                ) {
+
+                    words.push(
+                        word
+                    );
+
+                }
+
+            }
+        );
 
 
-  button.type =
-    "button";
-
-
-  button.textContent =
-    "🔊 听我的答案";
-
-
-  button.style.marginTop =
-    "8px";
-
-
-  button.addEventListener(
-    "click",
-    function() {
-
-      speakText(
-        text
-      );
-
-    }
-  );
-
-
-  result
-    .firstElementChild
-    .appendChild(
-      button
+    return words.slice(
+        0,
+        6
     );
 
 }
@@ -3687,408 +4191,478 @@ function checkSpeak() {
 
 function listenToMyAnswer() {
 
-  const input =
-    $("speakAnswer");
+    const input =
+        $("speakAnswer");
 
 
-  if (!input) {
+    if (
+        !input
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  const text =
-    input.value.trim();
+    }
 
 
-  if (!text) {
+    const text =
+        input.value.trim();
 
-    alert(
-      "请先写下英文答案。"
+
+    if (
+        !text
+    ) {
+
+        alert(
+            "请先输入英文答案。"
+        );
+
+        return;
+
+    }
+
+
+    speakText(
+        text
     );
-
-    return;
-
-  }
-
-
-  speakText(
-    text
-  );
 
 }
 
 
 /* =========================================================
-   RE-READ
+   REREAD
 ========================================================= */
 
 function goToReread() {
 
-  renderRereadPassage();
+    renderRereadPassage();
 
-  go(
-    "reread"
-  );
+    go(
+        "reread"
+    );
+
+}
+
+
+function renderRereadPassage() {
+
+    const container =
+        $("rereadPassage");
+
+
+    if (
+        !container
+    ) {
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    currentUnit
+        .verses
+        .forEach(
+            function(verse) {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.style.marginBottom =
+                    "18px";
+
+
+                div.style.cursor =
+                    "pointer";
+
+
+                div.textContent =
+                    verse.verse +
+                    ". " +
+                    verse.text;
+
+
+                div.addEventListener(
+                    "click",
+                    function() {
+
+                        speakText(
+                            verse.text
+                        );
+
+                    }
+                );
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
+        );
 
 }
 
 
 function setFeeling(
-  value,
-  button
+    value,
+    button
 ) {
 
-  currentFeeling =
-    value;
+    currentFeeling =
+        value;
 
 
-  document
-    .querySelectorAll(
-      ".feeling-options button"
-    )
-    .forEach(
-      function(item) {
+    document
+        .querySelectorAll(
+            ".feeling-options button"
+        )
+        .forEach(
+            function(item) {
 
-        item.classList.remove(
-          "selected"
+                item.classList.remove(
+                    "selected"
+                );
+
+            }
         );
 
-      }
-    );
+
+    if (
+        button
+    ) {
+
+        button.classList.add(
+            "selected"
+        );
+
+    }
 
 
-  if (button) {
-
-    button.classList.add(
-      "selected"
-    );
-
-  }
+    const unitState =
+        getUnitState(
+            currentUnitIndex
+        );
 
 
-  state.feeling =
-    value;
+    unitState.feeling =
+        value;
 
 
-  saveState();
+    saveState();
 
 }
 
 
 /* =========================================================
-   FINAL
+   FINAL TEST
 ========================================================= */
 
 function goToFinalTest() {
 
-  renderFinal();
+    renderFinal();
 
-  go(
-    "finalTest"
-  );
+    go(
+        "finalTest"
+    );
 
 }
 
 
 function renderFinal() {
 
-  const container =
-    $("finalQuestions");
+    const container =
+        $("finalQuestions");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
+        return;
 
-  }
-
-
-  container.innerHTML =
-    "";
+    }
 
 
-  GOLDEN_UNIT
-    .direct
-    .slice(
-      0,
-      4
-    )
-    .forEach(
-      function(
-        item,
-        index
-      ) {
-
-        const block =
-          document.createElement(
-            "div"
-          );
+    container.innerHTML =
+        "";
 
 
-        block.className =
-          "notice-question";
-
-
-        block.dataset.correct =
-          item.answer;
-
-
-        const title =
-          document.createElement(
-            "div"
-          );
-
-
-        title.className =
-          "notice-question-title";
-
-
-        title.textContent =
-          (
-            index +
-            1
-          ) +
-          ". " +
-          item.question;
-
-
-        block.appendChild(
-          title
-        );
-
-
-        item.options
-          .forEach(
+    currentUnit
+        .direct
+        .slice(
+            0,
+            Math.min(
+                4,
+                currentUnit.direct.length
+            )
+        )
+        .forEach(
             function(
-              option,
-              optionIndex
+                item,
+                index
             ) {
 
-              const button =
-                document.createElement(
-                  "button"
-                );
-
-
-              button.type =
-                "button";
-
-
-              button.className =
-                "option";
-
-
-              button.textContent =
-                option;
-
-
-              button.addEventListener(
-                "click",
-                function() {
-
-                  block
-                    .querySelectorAll(
-                      ".option"
-                    )
-                    .forEach(
-                      function(
-                        itemButton
-                      ) {
-
-                        itemButton.classList.remove(
-                          "selected",
-                          "correct",
-                          "wrong"
-                        );
-
-                      }
+                const block =
+                    document.createElement(
+                        "div"
                     );
 
 
-                  button.classList.add(
-                    "selected"
-                  );
+                block.className =
+                    "notice-question";
 
 
-                  button.dataset.answer =
-                    optionIndex;
-
-                }
-              );
+                block.dataset.correct =
+                    item[2];
 
 
-              block.appendChild(
-                button
-              );
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.className =
+                    "notice-question-title";
+
+
+                title.textContent =
+                    (
+                        index +
+                        1
+                    ) +
+                    ". " +
+                    item[0];
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item[1].forEach(
+                    function(
+                        option,
+                        optionIndex
+                    ) {
+
+                        const button =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        button.type =
+                            "button";
+
+
+                        button.className =
+                            "option";
+
+
+                        button.textContent =
+                            option;
+
+
+                        button.addEventListener(
+                            "click",
+                            function() {
+
+                                block
+                                    .querySelectorAll(
+                                        ".option"
+                                    )
+                                    .forEach(
+                                        function(
+                                            other
+                                        ) {
+
+                                            other.classList.remove(
+                                                "selected",
+                                                "correct",
+                                                "wrong"
+                                            );
+
+                                        }
+                                    );
+
+
+                                button.classList.add(
+                                    "selected"
+                                );
+
+
+                                button.dataset.answer =
+                                    optionIndex;
+
+                            }
+                        );
+
+
+                        block.appendChild(
+                            button
+                        );
+
+                    }
+                );
+
+
+                container.appendChild(
+                    block
+                );
 
             }
-          );
-
-
-        container.appendChild(
-          block
         );
-
-      }
-    );
 
 }
 
 
 function submitFinalTest() {
 
-  const blocks =
-    document.querySelectorAll(
-      "#finalQuestions .notice-question"
-    );
-
-
-  if (!blocks.length) {
-
-    return;
-
-  }
-
-
-  let correct =
-    0;
-
-  let answered =
-    0;
-
-
-  blocks.forEach(
-    function(block) {
-
-      const selected =
-        block.querySelector(
-          ".option.selected"
+    const blocks =
+        document.querySelectorAll(
+            "#finalQuestions .notice-question"
         );
 
 
-      if (!selected) {
+    if (
+        !blocks.length
+    ) {
 
         return;
 
-      }
+    }
 
 
-      answered++;
+    let correct =
+        0;
 
 
-      if (
-        Number(
-          selected.dataset.answer
-        ) ===
-        Number(
-          block.dataset.correct
-        )
-      ) {
+    let answered =
+        0;
 
-        correct++;
 
-        selected.classList.add(
-          "correct"
+    blocks.forEach(
+        function(block) {
+
+            const selected =
+                block.querySelector(
+                    ".option.selected"
+                );
+
+
+            if (!selected) {
+
+                return;
+
+            }
+
+
+            answered++;
+
+
+            if (
+                Number(
+                    selected.dataset.answer
+                ) ===
+                Number(
+                    block.dataset.correct
+                )
+            ) {
+
+                correct++;
+
+                selected.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                selected.classList.add(
+                    "wrong"
+                );
+
+            }
+
+        }
+    );
+
+
+    if (
+        answered <
+        blocks.length
+    ) {
+
+        alert(
+            "请完成全部问题后再提交。"
         );
 
-      }
-
-      else {
-
-        selected.classList.add(
-          "wrong"
-        );
-
-      }
+        return;
 
     }
-  );
 
 
-  if (
-    answered <
-    blocks.length
-  ) {
-
-    alert(
-      "请完成全部问题后再提交。"
-    );
-
-    return;
-
-  }
+    finalScore =
+        Math.round(
+            (
+                correct /
+                blocks.length
+            ) *
+            100
+        );
 
 
-  finalScore =
-    Math.round(
-      (
-        correct /
-        blocks.length
-      ) *
-      100
-    );
+    const unitState =
+        getUnitState(
+            currentUnitIndex
+        );
 
 
-  state.final =
-    finalScore;
+    unitState.final =
+        finalScore;
 
 
-  state.completed =
-    true;
+    unitState.completed =
+        true;
 
 
-  state.completedAt =
-    new Date()
-      .toISOString();
+    unitState.completedAt =
+        new Date()
+            .toISOString();
 
 
-  state.reviews = [
+    unitState.reviews = [
 
-    addDays(
-      1
-    ),
+        addDays(
+            1
+        ),
 
-    addDays(
-      3
-    ),
+        addDays(
+            3
+        ),
 
-    addDays(
-      7
-    )
+        addDays(
+            7
+        )
 
-  ];
-
-
-  saveState();
+    ];
 
 
-  showResult();
-
-}
+    saveState();
 
 
-function addDays(
-  days
-) {
+    renderReviews();
 
-  const date =
-    new Date();
+    updateCourseProgress();
 
 
-  date.setDate(
-    date.getDate() +
-    days
-  );
-
-
-  return date
-    .toISOString()
-    .slice(
-      0,
-      10
-    );
+    showResult();
 
 }
 
@@ -4099,119 +4673,139 @@ function addDays(
 
 function showResult() {
 
-  const first =
-    Number(
-      state.baseline ||
-      baselineScore ||
-      0
-    );
+    const unitState =
+        getUnitState(
+            currentUnitIndex
+        );
 
 
-  const base =
-    $("resultBaseline");
+    const baseline =
+        Number(
+            unitState.baseline ||
+            0
+        );
 
 
-  const final =
-    $("resultFinal");
+    const final =
+        Number(
+            unitState.final ||
+            finalScore ||
+            0
+        );
 
 
-  const box =
-    $("resultImprovement");
+    const base =
+        $("resultBaseline");
 
 
-  if (base) {
+    const result =
+        $("resultFinal");
 
-    base.textContent =
-      first +
-      "%";
-
-  }
-
-
-  if (final) {
-
-    final.textContent =
-      finalScore +
-      "%";
-
-  }
-
-
-  const gain =
-    finalScore -
-    first;
-
-
-  if (box) {
 
     if (
-      gain > 0
+        base
     ) {
 
-      box.innerHTML =
-
-        "<strong>" +
-
-        "理解提升 +" +
-
-        gain +
-
-        "%</strong>" +
-
-        "<div>" +
-
-        "训练后，你对 John 1:1–5 的英文直接理解有所提升。" +
-
-        "</div>";
+        base.textContent =
+            baseline +
+            "%";
 
     }
 
-    else if (
-      gain === 0
+
+    if (
+        result
     ) {
 
-      box.innerHTML =
-
-        "<strong>" +
-
-        "理解保持不变" +
-
-        "</strong>" +
-
-        "<div>" +
-
-        "继续进行间隔复习。" +
-
-        "</div>";
+        result.textContent =
+            final +
+            "%";
 
     }
 
-    else {
 
-      box.innerHTML =
+    const gain =
+        final -
+        baseline;
 
-        "<strong>" +
 
-        "本次没有提升" +
+    const box =
+        $("resultImprovement");
 
-        "</strong>" +
 
-        "<div>" +
+    if (
+        box
+    ) {
 
-        "建议重新听读后再次训练。" +
+        if (
+            gain > 0
+        ) {
 
-        "</div>";
+            box.innerHTML =
+
+                "<strong>" +
+
+                "理解提升 +" +
+
+                gain +
+
+                "%</strong>" +
+
+                "<div>" +
+
+                currentUnit.reference +
+
+                " 的英文直接理解有所提升。" +
+
+                "</div>";
+
+        }
+
+        else if (
+            gain ===
+            0
+        ) {
+
+            box.innerHTML =
+
+                "<strong>" +
+
+                "理解保持不变" +
+
+                "</strong>" +
+
+                "<div>" +
+
+                "继续通过间隔复习巩固。" +
+
+                "</div>";
+
+        }
+
+        else {
+
+            box.innerHTML =
+
+                "<strong>" +
+
+                "本次没有提升" +
+
+                "</strong>" +
+
+                "<div>" +
+
+                "重新听读后再次复习。" +
+
+                "</div>";
+
+        }
 
     }
 
-  }
 
-
-  renderHome();
-
-  go(
-    "result"
-  );
+    go(
+        "result"
+    );
 
 }
 
@@ -4222,86 +4816,1001 @@ function showResult() {
 
 function renderReviews() {
 
-  const container =
-    $("reviewList");
+    const container =
+        $("reviewList");
 
 
-  if (!container) {
+    if (
+        !container
+    ) {
 
-    return;
+        return;
 
-  }
+    }
 
-
-  if (
-    !state.reviews ||
-    !state.reviews.length
-  ) {
 
     container.innerHTML =
-
-      "<div class='muted'>" +
-
-      "完成本课后，这里会显示 Day 1 / Day 3 / Day 7。" +
-
-      "</div>";
-
-    return;
-
-  }
+        "";
 
 
-  container.innerHTML =
-    "";
+    COURSE.forEach(
+        function(
+            unit,
+            index
+        ) {
+
+            const unitState =
+                getUnitState(
+                    index
+                );
 
 
-  state.reviews
-    .forEach(
-      function(date, index) {
+            if (
+                !unitState.reviews
+                ||
+                !unitState.reviews.length
+            ) {
 
-        const row =
-          document.createElement(
-            "div"
-          );
+                return;
 
-
-        row.className =
-          "review-row";
+            }
 
 
-        const day =
-          index === 0
-            ? 1
-            : index === 1
-              ? 3
-              : 7;
+            unitState.reviews
+                .forEach(
+                    function(
+                        date,
+                        reviewIndex
+                    ) {
+
+                        const row =
+                            document.createElement(
+                                "div"
+                            );
 
 
-        row.innerHTML =
-
-          "<strong>" +
-
-          "Day " +
-
-          day +
-
-          "</strong>" +
-
-          "<span>" +
-
-          escapeHTML(
-            date
-          ) +
-
-          "</span>";
+                        row.className =
+                            "review-row";
 
 
-        container.appendChild(
-          row
+                        const day =
+                            reviewIndex ===
+                            0
+
+                                ? 1
+
+                                : reviewIndex ===
+                                  1
+
+                                    ? 3
+
+                                    : 7;
+
+
+                        row.innerHTML =
+
+                            "<div>" +
+
+                            "<strong>" +
+
+                            escapeHTML(
+                                unit.reference
+                            ) +
+
+                            "</strong>" +
+
+                            "<div>" +
+
+                            "Day " +
+
+                            day +
+
+                            "</div>" +
+
+                            "</div>" +
+
+                            "<span>" +
+
+                            escapeHTML(
+                                date
+                            ) +
+
+                            "</span>";
+
+
+                        container.appendChild(
+                            row
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+
+    if (
+        !container.children.length
+    ) {
+
+        container.innerHTML =
+
+            "<div class='muted'>" +
+
+            "完成单元后，这里会自动建立 Day 1 / Day 3 / Day 7 复习。" +
+
+            "</div>";
+
+    }
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function addDays(
+    days
+) {
+
+    const date =
+        new Date();
+
+
+    date.setDate(
+        date.getDate() +
+        days
+    );
+
+
+    return date
+        .toISOString()
+        .slice(
+            0,
+            10
         );
 
-      }
+}
+
+
+/* =========================================================
+   SPEECH
+========================================================= */
+
+function initSpeech() {
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        return;
+
+    }
+
+
+    selectedVoice =
+        chooseVoice();
+
+
+    speechSynthesis.onvoiceschanged =
+        function() {
+
+            selectedVoice =
+                chooseVoice();
+
+            renderVoicePanel();
+
+        };
+
+}
+
+
+function chooseVoice() {
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        return null;
+
+    }
+
+
+    const voices =
+        speechSynthesis
+            .getVoices()
+            .filter(
+                function(voice) {
+
+                    return (
+                        voice.lang &&
+                        voice.lang
+                            .toLowerCase()
+                            .startsWith(
+                                "en"
+                            )
+                    );
+
+                }
+            );
+
+
+    if (
+        !voices.length
+    ) {
+
+        return null;
+
+    }
+
+
+    const saved =
+        localStorage.getItem(
+            CONFIG.VOICE_KEY
+        );
+
+
+    if (
+        saved
+    ) {
+
+        const match =
+            voices.find(
+                function(voice) {
+
+                    return (
+                        voice.name ===
+                        saved
+                    );
+
+                }
+            );
+
+
+        if (
+            match
+        ) {
+
+            return match;
+
+        }
+
+    }
+
+
+    const preferred =
+        [
+
+            "david",
+            "daniel",
+            "alex",
+            "mark",
+            "james",
+            "george",
+            "guy",
+            "fred"
+
+        ];
+
+
+    const male =
+        voices.find(
+            function(voice) {
+
+                const name =
+                    voice.name
+                        .toLowerCase();
+
+
+                return preferred.some(
+                    function(word) {
+
+                        return name.includes(
+                            word
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    if (
+        male
+    ) {
+
+        return male;
+
+    }
+
+
+    const us =
+        voices.find(
+            function(voice) {
+
+                return (
+                    voice.lang
+                        .toLowerCase() ===
+                    "en-us"
+                );
+
+            }
+        );
+
+
+    return (
+        us ||
+        voices[0]
     );
+
+}
+
+
+function renderVoicePanel() {
+
+    const panel =
+        $("voicePanel");
+
+
+    if (
+        !panel
+    ) {
+
+        return;
+
+    }
+
+
+    panel.innerHTML =
+        "";
+
+
+    const title =
+        document.createElement(
+            "strong"
+        );
+
+
+    title.textContent =
+        "🎙️ English Voice";
+
+
+    panel.appendChild(
+        title
+    );
+
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        return;
+
+    }
+
+
+    const select =
+        document.createElement(
+            "select"
+        );
+
+
+    select.style.width =
+        "100%";
+
+
+    select.style.padding =
+        "10px";
+
+
+    select.style.marginTop =
+        "8px";
+
+
+    select.style.border =
+        "1px solid #ddd";
+
+
+    select.style.borderRadius =
+        "10px";
+
+
+    const voices =
+        speechSynthesis
+            .getVoices()
+            .filter(
+                function(voice) {
+
+                    return (
+                        voice.lang &&
+                        voice.lang
+                            .toLowerCase()
+                            .startsWith(
+                                "en"
+                            )
+                    );
+
+                }
+            );
+
+
+    voices.forEach(
+        function(voice) {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                voice.name;
+
+
+            option.textContent =
+                voice.name +
+                " (" +
+                voice.lang +
+                ")";
+
+
+            if (
+                selectedVoice &&
+                selectedVoice.name ===
+                voice.name
+            ) {
+
+                option.selected =
+                    true;
+
+            }
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    panel.appendChild(
+        select
+    );
+
+
+    select.addEventListener(
+        "change",
+        function() {
+
+            selectedVoice =
+                voices.find(
+                    function(voice) {
+
+                        return (
+                            voice.name ===
+                            select.value
+                        );
+
+                    }
+                );
+
+
+            if (
+                selectedVoice
+            ) {
+
+                localStorage.setItem(
+                    CONFIG.VOICE_KEY,
+                    selectedVoice.name
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SPEECH ENGINE
+========================================================= */
+
+function speakText(
+    text,
+    element,
+    callback
+) {
+
+    if (
+        !window.speechSynthesis
+    ) {
+
+        alert(
+            "当前浏览器不支持语音朗读。"
+        );
+
+        return;
+
+    }
+
+
+    speechSynthesis.cancel();
+
+
+    document
+        .querySelectorAll(
+            ".verse-speaking"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
+        );
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    utterance.lang =
+        CONFIG.LANGUAGE;
+
+
+    utterance.rate =
+        speechRate;
+
+
+    utterance.pitch =
+        0.95;
+
+
+    utterance.volume =
+        1;
+
+
+    if (
+        selectedVoice
+    ) {
+
+        utterance.voice =
+            selectedVoice;
+
+    }
+
+
+    if (
+        element
+    ) {
+
+        element.classList.add(
+            "verse-speaking"
+        );
+
+    }
+
+
+    updateSpeechStatus(
+        "正在朗读……"
+    );
+
+
+    utterance.onend =
+        function() {
+
+            if (
+                element
+            ) {
+
+                element.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
+
+
+            updateSpeechStatus(
+                "朗读完成"
+            );
+
+
+            if (
+                callback
+            ) {
+
+                callback();
+
+            }
+
+        };
+
+
+    utterance.onerror =
+        function() {
+
+            updateSpeechStatus(
+                "语音播放失败"
+            );
+
+        };
+
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+
+function speakPassage() {
+
+    const text =
+        currentUnit
+            .verses
+            .map(
+                function(item) {
+
+                    return item.text;
+
+                }
+            )
+            .join(" ");
+
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    speakText(
+        text
+    );
+
+}
+
+
+function playVerse(
+    index
+) {
+
+    if (
+        !currentUnit
+            .verses[index]
+    ) {
+
+        return;
+
+    }
+
+
+    currentVerseIndex =
+        index;
+
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    speakVerse(
+        index
+    );
+
+}
+
+
+function speakVerse(
+    index
+) {
+
+    if (
+        !currentUnit
+            .verses[index]
+    ) {
+
+        return;
+
+    }
+
+
+    currentVerseIndex =
+        index;
+
+
+    const elements =
+        document.querySelectorAll(
+            ".verse"
+        );
+
+
+    speakText(
+
+        currentUnit
+            .verses[index]
+            .text,
+
+        elements[index],
+
+        function() {
+
+            if (
+                repeatCurrentVerse
+            ) {
+
+                setTimeout(
+                    function() {
+
+                        speakVerse(
+                            index
+                        );
+
+                    },
+                    700
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                continuousReading
+            ) {
+
+                const next =
+                    index + 1;
+
+
+                if (
+                    next <
+                    currentUnit
+                        .verses
+                        .length
+                ) {
+
+                    speakVerse(
+                        next
+                    );
+
+                } else {
+
+                    continuousReading =
+                        false;
+
+
+                    updateSpeechStatus(
+                        "✓ 连续逐节完成"
+                    );
+
+                }
+
+            }
+
+        }
+
+    );
+
+}
+
+
+function startContinuousReading() {
+
+    stopSpeech();
+
+
+    continuousReading =
+        true;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        0;
+
+
+    updateSpeechStatus(
+        "连续逐节朗读中……"
+    );
+
+
+    speakVerse(
+        0
+    );
+
+}
+
+
+function toggleRepeatCurrentVerse() {
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        !repeatCurrentVerse;
+
+
+    if (
+        repeatCurrentVerse
+    ) {
+
+        speakVerse(
+            currentVerseIndex
+        );
+
+    }
+
+    else {
+
+        stopSpeech();
+
+    }
+
+}
+
+
+function playPreviousVerse() {
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        Math.max(
+            0,
+            currentVerseIndex - 1
+        );
+
+
+    speakVerse(
+        currentVerseIndex
+    );
+
+}
+
+
+function playNextVerse() {
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    currentVerseIndex =
+        Math.min(
+
+            currentUnit
+                .verses
+                .length - 1,
+
+            currentVerseIndex + 1
+
+        );
+
+
+    speakVerse(
+        currentVerseIndex
+    );
+
+}
+
+
+function stopSpeech() {
+
+    continuousReading =
+        false;
+
+
+    repeatCurrentVerse =
+        false;
+
+
+    if (
+        window.speechSynthesis
+    ) {
+
+        speechSynthesis.cancel();
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".verse-speaking"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "verse-speaking"
+                );
+
+            }
+        );
+
+
+    updateSpeechStatus(
+        "语音已停止"
+    );
+
+}
+
+
+function toggleSlow() {
+
+    if (
+        speechRate ===
+        CONFIG.NORMAL_RATE
+    ) {
+
+        speechRate =
+            CONFIG.SLOW_RATE;
+
+    }
+
+    else {
+
+        speechRate =
+            CONFIG.NORMAL_RATE;
+
+    }
+
+
+    updateSpeechStatus(
+
+        speechRate ===
+            CONFIG.NORMAL_RATE
+
+            ? "已切换到正常速度"
+
+            : "已切换到慢速"
+
+    );
+
+}
+
+
+function updateSpeechStatus(
+    message
+) {
+
+    const status =
+        $("speechStatus");
+
+
+    if (
+        status
+    ) {
+
+        status.textContent =
+            message;
+
+    }
 
 }
 
@@ -4311,73 +5820,78 @@ function renderReviews() {
 ========================================================= */
 
 window.go =
-  go;
+    go;
 
 window.startTraining =
-  startTraining;
+    startTraining;
 
 window.submitBaseline =
-  submitBaseline;
+    submitBaseline;
 
 window.goToNotice =
-  goToNotice;
+    goToNotice;
 
 window.goToVocabulary =
-  goToVocabulary;
+    goToVocabulary;
 
 window.goToStructure =
-  goToStructure;
+    goToStructure;
 
 window.goToDirect =
-  goToDirect;
+    goToDirect;
 
 window.goToSpeak =
-  goToSpeak;
+    goToSpeak;
 
 window.goToReread =
-  goToReread;
+    goToReread;
 
 window.goToFinalTest =
-  goToFinalTest;
+    goToFinalTest;
 
 window.submitFinalTest =
-  submitFinalTest;
+    submitFinalTest;
 
 window.speakText =
-  speakText;
+    speakText;
 
 window.speakPassage =
-  speakPassage;
+    speakPassage;
 
 window.playVerse =
-  playVerse;
+    playVerse;
 
 window.speakVerse =
-  speakVerse;
+    speakVerse;
 
 window.startContinuousReading =
-  startContinuousReading;
+    startContinuousReading;
 
 window.toggleRepeatCurrentVerse =
-  toggleRepeatCurrentVerse;
+    toggleRepeatCurrentVerse;
 
 window.playPreviousVerse =
-  playPreviousVerse;
+    playPreviousVerse;
 
 window.playNextVerse =
-  playNextVerse;
+    playNextVerse;
 
 window.stopSpeech =
-  stopSpeech;
+    stopSpeech;
 
 window.toggleSlow =
-  toggleSlow;
+    toggleSlow;
 
 window.checkSpeak =
-  checkSpeak;
+    checkSpeak;
 
 window.listenToMyAnswer =
-  listenToMyAnswer;
+    listenToMyAnswer;
 
 window.setFeeling =
-  setFeeling;
+    setFeeling;
+
+
+/* =========================================================
+   END
+========================================================= */
