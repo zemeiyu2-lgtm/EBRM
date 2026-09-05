@@ -3,9 +3,8 @@
    English Bible Reading Model
 
    JOHN 1 COMPLETE COURSE ENGINE
-
-   7 Training Units
    ---------------------------------------------------------
+   7 Training Units
    Unit 01 : John 1:1–5
    Unit 02 : John 1:6–13
    Unit 03 : John 1:14–18
@@ -14,7 +13,7 @@
    Unit 06 : John 1:35–42
    Unit 07 : John 1:43–51
 
-   Training Flow
+   Core Flow
    ---------------------------------------------------------
    BASELINE
    READ
@@ -47,7 +46,7 @@ const CONFIG = {
         0.62,
 
     STATE_KEY:
-        "EBRM_V09_STATE",
+        "EBRM_V09_FINAL_STATE",
 
     VOICE_KEY:
         "EBRM_V09_VOICE"
@@ -56,7 +55,7 @@ const CONFIG = {
 
 
 /* =========================================================
-   JOHN 1 COURSE
+   JOHN 1 COMPLETE COURSE
 ========================================================= */
 
 const COURSE = [
@@ -115,19 +114,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["Word", "道", "the Word"],
+            [
+                "Word",
+                "道",
+                "the Word"
+            ],
 
-            ["beginning", "起初", "the start"],
+            [
+                "beginning",
+                "起初",
+                "the start"
+            ],
 
-            ["with", "与……同在", "together with"],
+            [
+                "with",
+                "与……同在",
+                "together with"
+            ],
 
-            ["life", "生命", "life"],
+            [
+                "life",
+                "生命",
+                "life"
+            ],
 
-            ["light", "光", "light"],
+            [
+                "light",
+                "光",
+                "light"
+            ],
 
-            ["darkness", "黑暗", "darkness"],
+            [
+                "darkness",
+                "黑暗",
+                "darkness"
+            ],
 
-            ["overcome", "胜过", "to defeat"]
+            [
+                "overcome",
+                "胜过",
+                "to defeat"
+            ]
 
         ],
 
@@ -341,19 +368,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["witness", "见证人", "a person who gives testimony"],
+            [
+                "witness",
+                "见证人",
+                "a person who gives testimony"
+            ],
 
-            ["testify", "作见证", "to give evidence"],
+            [
+                "testify",
+                "作见证",
+                "to give evidence"
+            ],
 
-            ["true", "真实的", "real or genuine"],
+            [
+                "true",
+                "真实的",
+                "real or genuine"
+            ],
 
-            ["recognize", "认识", "to know or identify"],
+            [
+                "recognize",
+                "认识",
+                "to know or identify"
+            ],
 
-            ["receive", "领受", "to accept"],
+            [
+                "receive",
+                "领受",
+                "to accept"
+            ],
 
-            ["believe", "相信", "to trust"],
+            [
+                "believe",
+                "相信",
+                "to trust"
+            ],
 
-            ["children", "儿女", "children"]
+            [
+                "children",
+                "儿女",
+                "children"
+            ]
 
         ],
 
@@ -376,7 +431,7 @@ const COURSE = [
 
             [
                 "He came to his own.",
-                "come + to 表达来到某处/某群体。"
+                "come + to 表达来到某处或某群体。"
             ],
 
             [
@@ -399,17 +454,17 @@ const COURSE = [
             ],
 
             [
-                "What happened when the light came into the world?",
+                "How did the world respond to the light?",
                 [
-                    "Everyone received him",
                     "The world did not recognize him",
-                    "Everyone became prophets"
+                    "Everyone received him",
+                    "Everyone followed him"
                 ],
-                1
+                0
             ],
 
             [
-                "What can people become?",
+                "What can those who receive him become?",
                 [
                     "God's children",
                     "Angels",
@@ -469,7 +524,7 @@ const COURSE = [
         ],
 
         production:
-            "In simple English, explain John's role and the response of the world to the light."
+            "In simple English, explain John's role and how people respond to the light."
 
     },
 
@@ -528,19 +583,41 @@ const COURSE = [
 
         vocabulary: [
 
-            ["flesh", "肉身", "human bodily existence"],
+            [
+                "flesh",
+                "肉身",
+                "human bodily existence"
+            ],
 
-            ["dwelt", "居住", "lived among"],
+            [
+                "glory",
+                "荣耀",
+                "splendor and honor"
+            ],
 
-            ["glory", "荣耀", "splendor and honor"],
+            [
+                "fullness",
+                "丰盛",
+                "complete abundance"
+            ],
 
-            ["fullness", "丰盛", "complete abundance"],
+            [
+                "grace",
+                "恩典",
+                "undeserved favor"
+            ],
 
-            ["grace", "恩典", "undeserved favor"],
+            [
+                "truth",
+                "真理",
+                "what is true"
+            ],
 
-            ["truth", "真理", "what is true"],
-
-            ["declared", "显明", "made known"]
+            [
+                "declared",
+                "显明",
+                "made known"
+            ]
 
         ],
 
@@ -563,7 +640,7 @@ const COURSE = [
 
             [
                 "Grace and truth came through Jesus Christ.",
-                "came through 表达媒介/途径。"
+                "came through 表达来源或媒介。"
             ]
 
         ],
@@ -729,19 +806,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["testimony", "见证", "testimony"],
+            [
+                "testimony",
+                "见证",
+                "testimony"
+            ],
 
-            ["confess", "承认", "to openly state"],
+            [
+                "confess",
+                "承认",
+                "to openly state"
+            ],
 
-            ["Christ", "基督", "Messiah"],
+            [
+                "Christ",
+                "基督",
+                "Messiah"
+            ],
 
-            ["prophet", "先知", "prophet"],
+            [
+                "prophet",
+                "先知",
+                "prophet"
+            ],
 
-            ["voice", "声音", "voice"],
+            [
+                "voice",
+                "声音",
+                "voice"
+            ],
 
-            ["wilderness", "旷野", "desert region"],
+            [
+                "wilderness",
+                "旷野",
+                "desert region"
+            ],
 
-            ["worthy", "配得", "deserving"]
+            [
+                "worthy",
+                "配得",
+                "deserving"
+            ]
 
         ],
 
@@ -784,19 +889,19 @@ const COURSE = [
             [
                 "What did John call himself?",
                 [
-                    "The king",
                     "The voice",
+                    "The king",
                     "The Messiah"
                 ],
-                1
+                0
             ],
 
             [
-                "Who did John point toward?",
+                "Whose way was John preparing?",
                 [
-                    "The coming Lord",
-                    "Himself",
-                    "Rome"
+                    "The Lord's way",
+                    "Rome's way",
+                    "His own way"
                 ],
                 0
             ]
@@ -906,19 +1011,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["Lamb", "羔羊", "Lamb"],
+            [
+                "Lamb",
+                "羔羊",
+                "Lamb"
+            ],
 
-            ["sin", "罪", "sin"],
+            [
+                "sin",
+                "罪",
+                "sin"
+            ],
 
-            ["take away", "除去", "remove"],
+            [
+                "take away",
+                "除去",
+                "remove"
+            ],
 
-            ["Spirit", "圣灵", "Spirit"],
+            [
+                "Spirit",
+                "圣灵",
+                "Spirit"
+            ],
 
-            ["descend", "降下", "come down"],
+            [
+                "descend",
+                "降下",
+                "come down"
+            ],
 
-            ["remain", "停留", "stay"],
+            [
+                "remain",
+                "停留",
+                "stay"
+            ],
 
-            ["testified", "作见证", "gave testimony"]
+            [
+                "testified",
+                "作见证",
+                "gave testimony"
+            ]
 
         ],
 
@@ -1106,19 +1239,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["disciple", "门徒", "follower"],
+            [
+                "disciple",
+                "门徒",
+                "follower"
+            ],
 
-            ["follow", "跟随", "go after"],
+            [
+                "follow",
+                "跟随",
+                "go after"
+            ],
 
-            ["Rabbi", "拉比", "teacher"],
+            [
+                "Rabbi",
+                "拉比",
+                "teacher"
+            ],
 
-            ["Messiah", "弥赛亚", "Christ"],
+            [
+                "Messiah",
+                "弥赛亚",
+                "Christ"
+            ],
 
-            ["stay", "停留", "remain"],
+            [
+                "stay",
+                "停留",
+                "remain"
+            ],
 
-            ["found", "找到", "discovered"],
+            [
+                "found",
+                "找到",
+                "discovered"
+            ],
 
-            ["bring", "带来", "take someone to another person"]
+            [
+                "bring",
+                "带来",
+                "take someone to another person"
+            ]
 
         ],
 
@@ -1141,7 +1302,7 @@ const COURSE = [
 
             [
                 "We have found the Messiah.",
-                "现在完成时表达刚刚发现并产生当前意义。"
+                "现在完成时表达刚刚发现。"
             ]
 
         ],
@@ -1312,19 +1473,47 @@ const COURSE = [
 
         vocabulary: [
 
-            ["follow", "跟随", "go after"],
+            [
+                "follow",
+                "跟随",
+                "go after"
+            ],
 
-            ["Nazareth", "拿撒勒", "Nazareth"],
+            [
+                "Nazareth",
+                "拿撒勒",
+                "Nazareth"
+            ],
 
-            ["Israelite", "以色列人", "a person of Israel"],
+            [
+                "Israelite",
+                "以色列人",
+                "a person of Israel"
+            ],
 
-            ["deceit", "诡诈", "deception"],
+            [
+                "deceit",
+                "诡诈",
+                "deception"
+            ],
 
-            ["fig tree", "无花果树", "fig tree"],
+            [
+                "fig tree",
+                "无花果树",
+                "fig tree"
+            ],
 
-            ["heaven", "天", "heaven"],
+            [
+                "heaven",
+                "天",
+                "heaven"
+            ],
 
-            ["Son of Man", "人子", "Son of Man"]
+            [
+                "Son of Man",
+                "人子",
+                "Son of Man"
+            ]
 
         ],
 
@@ -1385,11 +1574,11 @@ const COURSE = [
             ],
 
             [
-                "What did Jesus promise Nathanael would see?",
+                "What would Nathanael see?",
                 [
-                    "Greater things and heaven opened",
+                    "Greater things",
                     "The Roman army",
-                    "A new temple"
+                    "A new palace"
                 ],
                 0
             ]
@@ -1453,7 +1642,7 @@ const COURSE = [
 
 
 /* =========================================================
-   STATE
+   GLOBAL STATE
 ========================================================= */
 
 let currentUnitIndex =
@@ -1490,13 +1679,28 @@ let currentDirectAnswers =
     {};
 
 
+/* =========================================================
+   STATE OBJECT
+========================================================= */
+
 let state =
     loadState();
 
 
-/* =========================================================
-   STATE
-========================================================= */
+function defaultState() {
+
+    return {
+
+        currentUnit:
+            0,
+
+        units:
+            {}
+
+    };
+
+}
+
 
 function loadState() {
 
@@ -1508,7 +1712,9 @@ function loadState() {
             );
 
 
-        if (raw) {
+        if (
+            raw
+        ) {
 
             const parsed =
                 JSON.parse(
@@ -1528,24 +1734,19 @@ function loadState() {
 
         }
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         console.warn(
-            "EBRM V0.9 state error:",
+            "EBRM load state error:",
             error
         );
 
     }
 
 
-    return {
-
-        units: {},
-
-        currentUnit:
-            0
-
-    };
+    return defaultState();
 
 }
 
@@ -1564,10 +1765,12 @@ function saveState() {
 
         );
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         console.warn(
-            "EBRM save error:",
+            "EBRM save state error:",
             error
         );
 
@@ -1580,7 +1783,9 @@ function saveState() {
    HELPERS
 ========================================================= */
 
-function $(id) {
+function $(
+    id
+) {
 
     return document.getElementById(
         id
@@ -1589,7 +1794,9 @@ function $(id) {
 }
 
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
 
     return String(
         value ?? ""
@@ -1702,7 +1909,12 @@ function init() {
 
 
     currentUnit =
-        COURSE[currentUnitIndex];
+        COURSE[
+            currentUnitIndex
+        ];
+
+
+    loadCurrentUnitState();
 
 
     bindEvents();
@@ -1725,6 +1937,41 @@ function init() {
 
 
 /* =========================================================
+   LOAD CURRENT UNIT STATE
+========================================================= */
+
+function loadCurrentUnitState() {
+
+    const unitState =
+        getUnitState(
+            currentUnitIndex
+        );
+
+
+    baselineScore =
+        Number(
+            unitState.baseline ||
+            0
+        );
+
+
+    finalScore =
+        Number(
+            unitState.final ||
+            0
+        );
+
+
+    currentFeeling =
+        Number(
+            unitState.feeling ||
+            0
+        );
+
+}
+
+
+/* =========================================================
    EVENT BINDING
 ========================================================= */
 
@@ -1733,6 +1980,16 @@ function bindEvents() {
     bind(
         "startBaselineBtn",
         startTraining
+    );
+
+
+    bind(
+        "reviewHomeBtn",
+        function() {
+
+            go("review");
+
+        }
     );
 
 
@@ -1913,6 +2170,12 @@ function bindEvents() {
 
 
     bind(
+        "nextUnitBtn",
+        goNextUnit
+    );
+
+
+    bind(
         "reviewBackBtn",
         function() {
 
@@ -1939,6 +2202,48 @@ function bindEvents() {
                             ),
                             button
                         );
+
+                    }
+                );
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            "[data-substitute]"
+        )
+        .forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        const sentence =
+                            button.dataset
+                                .substitute;
+
+
+                        speakText(
+                            sentence
+                        );
+
+
+                        const box =
+                            $("substituteAudio");
+
+
+                        if (
+                            box
+                        ) {
+
+                            box.textContent =
+                                "🔊 " +
+                                sentence;
+
+                        }
 
                     }
                 );
@@ -1976,17 +2281,10 @@ function bind(
 
 
 /* =========================================================
-   COURSE HOME
+   HOME / COURSE LIST
 ========================================================= */
 
 function renderCourseHome() {
-
-    /*
-     * 当前 index.html 是 V0.8 的单课首页。
-     *
-     * 如果 V0.9 首页有 chapterGrid，
-     * 自动显示完整 John 1 单元列表。
-     */
 
     const grid =
         $("chapterGrid");
@@ -2005,6 +2303,41 @@ function renderCourseHome() {
 
     updateCourseProgress();
 
+
+    const count =
+        $("completedCount");
+
+
+    if (
+        count
+    ) {
+
+        const completed =
+            getCompletedCount();
+
+
+        count.textContent =
+            completed +
+            " / " +
+            COURSE.length;
+
+    }
+
+
+    const percent =
+        $("coursePercent");
+
+
+    if (
+        percent
+    ) {
+
+        percent.textContent =
+            getCoursePercent() +
+            "%";
+
+    }
+
 }
 
 
@@ -2017,9 +2350,12 @@ function renderChapterGrid(
 
 
     COURSE.forEach(
-        function(unit, index) {
+        function(
+            unit,
+            index
+        ) {
 
-            const item =
+            const unitState =
                 getUnitState(
                     index
                 );
@@ -2040,7 +2376,19 @@ function renderChapterGrid(
 
 
             if (
-                item.completed
+                index ===
+                currentUnitIndex
+            ) {
+
+                button.classList.add(
+                    "current"
+                );
+
+            }
+
+
+            if (
+                unitState.completed
             ) {
 
                 button.classList.add(
@@ -2079,15 +2427,16 @@ function renderChapterGrid(
                     unit.title
                 ) +
 
-                (
+                "</small>" +
 
-                    item.completed
-                        ? " ✓"
+                (
+                    unitState.completed
+
+                        ? "<b>✓ 已完成</b>"
+
                         : ""
 
-                ) +
-
-                "</small>";
+                );
 
 
             button.addEventListener(
@@ -2133,7 +2482,9 @@ function selectUnit(
 
 
     currentUnit =
-        COURSE[index];
+        COURSE[
+            currentUnitIndex
+        ];
 
 
     state.currentUnit =
@@ -2143,92 +2494,125 @@ function selectUnit(
     saveState();
 
 
-    resetCurrentTraining();
+    loadCurrentUnitState();
 
 
-    renderCourseHome();
+    renderUnitPassage();
+
+    renderVocabulary();
+
+    renderStructure();
+
+    renderBaseline();
+
+    renderReviews();
 
 
-    startTraining();
-
-}
-
-
-function resetCurrentTraining() {
-
-    currentVerseIndex =
-        0;
-
-    baselineScore =
-        0;
-
-    finalScore =
-        0;
-
-    currentFeeling =
-        0;
-
-    currentDirectAnswers =
-        {};
+    go(
+        "read"
+    );
 
 }
 
 
-/* =========================================================
-   COURSE PROGRESS
-========================================================= */
+function getCompletedCount() {
+
+    return COURSE.filter(
+        function(
+            unit,
+            index
+        ) {
+
+            return getUnitState(
+                index
+            ).completed;
+
+        }
+    ).length;
+
+}
+
+
+function getCoursePercent() {
+
+    return Math.round(
+
+        (
+            getCompletedCount() /
+            COURSE.length
+        ) *
+        100
+
+    );
+
+}
+
 
 function updateCourseProgress() {
-
-    const total =
-        COURSE.length;
-
-
-    const completed =
-        COURSE.filter(
-            function(unit, index) {
-
-                return getUnitState(
-                    index
-                ).completed;
-
-            }
-        ).length;
-
-
-    const percent =
-        Math.round(
-            (
-                completed /
-                total
-            ) *
-            100
-        );
-
 
     const bar =
         $("progressBar");
 
 
-    const text =
-        $("progressText");
+    const completed =
+        getCompletedCount();
 
 
-    if (bar) {
+    const percent =
+        getCoursePercent();
+
+
+    if (
+        bar
+    ) {
 
         bar.style.width =
-            percent + "%";
+            percent +
+            "%";
 
     }
 
 
-    if (text) {
+    const count =
+        $("completedCount");
 
-        text.textContent =
+
+    if (
+        count
+    ) {
+
+        count.textContent =
             completed +
-            "/" +
-            total +
-            " · " +
+            " / " +
+            COURSE.length;
+
+    }
+
+
+    const coursePercent =
+        $("coursePercent");
+
+
+    if (
+        coursePercent
+    ) {
+
+        coursePercent.textContent =
+            percent +
+            "%";
+
+    }
+
+
+    const progressText =
+        $("progressText");
+
+
+    if (
+        progressText
+    ) {
+
+        progressText.textContent =
             percent +
             "%";
 
@@ -2243,11 +2627,9 @@ function updateCourseProgress() {
 
 function startTraining() {
 
-    resetCurrentTraining();
-
+    loadCurrentUnitState();
 
     renderBaseline();
-
 
     go(
         "baseline"
@@ -2275,16 +2657,33 @@ function renderBaseline() {
     }
 
 
+    const reference =
+        $("baselineReference");
+
+
+    if (
+        reference
+    ) {
+
+        reference.textContent =
+            currentUnit.reference;
+
+    }
+
+
     container.innerHTML =
         "";
 
 
     const questions =
-        buildBaselineQuestions();
+        getBaselineQuestions();
 
 
     questions.forEach(
-        function(item, index) {
+        function(
+            item,
+            index
+        ) {
 
             const block =
                 createQuestionBlock(
@@ -2303,318 +2702,349 @@ function renderBaseline() {
 }
 
 
-function buildBaselineQuestions() {
+function getBaselineQuestions() {
 
-    return [
+    const unitNumber =
+        currentUnit.number;
 
-        {
-
-            question:
-                currentUnit.reference +
-                " — Who is the central figure in this passage?",
-
-            options:
-                getBaselineOptions(
-                    "central"
-                ),
-
-            answer:
-                getBaselineAnswer(
-                    "central"
-                )
-
-        },
-
-        {
-
-            question:
-                "What major idea appears in this passage?",
-
-            options:
-                getBaselineOptions(
-                    "idea"
-                ),
-
-            answer:
-                getBaselineAnswer(
-                    "idea"
-                )
-
-        },
-
-        {
-
-            question:
-                "What is the main movement of the passage?",
-
-            options:
-                getBaselineOptions(
-                    "movement"
-                ),
-
-            answer:
-                getBaselineAnswer(
-                    "movement"
-                )
-
-        }
-
-    ];
-
-}
-
-
-function getBaselineOptions(
-    type
-) {
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         1
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "The Word",
-                "John",
-                "Moses"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "Light and life",
-                "Roman politics",
-                "Temple construction"
-            ];
-
-        }
-
-
         return [
-            "Word → life → light",
-            "Rome → temple → king",
-            "Law → army → nation"
+
+            {
+                question:
+                    "Who is central in this passage?",
+
+                options: [
+                    "The Word",
+                    "John",
+                    "Moses"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What major idea appears?",
+
+                options: [
+                    "Light and life",
+                    "Roman politics",
+                    "Temple building"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What is the movement of the passage?",
+
+                options: [
+                    "Word → life → light",
+                    "Rome → temple → king",
+                    "Law → army → nation"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
 
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         2
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "The light and John",
-                "Moses",
-                "Rome"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "Witness and receiving the light",
-                "War",
-                "Temple construction"
-            ];
-
-        }
-
-
         return [
-            "Witness → light → response",
-            "King → army → battle",
-            "Law → temple → sacrifice"
+
+            {
+                question:
+                    "Who is introduced as a witness?",
+
+                options: [
+                    "John",
+                    "Moses",
+                    "Pilate"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What is the main theme?",
+
+                options: [
+                    "Witness and response to the light",
+                    "Roman politics",
+                    "Temple construction"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What can believers become?",
+
+                options: [
+                    "God's children",
+                    "Kings",
+                    "Angels"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
 
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         3
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "The Word",
-                "John",
-                "Moses"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "The Word becoming flesh",
-                "Political power",
-                "Temple worship"
-            ];
-
-        }
-
-
         return [
-            "Word → flesh → grace and truth",
-            "Law → army → kingdom",
-            "Temple → priest → sacrifice"
+
+            {
+                question:
+                    "What did the Word become?",
+
+                options: [
+                    "Flesh",
+                    "An angel",
+                    "A king"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What filled the Word?",
+
+                options: [
+                    "Grace and truth",
+                    "Money and power",
+                    "Fear and judgment"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "Through whom did grace and truth come?",
+
+                options: [
+                    "Jesus Christ",
+                    "Moses",
+                    "John"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
 
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         4
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "John's witness",
-                "The Roman governor",
-                "Moses"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "John points away from himself",
-                "John becomes king",
-                "Rome controls Israel"
-            ];
-
-        }
-
-
         return [
-            "Question → identity → witness",
-            "War → victory → peace",
-            "Law → temple → sacrifice"
+
+            {
+                question:
+                    "Who is speaking throughout the passage?",
+
+                options: [
+                    "John",
+                    "Pilate",
+                    "Peter"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What is John clarifying?",
+
+                options: [
+                    "His identity and role",
+                    "His wealth",
+                    "His political position"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "Whose way is John preparing?",
+
+                options: [
+                    "The Lord's",
+                    "Rome's",
+                    "His own"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
 
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         5
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "Jesus",
-                "John",
-                "Elijah"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "The Lamb of God",
-                "Roman government",
-                "Temple building"
-            ];
-
-        }
-
-
         return [
-            "Jesus → Spirit → testimony",
-            "Rome → army → war",
-            "Law → temple → priest"
+
+            {
+                question:
+                    "Who is identified as the Lamb of God?",
+
+                options: [
+                    "Jesus",
+                    "John",
+                    "Moses"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What does the Lamb take away?",
+
+                options: [
+                    "The sin of the world",
+                    "The temple",
+                    "The law"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What came upon Jesus?",
+
+                options: [
+                    "The Spirit",
+                    "A crown",
+                    "A book"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
 
 
     if (
-        currentUnit.number ===
+        unitNumber ===
         6
     ) {
 
-        if (
-            type ===
-            "central"
-        ) {
-
-            return [
-                "Jesus and his disciples",
-                "Pilate",
-                "Moses"
-            ];
-
-        }
-
-
-        if (
-            type ===
-            "idea"
-        ) {
-
-            return [
-                "Following and inviting",
-                "Military power",
-                "Temple worship"
-            ];
-
-        }
-
-
         return [
-            "Witness → follow → bring others",
-            "War → victory → peace",
-            "Law → sacrifice → temple"
+
+            {
+                question:
+                    "What did the disciples do?",
+
+                options: [
+                    "They followed Jesus",
+                    "They left immediately",
+                    "They rejected John"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "What invitation did Jesus give?",
+
+                options: [
+                    "Come and see",
+                    "Go away",
+                    "Wait outside"
+                ],
+
+                answer:
+                    0
+
+            },
+
+            {
+                question:
+                    "Who did Andrew bring?",
+
+                options: [
+                    "Simon",
+                    "Moses",
+                    "Pilate"
+                ],
+
+                answer:
+                    0
+
+            }
+
         ];
 
     }
@@ -2622,37 +3052,52 @@ function getBaselineOptions(
 
     return [
 
-        currentUnit.number ===
-        7
+        {
+            question:
+                "Who called Philip?",
 
-            ? "Jesus"
+            options: [
+                "Jesus",
+                "John",
+                "Moses"
+            ],
 
-            : "The Word",
+            answer:
+                0
 
-        "Moses",
+        },
 
-        "Rome"
+        {
+            question:
+                "What did Jesus say?",
+
+            options: [
+                "Follow me",
+                "Go home",
+                "Stay here"
+            ],
+
+            answer:
+                0
+
+        },
+
+        {
+            question:
+                "Who did Philip bring into the story?",
+
+            options: [
+                "Nathanael",
+                "Peter",
+                "Pilate"
+            ],
+
+            answer:
+                0
+
+        }
 
     ];
-
-}
-
-
-function getBaselineAnswer(
-    type
-) {
-
-    if (
-        currentUnit.number ===
-        7
-    ) {
-
-        return 0;
-
-    }
-
-
-    return 0;
 
 }
 
@@ -2688,7 +3133,8 @@ function createQuestionBlock(
 
     title.textContent =
         (
-            index + 1
+            index +
+            1
         ) +
         ". " +
         item.question;
@@ -2700,7 +3146,10 @@ function createQuestionBlock(
 
 
     item.options.forEach(
-        function(option, optionIndex) {
+        function(
+            option,
+            optionIndex
+        ) {
 
             const button =
                 document.createElement(
@@ -2729,9 +3178,7 @@ function createQuestionBlock(
                             ".option"
                         )
                         .forEach(
-                            function(
-                                other
-                            ) {
+                            function(other) {
 
                                 other.classList.remove(
                                     "selected",
@@ -2799,7 +3246,9 @@ function submitBaseline() {
                 );
 
 
-            if (!selected) {
+            if (
+                !selected
+            ) {
 
                 return;
 
@@ -2809,13 +3258,17 @@ function submitBaseline() {
             answered++;
 
 
-            if (
+            const isCorrect =
                 Number(
                     selected.dataset.answer
                 ) ===
                 Number(
                     block.dataset.correct
-                )
+                );
+
+
+            if (
+                isCorrect
             ) {
 
                 correct++;
@@ -2880,7 +3333,9 @@ function submitBaseline() {
         $("baselineResult");
 
 
-    if (result) {
+    if (
+        result
+    ) {
 
         result.classList.remove(
             "hidden"
@@ -2893,19 +3348,21 @@ function submitBaseline() {
 
             "<strong>" +
 
+            currentUnit.reference +
+
+            "</strong>" +
+
+            "<br><br>" +
+
             "第一次理解：" +
 
             baselineScore +
 
-            "%</strong>" +
+            "%" +
 
             "<br><br>" +
 
-            currentUnit.reference +
-
-            "<br>" +
-
-            "现在开始精读。"
+            "现在进入精读。"
 
             + "</div>";
 
@@ -2921,19 +3378,19 @@ function submitBaseline() {
 
             renderStructure();
 
-            renderReviews();
-
-            go("read");
+            go(
+                "read"
+            );
 
         },
-        650
+        500
     );
 
 }
 
 
 /* =========================================================
-   READ
+   PASSAGE
 ========================================================= */
 
 function renderUnitPassage() {
@@ -2977,28 +3434,26 @@ function renderUnitPassage() {
                     index;
 
 
-                const number =
+                const sup =
                     document.createElement(
                         "sup"
                     );
 
 
-                number.textContent =
+                sup.textContent =
                     verse.verse;
 
 
                 span.appendChild(
-                    number
+                    sup
                 );
 
 
                 span.appendChild(
-
                     document.createTextNode(
                         " " +
                         verse.text
                     )
-
                 );
 
 
@@ -3023,9 +3478,7 @@ function renderUnitPassage() {
 
 
     const title =
-        document.querySelector(
-            "#read h2"
-        );
+        $("readTitle");
 
 
     if (
@@ -3038,17 +3491,15 @@ function renderUnitPassage() {
     }
 
 
-    const meta =
-        document.querySelector(
-            ".passage-meta span"
-        );
+    const reference =
+        $("readReference");
 
 
     if (
-        meta
+        reference
     ) {
 
-        meta.textContent =
+        reference.textContent =
             currentUnit.reference;
 
     }
@@ -3057,8 +3508,172 @@ function renderUnitPassage() {
 
 
 /* =========================================================
+   NOTICE
+========================================================= */
+
+function goToNotice() {
+
+    renderNotice();
+
+    go(
+        "notice"
+    );
+
+}
+
+
+function renderNotice() {
+
+    const container =
+        $("noticeQuestions");
+
+
+    if (
+        !container
+    ) {
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    currentUnit
+        .notice
+        .forEach(
+            function(
+                item,
+                index
+            ) {
+
+                const block =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                block.className =
+                    "notice-question";
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                title.className =
+                    "notice-question-title";
+
+
+                title.textContent =
+                    "NOTICE " +
+                    (
+                        index +
+                        1
+                    ) +
+                    " · " +
+                    item[0];
+
+
+                block.appendChild(
+                    title
+                );
+
+
+                item[1]
+                    .forEach(
+                        function(
+                            option,
+                            optionIndex
+                        ) {
+
+                            const button =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            button.type =
+                                "button";
+
+
+                            button.className =
+                                "option";
+
+
+                            button.textContent =
+                                option;
+
+
+                            button.addEventListener(
+                                "click",
+                                function() {
+
+                                    block
+                                        .querySelectorAll(
+                                            ".option"
+                                        )
+                                        .forEach(
+                                            function(
+                                                other
+                                            ) {
+
+                                                other.classList.remove(
+                                                    "selected"
+                                                );
+
+                                            }
+                                        );
+
+
+                                    button.classList.add(
+                                        "selected"
+                                    );
+
+
+                                    button.dataset.answer =
+                                        optionIndex;
+
+                                }
+                            );
+
+
+                            block.appendChild(
+                                button
+                            );
+
+                        }
+                    );
+
+
+                container.appendChild(
+                    block
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
    VOCABULARY
 ========================================================= */
+
+function goToVocabulary() {
+
+    renderVocabulary();
+
+    go(
+        "vocabulary"
+    );
+
+}
+
 
 function renderVocabulary() {
 
@@ -3215,6 +3830,17 @@ function renderVocabulary() {
    STRUCTURE
 ========================================================= */
 
+function goToStructure() {
+
+    renderStructure();
+
+    go(
+        "structure"
+    );
+
+}
+
+
 function renderStructure() {
 
     const container =
@@ -3324,157 +3950,6 @@ function renderStructure() {
 
                 container.appendChild(
                     div
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   NOTICE
-========================================================= */
-
-function goToNotice() {
-
-    renderNotice();
-
-    go("notice");
-
-}
-
-
-function renderNotice() {
-
-    const container =
-        $("noticeQuestions");
-
-
-    if (
-        !container
-    ) {
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        "";
-
-
-    currentUnit
-        .notice
-        .forEach(
-            function(
-                item,
-                index
-            ) {
-
-                const block =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                block.className =
-                    "notice-question";
-
-
-                const title =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                title.className =
-                    "notice-question-title";
-
-
-                title.textContent =
-                    "NOTICE " +
-                    (
-                        index +
-                        1
-                    ) +
-                    " · " +
-                    item[0];
-
-
-                block.appendChild(
-                    title
-                );
-
-
-                item[1]
-                    .forEach(
-                        function(
-                            option,
-                            optionIndex
-                        ) {
-
-                            const button =
-                                document.createElement(
-                                    "button"
-                                );
-
-
-                            button.type =
-                                "button";
-
-
-                            button.className =
-                                "option";
-
-
-                            button.textContent =
-                                option;
-
-
-                            button.addEventListener(
-                                "click",
-                                function() {
-
-                                    block
-                                        .querySelectorAll(
-                                            ".option"
-                                        )
-                                        .forEach(
-                                            function(
-                                                other
-                                            ) {
-
-                                                other.classList.remove(
-                                                    "selected"
-                                                );
-
-                                            }
-                                        );
-
-
-                                    button.classList.add(
-                                        "selected"
-                                    );
-
-
-                                    button.dataset.answer =
-                                        optionIndex;
-
-                                }
-                            );
-
-
-                            block.appendChild(
-                                button
-                            );
-
-                        }
-                    );
-
-
-                container.appendChild(
-                    block
                 );
 
             }
@@ -3617,6 +4092,16 @@ function renderDirect() {
                                     );
 
 
+                                    button.dataset.answer =
+                                        optionIndex;
+
+
+                                    currentDirectAnswers[
+                                        index
+                                    ] =
+                                        optionIndex;
+
+
                                     if (
                                         optionIndex ===
                                         item[2]
@@ -3633,12 +4118,6 @@ function renderDirect() {
                                         );
 
                                     }
-
-
-                                    currentDirectAnswers[
-                                        index
-                                    ] =
-                                        optionIndex;
 
 
                                     updateDirectScore();
@@ -3677,39 +4156,39 @@ function renderDirect() {
                     "click",
                     function() {
 
-                        let answer =
+                        let box =
                             block.querySelector(
                                 ".success"
                             );
 
 
                         if (
-                            answer
+                            box
                         ) {
 
-                            answer.remove();
+                            box.remove();
 
                             return;
 
                         }
 
 
-                        answer =
+                        box =
                             document.createElement(
                                 "div"
                             );
 
 
-                        answer.className =
+                        box.className =
                             "success";
 
 
-                        answer.textContent =
+                        box.textContent =
                             item[3];
 
 
                         block.appendChild(
-                            answer
+                            box
                         );
 
                     }
@@ -3768,7 +4247,8 @@ function updateDirectScore() {
                 if (
                     currentDirectAnswers[
                         index
-                    ] !== undefined
+                    ] !==
+                    undefined
                 ) {
 
                     answered++;
@@ -3992,7 +4472,26 @@ function checkSpeak() {
 
 
     const keywords =
-        getSpeechKeywords();
+        currentUnit
+            .vocabulary
+            .map(
+                function(item) {
+
+                    return item[0]
+                        .toLowerCase();
+
+                }
+            )
+            .filter(
+                function(item) {
+
+                    return (
+                        item.indexOf(" ") ===
+                        -1
+                    );
+
+                }
+            );
 
 
     let hits =
@@ -4023,12 +4522,16 @@ function checkSpeak() {
             .length;
 
 
+    const keywordRatio =
+        keywords.length
+            ? hits /
+              keywords.length
+            : 0;
+
+
     let score =
         Math.round(
-            (
-                hits /
-                keywords.length
-            ) *
+            keywordRatio *
             70
         );
 
@@ -4100,34 +4603,34 @@ function checkSpeak() {
 
                 : score >= 60
 
-                    ? "不错，继续把核心意义说完整。"
+                    ? "不错，继续把核心意义表达完整。"
 
-                    : "先准确表达核心，不必追求复杂。"
+                    : "先准确表达核心内容，不必复杂。"
 
         ) +
 
         "</div>";
 
 
-    const listen =
+    const button =
         document.createElement(
             "button"
         );
 
 
-    listen.type =
+    button.type =
         "button";
 
 
-    listen.textContent =
+    button.textContent =
         "🔊 听我的答案";
 
 
-    listen.style.marginTop =
+    button.style.marginTop =
         "8px";
 
 
-    listen.addEventListener(
+    button.addEventListener(
         "click",
         function() {
 
@@ -4142,49 +4645,8 @@ function checkSpeak() {
     result
         .firstElementChild
         .appendChild(
-            listen
+            button
         );
-
-}
-
-
-function getSpeechKeywords() {
-
-    const words =
-        [];
-
-
-    currentUnit
-        .vocabulary
-        .forEach(
-            function(item) {
-
-                const word =
-                    item[0]
-                        .toLowerCase();
-
-
-                if (
-                    word.indexOf(
-                        " "
-                    ) ===
-                    -1
-                ) {
-
-                    words.push(
-                        word
-                    );
-
-                }
-
-            }
-        );
-
-
-    return words.slice(
-        0,
-        6
-    );
 
 }
 
@@ -4229,7 +4691,7 @@ function listenToMyAnswer() {
 
 
 /* =========================================================
-   REREAD
+   RE-READ
 ========================================================= */
 
 function goToReread() {
@@ -4265,7 +4727,10 @@ function renderRereadPassage() {
     currentUnit
         .verses
         .forEach(
-            function(verse) {
+            function(
+                verse,
+                index
+            ) {
 
                 const div =
                     document.createElement(
@@ -4365,7 +4830,7 @@ function setFeeling(
 
 function goToFinalTest() {
 
-    renderFinal();
+    renderFinalQuestions();
 
     go(
         "finalTest"
@@ -4374,7 +4839,7 @@ function goToFinalTest() {
 }
 
 
-function renderFinal() {
+function renderFinalQuestions() {
 
     const container =
         $("finalQuestions");
@@ -4399,7 +4864,9 @@ function renderFinal() {
             0,
             Math.min(
                 4,
-                currentUnit.direct.length
+                currentUnit
+                    .direct
+                    .length
             )
         )
         .forEach(
@@ -4479,9 +4946,7 @@ function renderFinal() {
                                         ".option"
                                     )
                                     .forEach(
-                                        function(
-                                            other
-                                        ) {
+                                        function(other) {
 
                                             other.classList.remove(
                                                 "selected",
@@ -4557,7 +5022,9 @@ function submitFinalTest() {
                 );
 
 
-            if (!selected) {
+            if (
+                !selected
+            ) {
 
                 return;
 
@@ -4657,12 +5124,35 @@ function submitFinalTest() {
     saveState();
 
 
-    renderReviews();
-
     updateCourseProgress();
 
+    renderReviews();
 
     showResult();
+
+}
+
+
+function addDays(
+    days
+) {
+
+    const date =
+        new Date();
+
+
+    date.setDate(
+        date.getDate() +
+        days
+    );
+
+
+    return date
+        .toISOString()
+        .slice(
+            0,
+            10
+        );
 
 }
 
@@ -4689,24 +5179,51 @@ function showResult() {
     const final =
         Number(
             unitState.final ||
-            finalScore ||
             0
         );
 
 
-    const base =
+    const reference =
+        $("resultReference");
+
+
+    const title =
+        $("resultTitle");
+
+
+    if (
+        reference
+    ) {
+
+        reference.textContent =
+            currentUnit.reference;
+
+    }
+
+
+    if (
+        title
+    ) {
+
+        title.textContent =
+            currentUnit.title;
+
+    }
+
+
+    const baselineElement =
         $("resultBaseline");
 
 
-    const result =
+    const finalElement =
         $("resultFinal");
 
 
     if (
-        base
+        baselineElement
     ) {
 
-        base.textContent =
+        baselineElement.textContent =
             baseline +
             "%";
 
@@ -4714,10 +5231,10 @@ function showResult() {
 
 
     if (
-        result
+        finalElement
     ) {
 
-        result.textContent =
+        finalElement.textContent =
             final +
             "%";
 
@@ -4753,9 +5270,7 @@ function showResult() {
 
                 "<div>" +
 
-                currentUnit.reference +
-
-                " 的英文直接理解有所提升。" +
+                "训练后，对英文经文的直接理解有所提升。" +
 
                 "</div>";
 
@@ -4776,7 +5291,7 @@ function showResult() {
 
                 "<div>" +
 
-                "继续通过间隔复习巩固。" +
+                "继续进行间隔复习。" +
 
                 "</div>";
 
@@ -4794,7 +5309,7 @@ function showResult() {
 
                 "<div>" +
 
-                "重新听读后再次复习。" +
+                "建议重新听读并再次训练。" +
 
                 "</div>";
 
@@ -4805,6 +5320,40 @@ function showResult() {
 
     go(
         "result"
+    );
+
+}
+
+
+/* =========================================================
+   NEXT UNIT
+========================================================= */
+
+function goNextUnit() {
+
+    if (
+        currentUnitIndex >=
+        COURSE.length - 1
+    ) {
+
+        alert(
+            "John 1 全部 7 个训练单元已经完成。"
+        );
+
+        go("home");
+
+        return;
+
+    }
+
+
+    const nextIndex =
+        currentUnitIndex +
+        1;
+
+
+    selectUnit(
+        nextIndex
     );
 
 }
@@ -4831,6 +5380,10 @@ function renderReviews() {
 
     container.innerHTML =
         "";
+
+
+    let count =
+        0;
 
 
     COURSE.forEach(
@@ -4863,6 +5416,9 @@ function renderReviews() {
                         reviewIndex
                     ) {
 
+                        count++;
+
+
                         const row =
                             document.createElement(
                                 "div"
@@ -4887,35 +5443,73 @@ function renderReviews() {
                                     : 7;
 
 
-                        row.innerHTML =
+                        const info =
+                            document.createElement(
+                                "div"
+                            );
 
-                            "<div>" +
 
-                            "<strong>" +
+                        const strong =
+                            document.createElement(
+                                "strong"
+                            );
 
-                            escapeHTML(
-                                unit.reference
-                            ) +
 
-                            "</strong>" +
+                        strong.textContent =
+                            unit.reference;
 
-                            "<div>" +
 
+                        const dayText =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        dayText.textContent =
                             "Day " +
+                            day;
 
-                            day +
 
-                            "</div>" +
+                        info.appendChild(
+                            strong
+                        );
 
-                            "</div>" +
 
-                            "<span>" +
+                        info.appendChild(
+                            dayText
+                        );
 
-                            escapeHTML(
-                                date
-                            ) +
 
-                            "</span>";
+                        const dateElement =
+                            document.createElement(
+                                "span"
+                            );
+
+
+                        dateElement.textContent =
+                            date;
+
+
+                        row.appendChild(
+                            info
+                        );
+
+
+                        row.appendChild(
+                            dateElement
+                        );
+
+
+                        row.addEventListener(
+                            "click",
+                            function() {
+
+                                selectUnit(
+                                    index
+                                );
+
+                            }
+                        );
 
 
                         container.appendChild(
@@ -4930,14 +5524,15 @@ function renderReviews() {
 
 
     if (
-        !container.children.length
+        count ===
+        0
     ) {
 
         container.innerHTML =
 
             "<div class='muted'>" +
 
-            "完成单元后，这里会自动建立 Day 1 / Day 3 / Day 7 复习。" +
+            "完成训练后，这里会自动出现 Day 1 / Day 3 / Day 7。" +
 
             "</div>";
 
@@ -4947,29 +5542,65 @@ function renderReviews() {
 
 
 /* =========================================================
-   DATE
+   NAVIGATION
 ========================================================= */
 
-function addDays(
-    days
+function go(
+    screenId
 ) {
 
-    const date =
-        new Date();
+    document
+        .querySelectorAll(
+            ".screen"
+        )
+        .forEach(
+            function(screen) {
+
+                screen.classList.remove(
+                    "active"
+                );
+
+            }
+        );
 
 
-    date.setDate(
-        date.getDate() +
-        days
+    const target =
+        $(screenId);
+
+
+    if (
+        !target
+    ) {
+
+        return;
+
+    }
+
+
+    target.classList.add(
+        "active"
     );
 
 
-    return date
-        .toISOString()
-        .slice(
+    if (
+        screenId ===
+        "review"
+    ) {
+
+        renderReviews();
+
+    }
+
+
+    window.scrollTo({
+
+        top:
             0,
-            10
-        );
+
+        behavior:
+            "smooth"
+
+    });
 
 }
 
@@ -4993,15 +5624,19 @@ function initSpeech() {
         chooseVoice();
 
 
-    speechSynthesis.onvoiceschanged =
-        function() {
+    window.speechSynthesis
+        .addEventListener(
+            "voiceschanged",
+            function() {
 
-            selectedVoice =
-                chooseVoice();
+                selectedVoice =
+                    chooseVoice();
 
-            renderVoicePanel();
 
-        };
+                renderVoicePanel();
+
+            }
+        );
 
 }
 
@@ -5217,6 +5852,10 @@ function renderVoicePanel() {
         "10px";
 
 
+    select.style.background =
+        "white";
+
+
     const voices =
         speechSynthesis
             .getVoices()
@@ -5274,6 +5913,27 @@ function renderVoicePanel() {
 
         }
     );
+
+
+    if (
+        !voices.length
+    ) {
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.textContent =
+            "No English voice detected";
+
+
+        select.appendChild(
+            option
+        );
+
+    }
 
 
     panel.appendChild(
@@ -5395,6 +6055,17 @@ function speakText(
         element.classList.add(
             "verse-speaking"
         );
+
+
+        element.scrollIntoView({
+
+            behavior:
+                "smooth",
+
+            block:
+                "center"
+
+        });
 
     }
 
@@ -5574,7 +6245,8 @@ function speakVerse(
             ) {
 
                 const next =
-                    index + 1;
+                    index +
+                    1;
 
 
                 if (
@@ -5588,7 +6260,9 @@ function speakVerse(
                         next
                     );
 
-                } else {
+                }
+
+                else {
 
                     continuousReading =
                         false;
@@ -5680,7 +6354,8 @@ function playPreviousVerse() {
     currentVerseIndex =
         Math.max(
             0,
-            currentVerseIndex - 1
+            currentVerseIndex -
+            1
         );
 
 
@@ -5706,9 +6381,11 @@ function playNextVerse() {
 
             currentUnit
                 .verses
-                .length - 1,
+                .length -
+                1,
 
-            currentVerseIndex + 1
+            currentVerseIndex +
+                1
 
         );
 
@@ -5816,7 +6493,7 @@ function updateSpeechStatus(
 
 
 /* =========================================================
-   GLOBAL COMPATIBILITY
+   PUBLIC COMPATIBILITY
 ========================================================= */
 
 window.go =
@@ -5893,5 +6570,5 @@ window.setFeeling =
 
 
 /* =========================================================
-   END
+   END EBRM V0.9 FINAL APP.JS
 ========================================================= */
