@@ -14,15 +14,27 @@ jobs:
       - name: Build local NT Bible data
         run: |
           mkdir -p data
-          curl -fsSL https://bible.helloao.org/api/engwebp/complete.simple.json -o /tmp/web.json
           python - <<'PY'
-          import json
+          import json, urllib.request
           from pathlib import Path
-          src=json.loads(Path('/tmp/web.json').read_text())
-          ids={'MAT','MRK','LUK','JHN','ACT','ROM','1CO','2CO','GAL','EPH','PHP','COL','1TH','2TH','1TI','2TI','TIT','PHM','HEB','JAS','1PE','2PE','1JN','2JN','3JN','JUD','REV'}
-          out={'translation':src.get('translation',{}),'books':[b for b in src.get('books',[]) if b.get('id') in ids]}
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          books=[('MAT',28),('MRK',16),('LUK',24),('JHN',21),('ACT',28),('ROM',16),('1CO',16),('2CO',13),('GAL',6),('EPH',6),('PHP',4),('COL',4),('1TH',5),('2TH',3),('1TI',6),('2TI',4),('TIT',3),('PHM',1),('HEB',13),('JAS',5),('1PE',5),('2PE',3),('1JN',5),('2JN',1),('3JN',1),('JUD',1),('REV',22)]
+          def get(item):
+              bid,ch=item
+              u=f'https://bible.helloao.org/api/engwebp/{bid}/{ch}.simple.json'
+              with urllib.request.urlopen(u,timeout=30) as r: return bid,ch,json.load(r)
+          result={bid:{'id':bid,'chapters':[]} for bid,_ in books}
+          with ThreadPoolExecutor(max_workers=12) as ex:
+              fs=[ex.submit(get,(bid,ch)) for bid,n in books for ch in range(1,n+1)]
+              for f in as_completed(fs):
+                  bid,ch,data=f.result(); result[bid]['chapters'].append({'number':ch,'chapter':data['chapter']})
+          for v in result.values(): v['chapters'].sort(key=lambda x:x['number'])
+          names=[('MAT','Matthew','马太福音'),('MRK','Mark','马可福音'),('LUK','Luke','路加福音'),('JHN','John','约翰福音'),('ACT','Acts','使徒行传'),('ROM','Romans','罗马书'),('1CO','1 Corinthians','哥林多前书'),('2CO','2 Corinthians','哥林多后书'),('GAL','Galatians','加拉太书'),('EPH','Ephesians','以弗所书'),('PHP','Philippians','腓立比书'),('COL','Colossians','歌罗西书'),('1TH','1 Thessalonians','帖撒罗尼迦前书'),('2TH','2 Thessalonians','帖撒罗尼迦后书'),('1TI','1 Timothy','提摩太前书'),('2TI','2 Timothy','提摩太后书'),('TIT','Titus','提多书'),('PHM','Philemon','腓利门书'),('HEB','Hebrews','希伯来书'),('JAS','James','雅各书'),('1PE','1 Peter','彼得前书'),('2PE','2 Peter','彼得后书'),('1JN','1 John','约翰一书'),('2JN','2 John','约翰二书'),('3JN','3 John','约翰三书'),('JUD','Jude','犹大书'),('REV','Revelation','启示录')]
+          out={'translation':{'id':'engwebp','name':'World English Bible'},'books':[]}
+          for bid,en,zh in names:
+              x=result[bid]; x.update({'commonName':en,'name':en,'title':en,'numberOfChapters':len(x['chapters'])}); out['books'].append(x)
           Path('data/nt-engwebp.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')))
-          print('books',len(out['books']))
+          print('books',len(out['books']),'chapters',sum(len(b['chapters']) for b in out['books']))
           PY
       - name: Repair app and service worker
         run: |
@@ -30,7 +42,8 @@ jobs:
           from pathlib import Path
           import re
           p=Path('index.html'); s=p.read_text()
-          s=s.replace("const API='https://bible.helloao.org/api/engwebp';", "const API='https://bible.helloao.org/api/engwebp'; const LOCAL_BIBLE='./data/nt-engwebp.json'; let LOCAL_BIBLE_DATA=null;")
+          if "const LOCAL_BIBLE='./data/nt-engwebp.json';" not in s:
+              s=s.replace("const API='https://bible.helloao.org/api/engwebp';", "const API='https://bible.helloao.org/api/engwebp'; const LOCAL_BIBLE='./data/nt-engwebp.json'; let LOCAL_BIBLE_DATA=null;")
           pat=r"async function loadChapter\(\)\{[\s\S]*?\n\}\nfunction renderVerses\(\)\{"
           new='''async function loadChapter(){\n const b=book(); $('chapterTitle').textContent=`${b[1]} ${state.chapter}`; $('sourceMeta').textContent='World English Bible · 本地优先'; $('verseArea').innerHTML='<div class="loader">正在载入英文经文…</div>';\n try{\n  if(!LOCAL_BIBLE_DATA){const r=await fetch(LOCAL_BIBLE,{cache:'no-store'}); if(!r.ok) throw new Error('local'); LOCAL_BIBLE_DATA=await r.json();}\n  const lb=LOCAL_BIBLE_DATA.books?.find(x=>x.id===b[0]); const c=lb?.chapters?.find(x=>Number(x.number??x.chapter?.number)===state.chapter); const ch=c?.chapter||c; if(!ch?.content?.length) throw new Error('chapter'); state.data={chapter:ch};\n }catch(e){\n  try{const r=await fetch(`${API}/${b[0]}/${state.chapter}.simple.json`,{cache:'no-store'}); if(!r.ok) throw new Error('api'); state.data=await r.json(); $('sourceMeta').textContent='World English Bible · 在线 API';}\n  catch(e2){$('verseArea').innerHTML='<div class="card"><b>经文暂时无法显示</b><p style="margin-top:6px">网络不可用时请刷新页面，系统会优先读取本地经文数据。</p><button class="btn primary" style="margin-top:9px" onclick="loadChapter()">重新加载</button></div>'; return;}\n }\n renderVerses(); renderTraining(); fillChapters(); if(typeof navState==='function') navState();\n}\nfunction renderVerses(){'''
           s,n=re.subn(pat,new,s,1)
