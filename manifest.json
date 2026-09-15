@@ -1,0 +1,10 @@
+{
+  "name":"EBRM V1.0｜新约完整圣经英语学习系统",
+  "short_name":"EBRM",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f5f1e7",
+  "theme_color":"#f5f1e7",
+  "description":"以圣经为中心的新约英语读经、十步训练、复习与学习数据系统",
+  "lang":"zh-CN"
+}
