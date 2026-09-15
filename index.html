@@ -4,32 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f1e7">
-<meta name="description" content="EBRM V1.0｜English Bible Reading Model｜以圣经为中心的英语读经学习系统">
-<title>EBRM V1.0｜English Bible Reading Model</title>
+<meta name="description" content="EBRM V1.0｜新约完整版本｜English Bible Reading Model">
+<title>EBRM V1.0｜新约完整版本</title>
 <style>
 :root{--bg:#f5f1e7;--paper:#fffdf8;--ink:#2e2a25;--muted:#746d63;--line:#e4ddd1;--accent:#6b5b45;--soft:#eee7da;--good:#526b55;--shadow:0 12px 34px rgba(61,51,38,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}.top{position:sticky;top:0;z-index:20;background:rgba(245,241,231,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:13px}.mark{width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;letter-spacing:-.04em}.brand strong{display:block;font-size:17px}.brand span{display:block;color:var(--muted);font-size:12px}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--ink)}.hero{padding:62px 0 34px}.hero-grid{display:grid;grid-template-columns:1.45fr .8fr;gap:28px;align-items:stretch}.hero-card,.panel,.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}.hero-card{padding:40px}.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{margin:10px 0 12px;font-size:clamp(34px,5vw,58px);line-height:1.12;letter-spacing:-.045em}.hero p{margin:0;max-width:690px;color:var(--muted);font-size:17px}.hero-side{padding:28px;display:flex;flex-direction:column;justify-content:space-between}.hero-side .quote{font-family:Georgia,serif;font-size:24px;line-height:1.45}.mini{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:999px;background:var(--soft);font-size:12px;color:var(--muted)}.section{padding:18px 0 28px}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:15px}.section h2{font-size:24px;margin:0;letter-spacing:-.03em}.section-sub{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:22px}.card h3{margin:5px 0 6px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}.action{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:40px;padding:0 15px;border-radius:11px;background:var(--ink);color:#fff;font-size:13px;font-weight:700}.action.secondary{background:var(--soft);color:var(--ink)}.course{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.course .badge{padding:6px 10px;border-radius:999px;background:#e8efe8;color:var(--good);font-size:11px;font-weight:700}.course .line{height:8px;background:var(--soft);border-radius:999px;overflow:hidden;margin-top:14px}.course .line i{display:block;height:100%;width:0;background:var(--good);border-radius:inherit}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.step{padding:12px 10px;border:1px solid var(--line);border-radius:13px;background:#fffaf1;text-align:center}.step b{display:block;font-size:12px}.step span{font-size:10px;color:var(--muted)}.library-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:11px 13px;color:var(--ink);font:inherit}.select{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:11px 13px;color:var(--ink);font:inherit}.books{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.book{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 8px}.book strong{display:block;font-size:13px}.book span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.book small{display:block;margin-top:7px;color:var(--accent);font-size:10px}.footer{padding:34px 0 44px;color:var(--muted);font-size:12px}.footerline{border-top:1px solid var(--line);padding-top:17px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.books{grid-template-columns:repeat(4,1fr)}.navlinks{display:none}.steps{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.wrap{padding:0 15px}.hero{padding-top:34px}.hero-card{padding:26px}.grid{grid-template-columns:1fr}.books{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.6}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.wrap{max-width:1260px;margin:0 auto;padding:0 20px}
+.top{position:sticky;top:0;z-index:40;background:rgba(245,241,231,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:900}.brand strong{display:block;font-size:16px}.brand span{display:block;color:var(--muted);font-size:11px}
+.navlinks{display:flex;gap:16px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--ink)}
+.hero{padding:42px 0 22px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}
+.card,.panel,.hero-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero-card{padding:30px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:900}
+h1{font-size:clamp(30px,4vw,48px);line-height:1.12;letter-spacing:-.04em;margin:9px 0 12px}h2{margin:0;font-size:21px;letter-spacing:-.03em}h3{margin:0 0 5px;font-size:16px}p{margin:0;color:var(--muted)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{padding:6px 10px;border-radius:999px;background:var(--soft);color:var(--muted);font-size:11px}
+.statbox{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:18px}.stat{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fffaf1}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:280px 1fr;gap:16px;padding:16px 0 30px}
+.panel{padding:18px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.book-search,.chapter-select,.global-search{width:100%;border:1px solid var(--line);border-radius:11px;background:var(--paper);padding:10px 11px;color:var(--ink);outline:none}
+.book-list{display:flex;flex-direction:column;gap:6px;max-height:650px;overflow:auto;margin-top:10px;padding-right:3px}
+.book-btn{width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:11px;padding:9px 10px;display:flex;justify-content:space-between;gap:8px;color:var(--ink)}
+.book-btn small{color:var(--muted)}.book-btn:hover{background:#fffaf1;border-color:var(--line)}.book-btn.active{background:var(--soft);border-color:var(--line);font-weight:800}
+.reader-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.reader-controls{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 12px;border-radius:10px;font-weight:700;font-size:12px}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.good{background:#e8efe8;color:var(--good);border-color:#d7e2d7}.btn:disabled{opacity:.45;cursor:not-allowed}
+.reader-title{padding:18px 0 10px;border-bottom:1px solid var(--line);margin-bottom:14px}.reader-title h2{font-size:28px}.reader-title p{font-size:12px}
+.verses{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.82;padding:4px 6px 14px}
+.verse{padding:5px 7px;border-radius:8px;cursor:pointer}.verse:hover{background:#fffaf1}.verse.selected{background:#ece5d8}.num{font-family:Inter,"Microsoft YaHei",sans-serif;font-size:11px;vertical-align:super;color:var(--accent);font-weight:800;margin-right:5px}
+.loading{padding:35px 0;text-align:center;color:var(--muted)}.error{padding:16px;border-radius:12px;background:#f4e9df;color:#6f4f36;font-size:13px}
+.train{margin-top:16px}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.step{border:1px solid var(--line);border-radius:12px;background:#fffaf1;padding:10px 8px;text-align:center}.step b{display:block;font-size:11px}.step span{font-size:9px;color:var(--muted)}
+.plan{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fffaf1}
+.progress{height:8px;background:var(--soft);border-radius:999px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:var(--good);width:0;border-radius:inherit}
+.library{padding:0 0 40px}.library-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.lib-card{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:13px}.lib-card strong{display:block}.lib-card span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.lib-card a{display:inline-flex;margin-top:9px;color:var(--accent);font-size:11px;font-weight:800}
+.search-results{margin-top:12px;display:flex;flex-direction:column;gap:7px;max-height:360px;overflow:auto}.result{padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fffaf1;cursor:pointer}.result b{font-size:11px;color:var(--accent)}.result p{font-size:12px;color:var(--ink);margin-top:4px}
+.note{font-size:11px;color:var(--muted);margin-top:12px}
+.footer{padding:18px 0 42px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:12px}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.book-list{max-height:280px;display:grid;grid-template-columns:repeat(3,1fr)}.library-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.navlinks{display:none}.wrap{padding:0 14px}.steps{grid-template-columns:repeat(2,1fr)}.library-grid{grid-template-columns:repeat(2,1fr)}.book-list{grid-template-columns:repeat(2,1fr)}.verses{font-size:18px;line-height:1.72}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand" href="./"><div class="mark">EB</div><div><strong>EBRM V1.0</strong><span>English Bible Reading Model</span></div></a><nav class="navlinks"><a href="#courses">课程</a><a href="#plans">计划</a><a href="#library">圣经书库</a><a href="#model">训练模型</a></nav></div></header>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="./"><div class="mark">EB</div><div><strong>EBRM V1.0</strong><span>English Bible Reading Model · New Testament</span></div></a>
+<nav class="navlinks"><a href="#reader">读经</a><a href="#training">训练</a><a href="#library">书库</a><a href="#plans">计划</a><a href="./john1.html">John 1 原型</a></nav>
+</div></header>
+
 <main>
-<section class="hero"><div class="wrap hero-grid"><div class="hero-card"><div class="eyebrow">SCRIPTURE-CENTERED ENGLISH LEARNING</div><h1>从英文读经，进入经文意义。</h1><p>EBRM 不是普通英语学习工具，而是一套以圣经经文为核心，把阅读、听读、观察、词汇、结构、理解、表达与复习连接起来的圣经英语学习系统。</p><div class="mini" style="margin-top:22px"><span class="pill">圣经为中心</span><span class="pill">经文驱动</span><span class="pill">训练闭环</span><span class="pill">持续复习</span></div><a class="action" href="#courses">开始学习</a></div><div class="hero-side hero-card"><div><div class="eyebrow">CURRENT COURSE</div><div class="quote">John 1<br><span style="font-family:inherit;font-size:13px;color:var(--muted)">约翰福音第一章｜完整课程原型</span></div></div><div><div class="section-sub">V1.0 将成熟的 John 1 引擎纳入统一系统外壳，未来可继续扩展更多经卷与课程。</div><a class="action secondary" href="./john1.html">进入 John 1</a></div></div></div></section>
-<section class="section" id="courses"><div class="wrap"><div class="section-head"><div><h2>课程中心</h2><div class="section-sub">保留成熟的 John 1 引擎，并以课程模块继续扩展。</div></div></div><div class="card course"><div><span class="badge">AVAILABLE</span><h3>John 1｜约翰福音第一章</h3><p>7 个学习单元，覆盖 Baseline → Read → Notice → Vocabulary → Structure → Understand → Speak → Re-read → Review。</p><div class="line"><i id="courseProgress"></i></div></div><a class="action" href="./john1.html">继续课程 →</a></div></div></section>
-<section class="section" id="plans"><div class="wrap"><div class="section-head"><div><h2>阅读计划</h2><div class="section-sub">先建立系统入口，后续接入年度经读与自定义计划。</div></div></div><div class="grid"><div class="card"><div class="eyebrow">GOSPEL</div><h3>福音书阅读</h3><p>以马太、马可、路加、约翰为主线，逐步建立英文福音书阅读习惯。</p><a class="action secondary" href="#library">查看书库</a></div><div class="card"><div class="eyebrow">NEW TESTAMENT</div><h3>新约阅读</h3><p>从福音书进入使徒行传、书信与启示录，未来可配置周期与复习节奏。</p><a class="action secondary" href="#library">浏览新约</a></div><div class="card"><div class="eyebrow">WHOLE BIBLE</div><h3>全本圣经</h3><p>为长期读经准备统一入口，后续接入年度计划、每日经文与训练任务。</p><a class="action secondary" href="#library">浏览全书</a></div></div></div></section>
-<section class="section" id="model"><div class="wrap"><div class="section-head"><div><h2>训练模型</h2><div class="section-sub">每次训练不是孤立的单项练习，而是从经文输入走向理解、表达与复习。</div></div></div><div class="card"><div class="steps"><div class="step"><b>01 Baseline</b><span>基线</span></div><div class="step"><b>02 Read</b><span>阅读</span></div><div class="step"><b>03 Listen</b><span>听读</span></div><div class="step"><b>04 Notice</b><span>观察</span></div><div class="step"><b>05 Vocabulary</b><span>词汇</span></div><div class="step"><b>06 Structure</b><span>结构</span></div><div class="step"><b>07 Understand</b><span>直读理解</span></div><div class="step"><b>08 Speak</b><span>表达</span></div><div class="step"><b>09 Re-read</b><span>重读</span></div><div class="step"><b>10 Review</b><span>复习</span></div></div></div></div></section>
-<section class="section" id="library"><div class="wrap"><div class="section-head"><div><h2>Bible Library｜圣经书库</h2><div class="section-sub">66 卷书目与章节结构入口。完整经文内容按课程建设逐步接入。</div></div></div><div class="library-controls"><input class="search" id="bookSearch" placeholder="搜索书名，例如 John / 约翰…"><select class="select" id="bookGroup"><option value="all">全部</option><option value="OT">旧约</option><option value="NT">新约</option></select></div><div class="books" id="books"></div></div></section>
-<section class="section"><div class="wrap"><div class="grid"><div class="card"><div class="eyebrow">PROGRESS</div><h3>学习进度</h3><p>系统外壳已准备好统一承载课程进度、复习日期与学习记录。</p></div><div class="card"><div class="eyebrow">REVIEW</div><h3>复习中心</h3><p>未来集中处理需要复习的经文、词汇、结构与表达任务。</p></div><div class="card"><div class="eyebrow">SETTINGS</div><h3>学习设置</h3><p>未来接入语音、学习偏好、计划周期与本地数据管理。</p></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid">
+<div class="hero-card">
+<div class="eyebrow">NEW TESTAMENT EDITION · 27 BOOKS · 260 CHAPTERS</div>
+<h1>从英文读新约，进入经文意义。</h1>
+<p>EBRM V1.0 新约完整版本，把新约 27 卷、260 章纳入统一的圣经英语学习环境。先读经文，再观察语言；先进入经文，再进入表达。</p>
+<div class="pills"><span class="pill">Scripture-centered</span><span class="pill">Read · Listen · Notice</span><span class="pill">Vocabulary · Structure</span><span class="pill">Speak · Review</span></div>
+<div class="statbox"><div class="stat"><b>27</b><span>新约书卷</span></div><div class="stat"><b>260</b><span>章节入口</span></div><div class="stat"><b id="statRead">0</b><span>已完成章节</span></div><div class="stat"><b id="statProgress">0%</b><span>新约阅读进度</span></div></div>
+</div>
+<div class="hero-card">
+<div class="eyebrow">CURRENT TRANSLATION</div>
+<h2 style="margin-top:8px">World English Bible</h2>
+<p style="font-size:13px;margin-top:6px">现代英语、公版文本，适合作为 EBRM 的英文读经底本。</p>
+<div class="plan"><div><b>今日建议</b><div id="todayPlan" style="font-size:12px;color:var(--muted);margin-top:3px">加载中…</div></div><button class="btn primary" id="todayBtn">进入</button></div>
+<div class="note">本版本 Scripture 文本由公开数据源按书卷按需载入；网页不把 27 卷经文预打包在首页，因此加载更快。</div>
+</div>
+</div></section>
+
+<section class="layout wrap" id="reader">
+<aside class="panel">
+<div class="panel-head"><h3>新约书库</h3><span id="bookCount" class="pill">27 卷</span></div>
+<input class="book-search" id="bookSearch" placeholder="搜索书卷，例如 John / 约翰">
+<div class="book-list" id="bookList"></div>
+</aside>
+
+<section class="panel">
+<div class="reader-top">
+<div><div class="eyebrow">BIBLE READER</div><h2 id="readerHeading" style="margin-top:4px">Matthew · 马太福音</h2></div>
+<div class="reader-controls">
+<select class="chapter-select" id="chapterSelect"></select>
+<button class="btn" id="prevBtn">← 上一章</button>
+<button class="btn" id="nextBtn">下一章 →</button>
+<button class="btn good" id="speakBtn">🔊 听读</button>
+<button class="btn" id="fontBtn">A+ 字体</button>
+</div>
+</div>
+
+<div class="reader-title"><h2 id="chapterTitle">Matthew 1</h2><p id="sourceLine">World English Bible · Public Domain</p></div>
+<div id="verseArea" class="verses"><div class="loading">正在载入经文…</div></div>
+
+<div class="train" id="training">
+<div class="panel-head"><div><h3>EBRM 训练模型</h3><p style="font-size:11px">同一段经文进入完整语言训练闭环。</p></div><button class="btn primary" id="openJohn1">查看 John 1 完整课程</button></div>
+<div class="steps">
+<div class="step"><b>01 Baseline</b><span>已有水平</span></div><div class="step"><b>02 Read</b><span>阅读经文</span></div><div class="step"><b>03 Listen</b><span>听读</span></div><div class="step"><b>04 Notice</b><span>观察</span></div><div class="step"><b>05 Vocabulary</b><span>词汇</span></div>
+<div class="step"><b>06 Structure</b><span>结构</span></div><div class="step"><b>07 Understand</b><span>直接理解</span></div><div class="step"><b>08 Speak</b><span>口语表达</span></div><div class="step"><b>09 Re-read</b><span>再次阅读</span></div><div class="step"><b>10 Review</b><span>复习巩固</span></div>
+</div>
+<div class="plan"><div><b>本章学习状态</b><div id="chapterState" style="font-size:12px;color:var(--muted);margin-top:3px">未完成</div><div class="progress"><i id="chapterProgress"></i></div></div><button class="btn good" id="markBtn">✓ 标记本章完成</button></div>
+</div>
+</section>
+</section>
+
+<section class="wrap" id="plans">
+<div class="hero-card">
+<div class="section-head" style="display:flex;justify-content:space-between;gap:15px;align-items:end;flex-wrap:wrap">
+<div><div class="eyebrow">READING PLANS</div><h2 style="margin-top:6px">新约阅读计划</h2><p style="font-size:12px">按章进入，不把“完成阅读”误当作“完成门训”；计划只是进入经文的节奏。</p></div>
+<div style="display:flex;gap:8px;align-items:center"><span class="pill">90 天</span><span class="pill">按章节</span><span class="pill">可持续</span></div>
+</div>
+<div class="plan"><div><b>90 天新约</b><div id="planText" style="font-size:12px;color:var(--muted);margin-top:3px">每天约 3 章，系统按已完成章节自动计算。</div><div class="progress"><i id="planProgress"></i></div></div><button class="btn primary" id="planBtn">继续计划</button></div>
+</div>
+</section>
+
+<section class="library wrap" id="library">
+<div class="section-head" style="display:flex;justify-content:space-between;gap:15px;align-items:end;flex-wrap:wrap;margin-top:18px">
+<div><div class="eyebrow">NEW TESTAMENT LIBRARY</div><h2 style="margin-top:6px">27 卷书目</h2><p style="font-size:12px">每卷均可直接进入章节阅读。</p></div>
+<input class="global-search" id="globalSearch" style="max-width:360px" placeholder="在当前书卷中搜索英文词语">
+</div>
+<div id="searchResults" class="search-results"></div>
+<div class="library-grid" id="libraryGrid"></div>
+</section>
 </main>
-<footer class="footer"><div class="wrap"><div class="footerline"><span>EBRM V1.0｜English Bible Reading Model</span><span>Scripture-centered English learning</span></div></div></footer>
+
+<footer class="footer"><div class="wrap">
+<div><b>EBRM V1.0 · New Testament Edition</b></div>
+<div style="margin-top:6px">Scripture text: World English Bible (WEB), public domain. The translation is a trademark of eBible.org; faithful copies may be freely copied and redistributed.</div>
+<div style="margin-top:6px">EBRM 学习系统本身：以圣经为规范、以语言训练为路径、以持续复习为节奏。John 1 保留原有完整课程引擎。</div>
+</div></footer>
+
 <script>
-const books=[
-['创世记','Genesis',50,'OT'],['出埃及记','Exodus',40,'OT'],['利未记','Leviticus',27,'OT'],['民数记','Numbers',36,'OT'],['申命记','Deuteronomy',34,'OT'],['约书亚记','Joshua',24,'OT'],['士师记','Judges',21,'OT'],['路得记','Ruth',4,'OT'],['撒母耳记上','1 Samuel',31,'OT'],['撒母耳记下','2 Samuel',24,'OT'],['列王纪上','1 Kings',22,'OT'],['列王纪下','2 Kings',25,'OT'],['历代志上','1 Chronicles',29,'OT'],['历代志下','2 Chronicles',36,'OT'],['以斯拉记','Ezra',10,'OT'],['尼希米记','Nehemiah',13,'OT'],['以斯帖记','Esther',10,'OT'],['约伯记','Job',42,'OT'],['诗篇','Psalms',150,'OT'],['箴言','Proverbs',31,'OT'],['传道书','Ecclesiastes',12,'OT'],['雅歌','Song of Solomon',8,'OT'],['以赛亚书','Isaiah',66,'OT'],['耶利米书','Jeremiah',52,'OT'],['耶利米哀歌','Lamentations',5,'OT'],['以西结书','Ezekiel',48,'OT'],['但以理书','Daniel',12,'OT'],['何西阿书','Hosea',14,'OT'],['约珥书','Joel',3,'OT'],['阿摩司书','Amos',9,'OT'],['俄巴底亚书','Obadiah',1,'OT'],['约拿书','Jonah',4,'OT'],['弥迦书','Micah',7,'OT'],['那鸿书','Nahum',3,'OT'],['哈巴谷书','Habakkuk',3,'OT'],['西番雅书','Zephaniah',3,'OT'],['哈该书','Haggai',2,'OT'],['撒迦利亚书','Zechariah',14,'OT'],['玛拉基书','Malachi',4,'OT'],
-['马太福音','Matthew',28,'NT'],['马可福音','Mark',16,'NT'],['路加福音','Luke',24,'NT'],['约翰福音','John',21,'NT'],['使徒行传','Acts',28,'NT'],['罗马书','Romans',16,'NT'],['哥林多前书','1 Corinthians',16,'NT'],['哥林多后书','2 Corinthians',13,'NT'],['加拉太书','Galatians',6,'NT'],['以弗所书','Ephesians',6,'NT'],['腓立比书','Philippians',4,'NT'],['歌罗西书','Colossians',4,'NT'],['帖撒罗尼迦前书','1 Thessalonians',5,'NT'],['帖撒罗尼迦后书','2 Thessalonians',3,'NT'],['提摩太前书','1 Timothy',6,'NT'],['提摩太后书','2 Timothy',4,'NT'],['提多书','Titus',3,'NT'],['腓利门书','Philemon',1,'NT'],['希伯来书','Hebrews',13,'NT'],['雅各书','James',5,'NT'],['彼得前书','1 Peter',5,'NT'],['彼得后书','2 Peter',3,'NT'],['约翰一书','1 John',5,'NT'],['约翰二书','2 John',1,'NT'],['约翰三书','3 John',1,'NT'],['犹大书','Jude',1,'NT'],['启示录','Revelation',22,'NT']
-];
-function renderBooks(){const q=document.querySelector('#bookSearch').value.trim().toLowerCase();const g=document.querySelector('#bookGroup').value;const box=document.querySelector('#books');box.innerHTML=books.filter(([c,e,n,t])=>(g==='all'||t===g)&&(!q||c.toLowerCase().includes(q)||e.toLowerCase().includes(q))).map(([c,e,n,t])=>`<div class="book"><strong>${c}</strong><span>${e}</span><small>${t==='NT'?'新约':'旧约'} · ${n}章${e==='John'?' · John 1 课程可用':''}</small></div>`).join('')||'<div style="grid-column:1/-1;color:var(--muted);padding:20px">未找到匹配书卷。</div>'}
-document.querySelector('#bookSearch').addEventListener('input',renderBooks);document.querySelector('#bookGroup').addEventListener('change',renderBooks);renderBooks();
-try{const saved=Number(localStorage.getItem('EBRM_JOHN1_PROGRESS')||0);if(saved>0&&saved<=100)document.querySelector('#courseProgress').style.width=saved+'%';}catch(e){}
+const BOOKS = [{"name":"Matthew","zh":"马太福音","chapters":28,"slug":"Matthew"},{"name":"Mark","zh":"马可福音","chapters":16,"slug":"Mark"},{"name":"Luke","zh":"路加福音","chapters":24,"slug":"Luke"},{"name":"John","zh":"约翰福音","chapters":21,"slug":"John"},{"name":"Acts","zh":"使徒行传","chapters":28,"slug":"Acts"},{"name":"Romans","zh":"罗马书","chapters":16,"slug":"Romans"},{"name":"1 Corinthians","zh":"哥林多前书","chapters":16,"slug":"1Corinthians"},{"name":"2 Corinthians","zh":"哥林多后书","chapters":13,"slug":"2Corinthians"},{"name":"Galatians","zh":"加拉太书","chapters":6,"slug":"Galatians"},{"name":"Ephesians","zh":"以弗所书","chapters":6,"slug":"Ephesians"},{"name":"Philippians","zh":"腓立比书","chapters":4,"slug":"Philippians"},{"name":"Colossians","zh":"歌罗西书","chapters":4,"slug":"Colossians"},{"name":"1 Thessalonians","zh":"帖撒罗尼迦前书","chapters":5,"slug":"1Thessalonians"},{"name":"2 Thessalonians","zh":"帖撒罗尼迦后书","chapters":3,"slug":"2Thessalonians"},{"name":"1 Timothy","zh":"提摩太前书","chapters":6,"slug":"1Timothy"},{"name":"2 Timothy","zh":"提摩太后书","chapters":4,"slug":"2Timothy"},{"name":"Titus","zh":"提多书","chapters":3,"slug":"Titus"},{"name":"Philemon","zh":"腓利门书","chapters":1,"slug":"Philemon"},{"name":"Hebrews","zh":"希伯来书","chapters":13,"slug":"Hebrews"},{"name":"James","zh":"雅各书","chapters":5,"slug":"James"},{"name":"1 Peter","zh":"彼得前书","chapters":5,"slug":"1Peter"},{"name":"2 Peter","zh":"彼得后书","chapters":3,"slug":"2Peter"},{"name":"1 John","zh":"约翰一书","chapters":5,"slug":"1John"},{"name":"2 John","zh":"约翰二书","chapters":1,"slug":"2John"},{"name":"3 John","zh":"约翰三书","chapters":1,"slug":"3John"},{"name":"Jude","zh":"犹大书","chapters":1,"slug":"Jude"},{"name":"Revelation","zh":"启示录","chapters":22,"slug":"Revelation"}];
+const DATA_BASE = "https://raw.githubusercontent.com/midvash/bible-data/main/versions/en/web/books/";
+const STORAGE = "ebrm_nt_v1_progress";
+const state = {book:0, chapter:1, font:20, data:null};
+let progress = JSON.parse(localStorage.getItem(STORAGE) || "{}");
+const $ = id => document.getElementById(id);
+function key(){ return BOOKS[state.book].slug + "." + state.chapter; }
+function save(){ localStorage.setItem(STORAGE, JSON.stringify(progress)); renderStats(); renderChapterState(); }
+function renderStats(){ const read=Object.values(progress).filter(Boolean).length,pct=Math.round(read/260*100); $("statRead").textContent=read; $("statProgress").textContent=pct+"%"; $("planProgress").style.width=pct+"%"; $("planText").textContent=`已完成 ${read} / 260 章 · 90 天计划按章节推进`; }
+function renderBooks(filter=""){ const q=filter.trim().toLowerCase(); $("bookList").innerHTML=BOOKS.map((b,i)=>({b,i})).filter(x=>!q||(x.b.name+" "+x.b.zh).toLowerCase().includes(q)).map(x=>`<button class="book-btn ${x.i===state.book?"active":""}" data-i="${x.i}"><span>${x.b.name}<br><small>${x.b.zh}</small></span><small>${x.b.chapters}章</small></button>`).join(""); document.querySelectorAll(".book-btn").forEach(btn=>btn.addEventListener("click",()=>{state.book=Number(btn.dataset.i);state.chapter=1;loadChapter();})); }
+function renderChapterSelect(){ const b=BOOKS[state.book]; $("chapterSelect").innerHTML=Array.from({length:b.chapters},(_,i)=>`<option value="${i+1}">${b.name} ${i+1}</option>`).join(""); $("chapterSelect").value=state.chapter; }
+function renderChapterState(){ const done=!!progress[key()]; $("chapterState").textContent=done?"本章已完成 ✅":"本章尚未完成"; $("chapterProgress").style.width=done?"100%":"0%"; $("markBtn").textContent=done?"✓ 已完成（再次点击取消）":"✓ 标记本章完成"; }
+async function loadChapter(){ const b=BOOKS[state.book]; $("readerHeading").textContent=`${b.name} · ${b.zh}`; $("chapterTitle").textContent=`${b.name} ${state.chapter}`; $("sourceLine").textContent="World English Bible · Public Domain"; $("verseArea").innerHTML='<div class="loading">正在载入经文…</div>'; renderBooks($("bookSearch").value); renderChapterSelect(); renderChapterState(); try{ if(!state.data||state.data.__slug!==b.slug){ const res=await fetch(DATA_BASE+b.slug+".json"); if(!res.ok) throw new Error("无法读取经文数据"); state.data=await res.json(); state.data.__slug=b.slug; } const chapter=(state.data.chapters||[])[state.chapter-1],verses=chapter?.verses||[]; if(!verses.length) throw new Error("本章经文数据为空"); $("verseArea").innerHTML=verses.map(v=>`<span class="verse" data-v="${v.number}"><span class="num">${v.number}</span>${escapeHtml(v.text)}</span> `).join(""); document.querySelectorAll(".verse").forEach(el=>el.addEventListener("click",()=>el.classList.toggle("selected"))); } catch(e){ $("verseArea").innerHTML=`<div class="error">经文暂时载入失败。请检查网络后重试。<br>${e.message}</div>`; } }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function speak(){ if(!("speechSynthesis" in window)){alert("当前浏览器不支持语音朗读");return;} const text=[...document.querySelectorAll(".verse")].map(v=>v.textContent.replace(/^\d+\s/,"")).join(" "); speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.92;speechSynthesis.speak(u); }
+function next(){ const b=BOOKS[state.book]; if(state.chapter<b.chapters) state.chapter++; else if(state.book<BOOKS.length-1){state.book++;state.chapter=1;} loadChapter(); window.scrollTo({top:150,behavior:"smooth"}); }
+function prev(){ if(state.chapter>1) state.chapter--; else if(state.book>0){state.book--;state.chapter=BOOKS[state.book].chapters;} loadChapter(); window.scrollTo({top:150,behavior:"smooth"}); }
+function todayChapter(){ const anchor=new Date("2026-01-01T00:00:00"),days=Math.max(0,Math.floor((new Date()-anchor)/86400000)),idx=(days*3)%260; let n=idx,bi=0; while(n>=BOOKS[bi].chapters){n-=BOOKS[bi].chapters;bi++;if(bi>=BOOKS.length)bi=0;} return {bi,ch:n+1}; }
+async function searchCurrentBook(q){ const box=$("searchResults"); if(!q.trim()){box.innerHTML="";return;} const b=BOOKS[state.book]; try{ if(!state.data||state.data.__slug!==b.slug){const res=await fetch(DATA_BASE+b.slug+".json");state.data=await res.json();state.data.__slug=b.slug;} const hits=[]; (state.data.chapters||[]).forEach((c,ci)=>(c.verses||[]).forEach(v=>{if(String(v.text).toLowerCase().includes(q.toLowerCase()))hits.push({c:ci+1,v:v.number,text:v.text});})); box.innerHTML=hits.slice(0,50).map(h=>`<div class="result" data-c="${h.c}"><b>${b.name} ${h.c}:${h.v}</b><p>${escapeHtml(h.text)}</p></div>`).join("")||'<div class="note">当前书卷没有找到匹配结果。</div>'; document.querySelectorAll(".result").forEach(el=>el.addEventListener("click",()=>{state.chapter=Number(el.dataset.c);loadChapter();window.scrollTo({top:150,behavior:"smooth"});})); }catch(e){box.innerHTML='<div class="note">搜索需要网络连接。</div>';}}
+$("bookSearch").addEventListener("input",e=>renderBooks(e.target.value)); $("chapterSelect").addEventListener("change",e=>{state.chapter=Number(e.target.value);loadChapter();}); $("prevBtn").addEventListener("click",prev); $("nextBtn").addEventListener("click",next); $("speakBtn").addEventListener("click",speak); $("fontBtn").addEventListener("click",()=>{state.font=state.font>=24?18:state.font+2;$("verseArea").style.fontSize=state.font+"px";}); $("markBtn").addEventListener("click",()=>{progress[key()]=!progress[key()];save();}); $("openJohn1").addEventListener("click",()=>location.href="./john1.html"); $("todayBtn").addEventListener("click",()=>{const t=todayChapter();state.book=t.bi;state.chapter=t.ch;loadChapter();}); $("planBtn").addEventListener("click",()=>{const t=todayChapter();state.book=t.bi;state.chapter=t.ch;loadChapter();window.scrollTo({top:150,behavior:"smooth"});}); $("globalSearch").addEventListener("input",e=>searchCurrentBook(e.target.value));
+$("libraryGrid").innerHTML=BOOKS.map((b,i)=>`<div class="lib-card"><strong>${i+1}. ${b.name}</strong><span>${b.zh} · ${b.chapters}章</span><a href="#reader" data-open="${i}">打开本卷 →</a></div>`).join(""); document.querySelectorAll("[data-open]").forEach(el=>el.addEventListener("click",()=>{state.book=Number(el.dataset.open);state.chapter=1;loadChapter();})); renderBooks();renderChapterSelect();renderStats();renderChapterState(); const t=todayChapter(); $("todayPlan").textContent=`建议：${BOOKS[t.bi].name} ${t.ch} · 打开本章开始`; loadChapter();
 </script>
 </body>
 </html>
