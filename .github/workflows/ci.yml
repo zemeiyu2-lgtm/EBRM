@@ -1,0 +1,40 @@
+name: EBRM CI checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: JavaScript syntax check
+        run: |
+          node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\s\S]*)<\/script>/);if(!m)throw new Error('script not found');fs.writeFileSync('/tmp/inline.js',m[1]);"
+          node --check /tmp/inline.js
+          node --check sw.js
+          node --check app.js
+      - name: Manifest JSON check
+        run: node -e "JSON.parse(require('fs').readFileSync('manifest.json','utf8'))"
+      - name: Scripture data validation (27 books / 260 chapters)
+        run: |
+          node -e "
+          const d=JSON.parse(require('fs').readFileSync('data/nt-engwebp.json','utf8'));
+          if(d.books.length!==27)throw new Error('books != 27');
+          let chapters=0,verses=0;
+          const pick=(id,ch)=>{const b=d.books.find(x=>x.id===id);const v=b.chapters[String(ch)];if(!v||!v.length)throw new Error(id+' '+ch+' empty');return v};
+          for(const b of d.books){for(const c of Object.keys(b.chapters)){chapters++;if(!b.chapters[c].length)throw new Error(b.id+' '+c+' empty');verses+=b.chapters[c].length;}}
+          if(chapters!==260)throw new Error('chapters != 260');
+          const tests=[['MAT',1],['JHN',1],['REV',22]];
+          for(const[id,c]of tests){const v=pick(id,c);console.log(id,c,'v1:',v[0].text.slice(0,50));}
+          console.log('books',d.books.length,'chapters',chapters,'verses',verses);
+          "

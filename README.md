@@ -4,7 +4,7 @@ English Bible Reading Model · New Testament complete system.
 
 ## Included
 - New Testament 27 books / 260 chapters
-- World English Bible (WEB) via Free Use Bible API
+- World English Bible (WEB) — local `data/nt-engwebp.json` bundled, online Free Use Bible API (`eng_webp`) as fallback
 - Chapter reader, listening, notes, bookmarks and progress
 - 10-step training engine for every New Testament chapter
 - Vocabulary collection and structure/direct-understanding practice
