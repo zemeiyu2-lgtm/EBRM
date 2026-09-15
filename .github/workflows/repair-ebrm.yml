@@ -1,4 +1,4 @@
-name: Repair EBRM Bible data paths
+name: Finalize EBRM reader and Bible data
 
 on:
   push:
@@ -10,35 +10,104 @@ permissions:
   contents: write
 
 jobs:
-  repair:
+  finalize:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Patch book data slugs to OSIS filenames
+      - name: Download local-first NT Bible data
+        run: |
+          mkdir -p data
+          curl -fsSL https://bible.helloao.org/api/engwebp/complete.simple.json -o /tmp/engwebp-complete.simple.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          src=json.loads(Path('/tmp/engwebp-complete.simple.json').read_text(encoding='utf-8'))
+          nt={'MAT','MRK','LUK','JHN','ACT','ROM','1CO','2CO','GAL','EPH','PHP','COL','1TH','2TH','1TI','2TI','TIT','PHM','HEB','JAS','1PE','2PE','1JN','2JN','3JN','JUD','REV'}
+          books=[b for b in src.get('books',[]) if b.get('id') in nt]
+          out={'translation':src.get('translation',{}),'books':books}
+          Path('data/nt-engwebp.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+          print('NT books:',len(books))
+          print('Bytes:',Path('data/nt-engwebp.json').stat().st_size)
+          PY
+
+      - name: Harden the reader UI and local-first loader
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          mapping = {
-            'Matthew':'Matt','Mark':'Mark','Luke':'Luke','John':'John','Acts':'Acts','Romans':'Rom',
-            '1Corinthians':'1Cor','2Corinthians':'2Cor','Galatians':'Gal','Ephesians':'Eph','Philippians':'Phil',
-            'Colossians':'Col','1Thessalonians':'1Thess','2Thessalonians':'2Thess','1Timothy':'1Tim','2Timothy':'2Tim',
-            'Titus':'Titus','Philemon':'Phlm','Hebrews':'Heb','James':'Jas','1Peter':'1Pet','2Peter':'2Pet',
-            '1John':'1John','2John':'2John','3John':'3John','Jude':'Jude','Revelation':'Rev'
+          import re
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          replacements={
+            '.verses{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.83;padding:14px 3px}':'.verses{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.83;padding:18px 6px;min-height:180px;max-width:920px;margin:0 auto}',
+            '.verse{padding:6px 7px;border-radius:9px;cursor:pointer}':'.verse{display:block;padding:8px 10px;border-radius:10px;cursor:pointer;margin:2px 0}',
+            '.loader{text-align:center;padding:34px;color:var(--muted)}':'.loader{text-align:center;padding:46px 24px;color:var(--muted);border:1px dashed var(--line);border-radius:14px;background:#fffaf1}',
+            '.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 11px;border-radius:10px;font-weight:800;font-size:12px}':'.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 12px;border-radius:10px;font-weight:800;font-size:12px;transition:.15s ease}',
+            '.btn:hover{background:#fffaf1}':'.btn:hover{background:#fffaf1;transform:translateY(-1px)}',
+            '<div class="eyebrow">BIBLE READER</div><h2 id="readerHeading">Matthew · 马太福音</h2>':'<div class="eyebrow">SCRIPTURE READER</div><h2 id="readerHeading">Matthew · 马太福音</h2><div class="meta" style="margin-top:4px">英文原文阅读 · 点击经文可继续进入训练</div>',
+            '<button id="listenBtn" class="btn good">🔊 听读</button>':'<button id="listenBtn" class="btn good">🔊 听读本章</button>',
+            '<h3>本章笔记</h3>':'<h3>本章笔记与回应</h3>',
+            '<h3>本章进度</h3>':'<h3>本章学习进度</h3>',
+            '正在载入经文…':'正在载入英文经文…',
+            '当前网络无法访问圣经数据源。请刷新或稍后再试。':'本地经文文件尚未就绪，在线数据源也暂时无法访问。',
+            '<div class="eyebrow">TRAINING ENGINE</div><h2>本章十步训练</h2>':'<div class="eyebrow">EBRM TRAINING ENGINE</div><h2>本章十步英语训练</h2>',
+            '不是只有 John 1：新约每一章都进入同一套 EBRM 训练闭环。':'不是只有 John 1：新约 260 章全部使用同一套 EBRM 训练闭环。',
+            '<div class="eyebrow">READING PLAN</div><h2>90 天新约计划</h2>':'<div class="eyebrow">READING PLAN</div><h2>90 天新约阅读计划</h2>',
+            '<div class="eyebrow">SETTINGS</div><h2>系统设置与数据</h2>':'<div class="eyebrow">SYSTEM</div><h2>系统设置与学习数据</h2>',
+            "document.querySelectorAll('.navlinks a')":"document.querySelectorAll('.navs a')"
           }
-          for old, new in mapping.items():
-              s = s.replace(f'\"slug\":\"{old}\"', f'\"slug\":\"{new}\"')
-          p.write_text(s, encoding='utf-8')
+          for a,b in replacements.items(): s=s.replace(a,b)
+          if 'const LOCAL_BIBLE = ' not in s:
+              s=s.replace("const API = 'https://bible.helloao.org/api/engwebp';", "const API = 'https://bible.helloao.org/api/engwebp';\nconst LOCAL_BIBLE = './data/nt-engwebp.json';\nlet LOCAL_BIBLE_DATA = null;")
+          pattern=r"async function loadChapter\(\)\{[\s\S]*?\n\}\nfunction renderVerses\(\)\{"
+          new="""async function loadChapter(){
+ const b=book(); $('chapterTitle').textContent=`${b[1]} ${state.chapter}`; $('sourceMeta').textContent='World English Bible · 本地优先，在线数据自动回退';
+ $('verseArea').innerHTML='<div class=\"loader\">正在载入英文经文…</div>';
+ try{
+   if(!LOCAL_BIBLE_DATA){
+     const lr=await fetch(LOCAL_BIBLE,{cache:'no-store'});
+     if(!lr.ok) throw new Error('LOCAL '+lr.status);
+     LOCAL_BIBLE_DATA=await lr.json();
+   }
+   const lb=LOCAL_BIBLE_DATA.books?.find(x=>x.id===b[0]);
+   const lc=lb?.chapters?.find(x=>Number(x.number ?? x.chapter?.number)===state.chapter);
+   const chapterData=lc?.chapter||lc;
+   if(chapterData?.content?.length){ state.data={chapter:chapterData}; }
+   else throw new Error('local chapter unavailable');
+   const settings=JSON.parse(localStorage.getItem(STORE+'_SET')||'{}'); if(settings.autoMarkRead){state.progress.read[key()]=true;save();} renderVerses(); renderTraining(); fillChapters(); navState();
+ }catch(localErr){
+   try{
+     const r=await fetch(`${API}/${b[0]}/${state.chapter}.simple.json`,{cache:'no-store'});
+     if(!r.ok) throw new Error('HTTP '+r.status);
+     const data=await r.json(); state.data=data; $('sourceMeta').textContent='World English Bible · 在线 API';
+     const settings=JSON.parse(localStorage.getItem(STORE+'_SET')||'{}'); if(settings.autoMarkRead){state.progress.read[key()]=true;save();} renderVerses(); renderTraining(); fillChapters(); navState();
+   }catch(apiErr){
+     $('verseArea').innerHTML=`<div class=\"card\" style=\"background:#f4e9df;color:#6f4f36\"><b>经文暂时无法显示</b><p style=\"margin-top:6px;color:#6f4f36\">本地经文文件尚未就绪，在线数据源也暂时无法访问。</p><div class=\"controls\" style=\"margin-top:10px\"><button class=\"btn primary\" onclick=\"loadChapter()\">重新加载</button><button class=\"btn\" onclick=\"location.reload()\">刷新页面</button></div></div>`;
+   }
+ }
+}
+function renderVerses(){"""
+          s,n=re.subn(pattern,new,s,count=1)
+          if n!=1: raise SystemExit('loadChapter patch failed')
+          s=s.replace("$('verseArea').innerHTML=c.filter(x=>x.type==='verse').map(v=>`<span class=\"verse\" data-v=\"${v.number}\"><span class=\"num\">${v.number}</span>${escapeHtml(v.text||'')}</span>`).join('');", "$('verseArea').innerHTML=c.filter(x=>x.type==='verse').map(v=>`<span class=\"verse\" data-v=\"${v.number}\"><span class=\"num\">${v.number}</span>${escapeHtml(v.text||'')}</span>`).join('')||'<div class=\"card\"><b>本章暂无可显示的经文内容。</b></div>';")
+          s=s.replace("items.map(x=>`<div class=\"review\"><div><b>${x.b[1]} ${x.ch}</b><div class=\"small muted\">${x.b[2]} · 到期复习</div></div><div class=\"controls\"><button class=\"btn\" onclick=\"openChapter('${x.b[0]}',${x.ch})\">进入</button></div></div>`)", "items.map(x=>`<div class=\"review\"><div><b>${x.b[1]} ${x.ch}</b><div class=\"small muted\">${x.b[2]} · 到期复习</div></div><div class=\"controls\"><button class=\"btn\" onclick=\"openChapter('${x.b[0]}',${x.ch})\">进入</button><button class=\"btn good\" onclick=\"completeReview('${x.k}')\">✓ 完成本次复习</button></div></div>`)")
+          p.write_text(s,encoding='utf-8')
+          sw=Path('sw.js').read_text(encoding='utf-8')
+          sw=sw.replace('const CACHE = "ebrm-v1-complete";', 'const CACHE = "ebrm-v1-final";')
+          sw=sw.replace('"./manifest.json"]', '"./manifest.json","./data/nt-engwebp.json"]')
+          Path('sw.js').write_text(sw,encoding='utf-8')
           PY
+          node - <<'NODE'
+          const fs=require('fs'); const s=fs.readFileSync('index.html','utf8'); const m=s.match(/<script>([\s\S]*)<\/script>/); fs.writeFileSync('/tmp/ebrm_check.js',m[1]);
+          NODE
+          node --check /tmp/ebrm_check.js
 
-      - name: Commit repaired reader
+      - name: Commit finalized EBRM build
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html
+          git add index.html sw.js data/nt-engwebp.json
           git diff --cached --quiet && exit 0
-          git commit -m 'fix: use OSIS book data paths for NT reader'
+          git commit -m 'feat: harden NT Bible reader and polish EBRM UI'
           git push
