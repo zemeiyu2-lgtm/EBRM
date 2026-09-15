@@ -1,0 +1,52 @@
+name: EBRM final repair
+on:
+  push:
+    paths:
+      - '.github/workflows/efix.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build local NT Bible data
+        run: |
+          mkdir -p data
+          curl -fsSL https://bible.helloao.org/api/engwebp/complete.simple.json -o /tmp/web.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          src=json.loads(Path('/tmp/web.json').read_text())
+          ids={'MAT','MRK','LUK','JHN','ACT','ROM','1CO','2CO','GAL','EPH','PHP','COL','1TH','2TH','1TI','2TI','TIT','PHM','HEB','JAS','1PE','2PE','1JN','2JN','3JN','JUD','REV'}
+          out={'translation':src.get('translation',{}),'books':[b for b in src.get('books',[]) if b.get('id') in ids]}
+          Path('data/nt-engwebp.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')))
+          print('books',len(out['books']))
+          PY
+      - name: Repair app and service worker
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('index.html'); s=p.read_text()
+          s=s.replace("const API='https://bible.helloao.org/api/engwebp';", "const API='https://bible.helloao.org/api/engwebp'; const LOCAL_BIBLE='./data/nt-engwebp.json'; let LOCAL_BIBLE_DATA=null;")
+          pat=r"async function loadChapter\(\)\{[\s\S]*?\n\}\nfunction renderVerses\(\)\{"
+          new='''async function loadChapter(){\n const b=book(); $('chapterTitle').textContent=`${b[1]} ${state.chapter}`; $('sourceMeta').textContent='World English Bible · 本地优先'; $('verseArea').innerHTML='<div class="loader">正在载入英文经文…</div>';\n try{\n  if(!LOCAL_BIBLE_DATA){const r=await fetch(LOCAL_BIBLE,{cache:'no-store'}); if(!r.ok) throw new Error('local'); LOCAL_BIBLE_DATA=await r.json();}\n  const lb=LOCAL_BIBLE_DATA.books?.find(x=>x.id===b[0]); const c=lb?.chapters?.find(x=>Number(x.number??x.chapter?.number)===state.chapter); const ch=c?.chapter||c; if(!ch?.content?.length) throw new Error('chapter'); state.data={chapter:ch};\n }catch(e){\n  try{const r=await fetch(`${API}/${b[0]}/${state.chapter}.simple.json`,{cache:'no-store'}); if(!r.ok) throw new Error('api'); state.data=await r.json(); $('sourceMeta').textContent='World English Bible · 在线 API';}\n  catch(e2){$('verseArea').innerHTML='<div class="card"><b>经文暂时无法显示</b><p style="margin-top:6px">网络不可用时请刷新页面，系统会优先读取本地经文数据。</p><button class="btn primary" style="margin-top:9px" onclick="loadChapter()">重新加载</button></div>'; return;}\n }\n renderVerses(); renderTraining(); fillChapters(); if(typeof navState==='function') navState();\n}\nfunction renderVerses(){'''
+          s,n=re.subn(pat,new,s,1)
+          if n!=1: raise SystemExit('loadChapter not found')
+          old="function speakCurrent(){const text=(state.data?.chapter?.content||[]).filter(x=>x.type==='verse').map(v=>v.text).join(' ');if(!('speechSynthesis'in window)){toast('当前浏览器不支持朗读');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.92;speechSynthesis.speak(u);setStep('listen',true)}"
+          new2="function speakCurrent(){const text=(state.data?.chapter?.content||[]).filter(x=>x.type==='verse').map(v=>v.text).join(' ').trim();if(!text){toast('经文尚未载入');return}if(!('speechSynthesis'in window)){toast('当前浏览器不支持朗读');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.92;u.onend=()=>setStep('listen',true);speechSynthesis.speak(u)}"
+          s=s.replace(old,new2)
+          Path('index.html').write_text(s)
+          sw='''const CACHE="ebrm-v1-final4";\nconst SHELL=["./","./index.html","./john1.html","./app.js","./style.css","./manifest.json"];\nself.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));\nself.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener("fetch",e=>{if(e.request.method!=="GET")return; const u=new URL(e.request.url); if(u.origin===self.location.origin){e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match("./index.html"))));}});'''
+          Path('sw.js').write_text(sw)
+          PY
+          node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\\s\\S]*)<\\/script>/);fs.writeFileSync('/tmp/e.js',m[1]);"
+          node --check /tmp/e.js
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sw.js data/nt-engwebp.json
+          git diff --cached --quiet || (git commit -m 'fix: make EBRM reader reliable and local-first' && git push)
