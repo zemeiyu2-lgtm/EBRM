@@ -1921,6 +1921,8 @@ function init() {
 
     initSpeech();
 
+    renderAudioControls();
+
     renderCourseHome();
 
     renderBaseline();
@@ -2704,6 +2706,20 @@ function renderBaseline() {
 
 function getBaselineQuestions() {
 
+    // New units (John 2, John 3, other books) should carry
+    // their own `baseline` array in the unit data; if present
+    // it always wins.
+
+    if (
+        currentUnit.baseline &&
+        currentUnit.baseline.length
+    ) {
+
+        return currentUnit.baseline;
+
+    }
+
+
     const unitNumber =
         currentUnit.number;
 
@@ -3050,6 +3066,17 @@ function getBaselineQuestions() {
     }
 
 
+    // Units 1–6 keep their hand-written baseline questions
+    // above. Any further unit (unit 7 and beyond — e.g. the
+    // last unit of John 1, or future John 2 / John 3 units)
+    // gets a baseline derived from its own `direct` data, so
+    // adding new units never requires touching engine code.
+
+    if (
+        unitNumber ===
+        7
+    ) {
+
     return [
 
         {
@@ -3098,6 +3125,37 @@ function getBaselineQuestions() {
         }
 
     ];
+
+    }
+
+
+    // Derived baseline: reuse the unit's own direct-
+    // comprehension items (without the Chinese confirm text)
+    // so every data-driven unit has a working STEP 1.
+
+    return currentUnit.direct
+        .slice(
+            0,
+            3
+        )
+        .map(
+            function(item) {
+
+                return {
+
+                    question:
+                        item[0],
+
+                    options:
+                        item[1],
+
+                    answer:
+                        item[2]
+
+                };
+
+            }
+        );
 
 }
 
@@ -5337,7 +5395,9 @@ function goNextUnit() {
     ) {
 
         alert(
-            "John 1 全部 7 个训练单元已经完成。"
+            "本课程全部 " +
+            COURSE.length +
+            " 个训练单元已经完成。"
         );
 
         go("home");
@@ -5622,6 +5682,13 @@ function initSpeech() {
 
     selectedVoice =
         chooseVoice();
+
+
+    // Render immediately: on some browsers getVoices() is
+    // already populated here; waiting only for voiceschanged
+    // left the voice panel permanently empty on those.
+
+    renderVoicePanel();
 
 
     window.speechSynthesis
@@ -5970,6 +6037,186 @@ function renderVoicePanel() {
             }
 
         }
+    );
+
+}
+
+
+/* =========================================================
+   AUDIO CONTROLS
+   Populates the empty #audioControls card on the READ
+   screen. All engine functions already existed but were
+   unreachable from the UI.
+========================================================= */
+
+function renderAudioControls() {
+
+    const panel =
+        $("audioControls");
+
+
+    if (
+        !panel
+    ) {
+
+        return;
+
+    }
+
+
+    panel.innerHTML =
+        "";
+
+
+    const title =
+        document.createElement(
+            "strong"
+        );
+
+
+    title.textContent =
+        "🎧 Listen";
+
+
+    panel.appendChild(
+        title
+    );
+
+
+    const status =
+        document.createElement(
+            "div"
+        );
+
+
+    status.id =
+        "speechStatus";
+
+
+    status.className =
+        "audio-status";
+
+
+    status.textContent =
+        "点击经文可朗读单节，或使用下面的控制。";
+
+
+    panel.appendChild(
+        status
+    );
+
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+
+    grid.className =
+        "audio-buttons";
+
+
+    const controls = [
+
+        {
+            label:
+                "🔊 整段朗读",
+
+            action:
+                speakPassage
+
+        },
+
+        {
+            label:
+                "▶ 连续逐节",
+
+            action:
+                startContinuousReading
+
+        },
+
+        {
+            label:
+                "🔁 重复本节",
+
+            action:
+                toggleRepeatCurrentVerse
+
+        },
+
+        {
+            label:
+                "⏮ 上一节",
+
+            action:
+                playPreviousVerse
+
+        },
+
+        {
+            label:
+                "⏭ 下一节",
+
+            action:
+                playNextVerse
+
+        },
+
+        {
+            label:
+                "🐢 慢速",
+
+            action:
+                toggleSlow
+
+        },
+
+        {
+            label:
+                "⏹ 停止",
+
+            action:
+                stopSpeech
+
+        }
+
+    ];
+
+
+    controls.forEach(
+        function(control) {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                control.label;
+
+
+            button.addEventListener(
+                "click",
+                control.action
+            );
+
+
+            grid.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    panel.appendChild(
+        grid
     );
 
 }

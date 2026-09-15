@@ -1586,3 +1586,61 @@ footer {
   }
 
 }
+
+
+/* =========================================================
+   AUDIO CONTROLS  (READ screen listen panel)
+========================================================= */
+
+.audio-status {
+
+  margin-top:
+    8px;
+
+  font-size:
+    13px;
+
+  color:
+    var(--muted, #8a8577);
+
+}
+
+.audio-buttons {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap:
+    8px;
+
+  margin-top:
+    10px;
+
+}
+
+.audio-buttons button {
+
+  width:
+    100%;
+
+  font-size:
+    13px;
+
+  padding:
+    9px 6px;
+
+}
+
+@media (max-width: 620px) {
+
+  .audio-buttons {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+}
