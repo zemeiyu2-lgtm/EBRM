@@ -1,0 +1,44 @@
+name: Repair EBRM Bible data paths
+
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-ebrm.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Patch book data slugs to OSIS filenames
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          mapping = {
+            'Matthew':'Matt','Mark':'Mark','Luke':'Luke','John':'John','Acts':'Acts','Romans':'Rom',
+            '1Corinthians':'1Cor','2Corinthians':'2Cor','Galatians':'Gal','Ephesians':'Eph','Philippians':'Phil',
+            'Colossians':'Col','1Thessalonians':'1Thess','2Thessalonians':'2Thess','1Timothy':'1Tim','2Timothy':'2Tim',
+            'Titus':'Titus','Philemon':'Phlm','Hebrews':'Heb','James':'Jas','1Peter':'1Pet','2Peter':'2Pet',
+            '1John':'1John','2John':'2John','3John':'3John','Jude':'Jude','Revelation':'Rev'
+          }
+          for old, new in mapping.items():
+              s = s.replace(f'\"slug\":\"{old}\"', f'\"slug\":\"{new}\"')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit repaired reader
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: use OSIS book data paths for NT reader'
+          git push
