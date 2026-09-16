@@ -2,1597 +2,202 @@
 <html lang="zh-CN">
 
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f1e7">
+  <meta name="description" content="EBRM｜John 1 完整精读课程：阅读 → 听读 → 观察 → 词汇 → 句型 → 直接理解 → 表达 → 再读 → 综合测试 → 结果 → 间隔复习。">
+  <title>EBRM｜John 1 完整精读课程</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <meta
-    name="theme-color"
-    content="#f5f1e7"
-  >
-
-  <title>
-    EBRM V0.9｜John 1 完整课程
-  </title>
-
-  <link
-    rel="stylesheet"
-    href="style.css?v=090"
-  >
-
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5f1e7'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='15' text-anchor='middle' fill='%237a5c33'%3EE%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="ebrm2.css">
 </head>
 
-
-<body>
-
+<body data-ebrm-page="john1">
 
 <header class="topbar">
-
-  <div>
-
-    <div class="brand">
-      EBRM
-    </div>
-
-    <div class="subtitle">
-      English Bible Reading Model
-    </div>
-
+  <div class="brand">
+    EBRM · John 1
+    <small>完整精读课程 · 教学母版</small>
   </div>
-
-  <div class="version">
-    V0.9
-  </div>
-
+  <nav class="topnav">
+    <button data-act="home" class="active">课程首页</button>
+    <button data-act="reader">读经</button>
+    <button data-act="learn">单元训练</button>
+    <button data-act="review">间隔复习<span id="navDueBadge" class="badge warn hidden"></span></button>
+    <button data-act="settings">学习设置</button>
+  </nav>
 </header>
-
-
 
 <main class="app">
 
+  <!-- ============================ HOME ============================ -->
+  <section id="view-home" class="view active">
 
-<!-- =====================================================
-HOME
-====================================================== -->
-
-<section
-  id="home"
-  class="screen active"
->
-
-
-  <div class="hero">
-
-    <div class="eyebrow">
-      ENGLISH BIBLE READING MODEL
-    </div>
-
-
-    <h1>
-      John 1
-    </h1>
-
-
-    <p class="hero-subtitle">
-      从英文读经，进入经文意义。
-    </p>
-
-
-    <p class="hero-description">
-
-      John 1 完整精读课程。
-
-      <br>
-
-      每个单元都经过：
-
-      <strong>
-        阅读 → 听读 → 观察 → 理解 → 表达 → 重读
-      </strong>
-
-    </p>
-
-  </div>
-
-
-
-  <!-- ===================================================
-  COURSE CARD
-  ==================================================== -->
-
-  <div class="course-card">
-
-
-    <div class="eyebrow">
-      GOSPEL OF JOHN
-    </div>
-
-
-    <h2>
-      John 1
-    </h2>
-
-
-    <p class="muted">
-      7 个英文圣经精读训练单元
-    </p>
-
-
-    <div class="course-summary">
-
-      <div>
-
-        <strong id="completedCount">
-          0 / 7
-        </strong>
-
-        <span>
-          已完成
-        </span>
-
-      </div>
-
-
-      <div>
-
-        <strong id="coursePercent">
-          0%
-        </strong>
-
-        <span>
-          完成度
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="progress-track">
-
-      <div
-        id="progressBar"
-        class="progress-fill"
-      ></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- STEP 1 entry: without this button the BASELINE
-       screen (id startBaselineBtn) is unreachable. -->
-
-  <button
-    id="startBaselineBtn"
-    class="primary wide"
-    type="button"
-  >
-
-    ▶ 开始本单元训练（第一次理解）
-
-  </button>
-
-
-
-  <!-- ===================================================
-  UNIT LIST
-  ==================================================== -->
-
-  <div class="card">
-
-    <div class="section-title">
-
-      <div>
-
-        <div class="eyebrow">
-          COURSE UNITS
+    <div class="hero-card">
+      <div class="eyebrow">JOHN 1 · 7 TRAINING UNITS</div>
+      <h1>John 1 完整课程</h1>
+      <p class="muted">
+        从英文读经，进入经文意义。每个单元都经过：
+        <b>阅读 → 听读 → 观察 → 词汇 → 句型 → 直接理解 → 表达 → 再读 → 综合测试</b>，
+        完成后进入 1 / 3 / 7 / 14 天的间隔复习。
+      </p>
+      <div class="stat-grid">
+        <div class="stat">
+          <strong id="homeDone">0</strong>
+          <span>已完成单元</span>
         </div>
-
-        <h3>
-          John 1 精读单元
-        </h3>
-
+        <div class="stat">
+          <strong id="homePercent">0%</strong>
+          <span>课程进度（共 <span id="homeTotal">7</span> 单元）</span>
+        </div>
+        <div class="stat">
+          <strong id="homeDue" style="font-size:14px;font-family:var(--sans);color:var(--ink-2)">暂无到期复习</strong>
+          <span>间隔复习</span>
+        </div>
       </div>
-
+      <div class="progress-track"><div id="homeBar" class="progress-fill"></div></div>
+      <p class="tiny" id="homeNextHint">正在读取课程进度…</p>
     </div>
 
-
-    <div
-      id="chapterGrid"
-      class="chapter-grid"
-    ></div>
-
-  </div>
-
-
-
-  <!-- ===================================================
-  TRAINING MODEL
-  ==================================================== -->
-
-  <div class="card">
-
-    <div class="eyebrow">
-      TRAINING MODEL
+    <button class="primary wide" data-act="today">▶ 开始本单元训练（第一次理解）</button>
+    <button class="secondary wide" data-act="learn">继续单元训练</button>
+    <div class="row" style="margin-top:8px">
+      <button data-act="reader">读 John 1 经文</button>
+      <button data-act="review">Interval Review</button>
     </div>
 
-
-    <h3>
-      每个单元都这样训练
-    </h3>
-
-
-    <div class="model-flow">
-
-
-      <div class="model-step">
-
-        <strong>
-          01
-        </strong>
-
-        <span>
-          BASELINE
-        </span>
-
+    <div class="card" style="margin-top:16px">
+      <div class="eyebrow">TRAINING MODEL</div>
+      <h3>每个单元都这样训练</h3>
+      <div class="reslist">
+        <div><b>01</b> BASELINE · 第一次理解（不查中文）</div>
+        <div><b>02</b> READ · 读经（What is happening?）</div>
+        <div><b>03</b> LISTEN · 听读（Voice / Speed / Stop / Replay）</div>
+        <div><b>04</b> NOTICE · 观察（重复 · 对比 · 人物 · 动作）</div>
+        <div><b>05</b> VOCABULARY · 核心词汇（放回经文）</div>
+        <div><b>06</b> STRUCTURE · 句子结构（句型 · 拆解 · 替换）</div>
+        <div><b>07</b> DIRECT COMPREHENSION · 直接理解（English → Meaning）</div>
+        <div><b>08</b> SPEAK · 英文表达（模仿 → 替换 → 自主）</div>
+        <div><b>09</b> RE-READ · 再读一次</div>
+        <div><b>10</b> FINAL TEST · 第二次理解</div>
+        <div><b>11</b> RESULT · 学习结果</div>
+        <div><b>12</b> REVIEW · 间隔复习 Day 1 / 3 / 7 / 14</div>
       </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          02
-        </strong>
-
-        <span>
-          READ
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          03
-        </strong>
-
-        <span>
-          NOTICE
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          04
-        </strong>
-
-        <span>
-          VOCAB
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          05
-        </strong>
-
-        <span>
-          STRUCTURE
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          06
-        </strong>
-
-        <span>
-          UNDERSTAND
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          07
-        </strong>
-
-        <span>
-          SPEAK
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          08
-        </strong>
-
-        <span>
-          RE-READ
-        </span>
-
-      </div>
-
-
-      <div class="flow-arrow">
-        →
-      </div>
-
-
-      <div class="model-step">
-
-        <strong>
-          09
-        </strong>
-
-        <span>
-          REVIEW
-        </span>
-
-      </div>
-
     </div>
 
-  </div>
+  </section>
 
+  <!-- ============================ READER ============================ -->
+  <section id="view-reader" class="view">
 
-
-  <!-- ===================================================
-  REVIEW ENTRY
-  ==================================================== -->
-
-  <button
-    id="reviewHomeBtn"
-    class="secondary wide"
-    type="button"
-  >
-
-    🔁 查看复习计划
-
-  </button>
-
-
-</section>
-
-
-
-<!-- =====================================================
-BASELINE
-====================================================== -->
-
-<section
-  id="baseline"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="baselineBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 1 · BASELINE
+    <div class="card tight">
+      <div class="reader-bar">
+        <div class="grow">
+          <div class="eyebrow">JOHN 1 · WORLD ENGLISH BIBLE</div>
+          <h2 id="readerHeading" style="margin:2px 0 0">John 1</h2>
+          <div class="tiny" id="readerHeadingZh">约翰福音 · 第 1 章（51 节）</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sm" data-act="font-cycle">字号</button>
+          <button class="sm" data-act="play-chapter">🔊 听读本章</button>
+        </div>
       </div>
-
-      <h2>
-        第一次理解
-      </h2>
-
     </div>
 
-  </div>
-
-
-  <div class="card">
-
-    <div class="unit-heading">
-
-      <div class="eyebrow">
-        CURRENT UNIT
+    <div class="card tight">
+      <div class="book-grid" id="bookList"></div>
+      <hr class="sep">
+      <div class="eyebrow">CHAPTERS · 章节</div>
+      <div style="margin:8px 0">
+        <select id="chapterSelect" aria-label="选择章节"></select>
       </div>
-
-
-      <h2
-        id="baselineReference"
-      >
-        John 1
-      </h2>
-
+      <div class="chapter-strip" id="chapterStrip"></div>
     </div>
 
-
-    <div class="rule-box">
-
-      <strong>
-        不查中文
-      </strong>
-
-      <p>
-        不查词典，只根据英文理解。
-      </p>
-
-    </div>
-
-
-    <div
-      id="baselineQuestions"
-    ></div>
-
-
-    <button
-      id="submitBaselineBtn"
-      class="primary wide"
-      type="button"
-    >
-      提交第一次理解
-    </button>
-
-
-    <div
-      id="baselineResult"
-      class="hidden"
-    ></div>
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-READ
-====================================================== -->
-
-<section
-  id="read"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="readBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 2 · READ + LISTEN
+    <div class="card">
+      <div class="reader-bar" style="margin-bottom:8px">
+        <div class="grow">
+          <h3 id="chapterTitle" style="margin:0">John 1</h3>
+          <div class="tiny" id="sourceMeta">World English Bible</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sm" id="prevBtn" data-act="ch-prev">← 上一章</button>
+          <button class="sm" id="nextBtn" data-act="ch-next">下一章 →</button>
+        </div>
       </div>
-
-      <h2
-        id="readTitle"
-      >
-        John 1
-      </h2>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="passage-meta">
-
-      <span
-        id="readReference"
-      >
-        John 1
-      </span>
-
-
-      <span class="badge">
-        WEB
-      </span>
-
-    </div>
-
-
-    <div
-      id="passageText"
-      class="passage"
-    ></div>
-
-  </div>
-
-
-
-  <div
-    id="voicePanel"
-    class="card"
-  ></div>
-
-
-
-  <div
-    id="audioControls"
-    class="card"
-  ></div>
-
-
-
-  <div class="instruction-card">
-
-    <strong>
-      第一次阅读
-    </strong>
-
-
-    <p>
-
-      不急着翻译。
-
-      <br>
-
-      先问：
-
-      <strong>
-        What is happening?
-      </strong>
-
-    </p>
-
-  </div>
-
-
-
-  <button
-    id="noticeBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：Notice →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-NOTICE
-====================================================== -->
-
-<section
-  id="notice"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="noticeBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 3 · NOTICE
+      <div id="chapterStatus"></div>
+      <div class="progress-track"><div id="chapterBar" class="progress-fill"></div></div>
+      <div id="verseArea" style="margin-top:12px">
+        <div class="state-box loading">正在加载经文…</div>
       </div>
-
-      <h2>
-        观察经文
-      </h2>
-
+      <p class="tiny" style="margin-top:10px">提示：点击任意一节可以单独听这一节。</p>
     </div>
 
-  </div>
-
-
-
-  <div class="card notice-intro">
-
-    <div class="eyebrow">
-      NOTICE BEFORE TRANSLATION
-    </div>
-
-
-    <h3>
-      先看见
-    </h3>
-
-
-    <p class="muted">
-
-      找：
-
-      <strong>
-        重复 · 对比 · 人物 · 动作 · 关系 · 焦点
-      </strong>
-
-    </p>
-
-  </div>
-
-
-
-  <div
-    id="noticeQuestions"
-  ></div>
-
-
-
-  <button
-    id="vocabularyBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：核心词汇 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-VOCABULARY
-====================================================== -->
-
-<section
-  id="vocabulary"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="vocabBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 4 · VOCABULARY
+    <div class="card">
+      <div class="eyebrow">MY NOTE</div>
+      <h3>本章笔记</h3>
+      <textarea id="chapterNote" placeholder="写下你读 John 1 的观察与问题…"></textarea>
+      <div class="row" style="margin-top:8px">
+        <button data-act="save-note" id="saveNoteBtn">保存笔记</button>
+        <button data-act="bookmark" id="bookmarkBtn">🔖 书签</button>
       </div>
-
-      <h2>
-        核心词汇
-      </h2>
-
     </div>
 
-  </div>
+    <button class="primary wide" data-act="learn">进入单元训练 →</button>
 
+  </section>
 
+  <!-- ============================ LEARN ============================ -->
+  <section id="view-learn" class="view">
 
-  <div class="card">
-
-    <p class="muted">
-
-      不只是背中文。
-
-      <br>
-
-      把每个词重新放回经文。
-
-    </p>
-
-
-    <div
-      id="vocabularyList"
-    ></div>
-
-  </div>
-
-
-
-  <button
-    id="structureBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：句子结构 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-STRUCTURE
-====================================================== -->
-
-<section
-  id="structure"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="structureBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 5 · STRUCTURE
+    <div class="learn-head">
+      <button class="back" data-act="home" aria-label="返回课程首页">←</button>
+      <div style="flex:1 1 auto;min-width:0">
+        <div class="eyebrow" id="learnStepLabel">STEP 01 · BASELINE</div>
+        <h2 id="learnTitle" style="margin:2px 0 0">第一次理解</h2>
       </div>
-
-      <h2>
-        句子结构
-      </h2>
-
     </div>
 
-  </div>
+    <div class="unit-strip" id="unitStrip"></div>
+    <div class="step-rail" id="stepRail"></div>
+    <div class="step-banner" id="stepBanner"></div>
 
+    <div id="learnBody"></div>
 
+  </section>
 
-  <div class="card">
-
-    <p class="muted">
-
-      不是为了背语法名称。
-
-      <br>
-
-      而是看见英语怎样组织意义。
-
-    </p>
-
-
-    <div
-      id="structureList"
-    ></div>
-
-  </div>
-
-
-
-  <button
-    id="directBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：直接理解 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-DIRECT COMPREHENSION
-====================================================== -->
-
-<section
-  id="direct"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="directBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 6 · DIRECT COMPREHENSION
-      </div>
-
-      <h2>
-        直接理解
-      </h2>
-
+  <!-- ============================ REVIEW ============================ -->
+  <section id="view-review" class="view">
+    <div class="card tight">
+      <div class="eyebrow">SPACED REVIEW · 间隔复习</div>
+      <h2 style="margin:2px 0 0">Day 1 → Day 3 → Day 7 → Day 14</h2>
+      <p class="muted" style="margin:6px 0 0">完成单元后系统自动安排复习；到期后进入复习，针对薄弱环节重新训练。</p>
     </div>
-
-  </div>
-
-
-
-  <div class="card direct-rule">
-
-    <div class="eyebrow">
-      ENGLISH → MEANING
-    </div>
-
-
-    <h3>
-      不先翻译
-    </h3>
-
-
-    <p>
-
-      回到英文经文，
-
-      <br>
-
-      直接判断它在说什么。
-
-    </p>
-
-  </div>
-
-
-
-  <div
-    id="directQuestions"
-  ></div>
-
-
-
-  <div
-    id="directScore"
-    class="score-card"
-  >
-    尚未回答
-  </div>
-
-
-
-  <button
-    id="speakBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：英文表达 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-SPEAK
-====================================================== -->
-
-<section
-  id="speak"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="speakBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 7 · SPEAK
-      </div>
-
-      <h2>
-        英文表达
-      </h2>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      TASK A · IMITATE
-    </div>
-
-
-    <h3>
-      模仿
-    </h3>
-
-
-    <p class="muted">
-      听一句，然后自己重复。
-    </p>
-
-
-    <div
-      id="imitationList"
-    ></div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      TASK B · SUBSTITUTE
-    </div>
-
-
-    <h3>
-      替换
-    </h3>
-
-
-    <p class="muted">
-      保持句型，只替换核心内容。
-    </p>
-
-
-    <div class="substitute-box">
-
-      <div class="model-sentence">
-        The light shines in the darkness.
-      </div>
-
-
-      <div class="substitute-examples">
-
-
-        <button
-          type="button"
-          data-substitute="The light shines in the world."
-        >
-
-          The light shines in the world.
-
-        </button>
-
-
-        <button
-          type="button"
-          data-substitute="The light shines in our hearts."
-        >
-
-          The light shines in our hearts.
-
-        </button>
-
-
-        <button
-          type="button"
-          data-substitute="Life shines in the darkness."
-        >
-
-          Life shines in the darkness.
-
-        </button>
-
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="substituteAudio"
-      class="substitute-audio"
-    ></div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      TASK C · PRODUCE
-    </div>
-
-
-    <h3>
-      自己表达
-    </h3>
-
-
-    <p
-      id="speakPrompt"
-      class="speak-prompt"
-    ></p>
-
-
-    <textarea
-      id="speakAnswer"
-      rows="6"
-      placeholder="Write simple English..."
-    ></textarea>
-
-
-    <div class="speak-buttons">
-
-      <button
-        id="checkSpeakBtn"
-        class="primary"
-        type="button"
-      >
-        检查表达
-      </button>
-
-
-      <button
-        id="listenAnswerBtn"
-        type="button"
-      >
-        🔊 听我的答案
-      </button>
-
-    </div>
-
-
-    <div
-      id="speakResult"
-      class="hidden"
-    ></div>
-
-  </div>
-
-
-
-  <button
-    id="rereadBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一步：重新阅读 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-REREAD
-====================================================== -->
-
-<section
-  id="reread"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="rereadBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 8 · RE-READ
-      </div>
-
-      <h2>
-        再读一次
-      </h2>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      SECOND READING
-    </div>
-
-
-    <h3>
-      回到英文
-    </h3>
-
-
-    <p class="muted">
-
-      不再分析。
-
-      <br>
-
-      重新读一次当前单元。
-
-    </p>
-
-  </div>
-
-
-
-  <div
-    id="rereadPassage"
-    class="card passage"
-  ></div>
-
-
-
-  <div class="card">
-
-    <h3>
-      现在的感觉
-    </h3>
-
-
-    <div class="feeling-options">
-
-
-      <button
-        type="button"
-        data-feeling="3"
-      >
-        很直接
-      </button>
-
-
-      <button
-        type="button"
-        data-feeling="2"
-      >
-        基本可以
-      </button>
-
-
-      <button
-        type="button"
-        data-feeling="1"
-      >
-        仍需要翻译
-      </button>
-
-
-    </div>
-
-  </div>
-
-
-
-  <button
-    id="finalTestBtn"
-    class="primary wide"
-    type="button"
-  >
-    最后理解测试 →
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-FINAL TEST
-====================================================== -->
-
-<section
-  id="finalTest"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="finalBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        STEP 9 · FINAL TEST
-      </div>
-
-      <h2>
-        第二次理解
-      </h2>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="test-rule">
-
-      <strong>
-        最后一次理解检查
-      </strong>
-
-
-      <p>
-        不看中文，再根据英文回答。
-      </p>
-
-    </div>
-
-
-    <div
-      id="finalQuestions"
-    ></div>
-
-
-    <button
-      id="submitFinalBtn"
-      class="primary wide"
-      type="button"
-    >
-      查看我的进步
-    </button>
-
-
-    <div
-      id="finalResult"
-      class="hidden"
-    ></div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-RESULT
-====================================================== -->
-
-<section
-  id="result"
-  class="screen"
->
-
-
-  <div class="result-hero">
-
-    <div class="result-mark">
-      ✓
-    </div>
-
-
-    <div class="eyebrow">
-      UNIT COMPLETE
-    </div>
-
-
-    <h1
-      id="resultReference"
-    >
-      John 1
-    </h1>
-
-
-    <p
-      id="resultTitle"
-    >
-      English Bible Reading Model
-    </p>
-
-  </div>
-
-
-
-  <div class="score-comparison">
-
-
-    <div class="score-box">
-
-      <span>
-        第一次理解
-      </span>
-
-
-      <strong
-        id="resultBaseline"
-      >
-        0%
-      </strong>
-
-    </div>
-
-
-    <div class="arrow">
-      →
-    </div>
-
-
-    <div class="score-box">
-
-      <span>
-        第二次理解
-      </span>
-
-
-      <strong
-        id="resultFinal"
-      >
-        0%
-      </strong>
-
-    </div>
-
-  </div>
-
-
-
-  <div
-    id="resultImprovement"
-    class="improvement-card"
-  ></div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      COMPLETED
-    </div>
-
-
-    <h3>
-      本单元完成
-    </h3>
-
-
-    <div class="achievement-list">
-
-      <div>
-        ✓ BASELINE
-      </div>
-
-      <div>
-        ✓ READ
-      </div>
-
-      <div>
-        ✓ LISTEN
-      </div>
-
-      <div>
-        ✓ NOTICE
-      </div>
-
-      <div>
-        ✓ VOCABULARY
-      </div>
-
-      <div>
-        ✓ STRUCTURE
-      </div>
-
-      <div>
-        ✓ DIRECT COMPREHENSION
-      </div>
-
-      <div>
-        ✓ SPEAK
-      </div>
-
-      <div>
-        ✓ RE-READ
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <button
-    id="nextUnitBtn"
-    class="primary wide"
-    type="button"
-  >
-    下一个单元 →
-  </button>
-
-
-  <button
-    id="resultHomeBtn"
-    class="wide"
-    type="button"
-  >
-    返回 John 1
-  </button>
-
-
-  <button
-    id="resultReviewBtn"
-    class="wide"
-    type="button"
-  >
-    查看复习
-  </button>
-
-</section>
-
-
-
-<!-- =====================================================
-REVIEW
-====================================================== -->
-
-<section
-  id="review"
-  class="screen"
->
-
-
-  <div class="screen-head">
-
-    <button
-      id="reviewBackBtn"
-      class="back"
-      type="button"
-    >
-      ←
-    </button>
-
-
-    <div>
-
-      <div class="eyebrow">
-        REVIEW
-      </div>
-
-      <h2>
-        间隔复习
-      </h2>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <div class="eyebrow">
-      SPACED REVIEW
-    </div>
-
-
-    <h3>
-      John 1
-    </h3>
-
-
-    <p class="muted">
-
-      完成单元后：
-
-      <br>
-
-      Day 1 → Day 3 → Day 7
-
-    </p>
-
-
-    <div
-      id="reviewList"
-    ></div>
-
-  </div>
-
-</section>
-
+    <div id="reviewList"></div>
+  </section>
+
+  <!-- ============================ SETTINGS ============================ -->
+  <section id="view-settings" class="view">
+    <div id="settingsBody"></div>
+    <input type="file" id="importFile" accept="application/json,.json" class="hidden" data-act="import">
+  </section>
+
+  <div id="fatalBox" class="hidden"></div>
 
 </main>
 
-
-
-<footer>
-
-  EBRM · English Bible Reading Model · V0.9
-
+<footer class="foot">
+  EBRM · John 1 完整精读课程 · V2.0 · 经文 World English Bible（公有领域）
 </footer>
 
+<div id="toast" class="toast"></div>
 
-
-<script
-  src="app.js?v=090"
-  defer
-></script>
-
+<script src="ebrm-content.js"></script>
+<script src="ebrm-engine.js"></script>
+<script src="ebrm-app.js"></script>
+<script>
+  window.EBRM.boot({ mode: 'course' });
+</script>
 
 </body>
 

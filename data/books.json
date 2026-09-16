@@ -1,0 +1,224 @@
+{
+ "translation": "eng_webp",
+ "translationName": "World English Bible (Public Domain)",
+ "books": [
+  {
+   "id": "MAT",
+   "name": "Matthew",
+   "nameZh": "马太福音",
+   "order": 1,
+   "chapters": 28,
+   "file": "nt/MAT.json"
+  },
+  {
+   "id": "MRK",
+   "name": "Mark",
+   "nameZh": "马可福音",
+   "order": 2,
+   "chapters": 16,
+   "file": "nt/MRK.json"
+  },
+  {
+   "id": "LUK",
+   "name": "Luke",
+   "nameZh": "路加福音",
+   "order": 3,
+   "chapters": 24,
+   "file": "nt/LUK.json"
+  },
+  {
+   "id": "JHN",
+   "name": "John",
+   "nameZh": "约翰福音",
+   "order": 4,
+   "chapters": 21,
+   "file": "nt/JHN.json"
+  },
+  {
+   "id": "ACT",
+   "name": "Acts",
+   "nameZh": "使徒行传",
+   "order": 5,
+   "chapters": 28,
+   "file": "nt/ACT.json"
+  },
+  {
+   "id": "ROM",
+   "name": "Romans",
+   "nameZh": "罗马书",
+   "order": 6,
+   "chapters": 16,
+   "file": "nt/ROM.json"
+  },
+  {
+   "id": "1CO",
+   "name": "1 Corinthians",
+   "nameZh": "哥林多前书",
+   "order": 7,
+   "chapters": 16,
+   "file": "nt/1CO.json"
+  },
+  {
+   "id": "2CO",
+   "name": "2 Corinthians",
+   "nameZh": "哥林多后书",
+   "order": 8,
+   "chapters": 13,
+   "file": "nt/2CO.json"
+  },
+  {
+   "id": "GAL",
+   "name": "Galatians",
+   "nameZh": "加拉太书",
+   "order": 9,
+   "chapters": 6,
+   "file": "nt/GAL.json"
+  },
+  {
+   "id": "EPH",
+   "name": "Ephesians",
+   "nameZh": "以弗所书",
+   "order": 10,
+   "chapters": 6,
+   "file": "nt/EPH.json"
+  },
+  {
+   "id": "PHP",
+   "name": "Philippians",
+   "nameZh": "腓立比书",
+   "order": 11,
+   "chapters": 4,
+   "file": "nt/PHP.json"
+  },
+  {
+   "id": "COL",
+   "name": "Colossians",
+   "nameZh": "歌罗西书",
+   "order": 12,
+   "chapters": 4,
+   "file": "nt/COL.json"
+  },
+  {
+   "id": "1TH",
+   "name": "1 Thessalonians",
+   "nameZh": "帖撒罗尼迦前书",
+   "order": 13,
+   "chapters": 5,
+   "file": "nt/1TH.json"
+  },
+  {
+   "id": "2TH",
+   "name": "2 Thessalonians",
+   "nameZh": "帖撒罗尼迦后书",
+   "order": 14,
+   "chapters": 3,
+   "file": "nt/2TH.json"
+  },
+  {
+   "id": "1TI",
+   "name": "1 Timothy",
+   "nameZh": "提摩太前书",
+   "order": 15,
+   "chapters": 6,
+   "file": "nt/1TI.json"
+  },
+  {
+   "id": "2TI",
+   "name": "2 Timothy",
+   "nameZh": "提摩太后书",
+   "order": 16,
+   "chapters": 4,
+   "file": "nt/2TI.json"
+  },
+  {
+   "id": "TIT",
+   "name": "Titus",
+   "nameZh": "提多书",
+   "order": 17,
+   "chapters": 3,
+   "file": "nt/TIT.json"
+  },
+  {
+   "id": "PHM",
+   "name": "Philemon",
+   "nameZh": "腓利门书",
+   "order": 18,
+   "chapters": 1,
+   "file": "nt/PHM.json"
+  },
+  {
+   "id": "HEB",
+   "name": "Hebrews",
+   "nameZh": "希伯来书",
+   "order": 19,
+   "chapters": 13,
+   "file": "nt/HEB.json"
+  },
+  {
+   "id": "JAS",
+   "name": "James",
+   "nameZh": "雅各书",
+   "order": 20,
+   "chapters": 5,
+   "file": "nt/JAS.json"
+  },
+  {
+   "id": "1PE",
+   "name": "1 Peter",
+   "nameZh": "彼得前书",
+   "order": 21,
+   "chapters": 5,
+   "file": "nt/1PE.json"
+  },
+  {
+   "id": "2PE",
+   "name": "2 Peter",
+   "nameZh": "彼得后书",
+   "order": 22,
+   "chapters": 3,
+   "file": "nt/2PE.json"
+  },
+  {
+   "id": "1JN",
+   "name": "1 John",
+   "nameZh": "约翰一书",
+   "order": 23,
+   "chapters": 5,
+   "file": "nt/1JN.json"
+  },
+  {
+   "id": "2JN",
+   "name": "2 John",
+   "nameZh": "约翰二书",
+   "order": 24,
+   "chapters": 1,
+   "file": "nt/2JN.json"
+  },
+  {
+   "id": "3JN",
+   "name": "3 John",
+   "nameZh": "约翰三书",
+   "order": 25,
+   "chapters": 1,
+   "file": "nt/3JN.json"
+  },
+  {
+   "id": "JUD",
+   "name": "Jude",
+   "nameZh": "犹大书",
+   "order": 26,
+   "chapters": 1,
+   "file": "nt/JUD.json"
+  },
+  {
+   "id": "REV",
+   "name": "Revelation",
+   "nameZh": "启示录",
+   "order": 27,
+   "chapters": 22,
+   "file": "nt/REV.json"
+  }
+ ],
+ "totalBooks": 27,
+ "totalChapters": 260
+}

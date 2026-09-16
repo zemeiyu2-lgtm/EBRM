@@ -1,0 +1,1092 @@
+# EBRM 新约英语核心词表
+# 格式: word|中文释义|简单英文解释
+# 用途: Vocabulary 步骤按"经文词义"教学，非字典式泛义
+# ---------------------------------------------------------
+
+# --- 神格与信仰核心 ---
+God|神|the Creator, the LORD
+Lord|主|master, the one with authority
+Jesus|耶稣|the Savior's name
+Christ|基督|the Anointed One, Messiah
+Messiah|弥赛亚|the promised Anointed King
+Spirit|圣灵;灵|the Holy Spirit, or a spirit
+holy|圣洁的|set apart for God
+faith|信心|trust in God
+believe|相信|to trust as true
+hope|盼望|confident waiting
+love|爱|deep care and devotion
+grace|恩典|free gift of favor
+mercy|怜悯|kindness to the needy
+truth|真理|what is true
+peace|平安|wholeness, no conflict
+joy|喜乐|deep gladness
+glory|荣耀|bright honor
+kingdom|国度|rule, reign of a king
+heaven|天;天堂|the sky, God's dwelling
+gospel|福音|good news
+salvation|救恩|being saved
+sin|罪|wrong against God
+repentance|悔改|turning from sin
+forgive|赦免|to cancel a debt of wrong
+baptize|施洗|to dip, to wash in water
+worship|敬拜|to honor God
+pray|祷告|to speak to God
+prayer|祷告|talking with God
+praise|赞美|words of honor
+bless|赐福|to speak good over
+curse|咒诅|to speak evil over
+commandment|诫命|an order to obey
+law|律法|the given rules
+covenant|约|a binding agreement
+promise|应许|a sure word given
+prophet|先知|one who speaks for God
+angel|天使|a heavenly messenger
+disciple|门徒|a learner, follower
+apostle|使徒|one sent out
+witness|见证|one who tells what he saw
+testimony|见证|the report given
+parable|比喻|a teaching story
+miracle|神迹|a wonder beyond nature
+sign|神迹;记号|a mark pointing to truth
+resurrection|复活|rising from the dead
+judgment|审判|the deciding of right and wrong
+righteous|公义的|right with God
+wicked|邪恶的|doing great wrong
+unclean|不洁的|not fit for God's use
+pure|纯洁的|clean, without mix
+sinner|罪人|one who does wrong
+saint|圣徒|one set apart for God
+priest|祭司|one who serves at the altar
+sacrifice|献祭;牺牲|an offering given
+offering|供物|a gift brought to God
+altar|祭坛|the place of offering
+temple|圣殿|God's house
+synagogue|会堂|the Jewish meeting house
+Pharisee|法利赛人|a strict Jewish teacher
+scribe|文士|a teacher of the law
+Gentile|外邦人|a non-Jewish person
+Israel|以色列|God's chosen people
+Jerusalem|耶路撒冷|the holy city
+Scripture|经文|the holy writings
+prophecy|预言|a word spoken before
+reveal|启示|to make known
+mystery|奥秘|truth once hidden
+eternal|永恒的|without end
+everlasting|永远的|never ending
+
+# --- 人物与关系 ---
+man|人;男人|a human, an adult male
+woman|女人|an adult female
+son|儿子|a male child
+daughter|女儿|a female child
+father|父亲|a male parent
+mother|母亲|a female parent
+brother|兄弟|a male sibling
+sister|姐妹|a female sibling
+child|孩子|a young person
+children|孩子们|young persons
+people|人们|a group of persons
+nation|民族;国|a people group
+family|家;家族|parents and children
+husband|丈夫|a married man
+wife|妻子|a married woman
+servant|仆人|one who serves another
+master|主人|one who rules others
+king|王|a male ruler
+queen|王后|a female ruler
+elder|长老|an older leader
+neighbor|邻舍|one who lives near
+stranger|陌生人|an unknown person
+enemy|仇敌|one who fights against
+friend|朋友|one who is close
+teacher|老师|one who teaches
+shepherd|牧人|one who cares for sheep
+fisherman|渔夫|one who catches fish
+crowd|群众|a great many people
+generation|世代|the people of one age
+
+# --- 地点与自然 ---
+earth|地;大地|the ground, the world
+world|世界|all that exists here
+land|土地|a country, ground
+sea|海|the great water
+lake|湖|a body of water
+river|河|flowing water
+water|水|the clear liquid
+mountain|山|a high land form
+hill|丘陵|a small mountain
+desert|旷野|a dry empty place
+wilderness|旷野|an empty wild place
+field|田地|open farm land
+garden|园子|a planted place
+vineyard|葡萄园|a field of vines
+road|路|a way for travel
+way|道路|a path, a manner
+path|小径|a narrow way
+gate|门|an opening in a wall
+door|门|the way in
+city|城|a large town
+town|镇|a small city
+village|村庄|a small settlement
+house|房子|a dwelling
+home|家|one's own house
+palace|宫殿|a king's house
+prison|监牢|a place of holding
+grave|坟墓|a place of the dead
+tomb|坟墓|a burial place
+sky|天空|the space above
+cloud|云|water in the sky
+rain|雨|falling water
+wind|风|moving air
+storm|风暴|a strong storm
+fire|火|burning heat
+light|光|what lets us see
+darkness|黑暗|the absence of light
+star|星|a light in the night sky
+moon|月亮|the light of night
+sun|太阳|the light of day
+tree|树|a tall plant
+branch|枝子|a part of a tree
+root|根|the base of a plant
+leaf|叶子|the green part of a plant
+leaves|叶子|the green parts of a plant|x
+fruit|果子|the food of a plant
+seed|种子|what grows into a plant
+harvest|收割|the gathering of crops
+wheat|麦子|a grain plant
+vine|葡萄树|the plant of grapes
+fig|无花果|a sweet fruit
+olive|橄榄|an oily fruit
+bread|饼|baked food
+wine|酒|the drink of grapes
+water jar|水缸|a pot for water
+fish|鱼|a water animal
+sheep|羊|woolly animals
+lamb|羔羊|a young sheep
+goat|山羊|a horned animal
+ox|牛|a working animal
+donkey|驴|a riding animal
+horse|马|a riding animal
+bird|鸟|a flying animal
+dove|鸽子|a gentle bird
+sparrow|麻雀|a small bird
+snake|蛇|a crawling animal
+dog|狗|a house animal
+stone|石头|hard rock
+rock|磐石|large hard stone
+gold|金子|a precious metal
+silver|银子|a shining metal
+money|钱|coins for buying
+coin|钱币|a piece of money
+treasure|财宝|stored riches
+field of blood|血田|a field bought with blood
+
+# --- 身体与生命 ---
+body|身体|the whole person
+flesh|肉体|the soft body
+blood|血|the red life fluid
+heart|心|the inner self
+soul|灵魂|the living self
+mind|心思|the thinking self
+spirit|灵|the inner breath
+hand|手|the working part
+finger|指头|a part of the hand
+arm|膀臂|the upper limb
+foot|脚|the walking part
+head|头|the top part
+hair|头发|the hair of the head
+eye|眼睛|the seeing part
+ear|耳朵|the hearing part
+mouth|口|the speaking part
+tongue|舌头|the speaking organ
+voice|声音|the sound of speech
+face|脸|the front of the head
+skin|皮肤|the outer cover
+bone|骨头|the hard part
+wound|伤|a hurt place
+disease|疾病|a sickness
+fever|热病|a high body heat
+leprosy|大麻风|a skin disease
+death|死亡|the end of life
+life|生命|being alive
+breath|气息|the air of life
+hunger|饥饿|the need for food
+thirst|干渴|the need for water
+rest|安息|a time of peace
+sleep|睡觉|the rest of night
+dream|梦|a vision in sleep
+tear|眼泪|water from the eye
+
+# --- 时间与数量 ---
+day|日;天|a period of light
+night|夜|the dark hours
+morning|早晨|the start of day
+evening|晚上|the end of day
+noon|正午|the middle of day
+hour|小时|a short time
+moment|时刻|a very short time
+week|周|seven days
+month|月|about thirty days
+year|年|twelve months
+time|时候|the passing of events
+beginning|起初|the first point
+end|末了|the last point
+age|世代;时代|a long period
+today|今天|this present day
+tomorrow|明天|the next day
+yesterday|昨天|the day before
+first|首先的|before all others
+last|末后的|after all others
+one|一|the number 1
+two|二|the number 2
+three|三|the number 3
+seven|七|the number 7
+ten|十|the number 10
+twelve|十二|the number 12
+hundred|百|the number 100
+thousand|千|the number 1000
+many|许多|a great number
+few|少数|a small number
+all|所有的|every one
+some|一些|a part of
+none|没有一个|not one
+half|一半|one of two parts
+whole|整个的|complete, full
+every|每一个|each one
+each|各自的|every single
+number|数目|how many
+multitude|群众|a great crowd
+
+# --- 动作动词（核心） ---
+come|来|to move toward
+go|去|to move away
+enter|进入|to come in
+leave|离开|to go out from
+depart|离开|to go away
+return|返回|to come back
+follow|跟随|to come after
+lead|带领|to go before
+walk|行走|to go on foot
+run|跑|to move fast
+stand|站立|to be upright
+sit|坐|to be seated
+fall|倒下|to drop down
+rise|起来|to go up
+arise|兴起|to stand up
+send|差遣|to cause to go
+bring|带来|to carry here
+carry|背负|to hold and move
+take|拿|to receive and hold
+give|给|to hand over
+receive|领受|to take what is given
+offer|献上|to bring as gift
+buy|买|to get with money
+sell|卖|to give for money
+eat|吃|to take food
+drink|喝|to take liquid
+feed|喂养|to give food
+fill|充满|to make full
+pour|倾倒|to make flow out
+wash|洗|to clean with water
+cleanse|洁净|to make clean
+heal|医治|to make well
+save|拯救|to rescue from harm
+rescue|搭救|to save from danger
+deliver|解救|to set free
+redeem|赎回|to buy back
+raise|使复活;举起|to lift up
+die|死|to stop living
+live|活|to be alive
+bear|结出;承受|to carry, to produce
+grow|生长|to become bigger
+shine|照耀|to give light
+burn|烧|to be on fire
+build|建造|to make a building
+destroy|毁坏|to break down
+break|折断|to make separate
+bind|捆绑|to tie together
+loose|解开|to set free
+open|打开|to make not shut
+shut|关上|to close
+keep|遵守;保守|to hold, to obey
+hold|持守|to keep in hand
+cast|抛|to throw away
+gather|聚集|to bring together
+scatter|分散|to throw apart
+sow|撒种|to plant seed
+reap|收割|to gather crops
+plant|栽种|to put in the ground
+hear|听见|to take in sound
+listen|听|to give attention
+see|看见|to take in sight
+look|看|to turn the eyes
+watch|守望|to keep looking
+know|知道|to have knowledge
+understand|明白|to grasp meaning
+remember|记得|to keep in mind
+forget|忘记|to lose from mind
+think|思想|to use the mind
+say|说|to speak words
+speak|说话|to use words
+tell|告诉|to make known
+ask|问;求|to seek an answer
+answer|回答|to give a reply
+call|呼叫;称为|to name, to cry out
+cry|哭;喊|to call out loud
+shout|喊叫|to speak loudly
+whisper|低语|to speak softly
+teach|教导|to help to learn
+learn|学习|to gain knowledge
+preach|传道|to proclaim publicly
+proclaim|宣告|to announce openly
+testify|作证|to tell what is true
+warn|警告|to tell of danger
+rebuke|责备|to speak against
+judge|审判|to decide right and wrong
+condemn|定罪|to declare guilty
+justify|称义|to declare right
+forgive|赦免|to let go of wrong
+serve|服事|to work for another
+rule|统治|to have authority
+reign|作王|to rule as king
+obey|顺服|to do what is said
+submit|顺服|to place under
+resist|抵挡|to stand against
+tempt|试探|to try to make sin
+test|试验|to put to proof
+seek|寻找|to look for
+find|找到|to come upon
+lose|失去|to no longer have
+choose|拣选|to pick out
+send out|差出去|to cause to go out
+help|帮助|to give aid
+strengthen|坚固|to make strong
+comfort|安慰|to give ease
+encourage|劝勉|to give courage
+provide|供应|to give what is needed
+care|看顾|to look after
+guard|守护|to keep safe
+fight|争战|to battle
+overcome|胜过|to win against
+suffer|受苦|to go through pain
+endure|忍耐|to hold on through
+wait|等候|to stay expecting
+rejoice|欢欣|to be very glad
+mourn|哀哭|to be sad
+weep|哭泣|to cry tears
+sing|歌唱|to make music with voice
+praise with song|歌颂|to sing honor
+rejoice greatly|大大欢喜|to be full of joy
+work|作工|to do a task
+prepare|预备|to make ready
+fulfill|应验|to make complete
+finish|完成|to bring to an end
+begin|开始|to start
+continue|继续|to keep on
+remain|常存|to stay in place
+abide|住在|to dwell, to stay
+dwell|居住|to live in
+stay|停留|to remain
+wait for|等待|to expect
+follow after|追随|to go behind
+cross over|过去|to go across
+journey|行路|to travel far
+travel|旅行|to go on a trip
+enter in|进去|to come inside
+cast out|赶出|to drive out
+take up|拿起|to lift and carry
+lay down|放下|to put down
+put|放|to place
+set|安置|to put in place
+place|放置|to put somewhere
+appear|显现|to come into sight
+disappear|消失|to go out of sight
+become|成为|to come to be
+happen|发生|to take place
+fulfilled|应验了|past of fulfill|x
+allow|允许|to let happen
+permit|准许|to give leave
+forbid|禁止|to not allow
+refuse|拒绝|to say no
+accept|接受|to take as good
+reject|弃绝|to refuse to take
+trust|信靠|to rely on
+doubt|疑惑|to be unsure
+fear|惧怕|to be afraid
+astonish|惊奇|to fill with wonder
+marvel|希奇|to wonder greatly
+wonder|希奇|to be amazed
+glorify|荣耀|to give glory
+honor|尊敬|to give worth
+exalt|高举|to lift up high
+humble|降卑|to make low
+seek out|寻找|to look carefully
+invite|邀请|to ask to come
+greet|问安|to speak welcome
+embrace|拥抱|to hold close
+touch|摸|to put the hand on
+strike|打|to hit
+kill|杀|to take life
+stone|扔石头|to throw stones at
+crucify|钉十字架|to put on a cross
+bury|埋葬|to put in the ground
+roll away|滚开|to move by rolling
+
+# --- 属性与形容词 ---
+good|好的|right, pleasing
+evil|恶的|very bad
+great|大的|very large
+small|小的|little in size
+large|大的|big in size
+little|小的|not big
+high|高的|far up
+low|低的|near the ground
+deep|深的|far down
+wide|宽的|broad across
+long|长的|not short
+short|短的|not long
+near|近的|close by
+far|远的|a long way off
+new|新的|not old
+old|旧的;老的|not new
+young|年轻的|not old in years
+strong|强壮的|full of power
+weak|软弱的|without strength
+rich|富足的|having much
+poor|贫穷的|having little
+wise|有智慧的|full of understanding
+foolish|愚拙的|without sense
+faithful|忠信的|keeping trust
+true|真实的|not false
+false|虚假的|not true
+alive|活的|having life
+dead|死的|without life
+blind|瞎眼的|not able to see
+lame|瘸腿的|not able to walk well
+deaf|耳聋的|not able to hear
+mute|哑巴的|not able to speak
+sick|生病的|not well
+healthy|健康的|well and strong
+hungry|饥饿的|needing food
+thirsty|干渴的|needing drink
+naked|赤身的|without clothes
+afraid|惧怕的|full of fear
+glad|欢喜的|full of joy
+sad|忧愁的|full of sorrow
+angry|发怒的|full of wrath
+humble|谦卑的|low in spirit
+proud|骄傲的|high in spirit
+gentle|温柔的|soft and kind
+patient|忍耐的|slow to anger
+kind|仁慈的|good to others
+cruel|残忍的|hard and hurting
+just|公义的|fair and right
+unjust|不义的|not fair
+precious|宝贵的|of great worth
+beautiful|美丽的|pleasing to see
+glorious|荣耀的|full of glory
+mighty|大能的|very strong
+powerful|有权能的|having power
+worthy|配得的|deserving honor
+unworthy|不配的|not deserving
+ready|预备好的|made ready
+whole|痊愈的|complete, sound
+full|满的|filled up
+empty|空的|with nothing in
+bright|明亮的|giving much light
+dark|黑暗的|without light
+hot|热的|high in heat
+cold|冷的|low in heat
+dry|干的|without water
+wet|湿的|full of water
+heavy|重的|hard to carry
+sharp|锋利的|able to cut
+pure in heart|心里纯洁的|clean within
+skilled|有手艺的|able to make
+ancient|古时的|from long ago
+former|从前的|of an earlier time
+latter|后来的|of a later time
+such|这样的|of this kind
+same|同样的|not different
+different|不同的|not the same
+other|别的|another one
+another|另一个|one more
+own|自己的|belonging to oneself
+only|唯一的|the single one
+alone|独自|without others
+together|一同|in one group
+apart|分开|away from each other
+secret|隐藏的|not known
+openly|公开地|in plain sight
+suddenly|忽然|very quickly
+immediately|立刻|at once
+quickly|快地|in a short time
+slowly|慢地|taking much time
+again|再一次|one more time
+always|常常|at all times
+never|从不|not at any time
+often|屡次|many times
+soon|快|in a little while
+already|已经|before now
+still|仍然|even now
+yet|还|up to now
+
+# --- 抽象名词 ---
+word|话;道|the spoken message
+message|信息|what is told
+news|消息|a report of events
+report|报告|what is said about
+teaching|教导|what is taught
+doctrine|道理|a body of teaching
+instruction|教训|a direction given
+tradition|传统|what was handed down
+authority|权柄|the right to rule
+power|能力|the strength to act
+strength|力量|might to do
+weakness|软弱|lack of strength
+wisdom|智慧|good judgment
+knowledge|知识|what is known
+understanding|悟性|grasping of meaning
+mind set|心思|way of thinking
+will|旨意;意愿|the choosing power
+desire|愿望|what one wants
+lust|私欲|wrong desire
+passion|情欲|strong feeling
+temptation|试探|a pull to sin
+trial|试炼|a testing time
+tribulation|患难|great trouble
+persecution|逼迫|suffering for faith
+suffering|受苦|going through pain
+grief|忧愁|deep sadness
+comfort|安慰|ease in sorrow
+inheritance|基业|what is passed down
+reward|赏赐|what is given for good
+punishment|刑罚|what is given for wrong
+wrath|忿怒|great anger
+jealousy|忌恨|anger at another's good
+patience|忍耐|long waiting
+kindness|恩慈|goodness to others
+goodness|良善|being good
+faithfulness|信实|keeping one's word
+self-control|节制|ruling oneself
+transgression|过犯|a step over the line
+iniquity|罪孽|deep wrong
+guilt|罪疚|being at fault
+shame|羞辱|loss of honor
+confession|承认|saying what one did
+redemption|救赎|buying back
+resurrection life|复活的生命|life after death
+ascension|升天|going up to heaven
+conscience|良心|inner sense of right
+throne|宝座|a king's seat
+crown|冠冕|a king's headpiece
+scepter|权杖|a ruler's staff
+dominion|权柄|rule and power
+majesty|威严|great glory
+wonder|奇事|a thing that amazes
+mystery truth|奥秘|hidden truth
+counsel|谋略|advice given
+plan|计划|what is intended
+purpose|旨意|the reason for
+example|榜样|a pattern to follow
+pattern|样式|a model
+sign of the times|时代的记号|a mark of the age
+genealogy|家谱|a list of ancestors
+ancestor|祖宗|one from long ago
+descendant|后裔|one born later
+birth|出生|coming into life
+death and life|死与生|the two ways
+judgment day|审判之日|the day of deciding
+eternity|永远|time without end
+silence|静默|no sound
+voice from heaven|天上的声音|a sound from God
+presence|同在|being near
+absence|不在|being away
+distance|距离|space between
+journey's end|旅程之末|the finish of a trip
+harvest time|收割之时|the time of reaping
+wedding|婚宴|a marriage feast
+feast|筵席|a great meal
+banquet|宴席|a rich meal
+debt|债|what is owed
+tax|税|money paid to rulers
+wage|工价|pay for work
+profit|得益|what is gained
+
+# --- 补充高频动词 ---
+bless|祝福|to give good
+curse|咒诅|to speak harm
+swear|起誓|to make an oath
+promise|应许|to give one's word
+warn of|警告|to tell of danger
+reveal to|启示|to show openly
+hide|隐藏|to keep from sight
+cover|遮盖|to put over
+uncover|揭露|to make known
+spread|传开|to go out wide
+increase|增多|to become more
+decrease|减少|to become less
+multiply|繁衍|to become many
+divide|分开|to make parts
+share|分享|to give part
+join|连接|to bring together
+separate|分离|to put apart
+put away|除去|to remove
+take away|拿去|to carry off
+bring near|带近|to make close
+draw near|靠近|to come close
+stand up|站起来|to rise to the feet
+sit down|坐下|to take a seat
+lie down|躺下|to rest flat
+wake up|醒起|to come from sleep
+fall down|俯伏|to go to the ground
+throw down|推倒|to cast to the ground
+lift up|举起|to raise high
+put on|穿上|to clothe with
+take off|脱下|to remove clothing
+wash away|洗净|to clean by water
+dry up|枯干|to lose water
+flow out|流出|to come out as water
+spring up|涌出|to come up quickly
+take root|扎根|to fix in the ground
+bear fruit|结果子|to produce fruit
+wither|枯干|to dry and die
+blossom|开花|to open in flower
+shine out|照耀|to give forth light
+give light|发光|to be a light
+sound out|响起|to make a sound
+call out|呼叫|to cry loudly
+send word|捎信|to tell by messenger
+give thanks|感谢|to speak thankfulness
+give glory to|归荣耀给|to honor greatly
+fear God|敬畏神|to honor with awe
+love one another|彼此相爱|to care for each other
+serve one another|彼此服事|to help each other
+forgive one another|彼此饶恕|to pardon each other
+bear witness|作见证|to tell the truth
+keep watch|警醒|to stay awake
+be on guard|防备|to watch out
+take heed|谨慎|to pay attention
+pay attention|留心|to give care to
+give ear|侧耳|to listen closely
+set one's heart|定意|to decide firmly
+make known|显明|to cause to be known
+bring good news|报好信息|to tell good news
+
+# --- 补充教学词 ---
+thing|事物|an object, a matter
+things|事物|objects, matters
+men|男人们|adult males
+name|名字|what one is called
+righteousness|公义|being right with God
+assembly|会众|a gathered group
+sabbath|安息日|the day of rest
+feet|脚|the walking parts
+sight|视力;景象|the power to see
+boat|船|a small vessel
+food|食物|what is eaten
+gift|恩赐;礼物|what is given
+demon|污鬼|an evil spirit
+beast|兽|a wild animal
+fellow|同伴|a companion
+circumcision|割礼|the sign of the covenant
+country|地方;国|a land, a region
+book|书卷|a written scroll
+part|部分|a piece of
+cause|原因;缘故|the reason for
+able|能|having power to
+sake|缘故|for the good of
+beloved|亲爱的|dearly loved
+certain|某个;确实的|sure, some one
+chief|首领|the leading one
+loud|大声的|very noisy
+free|自由的|not bound
+present|在场的|being here
+born|生的|past of bear|x
+whatever|无论什么|anything at all
+whoever|无论谁|any person who
+concerning|关于|about, regarding
+according to|按照|in line with
+except|除了|other than
+though|虽然|even if
+forever|永远|for all time
+third|第三|number three in order
+second|第二|number two in order
+fourth|第四|number four in order
+four|四|the number 4
+five|五|the number 5
+six|六|the number 6
+eight|八|the number 8
+nine|九|the number 9
+want|想要|to wish for
+need|需要|to have lack of
+get|得到|to come to have
+show|显明|to make seen
+write|写|to put in letters
+lay|放;躺|to put down
+keep|保守|to hold safe
+make|造|to cause to be
+made|造成了|past of make|x
+do|做|to act
+work of|……的工作|the doing of
+seek after|追求|to go after
+abide in|住在……里|to stay in
+hunger for|渴慕|to long for
+thirst for|渴想|to long for
+follow me|跟从我|to come after me
+come and see|来看|to come and look
+fear not|不要怕|do not be afraid
+behold|看哪|look, pay attention
+behold I|看哪，我|look, I
+woe|有祸了|great sorrow is coming
+woe to|有祸了|sorrow to
+truly|实在|in truth
+verily|实在|truly
+surely|必定|without doubt
+perhaps|或者|maybe
+almost|几乎|nearly
+enough|够了|as much as needed
+rather|宁可|more willingly
+no longer|不再|not any more
+at once|立刻|right away
+in vain|徒然|with no result
+by no means|绝不|not at all
+on account of|因为|because of
+in order that|为了|so that
+so that|以致|with the result that
+as for|至于|concerning
+but rather|反而|instead
+not only|不但|not just
+how much more|何况|even more
+one another|彼此|each other
+each other|互相|one the other
+
+# --- 变形与功能形态（仅用于识别，不作教学词） type=x ---
+said|说（过去式）|past of say|x
+came|来（过去式）|past of come|x
+went|去（过去式）|past of go|x
+made of|做成|made from|x
+saw|看见（过去式）|past of see|x
+heard|听见（过去式）|past of hear|x
+having|拥有（分词）|having|x
+sent|差遣（过去式）|past of send|x
+given|赐给（过去分词）|past of give|x
+took|拿（过去式）|past of take|x
+gave|给（过去式）|past of give|x
+brought|带来（过去式）|past of bring|x
+spoke|说（过去式）|past of speak|x
+told|告诉（过去式）|past of tell|x
+became|成为（过去式）|past of become|x
+left|离开（过去式）|past of leave|x
+seen|看见（过去分词）|past of see|x
+sat|坐（过去式）|past of sit|x
+fell|倒下（过去式）|past of fall|x
+known|知道（过去分词）|past of know|x
+stood|站立（过去式）|past of stand|x
+began|开始（过去式）|past of begin|x
+laid|放（过去式）|past of lay|x
+arose|起来（过去式）|past of arise|x
+found|找到（过去式）|past of find|x
+wrote|写（过去式）|past of write|x
+written|写（过去分词）|past of write|x
+taught|教导（过去式）|past of teach|x
+led|带领（过去式）|past of lead|x
+kept|遵守（过去式）|past of keep|x
+bound|捆绑（过去式）|past of bind|x
+drew|拉（过去式）|past of draw|x
+threw|扔（过去式）|past of throw|x
+ate|吃（过去式）|past of eat|x
+drank|喝（过去式）|past of drink|x
+slept|睡（过去式）|past of sleep|x
+woke|醒（过去式）|past of wake|x
+sang|唱（过去式）|past of sing|x
+wept|哭泣（过去式）|past of weep|x
+bore|结出; bearing|past of bear|x
+wore|穿（过去式）|past of wear|x
+broke|折断（过去式）|past of break|x
+chose|拣选（过去式）|past of choose|x
+rose|起来（过去式）|past of rise|x
+ran|跑（过去式）|past of run|x
+spoke to|对……说|spoke to|x
+cried out|喊叫（过去式）|cried out|x
+commanded|吩咐（过去式）|past of command|x
+ordered|命令（过去式）|past of order|x
+kept on|继续|kept on|x
+went out|出去（过去式）|went out|x
+came out|出来（过去式）|came out|x
+went up|上去（过去式）|went up|x
+came down|下来（过去式）|came down|x
+went in|进去（过去式）|went in|x
+took up|拿起（过去式）|took up|x
+laid hands|按手（过去式）|laid hands|x
+rejoiced|欢欣（过去式）|past of rejoice|x
+marveled|希奇（过去式）|past of marvel|x
+answered|回答（过去式）|past of answer|x
+asked|问（过去式）|past of ask|x
+called|呼叫（过去式）|past of call|x
+replied|回答（过去式）|past of reply|x
+don't|不|do not|x
+don’t|不|do not|x
+didn't|没有|did not|x
+didn’t|没有|did not|x
+isn't|不是|is not|x
+isn’t|不是|is not|x
+doesn't|不|does not|x
+doesn’t|不|does not|x
+wouldn't|不会|would not|x
+wouldn’t|不会|would not|x
+won't|不会|will not|x
+won’t|不会|will not|x
+can't|不能|cannot|x
+can’t|不能|cannot|x
+couldn't|不能|could not|x
+couldn’t|不能|could not|x
+shouldn't|不该|should not|x
+shouldn’t|不该|should not|x
+hasn't|没有|has not|x
+hasn’t|没有|has not|x
+haven't|没有|have not|x
+haven’t|没有|have not|x
+wasn't|不是|was not|x
+wasn’t|不是|was not|x
+weren't|不是|were not|x
+weren’t|不是|were not|x
+mustn't|不可|must not|x
+mustn’t|不可|must not|x
+i'm|我是|I am|x
+i’m|我是|I am|x
+it's|它是|it is|x
+it’s|它是|it is|x
+that's|那是|that is|x
+that’s|那是|that is|x
+he's|他是|he is|x
+he’s|他是|he is|x
+you're|你是|you are|x
+you’re|你是|you are|x
+we're|我们是|we are|x
+we’re|我们是|we are|x
+they're|他们是|they are|x
+they’re|他们是|they are|x
+israel|以色列|the people of God|n
+israelites|以色列人|the people of Israel|n
+jew|犹太人|a person of Judah|n
+jews|犹太人|people of Judah|n
+gentiles|外邦人|non-Jewish peoples|n
+peter|彼得|a leading disciple|n
+paul|保罗|the apostle to the nations|n
+john|约翰|the Baptist or the apostle|n
+moses|摩西|the lawgiver|n
+abraham|亚伯拉罕|the father of faith|n
+isaac|以撒|the son of promise|n
+jacob|雅各|the father of the tribes|n
+david|大卫|the shepherd king|n
+solomon|所罗门|the wise king|n
+mary|马利亚|the mother of Jesus|n
+joseph|约瑟|the husband of Mary|n
+james|雅各|a leader in Jerusalem|n
+simon|西门|another name of Peter|n
+andrew|安得烈|Peter's brother|n
+philip|腓力|one of the twelve|n
+thomas|多马|one of the twelve|n
+judas|犹大|the betrayer|n
+matthew|马太|the tax collector apostle|n
+mark|马可|the writer of the second gospel|n
+luke|路加|the beloved physician|n
+timothy|提摩太|Paul's young coworker|n
+titus|提多|Paul's coworker|n
+satan|撒但|the adversary|n
+devil|魔鬼|the evil one|n
+galilee|加利利|a region in the north|n
+judea|犹太|the southern region|n
+samaria|撒马利亚|the middle region|n
+jerusalem|耶路撒冷|the holy city|n
+bethlehem|伯利恒|the town of David|n
+nazareth|拿撒勒|the town of Jesus' youth|n
+capernaum|迦百农|a town by the lake|n
+damascus|大马士革|the city of Paul's call|n
+antioch|安提阿|where disciples were first called Christians|n
+corinth|哥林多|a city in Greece|n
+ephesus|以弗所|a city in Asia|n
+philippi|腓立比|a city in Macedonia|n
+rome|罗马|the capital of the empire|n
+egypt|埃及|the land of slavery|n
+babylon|巴比伦|the city of exile|n
+herod|希律|the ruling king|n
+pilate|彼拉多|the Roman governor|n
+caiaphas|该亚法|the high priest|n
+pharaoh|法老|the king of Egypt|n
+adam|亚当|the first man|n
+eve|夏娃|the first woman|n
+noah|挪亚|the man of the ark|n
+elijah|以利亚|the prophet of fire|n
+elisha|以利沙|the prophet after Elijah|n
+isaiah|以赛亚|the prophet of the coming One|n
+jeremiah|耶利米|the weeping prophet|n
+daniel|但以理|the prophet in exile|n
+job|约伯|the man who suffered|n
+ezekiel|以西结|the prophet of visions|n
+hosea|何西阿|the prophet of steadfast love|n
+joel|约珥|the prophet of the Spirit|n
+amos|阿摩司|the prophet of justice|n
+micah|弥迦|the prophet of Bethlehem|n
+habakkuk|哈巴谷|the prophet who questioned|n
+zechariah|撒迦利亚|the father of John the Baptist|n
+elizabeth|以利沙伯|the mother of John the Baptist|n
+lazarus|拉撒路|the friend Jesus raised|n
+martha|马大|the sister of Lazarus|n
+mary magdalene|抹大拉的马利亚|the witness of the resurrection|n
+zacchaeus|撒该|the tax collector who climbed|n
+nicodemus|尼哥底母|the teacher who came by night|n
+cornelius|哥尼流|the devout centurion|n
+stephen|司提反|the first martyr|n
+barnabas|巴拿巴|the son of encouragement|n
+silas|西拉|Paul's companion|n
+apollos|亚波罗|the eloquent teacher|n
+priscilla|百基拉|a teacher of the way|n
+aquila|亚居拉|the tentmaker with Paul|n
+lydia|吕底亚|the first believer in Philippi|n
+onesimus|阿尼西母|the runaway who returned|n
+
+# --- 第三批教学词 ---
+like|像|similar to
+well|好;井|in a good way; a water hole
+spoken|说出的|that was said
+cried|喊叫|called out loud
+taken|被拿走的|that was taken
+ought|应当|should
+women|妇女们|adult females
+thanks|感谢|words of thankfulness
+outside|外面|not inside
+gone|去了|past of go|x
+crucified|被钉十字架|put on a cross
+beg|乞求|to ask with need
+begged|恳求|asked with need
+command|命令|an order given
+turn|转;回转|to change direction
+better|更好|of higher quality
+offspring|后裔|children, descendants
+knew|知道|knew
+glorified|得荣耀|given glory
+exceedingly|极其|very greatly
+sitting|坐着|being seated
+chosen|所拣选的|picked out
+middle|中间|the center
+sought|寻找|looked for
+sound|声音;健全的|a noise; healthy
+next|下一个|the following one
+clothing|衣服|what is worn
+cut|割|to divide with a blade
+immorality|淫乱|sexual sin
+side|旁边;肋旁|the flank
+passed|经过|went by
+cup|杯|a drinking vessel
+justified|称义|declared right
+boast|夸口|to speak proudly
+means|方法;手段|a way to do
+members|肢体;成员|parts of a body
+sword|刀剑|a weapon
+perfect|完全的|without lack
+thrown|被扔|cast away
+cross|十字架|the wood of death
+turned|转过来|changed direction
+person|人|an individual
+likewise|照样|in the same way
+passover|逾越节|the feast of deliverance
+appointed|指定的|set in place
+service|服事|work for others
+spiritual|属灵的|of the Spirit
+stumble|绊跌|to trip and fall
+lawful|合法的|allowed by law
+testified|作见证|told the truth
+repent|悔改|to turn from sin
+pass|经过;过去|to go by
+vain|徒然|of no use
+soldiers|兵丁|armed men
+table|桌子|a flat stand
+rulers|掌权的|those who rule
+hidden|隐藏的|not seen
+white|白的|of light color
+sold|卖了|past of sell|x
+broken|掰开的|made into pieces
+image|形像|a likeness
+perseverance|忍耐|holding on
+ground|地|the soil
+read|诵读|to look at words
+reason|理由|the cause
+forty|四十|the number 40
+council|公会|a ruling group
+household|全家|all in a house
+loaves|饼|breads
+ship|船|a large boat
+languages|语言|tongues, speeches
+self|自己|one's own person
+troubled|忧愁|disturbed
+letter|书信|a written message
+yours|你们的|belonging to you
+risen|复活了|past of rise|x
+foundation|根基|the base
+savior|救主|the one who saves
+tribe|支派|a family line
+war|战争|armed fighting
+baptism|洗礼|the washing of water
+adultery|奸淫|breaking marriage
+consider|思想|to think about
+measure|量;尺度|a standard of size
+amazed|惊奇|filled with wonder
+counted|算为|reckoned
+release|释放|to set free
+behalf|代表|for the sake of
+various|各种的|of different kinds
+lamp|灯|lamp for light
+commit|犯|to do wrong
+perish|灭亡|to be destroyed
+deeds|行为|things done
+pieces|碎片|broken parts
+built|建造|constructed
+beat|打|to hit
+compassion|怜悯|deep pity
+parents|父母|father and mother
+deny|否认|to say not true
+pay|偿还|to give what is owed
+speech|言语|words spoken
+fallen|坠落的|having fallen
+determined|定意|decided firmly
+abound|充足|to be much
+anger|怒气|strong displeasure
+faith in|信靠|trust in
+grace of|恩典|the favor of
+mercy of|怜悯|the pity of
+word of God|神的话|the message of God
+son of man|人子|the title of Jesus
+son of God|神的儿子|the title of Jesus
+lamb of god|神的羔羊|the sacrifice for sin
+kingdom of god|神的国|the rule of God
+holy spirit|圣灵|the Spirit of God
+eternal life|永生|life without end
+good news|好消息|the gospel
+last days|末后的日子|the final age
+day of the lord|主的日子|the coming day
+
+# --- 功能词补充 type=x ---
+according|按照|in line with|x
+right|正当的;权|correct; a claim|x
+off|离开|away from|x
+ever|曾经|at any time|x
+however|然而|but|x
+else|别的|other than|x
+lest|免得|so that not|x
+yourself|你自己|your own self|x
+let's|让我们|let us|x
+let’s|让我们|let us|x
+aren't|不是|are not|x
+aren’t|不是|are not|x
+mine|我的|belonging to me|x
+least|最小的|the smallest|x
+hence|因此|from here|x
+thereof|其中|of it|x
+wherefore|因此|for which reason|x
+whence|从那里|from where|x
+
+
+
+

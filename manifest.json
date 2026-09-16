@@ -1,10 +1,10 @@
 {
-  "name":"EBRM V1.0｜新约完整圣经英语学习系统",
-  "short_name":"EBRM",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#f5f1e7",
-  "theme_color":"#f5f1e7",
-  "description":"以圣经为中心的新约英语读经、十步训练、复习与学习数据系统",
-  "lang":"zh-CN"
+  "name": "EBRM 2.0｜新约完整圣经英语学习系统",
+  "short_name": "EBRM",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f1e7",
+  "theme_color": "#f5f1e7",
+  "description": "以圣经经文为语言材料，以 JOHN 1 渐进式学习模型为教学母版：阅读 → 听读 → 观察 → 词汇 → 句型 → 直接理解 → 表达 → 再读 → 综合测试 → 结果 → 间隔复习。",
+  "lang": "zh-CN"
 }

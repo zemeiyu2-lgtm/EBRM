@@ -1,707 +1,224 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5f1e7">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232e2a25'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='%23f5f1e7' text-anchor='middle'%3EEB%3C/text%3E%3C/svg%3E">
-<meta name="description" content="EBRM V1.0 完整新约圣经英语学习系统">
-<title>EBRM V1.0｜新约完整圣经英语学习系统</title>
-<style>
-:root{--bg:#f5f1e7;--paper:#fffdf8;--ink:#2e2a25;--muted:#746d63;--line:#e3dbcf;--accent:#6b5b45;--soft:#eee7da;--good:#526b55;--danger:#86544d;--shadow:0 12px 34px rgba(61,51,38,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,"Noto Sans SC","Microsoft YaHei",sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
-.wrap{max-width:1320px;margin:0 auto;padding:0 18px}.top{position:sticky;top:0;z-index:50;background:rgba(245,241,231,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;gap:11px;align-items:center}.mark{width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:900}.brand b{display:block;font-size:16px}.brand span{display:block;color:var(--muted);font-size:11px}.navs{display:flex;gap:12px;flex-wrap:wrap}.navs a{padding:7px 10px;border-radius:9px;color:var(--muted);font-size:12px}.navs a:hover,.navs a.active{background:var(--soft);color:var(--ink)}
-.hero{padding:38px 0 20px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:16px}.surface{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.hero-card{padding:30px}
-.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:900}h1{font-size:clamp(30px,4vw,52px);line-height:1.1;letter-spacing:-.045em;margin:8px 0 12px}h2{font-size:22px;letter-spacing:-.03em;margin:0}h3{font-size:16px;margin:0 0 5px}p{margin:0;color:var(--muted)}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.badge{padding:6px 10px;background:var(--soft);border-radius:999px;color:var(--muted);font-size:11px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}.stat{border:1px solid var(--line);background:#fffaf1;border-radius:13px;padding:12px}.stat b{display:block;font-size:20px}.stat span{font-size:10px;color:var(--muted)}
-.app{display:grid;grid-template-columns:280px 1fr;gap:16px;padding-bottom:30px}.side{padding:16px;align-self:start;position:sticky;top:84px;max-height:calc(100vh - 104px);overflow:auto}.input{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:9px 10px;color:var(--ink);outline:none}.input:focus{border-color:#b9ab96}.booklist{display:flex;flex-direction:column;gap:5px;margin-top:9px}.bookbtn{border:1px solid transparent;background:transparent;border-radius:10px;padding:8px 9px;text-align:left;display:flex;justify-content:space-between;gap:9px}.bookbtn:hover{background:#fffaf1;border-color:var(--line)}.bookbtn.active{background:var(--soft);border-color:var(--line);font-weight:800}.bookbtn small{color:var(--muted)}
-.main{min-width:0}.toolbar{padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.controls{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 11px;border-radius:10px;font-weight:800;font-size:12px;transition:.15s ease}.btn:hover{background:#fffaf1;transform:translateY(-1px)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.primary:hover{background:#3d3831}.btn.good{background:#e8efe8;color:var(--good);border-color:#d5dfd5}.btn.danger{background:#f1e7e3;color:var(--danger);border-color:#e2d5cf}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.btn.speaking{background:#dde8dd;color:var(--good)}
-.reader{padding:18px;margin-top:14px}.reader-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--line)}.reader-title h2{font-size:29px}.meta{font-size:11px;color:var(--muted)}.verses{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.83;padding:18px 6px;min-height:180px;max-width:920px;margin:0 auto}.verse{display:block;padding:8px 10px;border-radius:10px;cursor:pointer;margin:2px 0}.verse:hover{background:#fffaf1}.verse.selected{background:#ece5d8}.num{font:800 10px Inter,"Microsoft YaHei",sans-serif;color:var(--accent);vertical-align:super;margin-right:6px}.note-line{font:11px/1.5 Inter,"Microsoft YaHei",sans-serif;color:var(--muted);margin-top:8px}.loader{text-align:center;padding:46px 24px;color:var(--muted);border:1px dashed var(--line);border-radius:14px;background:#fffaf1}
-.state-error{background:#f4e9df;color:#6f4f36;border-radius:14px;padding:20px}.state-ok{background:#e8efe8;color:var(--good);border-radius:14px;padding:14px;text-align:center}
-.progress{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:16px}.card h3{margin-bottom:7px}.muted{color:var(--muted)}.kpi{font-size:13px;color:var(--muted)}
-.tabs{display:flex;gap:6px;overflow:auto;margin-top:14px}.tab{flex:0 0 auto}.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.trainpanel{margin-top:14px}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.step{padding:10px 7px;border:1px solid var(--line);border-radius:11px;background:#fffaf1;text-align:center;cursor:pointer;transition:.15s}.step:hover{border-color:#cdbfae}.step strong{display:block;font-size:10px}.step span{font-size:9px;color:var(--muted)}.step.done{opacity:1!important;background:#e8efe8;border-color:#b9cbb9}
-.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:5px}.textarea{min-height:110px;resize:vertical}
-.choice{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);background:#fffaf1;border-radius:10px;padding:9px;margin:6px 0}.choice input{margin-top:4px}.wordbar{display:flex;gap:7px;flex-wrap:wrap;padding:10px 0}.word{border:1px solid var(--line);background:#fffaf1;padding:5px 8px;border-radius:8px;font:12px Georgia,serif}.word.selected{background:var(--soft);border-color:#cdbfae}
-.review-list{display:flex;flex-direction:column;gap:8px}.review{border:1px solid var(--line);border-radius:11px;background:#fffaf1;padding:10px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.small{font-size:11px}.right{margin-left:auto}.hidden{display:none!important}
-.footer{border-top:1px solid var(--line);padding:24px 0 42px;color:var(--muted);font-size:11px}.toast{position:fixed;right:17px;bottom:17px;z-index:100;background:var(--ink);color:#fff;padding:10px 13px;border-radius:10px;font-size:12px;opacity:0;transform:translateY(8px);transition:.2s;max-width:320px}.toast.show{opacity:1;transform:none}
-.modal{position:fixed;inset:0;background:rgba(30,26,22,.35);display:none;align-items:center;justify-content:center;z-index:90;padding:16px}.modal.show{display:flex}.modalbox{max-width:680px;width:100%;max-height:85vh;overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 70px rgba(30,25,18,.18)}
-body.compact .verses{line-height:1.5!important}
-@media(max-width:1050px){.hero-grid{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{position:static;max-height:none}.booklist{display:grid;grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.navs{display:none}.wrap{padding:0 13px}.reader{padding:13px}.verses{font-size:18px;line-height:1.72}.grid2,.formgrid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.booklist{grid-template-columns:repeat(2,1fr)}.reader-title h2{font-size:24px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f1e7">
+  <meta name="description" content="EBRM｜新约完整圣经英语学习系统：以经文为语言材料，阅读 → 听读 → 观察 → 词汇 → 句型 → 直接理解 → 表达 → 再读 → 综合测试 → 间隔复习。">
+  <title>EBRM｜新约圣经英语学习系统</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5f1e7'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='15' text-anchor='middle' fill='%237a5c33'%3EE%3C/text%3E%3C/svg%3E">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="ebrm2.css">
 </head>
+
 <body>
-<header class="top"><div class="wrap nav">
-<a class="brand" href="./"><div class="mark">EB</div><div><b>EBRM V1.0</b><span>English Bible Reading Model · New Testament</span></div></a>
-<nav class="navs"><a href="#reader">读经</a><a href="#training">本章训练</a><a href="#review">间隔复习</a><a href="#plans">学习计划</a><a href="#settings">学习设置</a><a href="./john1.html">John 1 完整课程</a></nav>
-</div></header>
-<section class="hero"><div class="wrap hero-grid">
-<div class="surface hero-card"><div class="eyebrow">NEW TESTAMENT · 27 BOOKS · 260 CHAPTERS</div><h1>从英文读新约，进入经文意义。</h1><p>EBRM V1.0：书库、逐章阅读、听读、十步训练、笔记、词汇、间隔复习与学习计划，全部统一在一个本地闭环中。</p><div class="badges"><span class="badge">Scripture-centered</span><span class="badge">WEB · Public Domain</span><span class="badge">Read → Train → Review</span><span class="badge">Local-first progress</span></div><div class="stats"><div class="stat"><b>27</b><span>新约书卷</span></div><div class="stat"><b>260</b><span>章节</span></div><div class="stat"><b id="doneCount">0</b><span>已完成</span></div><div class="stat"><b id="donePct">0%</b><span>完成率</span></div></div></div>
-<div class="surface hero-card"><div class="eyebrow">TODAY</div><h2 style="margin-top:7px">今日学习入口</h2><p style="margin-top:6px">系统按你的进度自动给出下一章；也可以从书库任意进入。</p><div class="card" style="margin-top:15px;background:#fffaf1"><b id="todayLabel">Matthew 1 · 马太福音</b><div class="muted small" id="todayHint" style="margin-top:4px">开始你的新约阅读。</div><button id="todayBtn" class="btn primary" style="margin-top:10px">进入今日经文</button></div><div class="note-line">经文本地化存储（World English Bible · 公版），离线也可读经；进度、笔记、词汇、书签与训练记录保存在浏览器本地。</div></div></div></section>
-<main class="wrap app" id="reader">
-<aside class="surface side"><div style="display:flex;justify-content:space-between;align-items:center"><h3>新约书库</h3><span class="badge">27卷</span></div><input id="bookSearch" class="input" style="margin-top:10px" placeholder="搜索书卷：John / 约翰"><div id="bookList" class="booklist"></div></aside>
-<section class="main"><div class="surface toolbar"><div><div class="eyebrow">读经</div><h2 id="readerHeading">Matthew · 马太福音</h2><div class="meta" style="margin-top:4px">英文原文阅读 · 点击经文可进入训练观察</div></div><div class="controls"><select id="chapterSelect" class="input" style="width:auto" aria-label="选择章节"></select><button id="prevBtn" class="btn">← 上一章</button><button id="nextBtn" class="btn">下一章 →</button><button id="listenBtn" class="btn good" data-speak-btn>🔊 听读本章</button><button id="fontBtn" class="btn" title="调整字号">A+</button></div></div>
-<article class="surface reader"><div class="reader-head"><div><div class="reader-title"><h2 id="chapterTitle">Matthew 1</h2><div id="sourceMeta" class="meta">World English Bible · Public Domain</div></div></div><div class="controls"><button id="bookmarkBtn" class="btn">☆ 书签</button><button id="completeBtn" class="btn good">✓ 完成本章</button></div></div><div id="verseArea" class="verses"><div class="loader">正在载入经文…</div></div><div class="grid2"><div class="card"><h3>本章笔记</h3><textarea id="chapterNote" class="input textarea" placeholder="记录你的观察、问题或祷告回应……"></textarea><button id="saveNoteBtn" class="btn primary" style="margin-top:8px">保存笔记</button></div><div class="card"><h3>本章进度</h3><div class="kpi"><span id="chapterStatus">未开始</span> · 完成十步训练后点击“完成本章”进入间隔复习。</div><div class="progress" style="margin-top:10px"><i id="chapterBar"></i></div><div class="controls" style="margin-top:10px"><button id="resetTrainingBtn" class="btn danger">重置本章训练</button></div></div></div></article>
-<section id="training" class="surface reader trainpanel"><div class="reader-head" style="padding-bottom:9px"><div><div class="eyebrow">本章训练</div><h2>十步英语训练</h2><div class="meta">新约 260 章全部使用同一套 EBRM 训练闭环。</div></div></div><div class="steps" id="stepGrid" style="margin-top:12px"><div class="step" data-step="baseline"><strong>01 BASELINE</strong><span>第一次理解</span></div><div class="step" data-step="read"><strong>02 READ</strong><span>完整阅读</span></div><div class="step" data-step="listen"><strong>03 LISTEN</strong><span>听读</span></div><div class="step" data-step="notice"><strong>04 NOTICE</strong><span>观察</span></div><div class="step" data-step="vocab"><strong>05 VOCAB</strong><span>词汇</span></div><div class="step" data-step="structure"><strong>06 STRUCTURE</strong><span>句法</span></div><div class="step" data-step="understand"><strong>07 UNDERSTAND</strong><span>直接理解</span></div><div class="step" data-step="speak"><strong>08 SPEAK</strong><span>英文表达</span></div><div class="step" data-step="reread"><strong>09 RE-READ</strong><span>重读</span></div><div class="step" data-step="review"><strong>10 REVIEW</strong><span>复习</span></div></div><div class="tabs" id="trainingTabs"><button class="btn tab active" data-tab="baseline">01</button><button class="btn tab" data-tab="read">02</button><button class="btn tab" data-tab="listen">03</button><button class="btn tab" data-tab="notice">04</button><button class="btn tab" data-tab="vocab">05</button><button class="btn tab" data-tab="structure">06</button><button class="btn tab" data-tab="understand">07</button><button class="btn tab" data-tab="speak">08</button><button class="btn tab" data-tab="reread">09</button><button class="btn tab" data-tab="review">10</button></div><div id="trainingContent" class="card" style="margin-top:10px;background:#fffaf1"></div></section>
-<section id="review" class="surface reader" style="margin-top:14px"><div class="reader-head"><div><div class="eyebrow">间隔复习</div><h2>到期复习</h2><div class="meta">完成章节后自动生成 1 / 3 / 7 / 14 天复习节点。</div></div><button class="btn" id="clearDoneBtn">清空完成记录</button></div><div id="reviewList" class="review-list" style="margin-top:12px"></div></section>
-<section id="plans" class="surface reader" style="margin-top:14px"><div class="reader-head"><div><div class="eyebrow">学习计划</div><h2>新约 90 天阅读计划</h2><div id="planInfo" class="meta">准备中…</div></div><button id="planJumpBtn" class="btn primary">进入下一章</button></div><div class="progress" style="margin-top:12px"><i id="planBar"></i></div><div style="margin-top:7px;font-weight:800" id="planPct">0%</div></section>
-<section id="settings" class="surface reader" style="margin-top:14px"><div class="reader-head"><div><div class="eyebrow">学习设置</div><h2>设置与学习数据</h2></div></div><div class="grid2" style="margin-top:10px"><label class="choice"><input type="checkbox" id="autoMarkRead"><span><b>打开章节即记为已读</b><small class="muted" style="display:block">仅影响“已读”统计，不等同于完成十步训练。</small></span></label><label class="choice"><input type="checkbox" id="compactMode"><span><b>紧凑阅读模式</b><small class="muted" style="display:block">减少经文行距。</small></span></label></div><div class="controls" style="margin-top:10px"><button id="exportBtn" class="btn">导出学习数据</button><button id="importBtn" class="btn">导入学习数据</button><input id="importFile" type="file" accept="application/json,.json" hidden><button id="resetAllBtn" class="btn danger">清除本设备全部数据</button></div></section>
-</section></main>
-<footer class="footer"><div class="wrap">EBRM V1.0 · English Bible Reading Model · New Testament Edition · 27 Books / 260 Chapters · Scripture text: World English Bible (Public Domain) · 本地经文数据离线可用。</div></footer><div id="toast" class="toast"></div>
+
+<header class="topbar">
+  <div class="brand">
+    EBRM
+    <small>English Bible Reading Model · V2.0</small>
+  </div>
+  <nav class="topnav">
+    <button data-act="home" class="active">首页</button>
+    <button data-act="reader">读经</button>
+    <button data-act="learn">本章训练</button>
+    <button data-act="review">间隔复习<span id="navDueBadge" class="badge warn hidden"></span></button>
+    <button data-act="plan">学习计划</button>
+    <button data-act="settings">学习设置</button>
+  </nav>
+</header>
+
+<main class="app">
+
+  <!-- ============================ HOME ============================ -->
+  <section id="view-home" class="view active">
+
+    <div class="hero-card">
+      <div class="eyebrow">NEW TESTAMENT · 27 BOOKS · 260 CHAPTERS</div>
+      <h1>新约圣经英语学习系统</h1>
+      <p class="muted">
+        以圣经经文为真实语言材料，以渐进式学习模型为方法：
+        <b>由易到难 · 由少到多 · 识别到理解 · 理解到表达 · 模仿到自主 · 学习到复习</b>。
+      </p>
+      <div class="stat-grid">
+        <div class="stat">
+          <strong id="homeDone">0</strong>
+          <span>已完成章节</span>
+        </div>
+        <div class="stat">
+          <strong id="homePercent">0%</strong>
+          <span>整本进度（共 <span id="homeTotal">260</span> 章）</span>
+        </div>
+        <div class="stat">
+          <strong id="homeDue" style="font-size:14px;font-family:var(--sans);color:var(--ink-2)">暂无到期复习</strong>
+          <span>间隔复习</span>
+        </div>
+      </div>
+      <div class="progress-track"><div id="homeBar" class="progress-fill"></div></div>
+      <p class="tiny" id="homeNextHint">正在读取学习进度…</p>
+    </div>
+
+    <button class="primary wide" data-act="today">▶ 今日一章：进入下一未完成章节</button>
+    <button class="secondary wide" data-act="learn">继续本章训练</button>
+    <div class="row" style="margin-top:8px">
+      <button data-act="reader">开始读经</button>
+      <button data-act="review">间隔复习</button>
+      <button data-act="plan">学习计划</button>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="eyebrow">TRAINING MODEL</div>
+      <h3>每一章都这样训练</h3>
+      <p class="muted">一个学习单元，就是一次合理的学习容量。</p>
+      <div class="reslist">
+        <div><b>01</b> BASELINE · 第一次理解</div>
+        <div><b>02</b> READ · 读经</div>
+        <div><b>03</b> LISTEN · 听读（Voice / Speed / Stop / Replay）</div>
+        <div><b>04</b> NOTICE · 观察</div>
+        <div><b>05</b> VOCABULARY · 核心词汇（由少到多）</div>
+        <div><b>06</b> STRUCTURE · 句子结构（原句 / 句型 / 拆解 / 替换）</div>
+        <div><b>07</b> DIRECT COMPREHENSION · 直接理解（Level 1 → 6）</div>
+        <div><b>08</b> SPEAK · 英文表达（模仿 → 替换 → 自主）</div>
+        <div><b>09</b> RE-READ · 再读一次</div>
+        <div><b>10</b> FINAL TEST · 最后理解测试</div>
+        <div><b>11</b> RESULT · 学习结果</div>
+        <div><b>12</b> REVIEW · 间隔复习 Day 1 / 3 / 7 / 14</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================ READER ============================ -->
+  <section id="view-reader" class="view">
+
+    <div class="card tight">
+      <div class="reader-bar">
+        <div class="grow">
+          <div class="eyebrow">BIBLE READER · 读经</div>
+          <h2 id="readerHeading" style="margin:2px 0 0">Matthew 1</h2>
+          <div class="tiny" id="readerHeadingZh">马太福音 · 第 1 章</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sm" data-act="today">今日</button>
+          <button class="sm" data-act="font-cycle">字号</button>
+          <button class="sm" data-act="play-chapter">🔊 听读本章</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tight">
+      <div class="eyebrow">BOOKS · 书卷</div>
+      <div class="book-grid" id="bookList" style="margin-top:8px"></div>
+      <hr class="sep">
+      <div class="eyebrow">CHAPTERS · 章节</div>
+      <div style="margin:8px 0">
+        <select id="chapterSelect" aria-label="选择章节"></select>
+      </div>
+      <div class="chapter-strip" id="chapterStrip"></div>
+    </div>
+
+    <div class="card">
+      <div class="reader-bar" style="margin-bottom:8px">
+        <div class="grow">
+          <h3 id="chapterTitle" style="margin:0">Matthew 1</h3>
+          <div class="tiny" id="sourceMeta">World English Bible</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="sm" id="prevBtn" data-act="ch-prev">← 上一章</button>
+          <button class="sm" id="nextBtn" data-act="ch-next">下一章 →</button>
+        </div>
+      </div>
+      <div id="chapterStatus"></div>
+      <div class="progress-track"><div id="chapterBar" class="progress-fill"></div></div>
+      <div id="verseArea" style="margin-top:12px">
+        <div class="state-box loading">正在加载经文…</div>
+      </div>
+      <p class="tiny" style="margin-top:10px">提示：点击任意一节可以单独听这一节。</p>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">MY NOTE</div>
+      <h3>本章笔记</h3>
+      <textarea id="chapterNote" placeholder="写下这一章你的观察、问题或收获…"></textarea>
+      <div class="row" style="margin-top:8px">
+        <button data-act="save-note" id="saveNoteBtn">保存笔记</button>
+        <button data-act="bookmark" id="bookmarkBtn">🔖 书签</button>
+      </div>
+    </div>
+
+    <button class="primary wide" data-act="learn">进入本章训练（10 步 + 结果 + 复习）→</button>
+
+  </section>
+
+  <!-- ============================ LEARN ============================ -->
+  <section id="view-learn" class="view">
+
+    <div class="learn-head">
+      <button class="back" data-act="reader" aria-label="返回读经">←</button>
+      <div style="flex:1 1 auto;min-width:0">
+        <div class="eyebrow" id="learnStepLabel">STEP 01 · BASELINE</div>
+        <h2 id="learnTitle" style="margin:2px 0 0">第一次理解</h2>
+      </div>
+    </div>
+
+    <div class="unit-strip" id="unitStrip"></div>
+    <div class="step-rail" id="stepRail"></div>
+    <div class="step-banner" id="stepBanner"></div>
+
+    <div id="learnBody"></div>
+
+  </section>
+
+  <!-- ============================ REVIEW ============================ -->
+  <section id="view-review" class="view">
+    <div class="card tight">
+      <div class="eyebrow">SPACED REVIEW · 间隔复习</div>
+      <h2 style="margin:2px 0 0">Day 1 → Day 3 → Day 7 → Day 14</h2>
+      <p class="muted" style="margin:6px 0 0">
+        完成一个学习单元后，系统自动安排 4 次复习。到期后进入复习，可以针对薄弱环节重新训练。
+      </p>
+    </div>
+    <div id="reviewList"></div>
+  </section>
+
+  <!-- ============================ PLAN ============================ -->
+  <section id="view-plan" class="view">
+    <div id="planInfo"></div>
+    <div id="planBooks"></div>
+  </section>
+
+  <!-- ============================ SETTINGS ============================ -->
+  <section id="view-settings" class="view">
+    <div id="settingsBody"></div>
+    <input type="file" id="importFile" accept="application/json,.json" class="hidden" data-act="import">
+  </section>
+
+  <div id="fatalBox" class="hidden"></div>
+
+</main>
+
+<footer class="foot">
+  EBRM · English Bible Reading Model · V2.0 · 经文 World English Bible（公有领域）
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="ebrm-content.js"></script>
+<script src="ebrm-engine.js"></script>
+<script src="ebrm-app.js"></script>
 <script>
-'use strict';
-/* ============================================================
-   EBRM V1.0 — New Testament reader & 10-step training engine
-   一个正式入口：唯一 loadChapter / openBook / openChapter /
-   speakCurrent / renderVerses / renderTraining / 数据系统
-   ============================================================ */
-
-/* ---------- 常量 ---------- */
-const BOOKS = [
-  ["MAT","Matthew","马太福音",28],["MRK","Mark","马可福音",16],["LUK","Luke","路加福音",24],
-  ["JHN","John","约翰福音",21],["ACT","Acts","使徒行传",28],["ROM","Romans","罗马书",16],
-  ["1CO","1 Corinthians","哥林多前书",16],["2CO","2 Corinthians","哥林多后书",13],
-  ["GAL","Galatians","加拉太书",6],["EPH","Ephesians","以弗所书",6],["PHP","Philippians","腓立比书",4],
-  ["COL","Colossians","歌罗西书",4],["1TH","1 Thessalonians","帖撒罗尼迦前书",5],
-  ["2TH","2 Thessalonians","帖撒罗尼迦后书",3],["1TI","1 Timothy","提摩太前书",6],
-  ["2TI","2 Timothy","提摩太后书",4],["TIT","Titus","提多书",3],["PHM","Philemon","腓利门书",1],
-  ["HEB","Hebrews","希伯来书",13],["JAS","James","雅各书",5],["1PE","1 Peter","彼得前书",5],
-  ["2PE","2 Peter","彼得后书",3],["1JN","1 John","约翰一书",5],["2JN","2 John","约翰二书",1],
-  ["3JN","3 John","约翰三书",1],["JUD","Jude","犹大书",1],["REV","Revelation","启示录",22]
-];
-const TOTAL_CHAPTERS = BOOKS.reduce((a, b) => a + b[3], 0); /* 260 */
-const API_BASE = 'https://bible.helloao.org/api/eng_webp';
-const LOCAL_BIBLE_URL = './data/nt-engwebp.json';
-const STORE = 'EBRM_V1_DATA_V1';
-const STORE_SET = 'EBRM_V1_DATA_V1_SET';
-const REVIEW_DAYS = [1, 3, 7, 14];
-const STEP_ORDER = ['baseline','read','listen','notice','vocab','structure','understand','speak','reread','review'];
-
-/* ---------- 状态 ---------- */
-const state = {
-  book: 'MAT',
-  chapter: 1,
-  verses: [],            /* 当前章 [{number, text}] */
-  localBible: null,      /* 本地经文缓存 */
-  localFailed: false,
-  font: 20,
-  activeTab: 'baseline',
-  speaking: false,
-  settings: { autoMarkRead: false, compactMode: false },
-  progress: { done:{}, read:{}, notes:{}, bookmarks:{}, trainings:{}, reviewAt:{}, words:[] }
-};
-
-/* ---------- 工具 ---------- */
-const $ = id => document.getElementById(id);
-const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const chKey = () => state.book + '.' + state.chapter;
-const curBook = () => BOOKS.find(b => b[0] === state.book) || BOOKS[0];
-const pct = (n, d) => d ? Math.round(n / d * 100) : 0;
-const doneCount = () => Object.values(state.progress.done).filter(Boolean).length;
-let toastTimer = null;
-function toast(msg) {
-  const t = $('toast');
-  if (!t) return;
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
-}
-
-/* ---------- 数据规范化 ---------- */
-function normalizeProgress(p) {
-  const out = { done:{}, read:{}, notes:{}, bookmarks:{}, trainings:{}, reviewAt:{}, words:[] };
-  if (!p || typeof p !== 'object') return out;
-  for (const k of ['done','read','bookmarks']) {
-    if (p[k] && typeof p[k] === 'object' && !Array.isArray(p[k])) {
-      for (const key of Object.keys(p[k])) if (p[k][key]) out[k][key] = true;
-    }
-  }
-  if (p.notes && typeof p.notes === 'object') {
-    for (const key of Object.keys(p.notes)) if (typeof p.notes[key] === 'string') out.notes[key] = p.notes[key];
-  }
-  if (p.trainings && typeof p.trainings === 'object') {
-    for (const key of Object.keys(p.trainings)) {
-      const t = p.trainings[key];
-      if (t && typeof t === 'object' && !Array.isArray(t)) {
-        const clean = {};
-        for (const s of STEP_ORDER) clean[s] = !!t[s];
-        if (typeof t.baselineLevel === 'number') clean.baselineLevel = t.baselineLevel;
-        if (typeof t.baselineNote === 'string') clean.baselineNote = t.baselineNote;
-        if (t.freeNotes && typeof t.freeNotes === 'object') {
-          clean.freeNotes = {};
-          for (const s of ['notice','structure','understand','reread']) if (typeof t.freeNotes[s] === 'string') clean.freeNotes[s] = t.freeNotes[s];
-        }
-        out.trainings[key] = clean;
-      }
-    }
-  }
-  if (p.reviewAt && typeof p.reviewAt === 'object') {
-    for (const key of Object.keys(p.reviewAt)) {
-      let arr = p.reviewAt[key];
-      if (typeof arr === 'string') arr = [arr];
-      if (Array.isArray(arr)) {
-        const dates = arr.map(x => new Date(x).getTime()).filter(x => Number.isFinite(x)).sort((a, b) => a - b);
-        if (dates.length) out.reviewAt[key] = dates.map(x => new Date(x).toISOString());
-      }
-    }
-  }
-  if (Array.isArray(p.words)) {
-    for (const w of p.words) {
-      if (w && typeof w.word === 'string' && w.word) out.words.push({ word: w.word, chapter: typeof w.chapter === 'string' ? w.chapter : '', created: w.created || '' });
-    }
-  }
-  return out;
-}
-function normalizeSettings(s) {
-  const out = { autoMarkRead: false, compactMode: false };
-  if (s && typeof s === 'object') { out.autoMarkRead = !!s.autoMarkRead; out.compactMode = !!s.compactMode; }
-  return out;
-}
-function loadState() {
-  try {
-    const raw = JSON.parse(localStorage.getItem(STORE) || '{}');
-    if (raw && typeof raw === 'object') {
-      state.progress = normalizeProgress(raw.progress);
-      state.font = Number.isFinite(raw.font) ? Math.min(26, Math.max(18, +raw.font)) : 20;
-      if (raw.last && BOOKS.some(b => b[0] === raw.last.book)) {
-        state.book = raw.last.book;
-        state.chapter = Math.min(Math.max(1, +raw.last.chapter || 1), curBook()[3]);
-      }
-    }
-  } catch (e) { console.warn('EBRM: 学习数据损坏，已重置。', e); }
-  try {
-    const rawSet = JSON.parse(localStorage.getItem(STORE_SET) || '{}');
-    state.settings = normalizeSettings(rawSet.settings || rawSet);
-  } catch (e) { state.settings = normalizeSettings(null); }
-}
-function saveState() {
-  try {
-    localStorage.setItem(STORE, JSON.stringify({ progress: state.progress, font: state.font, last: { book: state.book, chapter: state.chapter } }));
-    localStorage.setItem(STORE_SET, JSON.stringify(state.settings));
-  } catch (e) { toast('本地存储不可用（可能为隐私模式）'); }
-  renderStats(); renderReview(); renderPlan();
-}
-
-/* ---------- 经文读取：本地优先 → 在线 API → 明确报错 ---------- */
-function verseTextFromContent(content) {
-  if (typeof content === 'string') return content;
-  if (Array.isArray(content)) return content.map(x => typeof x === 'string' ? x : (x && typeof x.text === 'string' ? x.text : '')).join(' ').replace(/\s+/g, ' ').trim();
-  return '';
-}
-function extractVerses(chapterObj) {
-  const list = (chapterObj && chapterObj.content) || [];
-  const verses = list.filter(x => x && x.type === 'verse').map((v, i) => ({
-    number: Number(v.number) || i + 1,
-    text: verseTextFromContent(v.content !== undefined ? v.content : v.text)
-  })).filter(v => v.text);
-  verses.sort((a, b) => a.number - b.number);
-  return verses;
-}
-async function loadLocalBible() {
-  if (state.localBible || state.localFailed) return;
-  try {
-    const r = await fetch(LOCAL_BIBLE_URL);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
-    if (!data || !Array.isArray(data.books) || !data.books.length) throw new Error('结构不正确');
-    state.localBible = data;
-  } catch (e) {
-    state.localFailed = true;
-    console.warn('EBRM: 本地经文不可用，改用在线 API。', e);
-  }
-}
-function versesFromLocal(bookId, ch) {
-  if (!state.localBible) return null;
-  const b = state.localBible.books.find(x => x && x.id === bookId);
-  if (!b || !b.chapters) return null;
-  const c = b.chapters[String(ch)] || b.chapters[+ch];
-  if (!Array.isArray(c) || !c.length) return null;
-  return c.map(v => ({ number: Number(v.number) || 0, text: String(v.text || '') })).filter(v => v.text);
-}
-async function versesFromApi(bookId, ch) {
-  const r = await fetch(API_BASE + '/' + bookId + '/' + ch + '.json');
-  if (!r.ok) throw new Error('API HTTP ' + r.status);
-  const data = await r.json();
-  const verses = extractVerses(data.chapter);
-  if (!verses.length) throw new Error('API 无经文内容');
-  return verses;
-}
-function showChapterError(bookId, ch) {
-  const b = BOOKS.find(x => x[0] === bookId) || curBook();
-  $('verseArea').innerHTML = '<div class="state-error"><b>经文载入失败（' + esc(b[1]) + ' ' + ch + '）</b>' +
-    '<p style="margin:6px 0 0;color:#6f4f36">本地经文与在线数据源都暂时无法访问。请检查网络后重试。</p>' +
-    '<div class="controls" style="margin-top:10px"><button class="btn primary" data-action="reload">重新加载</button>' +
-    '<button class="btn" data-action="reload-page">刷新页面</button></div></div>';
-  $('sourceMeta').textContent = '载入失败';
-}
-async function loadChapter() {
-  const b = curBook(), ch = state.chapter;
-  $('chapterTitle').textContent = b[1] + ' ' + ch;
-  $('readerHeading').textContent = b[1] + ' · ' + b[2];
-  $('verseArea').innerHTML = '<div class="loader">正在载入经文…</div>';
-  state.verses = [];
-  await loadLocalBible();
-  let verses = versesFromLocal(b[0], ch);
-  let source = 'World English Bible · 本地经文';
-  if (!verses) {
-    try { verses = await versesFromApi(b[0], ch); source = 'World English Bible · 在线 API'; }
-    catch (e) { console.warn('EBRM: 在线 API 失败', e); showChapterError(b[0], ch); renderTraining(); return; }
-  }
-  state.verses = verses;
-  $('sourceMeta').textContent = source;
-  if (state.settings.autoMarkRead) state.progress.read[chKey()] = true;
-  saveState();
-  renderVerses(); renderTraining(); fillChapterSelect(); navState();
-}
-
-/* ---------- 渲染 ---------- */
-function renderStats() {
-  const d = doneCount();
-  $('doneCount').textContent = d;
-  $('donePct').textContent = pct(d, TOTAL_CHAPTERS) + '%';
-}
-function renderBooks(filter) {
-  const q = (filter || '').trim().toLowerCase();
-  const list = BOOKS.filter(b => (b[1] + ' ' + b[2]).toLowerCase().includes(q));
-  $('bookList').innerHTML = list.map(b =>
-    '<button class="bookbtn' + (b[0] === state.book ? ' active' : '') + '" data-book="' + b[0] + '">' +
-    '<span>' + esc(b[1]) + '<br><small>' + esc(b[2]) + '</small></span><small>' + b[3] + '章' +
-    (state.progress.done[b[0] + '.' + b[3]] ? ' ✓' : '') + '</small></button>').join('');
-}
-function fillChapterSelect() {
-  const b = curBook();
-  $('chapterSelect').innerHTML = Array.from({ length: b[3] }, (_, i) => '<option value="' + (i + 1) + '">第 ' + (i + 1) + ' 章</option>').join('');
-  $('chapterSelect').value = state.chapter;
-}
-function navState() {
-  const idx = BOOKS.findIndex(x => x[0] === state.book), b = BOOKS[idx];
-  $('prevBtn').disabled = state.chapter === 1 && idx === 0;
-  $('nextBtn').disabled = state.chapter === b[3] && idx === BOOKS.length - 1;
-}
-function renderVerses() {
-  const k = chKey();
-  if (!state.verses.length) { $('verseArea').innerHTML = '<div class="loader">本章暂无经文内容。</div>'; return; }
-  $('verseArea').innerHTML = state.verses.map(v =>
-    '<span class="verse" data-v="' + v.number + '"><span class="num">' + v.number + '</span>' + esc(v.text) + '</span>').join('');
-  $('chapterNote').value = state.progress.notes[k] || '';
-  $('chapterBar').style.width = state.progress.done[k] ? '100%' : '0%';
-  const t = state.progress.trainings[k] || {};
-  const started = state.progress.read[k] || state.progress.done[k] || Object.keys(t).some(s => t[s]);
-  $('chapterStatus').textContent = state.progress.done[k] ? '已完成' : (started ? '进行中' : '未开始');
-  $('bookmarkBtn').textContent = state.progress.bookmarks[k] ? '★ 已书签' : '☆ 书签';
-  updateSpeakButtons();
-}
-function stepState() {
-  return state.progress.trainings[chKey()] || {};
-}
-function renderTraining() {
-  const k = chKey(), t = stepState();
-  document.querySelectorAll('#stepGrid .step').forEach(s => {
-    const done = !!t[s.dataset.step];
-    s.classList.toggle('done', done);
-  });
-  document.querySelectorAll('#trainingTabs .tab').forEach(x => x.classList.toggle('active', x.dataset.tab === state.activeTab));
-  const b = curBook();
-  const verses = state.verses;
-  const first = verses.length ? verses[0].text : '';
-  const sample = verses.slice(0, 3).map(v => '<b>' + v.number + '</b> ' + esc(v.text)).join('<br>');
-  const fn = t.freeNotes || {};
-  let html = '';
-  if (!state.verses.length) html = '<p class="muted">请先在上方载入本章经文，再进行训练。</p>';
-  else if (state.activeTab === 'baseline') html =
-    '<h3>01 · 第一次理解（Baseline）</h3><p class="muted">不查中文，先建立整体理解。</p>' +
-    '<div class="formgrid" style="margin-top:10px"><div class="field"><label>我能大致说出本章在讲什么</label>' +
-    '<select id="baseLevel" class="input">' + [1,2,3,4,5].map(n => '<option value="' + n + '"' + (t.baselineLevel === n ? ' selected' : '') + '>' + n + ' · ' + ['很难','有些把握','基本明白','比较清楚','很清楚','可以用英文复述'][n-1] + '</option>').join('') + '</select></div>' +
-    '<div class="field"><label>一句话写下你的第一次理解</label><input id="baseNote" class="input" placeholder="My first understanding…" value="' + esc(t.baselineNote || '') + '"></div></div>' +
-    '<button class="btn primary" style="margin-top:10px" data-action="save-baseline">' + (t.baseline ? '已保存 · 更新' : '保存并进入下一步') + '</button>';
-  else if (state.activeTab === 'read') html =
-    '<h3>02 · 完整阅读（Read）</h3><p class="muted">完成一次完整阅读。阅读时不要急着查词。</p>' +
-    '<div class="card" style="margin-top:9px;background:#fffaf1"><b>' + esc(b[1]) + ' ' + state.chapter + '</b><p class="small muted" style="margin-top:4px">建议：先从头到尾读一遍，再返回重点句。</p></div>' +
-    '<button class="btn primary" style="margin-top:10px" data-action="mark-read">' + (t.read ? '✓ 已完成' : '✓ 我已完整阅读') + '</button>';
-  else if (state.activeTab === 'listen') html =
-    '<h3>03 · 听读（Listen）</h3><p class="muted">听英文节奏，注意句子边界与重复。</p>' +
-    '<div class="controls" style="margin-top:9px"><button class="btn good" data-action="speak" data-speak-btn>🔊 朗读本章</button>' +
-    '<button class="btn primary" data-action="mark-listen">' + (t.listen ? '✓ 已完成' : '✓ 我已完成听读') + '</button></div>';
-  else if (state.activeTab === 'notice') html =
-    '<h3>04 · 观察（Notice）</h3><p class="muted">从经文中找出重复、对比、人物、动作与关系。</p>' +
-    '<div class="card" style="margin-top:9px;background:#fffaf1">' + sample + '</div>' +
-    '<textarea id="noticeNote" class="input textarea" style="margin-top:9px" placeholder="I notice…">' + esc(fn.notice || '') + '</textarea>' +
-    '<button class="btn primary" style="margin-top:9px" data-action="save-notice">保存观察</button>';
-  else if (state.activeTab === 'vocab') {
-    const words = [...new Set((verses.map(v => v.text).join(' ').toLowerCase().match(/[a-z][a-z'-]{3,}/g) || []))].slice(0, 60);
-    const myWords = state.progress.words.filter(w => w.chapter === k);
-    html = '<h3>05 · 词汇（Vocabulary）</h3><p class="muted">选词进入你的个人词汇本。词义由你自己写，不追求一次到位。</p>' +
-      '<div class="wordbar">' + words.map(w => '<button class="word' + (myWords.some(x => x.word === w) ? ' selected' : '') + '" data-action="toggle-word" data-word="' + esc(w) + '">' + esc(w) + '</button>').join('') + '</div>' +
-      '<p class="small muted">已加入本章词汇：' + myWords.length + ' 个</p>';
-  }
-  else if (state.activeTab === 'structure') html =
-    '<h3>06 · 句法（Structure）</h3><p class="muted">挑一个你觉得难的句子，尝试写出 Subject / Verb / Object / Complement。</p>' +
-    '<div class="card" style="margin-top:9px;background:#fffaf1">' + esc(first) + '</div>' +
-    '<textarea id="structureNote" class="input textarea" style="margin-top:9px" placeholder="Subject = … / Verb = … / Object = …">' + esc(fn.structure || '') + '</textarea>' +
-    '<button class="btn primary" style="margin-top:9px" data-action="save-structure">保存结构分析</button>';
-  else if (state.activeTab === 'understand') html =
-    '<h3>07 · 直接理解（Direct Understanding）</h3><p class="muted">不写中文翻译，直接用简单英文回答：</p>' +
-    '<div class="card" style="margin-top:9px;background:#fffaf1"><b>What is happening?</b><br><span class="small muted">Who is involved? What changes? What is emphasized?</span></div>' +
-    '<textarea id="understandNote" class="input textarea" style="margin-top:9px" placeholder="In simple English…">' + esc(fn.understand || '') + '</textarea>' +
-    '<button class="btn primary" style="margin-top:9px" data-action="save-understand">保存理解</button>';
-  else if (state.activeTab === 'speak') html =
-    '<h3>08 · 英文表达（Speak）</h3><p class="muted">选一句经文，朗读 3 次；然后不看经文，用英文说出大意。</p>' +
-    '<div class="controls" style="margin-top:9px"><button class="btn good" data-action="speak" data-speak-btn>🔊 听示范</button>' +
-    '<button class="btn primary" data-action="mark-speak">' + (t.speak ? '✓ 已完成' : '✓ 我已口头表达') + '</button></div>';
-  else if (state.activeTab === 'reread') html =
-    '<h3>09 · 重读（Re-read）</h3><p class="muted">再次从头读本章，比较第一次与现在的理解。</p>' +
-    '<textarea id="rereadNote" class="input textarea" style="margin-top:9px" placeholder="What became clearer?">' + esc(fn.reread || '') + '</textarea>' +
-    '<button class="btn primary" style="margin-top:9px" data-action="save-reread">保存重读体会</button>';
-  else if (state.activeTab === 'review') {
-    const dates = state.progress.reviewAt[k] || [];
-    html = '<h3>10 · 复习（Review）</h3><p class="muted">系统会按 1 / 3 / 7 / 14 天安排间隔复习。</p>' +
-      '<div class="card" style="margin-top:9px;background:#fffaf1"><b>' + (dates.length ? '已安排 ' + dates.length + ' 次复习' : '完成后自动安排复习') + '</b>' +
-      '<p class="small muted" style="margin-top:3px">' + (dates.length ? dates.map(d => new Date(d).toLocaleDateString()).join(' · ') : '点击下方按钮完成本章，即可进入复习队列。') + '</p></div>' +
-      '<button class="btn primary" style="margin-top:9px" data-action="complete-chapter">' + (state.progress.done[k] ? '✓ 本章已完成 · 更新复习计划' : '✓ 完成本章并进入复习') + '</button>';
-  }
-  $('trainingContent').innerHTML = html;
-}
-function renderReview() {
-  const now = Date.now();
-  const due = [], upcoming = [];
-  for (const k of Object.keys(state.progress.reviewAt || {})) {
-    const dates = state.progress.reviewAt[k] || [];
-    for (const d of dates) {
-      const [bid, ch] = k.split('.');
-      const b = BOOKS.find(x => x[0] === bid);
-      if (!b) continue;
-      (new Date(d).getTime() <= now ? due : upcoming).push({ k, b, ch: +ch, d });
-    }
-  }
-  due.sort((a, z) => new Date(a.d) - new Date(z.d));
-  let html = '';
-  if (due.length) {
-    html = due.map(x =>
-      '<div class="review"><div><b>' + esc(x.b[1]) + ' ' + x.ch + '</b>' +
-      '<div class="small muted">' + esc(x.b[2]) + ' · 到期复习</div></div>' +
-      '<div class="controls"><button class="btn" data-action="open-review" data-book="' + x.b[0] + '" data-ch="' + x.ch + '">进入</button>' +
-      '<button class="btn good" data-action="complete-review" data-key="' + esc(x.k) + '" data-date="' + esc(x.d) + '">✓ 完成本次复习</button></div></div>').join('');
-  } else {
-    html = '<div class="card" style="background:#fffaf1"><span class="muted">目前没有到期复习。完成章节后，这里会自动出现复习项目。</span></div>';
-  }
-  if (upcoming.length) html += '<div class="small muted" style="margin-top:8px">另有 ' + upcoming.length + ' 次复习尚未到期。</div>';
-  $('reviewList').innerHTML = html;
-}
-function nextChapter() {
-  for (const b of BOOKS) for (let ch = 1; ch <= b[3]; ch++) if (!state.progress.done[b[0] + '.' + ch]) return { b, ch };
-  const last = BOOKS[BOOKS.length - 1];
-  return { b: last, ch: last[3] };
-}
-function renderPlan() {
-  const done = doneCount(), p = pct(done, TOTAL_CHAPTERS);
-  $('planPct').textContent = '已完成 ' + done + ' / ' + TOTAL_CHAPTERS + ' 章（' + p + '%）';
-  $('planBar').style.width = p + '%';
-  const n = nextChapter();
-  $('planInfo').textContent = '下一未完成章节：' + n.b[1] + ' ' + n.ch + ' · ' + n.b[2] + '。90 天计划平均每天约 ' + Math.ceil(TOTAL_CHAPTERS / 90) + ' 章。';
-  $('todayLabel').textContent = n.b[1] + ' ' + n.ch + ' · ' + n.b[2];
-  $('todayHint').textContent = done ? '你已完成 ' + done + ' 章，继续下一章即可。' : '从新约第一章开始。';
-}
-
-/* ---------- 导航 ---------- */
-async function openBook(id, ch) {
-  const b = BOOKS.find(x => x[0] === id);
-  if (!b) { toast('未找到该书卷'); return; }
-  state.book = id;
-  state.chapter = Math.min(Math.max(1, ch || 1), b[3]);
-  renderBooks($('bookSearch').value);
-  fillChapterSelect();
-  saveState();
-  await loadChapter();
-  location.hash = 'reader';
-}
-async function openChapter(id, ch) {
-  const b = BOOKS.find(x => x[0] === id);
-  if (!b) { toast('未找到该书卷'); return; }
-  state.book = id;
-  state.chapter = Math.min(Math.max(1, +ch || 1), b[3]);
-  renderBooks($('bookSearch').value);
-  saveState();
-  await loadChapter();
-}
-
-/* ---------- 训练 ---------- */
-function setStep(step, val) {
-  const k = chKey();
-  const t = state.progress.trainings[k] || { baseline:false,read:false,listen:false,notice:false,vocab:false,structure:false,understand:false,speak:false,reread:false,review:false,freeNotes:{} };
-  t[step] = val !== false;
-  if (!t.freeNotes) t.freeNotes = {};
-  state.progress.trainings[k] = t;
-  saveState();
-  renderTraining();
-}
-function saveFreeStep(step, noteId) {
-  const k = chKey();
-  const t = state.progress.trainings[k] || { freeNotes:{} };
-  if (!t.freeNotes) t.freeNotes = {};
-  t.freeNotes[step] = $(noteId) ? $(noteId).value : '';
-  t[step] = true;
-  state.progress.trainings[k] = t;
-  saveState();
-  toast('已保存');
-  state.activeTab = { notice:'vocab', structure:'understand', understand:'speak', reread:'review' }[step] || step;
-  renderTraining();
-}
-function toggleWord(word) {
-  const k = chKey(), arr = state.progress.words;
-  const idx = arr.findIndex(x => x.word === word && x.chapter === k);
-  if (idx >= 0) arr.splice(idx, 1);
-  else { arr.push({ word, chapter: k, created: new Date().toISOString() }); setStep('vocab', true); }
-  saveState();
-  renderTraining();
-}
-function completeChapter() {
-  const k = chKey(), now = new Date();
-  state.progress.done[k] = true;
-  const t = state.progress.trainings[k] || { freeNotes:{} };
-  if (!t.freeNotes) t.freeNotes = {};
-  t.review = true;
-  t.reviewPlannedAt = new Date().toISOString();
-  state.progress.trainings[k] = t;
-  if (!state.progress.reviewAt[k] || !state.progress.reviewAt[k].length) {
-    state.progress.reviewAt[k] = REVIEW_DAYS.map(d => { const x = new Date(now); x.setDate(x.getDate() + d); return x.toISOString(); });
-  }
-  saveState();
-  renderVerses();
-  toast('本章已完成，已生成 1 / 3 / 7 / 14 天复习计划');
-}
-function completeReview(keyStr, dateStr) {
-  const dates = (state.progress.reviewAt[keyStr] || []).filter(d => d !== dateStr);
-  if (dates.length) state.progress.reviewAt[keyStr] = dates;
-  else delete state.progress.reviewAt[keyStr];
-  saveState();
-  toast('本次复习已完成');
-}
-
-/* ---------- 朗读 ---------- */
-function chapterText() {
-  if (!state.verses.length) return '';
-  return state.verses.map(v => v.text).join(' ');
-}
-function updateSpeakButtons() {
-  document.querySelectorAll('[data-speak-btn]').forEach(btn => {
-    btn.classList.toggle('speaking', state.speaking);
-    const base = btn.id === 'listenBtn' ? '🔊 听读本章' : '🔊 朗读本章';
-    btn.textContent = state.speaking ? '⏹ 停止朗读' : base;
-  });
-}
-function stopSpeaking() {
-  if ('speechSynthesis' in window) speechSynthesis.cancel();
-  state.speaking = false;
-  updateSpeakButtons();
-}
-function speakCurrent() {
-  if (!('speechSynthesis' in window)) { toast('当前浏览器不支持语音朗读'); return; }
-  if (state.speaking) { stopSpeaking(); return; }
-  const text = chapterText().trim();
-  if (!text) { toast('经文尚未载入，请先打开一章'); return; }
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US';
-  u.rate = 0.92;
-  u.onend = () => { state.speaking = false; updateSpeakButtons(); };
-  u.onerror = () => { state.speaking = false; updateSpeakButtons(); toast('朗读出现错误，请重试'); };
-  state.speaking = true;
-  updateSpeakButtons();
-  speechSynthesis.speak(u);
-}
-
-/* ---------- 设置与数据 ---------- */
-function applySettings() {
-  document.body.classList.toggle('compact', state.settings.compactMode);
-  $('autoMarkRead').checked = state.settings.autoMarkRead;
-  $('compactMode').checked = state.settings.compactMode;
-  document.querySelector('.verses').style.fontSize = state.font + 'px';
-}
-function exportData() {
-  const blob = new Blob([JSON.stringify({ version: 1, app: 'EBRM', exportedAt: new Date().toISOString(), progress: state.progress, font: state.font, settings: state.settings }, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'ebrm-learning-data.json';
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 500);
-  toast('学习数据已导出');
-}
-function importData(file) {
-  const r = new FileReader();
-  r.onload = () => {
-    let x = null;
-    try { x = JSON.parse(r.result); } catch (e) { toast('导入失败：不是有效的 JSON 文件'); return; }
-    if (!x || typeof x !== 'object' || !x.progress || typeof x.progress !== 'object') { toast('导入失败：文件结构不符合 EBRM 格式'); return; }
-    const clean = normalizeProgress(x.progress);
-    if (!Array.isArray(clean.words)) { toast('导入失败：数据校验未通过'); return; }
-    state.progress = clean;
-    if (Number.isFinite(x.font)) state.font = Math.min(26, Math.max(18, +x.font));
-    state.settings = normalizeSettings(x.settings);
-    saveState();
-    applySettings();
-    renderBooks($('bookSearch').value);
-    loadChapter();
-    toast('导入成功，学习数据已恢复');
-  };
-  r.onerror = () => toast('导入失败：无法读取文件');
-  r.readAsText(file);
-}
-function resetAll() {
-  if (!confirm('确定删除本设备全部 EBRM 学习数据？此操作不可恢复。')) return;
-  try { localStorage.removeItem(STORE); localStorage.removeItem(STORE_SET); } catch (e) {}
-  location.reload();
-}
-
-/* ---------- 事件绑定（统一 addEventListener，无 inline onclick） ---------- */
-function bindEvents() {
-  $('bookList').addEventListener('click', e => {
-    const btn = e.target.closest('.bookbtn');
-    if (btn && btn.dataset.book) openBook(btn.dataset.book, 1);
-  });
-  $('bookSearch').addEventListener('input', e => renderBooks(e.target.value));
-  $('chapterSelect').addEventListener('change', e => openChapter(state.book, +e.target.value));
-  $('prevBtn').addEventListener('click', () => {
-    const idx = BOOKS.findIndex(b => b[0] === state.book);
-    if (state.chapter > 1) openChapter(state.book, state.chapter - 1);
-    else if (idx > 0) { const pb = BOOKS[idx - 1]; openChapter(pb[0], pb[3]); }
-  });
-  $('nextBtn').addEventListener('click', () => {
-    const idx = BOOKS.findIndex(b => b[0] === state.book), b = BOOKS[idx];
-    if (state.chapter < b[3]) openChapter(state.book, state.chapter + 1);
-    else if (idx < BOOKS.length - 1) openChapter(BOOKS[idx + 1][0], 1);
-  });
-  $('listenBtn').addEventListener('click', speakCurrent);
-  $('fontBtn').addEventListener('click', () => {
-    state.font = state.font >= 26 ? 18 : state.font + 2;
-    applySettings();
-    saveState();
-  });
-  $('bookmarkBtn').addEventListener('click', () => {
-    const k = chKey();
-    if (state.progress.bookmarks[k]) delete state.progress.bookmarks[k];
-    else state.progress.bookmarks[k] = true;
-    saveState();
-    renderVerses();
-    toast(state.progress.bookmarks[k] ? '已添加书签' : '已移除书签');
-  });
-  $('completeBtn').addEventListener('click', completeChapter);
-  $('saveNoteBtn').addEventListener('click', () => {
-    state.progress.notes[chKey()] = $('chapterNote').value;
-    saveState();
-    toast('笔记已保存');
-  });
-  $('resetTrainingBtn').addEventListener('click', () => {
-    if (!confirm('重置本章全部训练记录？')) return;
-    delete state.progress.trainings[chKey()];
-    saveState();
-    renderTraining();
-    renderVerses();
-    toast('本章训练已重置');
-  });
-  $('trainingTabs').addEventListener('click', e => {
-    const btn = e.target.closest('.tab');
-    if (btn && btn.dataset.tab) { state.activeTab = btn.dataset.tab; renderTraining(); }
-  });
-  $('stepGrid').addEventListener('click', e => {
-    const s = e.target.closest('.step');
-    if (s && s.dataset.step) { state.activeTab = s.dataset.step; renderTraining(); $('training').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-  $('trainingContent').addEventListener('click', e => {
-    const btn = e.target.closest('[data-action]');
-    if (!btn) return;
-    const act = btn.dataset.action;
-    if (act === 'save-baseline') {
-      const k = chKey();
-      const t = state.progress.trainings[k] || { freeNotes:{} };
-      if (!t.freeNotes) t.freeNotes = {};
-      t.baseline = true;
-      t.baselineLevel = +($('baseLevel') ? $('baseLevel').value : 3) || 3;
-      t.baselineNote = $('baseNote') ? $('baseNote').value : '';
-      state.progress.trainings[k] = t;
-      saveState();
-      state.activeTab = 'read';
-      renderTraining();
-      toast('第一步已保存');
-    }
-    else if (act === 'mark-read') setStep('read', true);
-    else if (act === 'mark-listen') setStep('listen', true);
-    else if (act === 'mark-speak') setStep('speak', true);
-    else if (act === 'speak') speakCurrent();
-    else if (act === 'save-notice') saveFreeStep('notice', 'noticeNote');
-    else if (act === 'save-structure') saveFreeStep('structure', 'structureNote');
-    else if (act === 'save-understand') saveFreeStep('understand', 'understandNote');
-    else if (act === 'save-reread') saveFreeStep('reread', 'rereadNote');
-    else if (act === 'toggle-word') toggleWord(btn.dataset.word);
-    else if (act === 'complete-chapter') completeChapter();
-  });
-  $('verseArea').addEventListener('click', e => {
-    if (e.target.closest('[data-action="reload"]')) { loadChapter(); return; }
-    if (e.target.closest('[data-action="reload-page"]')) { location.reload(); return; }
-    const v = e.target.closest('.verse');
-    if (v) {
-      document.querySelectorAll('.verse.selected').forEach(x => x.classList.remove('selected'));
-      v.classList.add('selected');
-      toast('已选中 ' + curBook()[1] + ' ' + state.chapter + ':' + v.dataset.v + '，可在训练中继续观察。');
-    }
-  });
-  $('reviewList').addEventListener('click', e => {
-    const btn = e.target.closest('[data-action]');
-    if (!btn) return;
-    if (btn.dataset.action === 'open-review') openChapter(btn.dataset.book, +btn.dataset.ch);
-    else if (btn.dataset.action === 'complete-review') completeReview(btn.dataset.key, btn.dataset.date);
-  });
-  $('clearDoneBtn').addEventListener('click', () => {
-    if (!confirm('清空全部已完成章节与复习安排？')) return;
-    state.progress.done = {};
-    state.progress.reviewAt = {};
-    saveState();
-    renderVerses();
-    toast('完成记录已清空');
-  });
-  $('planJumpBtn').addEventListener('click', () => { const n = nextChapter(); openChapter(n.b[0], n.ch); });
-  $('todayBtn').addEventListener('click', () => { const n = nextChapter(); openChapter(n.b[0], n.ch); });
-  $('exportBtn').addEventListener('click', exportData);
-  $('importBtn').addEventListener('click', () => $('importFile').click());
-  $('importFile').addEventListener('change', e => { if (e.target.files[0]) { importData(e.target.files[0]); e.target.value = ''; } });
-  $('resetAllBtn').addEventListener('click', resetAll);
-  $('autoMarkRead').addEventListener('change', () => { state.settings.autoMarkRead = $('autoMarkRead').checked; saveState(); });
-  $('compactMode').addEventListener('change', () => { state.settings.compactMode = $('compactMode').checked; saveState(); applySettings(); });
-  window.addEventListener('hashchange', setActiveNav);
-  window.addEventListener('beforeunload', stopSpeaking);
-}
-
-/* ---------- 导航高亮 ---------- */
-function setActiveNav() {
-  document.querySelectorAll('.navs a').forEach(a => {
-    const h = a.getAttribute('href');
-    a.classList.toggle('active', location.hash === h);
-  });
-}
-
-/* ---------- 启动 ---------- */
-async function init() {
-  loadState();
-  applySettings();
-  renderStats();
-  renderBooks();
-  fillChapterSelect();
-  navState();
-  renderReview();
-  renderPlan();
-  renderTraining();
-  bindEvents();
-  setActiveNav();
-  await loadChapter();
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('EBRM: Service Worker 注册失败（不影响使用）', err));
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (e) {
+        console.warn('SW 注册失败', e);
+      });
+    });
   }
-}
-init();
-</script></body></html>
+  window.EBRM.boot({ mode: 'full' });
+</script>
+
+</body>
+
+</html>

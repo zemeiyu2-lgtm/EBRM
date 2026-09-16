@@ -1,17 +1,69 @@
-# EBRM V1.0
+# EBRM 2.0
 
-English Bible Reading Model · New Testament complete system.
+English Bible Reading Model · 新约圣经英语学习系统（渐进式英语读经训练）
 
-## Included
-- New Testament 27 books / 260 chapters
-- World English Bible (WEB) — local `data/nt-engwebp.json` bundled, online Free Use Bible API (`eng_webp`) as fallback
-- Chapter reader, listening, notes, bookmarks and progress
-- 10-step training engine for every New Testament chapter
-- Vocabulary collection and structure/direct-understanding practice
-- 1 / 3 / 7 / 14 day review schedule
-- 90-day reading plan
-- Local learning-data export/import
-- PWA manifest and Service Worker
-- Original John 1 complete course preserved as `john1.html`
+以 **John 1 完整精读课程为教学母版**，把同一套「学习引擎」应用到整本新约
+（27 卷 / 260 章 / 7953 节），每一课都由同一个教学引擎现场编译生成。
 
-The browser stores learning state locally; no account or server database is required for the static Pages deployment.
+## 核心架构
+
+```
+Bible Content        data/nt/<BOOK>.json（27 卷，按卷懒加载）
+      ↓
+Content Engine       ebrm-content.js —— 把经文编译成教学单元
+      ↓              （分单元 · 词汇 · 句型 · 观察 · 六层理解 · 口语 · 测试）
+Core Engine          ebrm-engine.js —— 状态 · 进度 · 1/3/7/14 复习调度 · 语音
+      ↓
+App                  ebrm-app.js —— 渲染与交互（index.html 全本 / john1.html 母版课程）
+```
+
+- **内容与教学引擎分离**：同一个引擎 + 不同的经文内容 = 每一课。
+- **学习容量控制（Unit）**：长章自动拆成多个单元（如马太福音 5 章拆成多单元），
+  每单元 3–12 节，按段落起始词对齐，而不是机械固定节数。
+- **精编与生成统一**：`john1.html` 的 7 个精编单元与全书 1278 个生成单元
+  走的是同一套教学逻辑（句型拆解 / 替换练习 / 测试题全部由引擎生成）。
+
+## 12 步学习流程（每个单元）
+
+| # | 步骤 | 说明 |
+|---|------|------|
+| 01 | BASELINE | 第一次理解（不查中文，只凭英文直觉作答） |
+| 02 | READ | 读经（先不翻译：What is happening?） |
+| 03 | LISTEN | 听读（Voice 选择 / 0.7–1.2 语速 / 播放·停止·重播） |
+| 04 | NOTICE | 观察（重复 · 对比 · 人物 · 动作 · 关系） |
+| 05 | VOCABULARY | 核心词汇（由少到多，把词放回经文） |
+| 06 | STRUCTURE | 句子结构（原句 / 句型 / 拆分 / 说明 / 词义 / 例句 / 替换） |
+| 07 | DIRECT COMPREHENSION | 直接理解（English → Meaning，6 级递进：人物→动作→关系→句子意义→上下文→综合） |
+| 08 | SPEAK | 英文表达（模仿 → 替换 → 自主表达） |
+| 09 | RE-READ | 再读一次（第二次应当更容易） |
+| 10 | FINAL TEST | 最后理解测试（独立步骤，不看中文） |
+| 11 | RESULT | 学习结果（第一次 vs 第二次理解对比，独立页面） |
+| 12 | REVIEW | 间隔复习 Day 1 / 3 / 7 / 14（独立视图，到期提醒） |
+
+## Reader 功能保留
+
+章节导航 · 上一章/下一章（含卷间与首末章边界）· 今日入口 · 自动标记已读 ·
+进度条 · 本章笔记 · 书签 · 字号调节 · 紧凑阅读模式 · 90 天计划 ·
+学习数据导出/导入/重置 · PWA + Service Worker 离线缓存。
+
+## 数据与隐私
+
+- 经文：World English Bible（公有领域），本地 `data/nt/*.json` 分卷存储。
+- 学习进度：保存在本机浏览器 `localStorage`（键名 `EBRM_V1_DATA_V1`，兼容 V1 数据）。
+- 语音：浏览器 Speech Synthesis，仅列出英语声音（en / en-US / en-GB…）。
+- 无需账号，无需服务器数据库。
+
+## 本地运行
+
+```bash
+python -m http.server 8080      # 或任意静态服务器
+# 打开 http://localhost:8080/            全本新约
+# 打开 http://localhost:8080/john1.html  John 1 母版课程
+```
+
+## 质量基线（已验证）
+
+- 27 卷 / 260 章 / 1278 个学习单元全部可加载，0 JS 错误（真实浏览器逐章扫描）
+- 每个单元：词汇 / 句型 / 模仿 / 六层理解 / 测试题 / 3 题起点测试 全部齐备（0 缺失）
+- 题目答案索引、选项唯一性、干扰项不与正确项重叠：0 异常
+- 12 步流程、语音（Voice/Speed/Stop/Replay）、复习排程、持久化、移动端 390×844：82 项交互验收全部通过

@@ -1,0 +1,4603 @@
+{
+ "name": "EBRM NT core lexicon",
+ "version": 1,
+ "note": "Bilingual core lexicon. type: t/undefined=teachable, x=inflection, n=proper noun. jesus/christ corrected to proper nouns.",
+ "stopwords": [
+  "a",
+  "about",
+  "above",
+  "across",
+  "after",
+  "again",
+  "against",
+  "all",
+  "almost",
+  "along",
+  "already",
+  "also",
+  "always",
+  "am",
+  "amen",
+  "among",
+  "an",
+  "and",
+  "another",
+  "any",
+  "anybody",
+  "anyone",
+  "anything",
+  "apart",
+  "are",
+  "around",
+  "art",
+  "as",
+  "at",
+  "away",
+  "back",
+  "be",
+  "because",
+  "been",
+  "before",
+  "behold",
+  "being",
+  "below",
+  "between",
+  "beyond",
+  "both",
+  "but",
+  "by",
+  "can",
+  "could",
+  "d",
+  "did",
+  "do",
+  "does",
+  "doing",
+  "done",
+  "down",
+  "during",
+  "each",
+  "either",
+  "enough",
+  "even",
+  "every",
+  "everybody",
+  "everyone",
+  "everything",
+  "for",
+  "forth",
+  "from",
+  "had",
+  "has",
+  "hast",
+  "hath",
+  "have",
+  "he",
+  "hence",
+  "her",
+  "here",
+  "herself",
+  "him",
+  "himself",
+  "his",
+  "hither",
+  "how",
+  "i",
+  "if",
+  "in",
+  "indeed",
+  "into",
+  "is",
+  "it",
+  "its",
+  "itself",
+  "just",
+  "let",
+  "ll",
+  "lo",
+  "m",
+  "many",
+  "may",
+  "me",
+  "might",
+  "more",
+  "most",
+  "much",
+  "must",
+  "my",
+  "myself",
+  "neither",
+  "never",
+  "no",
+  "nobody",
+  "none",
+  "nor",
+  "not",
+  "nothing",
+  "now",
+  "o",
+  "of",
+  "often",
+  "on",
+  "once",
+  "one",
+  "only",
+  "or",
+  "other",
+  "our",
+  "ourselves",
+  "out",
+  "over",
+  "own",
+  "perhaps",
+  "rather",
+  "re",
+  "s",
+  "same",
+  "shall",
+  "she",
+  "should",
+  "since",
+  "so",
+  "some",
+  "somebody",
+  "someone",
+  "something",
+  "soon",
+  "still",
+  "such",
+  "t",
+  "than",
+  "that",
+  "the",
+  "thee",
+  "their",
+  "them",
+  "themselves",
+  "then",
+  "there",
+  "therefore",
+  "these",
+  "they",
+  "this",
+  "thither",
+  "those",
+  "thou",
+  "through",
+  "thus",
+  "thy",
+  "to",
+  "together",
+  "toward",
+  "truly",
+  "twice",
+  "two",
+  "under",
+  "unless",
+  "until",
+  "unto",
+  "up",
+  "upon",
+  "us",
+  "ve",
+  "verily",
+  "very",
+  "was",
+  "we",
+  "were",
+  "what",
+  "when",
+  "where",
+  "whether",
+  "which",
+  "while",
+  "who",
+  "whom",
+  "whose",
+  "why",
+  "will",
+  "with",
+  "within",
+  "without",
+  "would",
+  "ye",
+  "yes",
+  "yet",
+  "you",
+  "your",
+  "yourselves"
+ ],
+ "entries": {
+  "god": {
+   "zh": "神",
+   "gloss": "the Creator, the LORD"
+  },
+  "lord": {
+   "zh": "主",
+   "gloss": "master, the one with authority"
+  },
+  "jesus": {
+   "zh": "耶稣",
+   "gloss": "the Savior's name",
+   "type": "n"
+  },
+  "christ": {
+   "zh": "基督",
+   "gloss": "the Anointed One, Messiah",
+   "type": "n"
+  },
+  "messiah": {
+   "zh": "弥赛亚",
+   "gloss": "the promised Anointed King"
+  },
+  "spirit": {
+   "zh": "灵",
+   "gloss": "the inner breath"
+  },
+  "holy": {
+   "zh": "圣洁的",
+   "gloss": "set apart for God"
+  },
+  "faith": {
+   "zh": "信心",
+   "gloss": "trust in God"
+  },
+  "believe": {
+   "zh": "相信",
+   "gloss": "to trust as true"
+  },
+  "hope": {
+   "zh": "盼望",
+   "gloss": "confident waiting"
+  },
+  "love": {
+   "zh": "爱",
+   "gloss": "deep care and devotion"
+  },
+  "grace": {
+   "zh": "恩典",
+   "gloss": "free gift of favor"
+  },
+  "mercy": {
+   "zh": "怜悯",
+   "gloss": "kindness to the needy"
+  },
+  "truth": {
+   "zh": "真理",
+   "gloss": "what is true"
+  },
+  "peace": {
+   "zh": "平安",
+   "gloss": "wholeness, no conflict"
+  },
+  "joy": {
+   "zh": "喜乐",
+   "gloss": "deep gladness"
+  },
+  "glory": {
+   "zh": "荣耀",
+   "gloss": "bright honor"
+  },
+  "kingdom": {
+   "zh": "国度",
+   "gloss": "rule, reign of a king"
+  },
+  "heaven": {
+   "zh": "天;天堂",
+   "gloss": "the sky, God's dwelling"
+  },
+  "gospel": {
+   "zh": "福音",
+   "gloss": "good news"
+  },
+  "salvation": {
+   "zh": "救恩",
+   "gloss": "being saved"
+  },
+  "sin": {
+   "zh": "罪",
+   "gloss": "wrong against God"
+  },
+  "repentance": {
+   "zh": "悔改",
+   "gloss": "turning from sin"
+  },
+  "forgive": {
+   "zh": "赦免",
+   "gloss": "to let go of wrong"
+  },
+  "baptize": {
+   "zh": "施洗",
+   "gloss": "to dip, to wash in water"
+  },
+  "worship": {
+   "zh": "敬拜",
+   "gloss": "to honor God"
+  },
+  "pray": {
+   "zh": "祷告",
+   "gloss": "to speak to God"
+  },
+  "prayer": {
+   "zh": "祷告",
+   "gloss": "talking with God"
+  },
+  "praise": {
+   "zh": "赞美",
+   "gloss": "words of honor"
+  },
+  "bless": {
+   "zh": "祝福",
+   "gloss": "to give good"
+  },
+  "curse": {
+   "zh": "咒诅",
+   "gloss": "to speak harm"
+  },
+  "commandment": {
+   "zh": "诫命",
+   "gloss": "an order to obey"
+  },
+  "law": {
+   "zh": "律法",
+   "gloss": "the given rules"
+  },
+  "covenant": {
+   "zh": "约",
+   "gloss": "a binding agreement"
+  },
+  "promise": {
+   "zh": "应许",
+   "gloss": "to give one's word"
+  },
+  "prophet": {
+   "zh": "先知",
+   "gloss": "one who speaks for God"
+  },
+  "angel": {
+   "zh": "天使",
+   "gloss": "a heavenly messenger"
+  },
+  "disciple": {
+   "zh": "门徒",
+   "gloss": "a learner, follower"
+  },
+  "apostle": {
+   "zh": "使徒",
+   "gloss": "one sent out"
+  },
+  "witness": {
+   "zh": "见证",
+   "gloss": "one who tells what he saw"
+  },
+  "testimony": {
+   "zh": "见证",
+   "gloss": "the report given"
+  },
+  "parable": {
+   "zh": "比喻",
+   "gloss": "a teaching story"
+  },
+  "miracle": {
+   "zh": "神迹",
+   "gloss": "a wonder beyond nature"
+  },
+  "sign": {
+   "zh": "神迹;记号",
+   "gloss": "a mark pointing to truth"
+  },
+  "resurrection": {
+   "zh": "复活",
+   "gloss": "rising from the dead"
+  },
+  "judgment": {
+   "zh": "审判",
+   "gloss": "the deciding of right and wrong"
+  },
+  "righteous": {
+   "zh": "公义的",
+   "gloss": "right with God"
+  },
+  "wicked": {
+   "zh": "邪恶的",
+   "gloss": "doing great wrong"
+  },
+  "unclean": {
+   "zh": "不洁的",
+   "gloss": "not fit for God's use"
+  },
+  "pure": {
+   "zh": "纯洁的",
+   "gloss": "clean, without mix"
+  },
+  "sinner": {
+   "zh": "罪人",
+   "gloss": "one who does wrong"
+  },
+  "saint": {
+   "zh": "圣徒",
+   "gloss": "one set apart for God"
+  },
+  "priest": {
+   "zh": "祭司",
+   "gloss": "one who serves at the altar"
+  },
+  "sacrifice": {
+   "zh": "献祭;牺牲",
+   "gloss": "an offering given"
+  },
+  "offering": {
+   "zh": "供物",
+   "gloss": "a gift brought to God"
+  },
+  "altar": {
+   "zh": "祭坛",
+   "gloss": "the place of offering"
+  },
+  "temple": {
+   "zh": "圣殿",
+   "gloss": "God's house"
+  },
+  "synagogue": {
+   "zh": "会堂",
+   "gloss": "the Jewish meeting house"
+  },
+  "pharisee": {
+   "zh": "法利赛人",
+   "gloss": "a strict Jewish teacher"
+  },
+  "scribe": {
+   "zh": "文士",
+   "gloss": "a teacher of the law"
+  },
+  "gentile": {
+   "zh": "外邦人",
+   "gloss": "a non-Jewish person"
+  },
+  "israel": {
+   "zh": "以色列",
+   "gloss": "the people of God",
+   "type": "n"
+  },
+  "jerusalem": {
+   "zh": "耶路撒冷",
+   "gloss": "the holy city",
+   "type": "n"
+  },
+  "scripture": {
+   "zh": "经文",
+   "gloss": "the holy writings"
+  },
+  "prophecy": {
+   "zh": "预言",
+   "gloss": "a word spoken before"
+  },
+  "reveal": {
+   "zh": "启示",
+   "gloss": "to make known"
+  },
+  "mystery": {
+   "zh": "奥秘",
+   "gloss": "truth once hidden"
+  },
+  "eternal": {
+   "zh": "永恒的",
+   "gloss": "without end"
+  },
+  "everlasting": {
+   "zh": "永远的",
+   "gloss": "never ending"
+  },
+  "man": {
+   "zh": "人;男人",
+   "gloss": "a human, an adult male"
+  },
+  "woman": {
+   "zh": "女人",
+   "gloss": "an adult female"
+  },
+  "son": {
+   "zh": "儿子",
+   "gloss": "a male child"
+  },
+  "daughter": {
+   "zh": "女儿",
+   "gloss": "a female child"
+  },
+  "father": {
+   "zh": "父亲",
+   "gloss": "a male parent"
+  },
+  "mother": {
+   "zh": "母亲",
+   "gloss": "a female parent"
+  },
+  "brother": {
+   "zh": "兄弟",
+   "gloss": "a male sibling"
+  },
+  "sister": {
+   "zh": "姐妹",
+   "gloss": "a female sibling"
+  },
+  "child": {
+   "zh": "孩子",
+   "gloss": "a young person"
+  },
+  "children": {
+   "zh": "孩子们",
+   "gloss": "young persons"
+  },
+  "people": {
+   "zh": "人们",
+   "gloss": "a group of persons"
+  },
+  "nation": {
+   "zh": "民族;国",
+   "gloss": "a people group"
+  },
+  "family": {
+   "zh": "家;家族",
+   "gloss": "parents and children"
+  },
+  "husband": {
+   "zh": "丈夫",
+   "gloss": "a married man"
+  },
+  "wife": {
+   "zh": "妻子",
+   "gloss": "a married woman"
+  },
+  "servant": {
+   "zh": "仆人",
+   "gloss": "one who serves another"
+  },
+  "master": {
+   "zh": "主人",
+   "gloss": "one who rules others"
+  },
+  "king": {
+   "zh": "王",
+   "gloss": "a male ruler"
+  },
+  "queen": {
+   "zh": "王后",
+   "gloss": "a female ruler"
+  },
+  "elder": {
+   "zh": "长老",
+   "gloss": "an older leader"
+  },
+  "neighbor": {
+   "zh": "邻舍",
+   "gloss": "one who lives near"
+  },
+  "stranger": {
+   "zh": "陌生人",
+   "gloss": "an unknown person"
+  },
+  "enemy": {
+   "zh": "仇敌",
+   "gloss": "one who fights against"
+  },
+  "friend": {
+   "zh": "朋友",
+   "gloss": "one who is close"
+  },
+  "teacher": {
+   "zh": "老师",
+   "gloss": "one who teaches"
+  },
+  "shepherd": {
+   "zh": "牧人",
+   "gloss": "one who cares for sheep"
+  },
+  "fisherman": {
+   "zh": "渔夫",
+   "gloss": "one who catches fish"
+  },
+  "crowd": {
+   "zh": "群众",
+   "gloss": "a great many people"
+  },
+  "generation": {
+   "zh": "世代",
+   "gloss": "the people of one age"
+  },
+  "earth": {
+   "zh": "地;大地",
+   "gloss": "the ground, the world"
+  },
+  "world": {
+   "zh": "世界",
+   "gloss": "all that exists here"
+  },
+  "land": {
+   "zh": "土地",
+   "gloss": "a country, ground"
+  },
+  "sea": {
+   "zh": "海",
+   "gloss": "the great water"
+  },
+  "lake": {
+   "zh": "湖",
+   "gloss": "a body of water"
+  },
+  "river": {
+   "zh": "河",
+   "gloss": "flowing water"
+  },
+  "water": {
+   "zh": "水",
+   "gloss": "the clear liquid"
+  },
+  "mountain": {
+   "zh": "山",
+   "gloss": "a high land form"
+  },
+  "hill": {
+   "zh": "丘陵",
+   "gloss": "a small mountain"
+  },
+  "desert": {
+   "zh": "旷野",
+   "gloss": "a dry empty place"
+  },
+  "wilderness": {
+   "zh": "旷野",
+   "gloss": "an empty wild place"
+  },
+  "field": {
+   "zh": "田地",
+   "gloss": "open farm land"
+  },
+  "garden": {
+   "zh": "园子",
+   "gloss": "a planted place"
+  },
+  "vineyard": {
+   "zh": "葡萄园",
+   "gloss": "a field of vines"
+  },
+  "road": {
+   "zh": "路",
+   "gloss": "a way for travel"
+  },
+  "way": {
+   "zh": "道路",
+   "gloss": "a path, a manner"
+  },
+  "path": {
+   "zh": "小径",
+   "gloss": "a narrow way"
+  },
+  "gate": {
+   "zh": "门",
+   "gloss": "an opening in a wall"
+  },
+  "door": {
+   "zh": "门",
+   "gloss": "the way in"
+  },
+  "city": {
+   "zh": "城",
+   "gloss": "a large town"
+  },
+  "town": {
+   "zh": "镇",
+   "gloss": "a small city"
+  },
+  "village": {
+   "zh": "村庄",
+   "gloss": "a small settlement"
+  },
+  "house": {
+   "zh": "房子",
+   "gloss": "a dwelling"
+  },
+  "home": {
+   "zh": "家",
+   "gloss": "one's own house"
+  },
+  "palace": {
+   "zh": "宫殿",
+   "gloss": "a king's house"
+  },
+  "prison": {
+   "zh": "监牢",
+   "gloss": "a place of holding"
+  },
+  "grave": {
+   "zh": "坟墓",
+   "gloss": "a place of the dead"
+  },
+  "tomb": {
+   "zh": "坟墓",
+   "gloss": "a burial place"
+  },
+  "sky": {
+   "zh": "天空",
+   "gloss": "the space above"
+  },
+  "cloud": {
+   "zh": "云",
+   "gloss": "water in the sky"
+  },
+  "rain": {
+   "zh": "雨",
+   "gloss": "falling water"
+  },
+  "wind": {
+   "zh": "风",
+   "gloss": "moving air"
+  },
+  "storm": {
+   "zh": "风暴",
+   "gloss": "a strong storm"
+  },
+  "fire": {
+   "zh": "火",
+   "gloss": "burning heat"
+  },
+  "light": {
+   "zh": "光",
+   "gloss": "what lets us see"
+  },
+  "darkness": {
+   "zh": "黑暗",
+   "gloss": "the absence of light"
+  },
+  "star": {
+   "zh": "星",
+   "gloss": "a light in the night sky"
+  },
+  "moon": {
+   "zh": "月亮",
+   "gloss": "the light of night"
+  },
+  "sun": {
+   "zh": "太阳",
+   "gloss": "the light of day"
+  },
+  "tree": {
+   "zh": "树",
+   "gloss": "a tall plant"
+  },
+  "branch": {
+   "zh": "枝子",
+   "gloss": "a part of a tree"
+  },
+  "root": {
+   "zh": "根",
+   "gloss": "the base of a plant"
+  },
+  "leaf": {
+   "zh": "叶子",
+   "gloss": "the green part of a plant"
+  },
+  "leaves": {
+   "zh": "叶子",
+   "gloss": "the green parts of a plant",
+   "type": "x"
+  },
+  "fruit": {
+   "zh": "果子",
+   "gloss": "the food of a plant"
+  },
+  "seed": {
+   "zh": "种子",
+   "gloss": "what grows into a plant"
+  },
+  "harvest": {
+   "zh": "收割",
+   "gloss": "the gathering of crops"
+  },
+  "wheat": {
+   "zh": "麦子",
+   "gloss": "a grain plant"
+  },
+  "vine": {
+   "zh": "葡萄树",
+   "gloss": "the plant of grapes"
+  },
+  "fig": {
+   "zh": "无花果",
+   "gloss": "a sweet fruit"
+  },
+  "olive": {
+   "zh": "橄榄",
+   "gloss": "an oily fruit"
+  },
+  "bread": {
+   "zh": "饼",
+   "gloss": "baked food"
+  },
+  "wine": {
+   "zh": "酒",
+   "gloss": "the drink of grapes"
+  },
+  "water jar": {
+   "zh": "水缸",
+   "gloss": "a pot for water"
+  },
+  "fish": {
+   "zh": "鱼",
+   "gloss": "a water animal"
+  },
+  "sheep": {
+   "zh": "羊",
+   "gloss": "woolly animals"
+  },
+  "lamb": {
+   "zh": "羔羊",
+   "gloss": "a young sheep"
+  },
+  "goat": {
+   "zh": "山羊",
+   "gloss": "a horned animal"
+  },
+  "ox": {
+   "zh": "牛",
+   "gloss": "a working animal"
+  },
+  "donkey": {
+   "zh": "驴",
+   "gloss": "a riding animal"
+  },
+  "horse": {
+   "zh": "马",
+   "gloss": "a riding animal"
+  },
+  "bird": {
+   "zh": "鸟",
+   "gloss": "a flying animal"
+  },
+  "dove": {
+   "zh": "鸽子",
+   "gloss": "a gentle bird"
+  },
+  "sparrow": {
+   "zh": "麻雀",
+   "gloss": "a small bird"
+  },
+  "snake": {
+   "zh": "蛇",
+   "gloss": "a crawling animal"
+  },
+  "dog": {
+   "zh": "狗",
+   "gloss": "a house animal"
+  },
+  "stone": {
+   "zh": "扔石头",
+   "gloss": "to throw stones at"
+  },
+  "rock": {
+   "zh": "磐石",
+   "gloss": "large hard stone"
+  },
+  "gold": {
+   "zh": "金子",
+   "gloss": "a precious metal"
+  },
+  "silver": {
+   "zh": "银子",
+   "gloss": "a shining metal"
+  },
+  "money": {
+   "zh": "钱",
+   "gloss": "coins for buying"
+  },
+  "coin": {
+   "zh": "钱币",
+   "gloss": "a piece of money"
+  },
+  "treasure": {
+   "zh": "财宝",
+   "gloss": "stored riches"
+  },
+  "field of blood": {
+   "zh": "血田",
+   "gloss": "a field bought with blood"
+  },
+  "body": {
+   "zh": "身体",
+   "gloss": "the whole person"
+  },
+  "flesh": {
+   "zh": "肉体",
+   "gloss": "the soft body"
+  },
+  "blood": {
+   "zh": "血",
+   "gloss": "the red life fluid"
+  },
+  "heart": {
+   "zh": "心",
+   "gloss": "the inner self"
+  },
+  "soul": {
+   "zh": "灵魂",
+   "gloss": "the living self"
+  },
+  "mind": {
+   "zh": "心思",
+   "gloss": "the thinking self"
+  },
+  "hand": {
+   "zh": "手",
+   "gloss": "the working part"
+  },
+  "finger": {
+   "zh": "指头",
+   "gloss": "a part of the hand"
+  },
+  "arm": {
+   "zh": "膀臂",
+   "gloss": "the upper limb"
+  },
+  "foot": {
+   "zh": "脚",
+   "gloss": "the walking part"
+  },
+  "head": {
+   "zh": "头",
+   "gloss": "the top part"
+  },
+  "hair": {
+   "zh": "头发",
+   "gloss": "the hair of the head"
+  },
+  "eye": {
+   "zh": "眼睛",
+   "gloss": "the seeing part"
+  },
+  "ear": {
+   "zh": "耳朵",
+   "gloss": "the hearing part"
+  },
+  "mouth": {
+   "zh": "口",
+   "gloss": "the speaking part"
+  },
+  "tongue": {
+   "zh": "舌头",
+   "gloss": "the speaking organ"
+  },
+  "voice": {
+   "zh": "声音",
+   "gloss": "the sound of speech"
+  },
+  "face": {
+   "zh": "脸",
+   "gloss": "the front of the head"
+  },
+  "skin": {
+   "zh": "皮肤",
+   "gloss": "the outer cover"
+  },
+  "bone": {
+   "zh": "骨头",
+   "gloss": "the hard part"
+  },
+  "wound": {
+   "zh": "伤",
+   "gloss": "a hurt place"
+  },
+  "disease": {
+   "zh": "疾病",
+   "gloss": "a sickness"
+  },
+  "fever": {
+   "zh": "热病",
+   "gloss": "a high body heat"
+  },
+  "leprosy": {
+   "zh": "大麻风",
+   "gloss": "a skin disease"
+  },
+  "death": {
+   "zh": "死亡",
+   "gloss": "the end of life"
+  },
+  "life": {
+   "zh": "生命",
+   "gloss": "being alive"
+  },
+  "breath": {
+   "zh": "气息",
+   "gloss": "the air of life"
+  },
+  "hunger": {
+   "zh": "饥饿",
+   "gloss": "the need for food"
+  },
+  "thirst": {
+   "zh": "干渴",
+   "gloss": "the need for water"
+  },
+  "rest": {
+   "zh": "安息",
+   "gloss": "a time of peace"
+  },
+  "sleep": {
+   "zh": "睡觉",
+   "gloss": "the rest of night"
+  },
+  "dream": {
+   "zh": "梦",
+   "gloss": "a vision in sleep"
+  },
+  "tear": {
+   "zh": "眼泪",
+   "gloss": "water from the eye"
+  },
+  "day": {
+   "zh": "日;天",
+   "gloss": "a period of light"
+  },
+  "night": {
+   "zh": "夜",
+   "gloss": "the dark hours"
+  },
+  "morning": {
+   "zh": "早晨",
+   "gloss": "the start of day"
+  },
+  "evening": {
+   "zh": "晚上",
+   "gloss": "the end of day"
+  },
+  "noon": {
+   "zh": "正午",
+   "gloss": "the middle of day"
+  },
+  "hour": {
+   "zh": "小时",
+   "gloss": "a short time"
+  },
+  "moment": {
+   "zh": "时刻",
+   "gloss": "a very short time"
+  },
+  "week": {
+   "zh": "周",
+   "gloss": "seven days"
+  },
+  "month": {
+   "zh": "月",
+   "gloss": "about thirty days"
+  },
+  "year": {
+   "zh": "年",
+   "gloss": "twelve months"
+  },
+  "time": {
+   "zh": "时候",
+   "gloss": "the passing of events"
+  },
+  "beginning": {
+   "zh": "起初",
+   "gloss": "the first point"
+  },
+  "end": {
+   "zh": "末了",
+   "gloss": "the last point"
+  },
+  "age": {
+   "zh": "世代;时代",
+   "gloss": "a long period"
+  },
+  "today": {
+   "zh": "今天",
+   "gloss": "this present day"
+  },
+  "tomorrow": {
+   "zh": "明天",
+   "gloss": "the next day"
+  },
+  "yesterday": {
+   "zh": "昨天",
+   "gloss": "the day before"
+  },
+  "first": {
+   "zh": "首先的",
+   "gloss": "before all others"
+  },
+  "last": {
+   "zh": "末后的",
+   "gloss": "after all others"
+  },
+  "one": {
+   "zh": "一",
+   "gloss": "the number 1"
+  },
+  "two": {
+   "zh": "二",
+   "gloss": "the number 2"
+  },
+  "three": {
+   "zh": "三",
+   "gloss": "the number 3"
+  },
+  "seven": {
+   "zh": "七",
+   "gloss": "the number 7"
+  },
+  "ten": {
+   "zh": "十",
+   "gloss": "the number 10"
+  },
+  "twelve": {
+   "zh": "十二",
+   "gloss": "the number 12"
+  },
+  "hundred": {
+   "zh": "百",
+   "gloss": "the number 100"
+  },
+  "thousand": {
+   "zh": "千",
+   "gloss": "the number 1000"
+  },
+  "many": {
+   "zh": "许多",
+   "gloss": "a great number"
+  },
+  "few": {
+   "zh": "少数",
+   "gloss": "a small number"
+  },
+  "all": {
+   "zh": "所有的",
+   "gloss": "every one"
+  },
+  "some": {
+   "zh": "一些",
+   "gloss": "a part of"
+  },
+  "none": {
+   "zh": "没有一个",
+   "gloss": "not one"
+  },
+  "half": {
+   "zh": "一半",
+   "gloss": "one of two parts"
+  },
+  "whole": {
+   "zh": "痊愈的",
+   "gloss": "complete, sound"
+  },
+  "every": {
+   "zh": "每一个",
+   "gloss": "each one"
+  },
+  "each": {
+   "zh": "各自的",
+   "gloss": "every single"
+  },
+  "number": {
+   "zh": "数目",
+   "gloss": "how many"
+  },
+  "multitude": {
+   "zh": "群众",
+   "gloss": "a great crowd"
+  },
+  "come": {
+   "zh": "来",
+   "gloss": "to move toward"
+  },
+  "go": {
+   "zh": "去",
+   "gloss": "to move away"
+  },
+  "enter": {
+   "zh": "进入",
+   "gloss": "to come in"
+  },
+  "leave": {
+   "zh": "离开",
+   "gloss": "to go out from"
+  },
+  "depart": {
+   "zh": "离开",
+   "gloss": "to go away"
+  },
+  "return": {
+   "zh": "返回",
+   "gloss": "to come back"
+  },
+  "follow": {
+   "zh": "跟随",
+   "gloss": "to come after"
+  },
+  "lead": {
+   "zh": "带领",
+   "gloss": "to go before"
+  },
+  "walk": {
+   "zh": "行走",
+   "gloss": "to go on foot"
+  },
+  "run": {
+   "zh": "跑",
+   "gloss": "to move fast"
+  },
+  "stand": {
+   "zh": "站立",
+   "gloss": "to be upright"
+  },
+  "sit": {
+   "zh": "坐",
+   "gloss": "to be seated"
+  },
+  "fall": {
+   "zh": "倒下",
+   "gloss": "to drop down"
+  },
+  "rise": {
+   "zh": "起来",
+   "gloss": "to go up"
+  },
+  "arise": {
+   "zh": "兴起",
+   "gloss": "to stand up"
+  },
+  "send": {
+   "zh": "差遣",
+   "gloss": "to cause to go"
+  },
+  "bring": {
+   "zh": "带来",
+   "gloss": "to carry here"
+  },
+  "carry": {
+   "zh": "背负",
+   "gloss": "to hold and move"
+  },
+  "take": {
+   "zh": "拿",
+   "gloss": "to receive and hold"
+  },
+  "give": {
+   "zh": "给",
+   "gloss": "to hand over"
+  },
+  "receive": {
+   "zh": "领受",
+   "gloss": "to take what is given"
+  },
+  "offer": {
+   "zh": "献上",
+   "gloss": "to bring as gift"
+  },
+  "buy": {
+   "zh": "买",
+   "gloss": "to get with money"
+  },
+  "sell": {
+   "zh": "卖",
+   "gloss": "to give for money"
+  },
+  "eat": {
+   "zh": "吃",
+   "gloss": "to take food"
+  },
+  "drink": {
+   "zh": "喝",
+   "gloss": "to take liquid"
+  },
+  "feed": {
+   "zh": "喂养",
+   "gloss": "to give food"
+  },
+  "fill": {
+   "zh": "充满",
+   "gloss": "to make full"
+  },
+  "pour": {
+   "zh": "倾倒",
+   "gloss": "to make flow out"
+  },
+  "wash": {
+   "zh": "洗",
+   "gloss": "to clean with water"
+  },
+  "cleanse": {
+   "zh": "洁净",
+   "gloss": "to make clean"
+  },
+  "heal": {
+   "zh": "医治",
+   "gloss": "to make well"
+  },
+  "save": {
+   "zh": "拯救",
+   "gloss": "to rescue from harm"
+  },
+  "rescue": {
+   "zh": "搭救",
+   "gloss": "to save from danger"
+  },
+  "deliver": {
+   "zh": "解救",
+   "gloss": "to set free"
+  },
+  "redeem": {
+   "zh": "赎回",
+   "gloss": "to buy back"
+  },
+  "raise": {
+   "zh": "使复活;举起",
+   "gloss": "to lift up"
+  },
+  "die": {
+   "zh": "死",
+   "gloss": "to stop living"
+  },
+  "live": {
+   "zh": "活",
+   "gloss": "to be alive"
+  },
+  "bear": {
+   "zh": "结出;承受",
+   "gloss": "to carry, to produce"
+  },
+  "grow": {
+   "zh": "生长",
+   "gloss": "to become bigger"
+  },
+  "shine": {
+   "zh": "照耀",
+   "gloss": "to give light"
+  },
+  "burn": {
+   "zh": "烧",
+   "gloss": "to be on fire"
+  },
+  "build": {
+   "zh": "建造",
+   "gloss": "to make a building"
+  },
+  "destroy": {
+   "zh": "毁坏",
+   "gloss": "to break down"
+  },
+  "break": {
+   "zh": "折断",
+   "gloss": "to make separate"
+  },
+  "bind": {
+   "zh": "捆绑",
+   "gloss": "to tie together"
+  },
+  "loose": {
+   "zh": "解开",
+   "gloss": "to set free"
+  },
+  "open": {
+   "zh": "打开",
+   "gloss": "to make not shut"
+  },
+  "shut": {
+   "zh": "关上",
+   "gloss": "to close"
+  },
+  "keep": {
+   "zh": "保守",
+   "gloss": "to hold safe"
+  },
+  "hold": {
+   "zh": "持守",
+   "gloss": "to keep in hand"
+  },
+  "cast": {
+   "zh": "抛",
+   "gloss": "to throw away"
+  },
+  "gather": {
+   "zh": "聚集",
+   "gloss": "to bring together"
+  },
+  "scatter": {
+   "zh": "分散",
+   "gloss": "to throw apart"
+  },
+  "sow": {
+   "zh": "撒种",
+   "gloss": "to plant seed"
+  },
+  "reap": {
+   "zh": "收割",
+   "gloss": "to gather crops"
+  },
+  "plant": {
+   "zh": "栽种",
+   "gloss": "to put in the ground"
+  },
+  "hear": {
+   "zh": "听见",
+   "gloss": "to take in sound"
+  },
+  "listen": {
+   "zh": "听",
+   "gloss": "to give attention"
+  },
+  "see": {
+   "zh": "看见",
+   "gloss": "to take in sight"
+  },
+  "look": {
+   "zh": "看",
+   "gloss": "to turn the eyes"
+  },
+  "watch": {
+   "zh": "守望",
+   "gloss": "to keep looking"
+  },
+  "know": {
+   "zh": "知道",
+   "gloss": "to have knowledge"
+  },
+  "understand": {
+   "zh": "明白",
+   "gloss": "to grasp meaning"
+  },
+  "remember": {
+   "zh": "记得",
+   "gloss": "to keep in mind"
+  },
+  "forget": {
+   "zh": "忘记",
+   "gloss": "to lose from mind"
+  },
+  "think": {
+   "zh": "思想",
+   "gloss": "to use the mind"
+  },
+  "say": {
+   "zh": "说",
+   "gloss": "to speak words"
+  },
+  "speak": {
+   "zh": "说话",
+   "gloss": "to use words"
+  },
+  "tell": {
+   "zh": "告诉",
+   "gloss": "to make known"
+  },
+  "ask": {
+   "zh": "问;求",
+   "gloss": "to seek an answer"
+  },
+  "answer": {
+   "zh": "回答",
+   "gloss": "to give a reply"
+  },
+  "call": {
+   "zh": "呼叫;称为",
+   "gloss": "to name, to cry out"
+  },
+  "cry": {
+   "zh": "哭;喊",
+   "gloss": "to call out loud"
+  },
+  "shout": {
+   "zh": "喊叫",
+   "gloss": "to speak loudly"
+  },
+  "whisper": {
+   "zh": "低语",
+   "gloss": "to speak softly"
+  },
+  "teach": {
+   "zh": "教导",
+   "gloss": "to help to learn"
+  },
+  "learn": {
+   "zh": "学习",
+   "gloss": "to gain knowledge"
+  },
+  "preach": {
+   "zh": "传道",
+   "gloss": "to proclaim publicly"
+  },
+  "proclaim": {
+   "zh": "宣告",
+   "gloss": "to announce openly"
+  },
+  "testify": {
+   "zh": "作证",
+   "gloss": "to tell what is true"
+  },
+  "warn": {
+   "zh": "警告",
+   "gloss": "to tell of danger"
+  },
+  "rebuke": {
+   "zh": "责备",
+   "gloss": "to speak against"
+  },
+  "judge": {
+   "zh": "审判",
+   "gloss": "to decide right and wrong"
+  },
+  "condemn": {
+   "zh": "定罪",
+   "gloss": "to declare guilty"
+  },
+  "justify": {
+   "zh": "称义",
+   "gloss": "to declare right"
+  },
+  "serve": {
+   "zh": "服事",
+   "gloss": "to work for another"
+  },
+  "rule": {
+   "zh": "统治",
+   "gloss": "to have authority"
+  },
+  "reign": {
+   "zh": "作王",
+   "gloss": "to rule as king"
+  },
+  "obey": {
+   "zh": "顺服",
+   "gloss": "to do what is said"
+  },
+  "submit": {
+   "zh": "顺服",
+   "gloss": "to place under"
+  },
+  "resist": {
+   "zh": "抵挡",
+   "gloss": "to stand against"
+  },
+  "tempt": {
+   "zh": "试探",
+   "gloss": "to try to make sin"
+  },
+  "test": {
+   "zh": "试验",
+   "gloss": "to put to proof"
+  },
+  "seek": {
+   "zh": "寻找",
+   "gloss": "to look for"
+  },
+  "find": {
+   "zh": "找到",
+   "gloss": "to come upon"
+  },
+  "lose": {
+   "zh": "失去",
+   "gloss": "to no longer have"
+  },
+  "choose": {
+   "zh": "拣选",
+   "gloss": "to pick out"
+  },
+  "send out": {
+   "zh": "差出去",
+   "gloss": "to cause to go out"
+  },
+  "help": {
+   "zh": "帮助",
+   "gloss": "to give aid"
+  },
+  "strengthen": {
+   "zh": "坚固",
+   "gloss": "to make strong"
+  },
+  "comfort": {
+   "zh": "安慰",
+   "gloss": "ease in sorrow"
+  },
+  "encourage": {
+   "zh": "劝勉",
+   "gloss": "to give courage"
+  },
+  "provide": {
+   "zh": "供应",
+   "gloss": "to give what is needed"
+  },
+  "care": {
+   "zh": "看顾",
+   "gloss": "to look after"
+  },
+  "guard": {
+   "zh": "守护",
+   "gloss": "to keep safe"
+  },
+  "fight": {
+   "zh": "争战",
+   "gloss": "to battle"
+  },
+  "overcome": {
+   "zh": "胜过",
+   "gloss": "to win against"
+  },
+  "suffer": {
+   "zh": "受苦",
+   "gloss": "to go through pain"
+  },
+  "endure": {
+   "zh": "忍耐",
+   "gloss": "to hold on through"
+  },
+  "wait": {
+   "zh": "等候",
+   "gloss": "to stay expecting"
+  },
+  "rejoice": {
+   "zh": "欢欣",
+   "gloss": "to be very glad"
+  },
+  "mourn": {
+   "zh": "哀哭",
+   "gloss": "to be sad"
+  },
+  "weep": {
+   "zh": "哭泣",
+   "gloss": "to cry tears"
+  },
+  "sing": {
+   "zh": "歌唱",
+   "gloss": "to make music with voice"
+  },
+  "praise with song": {
+   "zh": "歌颂",
+   "gloss": "to sing honor"
+  },
+  "rejoice greatly": {
+   "zh": "大大欢喜",
+   "gloss": "to be full of joy"
+  },
+  "work": {
+   "zh": "作工",
+   "gloss": "to do a task"
+  },
+  "prepare": {
+   "zh": "预备",
+   "gloss": "to make ready"
+  },
+  "fulfill": {
+   "zh": "应验",
+   "gloss": "to make complete"
+  },
+  "finish": {
+   "zh": "完成",
+   "gloss": "to bring to an end"
+  },
+  "begin": {
+   "zh": "开始",
+   "gloss": "to start"
+  },
+  "continue": {
+   "zh": "继续",
+   "gloss": "to keep on"
+  },
+  "remain": {
+   "zh": "常存",
+   "gloss": "to stay in place"
+  },
+  "abide": {
+   "zh": "住在",
+   "gloss": "to dwell, to stay"
+  },
+  "dwell": {
+   "zh": "居住",
+   "gloss": "to live in"
+  },
+  "stay": {
+   "zh": "停留",
+   "gloss": "to remain"
+  },
+  "wait for": {
+   "zh": "等待",
+   "gloss": "to expect"
+  },
+  "follow after": {
+   "zh": "追随",
+   "gloss": "to go behind"
+  },
+  "cross over": {
+   "zh": "过去",
+   "gloss": "to go across"
+  },
+  "journey": {
+   "zh": "行路",
+   "gloss": "to travel far"
+  },
+  "travel": {
+   "zh": "旅行",
+   "gloss": "to go on a trip"
+  },
+  "enter in": {
+   "zh": "进去",
+   "gloss": "to come inside"
+  },
+  "cast out": {
+   "zh": "赶出",
+   "gloss": "to drive out"
+  },
+  "take up": {
+   "zh": "拿起",
+   "gloss": "to lift and carry"
+  },
+  "lay down": {
+   "zh": "放下",
+   "gloss": "to put down"
+  },
+  "put": {
+   "zh": "放",
+   "gloss": "to place"
+  },
+  "set": {
+   "zh": "安置",
+   "gloss": "to put in place"
+  },
+  "place": {
+   "zh": "放置",
+   "gloss": "to put somewhere"
+  },
+  "appear": {
+   "zh": "显现",
+   "gloss": "to come into sight"
+  },
+  "disappear": {
+   "zh": "消失",
+   "gloss": "to go out of sight"
+  },
+  "become": {
+   "zh": "成为",
+   "gloss": "to come to be"
+  },
+  "happen": {
+   "zh": "发生",
+   "gloss": "to take place"
+  },
+  "fulfilled": {
+   "zh": "应验了",
+   "gloss": "past of fulfill",
+   "type": "x"
+  },
+  "allow": {
+   "zh": "允许",
+   "gloss": "to let happen"
+  },
+  "permit": {
+   "zh": "准许",
+   "gloss": "to give leave"
+  },
+  "forbid": {
+   "zh": "禁止",
+   "gloss": "to not allow"
+  },
+  "refuse": {
+   "zh": "拒绝",
+   "gloss": "to say no"
+  },
+  "accept": {
+   "zh": "接受",
+   "gloss": "to take as good"
+  },
+  "reject": {
+   "zh": "弃绝",
+   "gloss": "to refuse to take"
+  },
+  "trust": {
+   "zh": "信靠",
+   "gloss": "to rely on"
+  },
+  "doubt": {
+   "zh": "疑惑",
+   "gloss": "to be unsure"
+  },
+  "fear": {
+   "zh": "惧怕",
+   "gloss": "to be afraid"
+  },
+  "astonish": {
+   "zh": "惊奇",
+   "gloss": "to fill with wonder"
+  },
+  "marvel": {
+   "zh": "希奇",
+   "gloss": "to wonder greatly"
+  },
+  "wonder": {
+   "zh": "奇事",
+   "gloss": "a thing that amazes"
+  },
+  "glorify": {
+   "zh": "荣耀",
+   "gloss": "to give glory"
+  },
+  "honor": {
+   "zh": "尊敬",
+   "gloss": "to give worth"
+  },
+  "exalt": {
+   "zh": "高举",
+   "gloss": "to lift up high"
+  },
+  "humble": {
+   "zh": "谦卑的",
+   "gloss": "low in spirit"
+  },
+  "seek out": {
+   "zh": "寻找",
+   "gloss": "to look carefully"
+  },
+  "invite": {
+   "zh": "邀请",
+   "gloss": "to ask to come"
+  },
+  "greet": {
+   "zh": "问安",
+   "gloss": "to speak welcome"
+  },
+  "embrace": {
+   "zh": "拥抱",
+   "gloss": "to hold close"
+  },
+  "touch": {
+   "zh": "摸",
+   "gloss": "to put the hand on"
+  },
+  "strike": {
+   "zh": "打",
+   "gloss": "to hit"
+  },
+  "kill": {
+   "zh": "杀",
+   "gloss": "to take life"
+  },
+  "crucify": {
+   "zh": "钉十字架",
+   "gloss": "to put on a cross"
+  },
+  "bury": {
+   "zh": "埋葬",
+   "gloss": "to put in the ground"
+  },
+  "roll away": {
+   "zh": "滚开",
+   "gloss": "to move by rolling"
+  },
+  "good": {
+   "zh": "好的",
+   "gloss": "right, pleasing"
+  },
+  "evil": {
+   "zh": "恶的",
+   "gloss": "very bad"
+  },
+  "great": {
+   "zh": "大的",
+   "gloss": "very large"
+  },
+  "small": {
+   "zh": "小的",
+   "gloss": "little in size"
+  },
+  "large": {
+   "zh": "大的",
+   "gloss": "big in size"
+  },
+  "little": {
+   "zh": "小的",
+   "gloss": "not big"
+  },
+  "high": {
+   "zh": "高的",
+   "gloss": "far up"
+  },
+  "low": {
+   "zh": "低的",
+   "gloss": "near the ground"
+  },
+  "deep": {
+   "zh": "深的",
+   "gloss": "far down"
+  },
+  "wide": {
+   "zh": "宽的",
+   "gloss": "broad across"
+  },
+  "long": {
+   "zh": "长的",
+   "gloss": "not short"
+  },
+  "short": {
+   "zh": "短的",
+   "gloss": "not long"
+  },
+  "near": {
+   "zh": "近的",
+   "gloss": "close by"
+  },
+  "far": {
+   "zh": "远的",
+   "gloss": "a long way off"
+  },
+  "new": {
+   "zh": "新的",
+   "gloss": "not old"
+  },
+  "old": {
+   "zh": "旧的;老的",
+   "gloss": "not new"
+  },
+  "young": {
+   "zh": "年轻的",
+   "gloss": "not old in years"
+  },
+  "strong": {
+   "zh": "强壮的",
+   "gloss": "full of power"
+  },
+  "weak": {
+   "zh": "软弱的",
+   "gloss": "without strength"
+  },
+  "rich": {
+   "zh": "富足的",
+   "gloss": "having much"
+  },
+  "poor": {
+   "zh": "贫穷的",
+   "gloss": "having little"
+  },
+  "wise": {
+   "zh": "有智慧的",
+   "gloss": "full of understanding"
+  },
+  "foolish": {
+   "zh": "愚拙的",
+   "gloss": "without sense"
+  },
+  "faithful": {
+   "zh": "忠信的",
+   "gloss": "keeping trust"
+  },
+  "true": {
+   "zh": "真实的",
+   "gloss": "not false"
+  },
+  "false": {
+   "zh": "虚假的",
+   "gloss": "not true"
+  },
+  "alive": {
+   "zh": "活的",
+   "gloss": "having life"
+  },
+  "dead": {
+   "zh": "死的",
+   "gloss": "without life"
+  },
+  "blind": {
+   "zh": "瞎眼的",
+   "gloss": "not able to see"
+  },
+  "lame": {
+   "zh": "瘸腿的",
+   "gloss": "not able to walk well"
+  },
+  "deaf": {
+   "zh": "耳聋的",
+   "gloss": "not able to hear"
+  },
+  "mute": {
+   "zh": "哑巴的",
+   "gloss": "not able to speak"
+  },
+  "sick": {
+   "zh": "生病的",
+   "gloss": "not well"
+  },
+  "healthy": {
+   "zh": "健康的",
+   "gloss": "well and strong"
+  },
+  "hungry": {
+   "zh": "饥饿的",
+   "gloss": "needing food"
+  },
+  "thirsty": {
+   "zh": "干渴的",
+   "gloss": "needing drink"
+  },
+  "naked": {
+   "zh": "赤身的",
+   "gloss": "without clothes"
+  },
+  "afraid": {
+   "zh": "惧怕的",
+   "gloss": "full of fear"
+  },
+  "glad": {
+   "zh": "欢喜的",
+   "gloss": "full of joy"
+  },
+  "sad": {
+   "zh": "忧愁的",
+   "gloss": "full of sorrow"
+  },
+  "angry": {
+   "zh": "发怒的",
+   "gloss": "full of wrath"
+  },
+  "proud": {
+   "zh": "骄傲的",
+   "gloss": "high in spirit"
+  },
+  "gentle": {
+   "zh": "温柔的",
+   "gloss": "soft and kind"
+  },
+  "patient": {
+   "zh": "忍耐的",
+   "gloss": "slow to anger"
+  },
+  "kind": {
+   "zh": "仁慈的",
+   "gloss": "good to others"
+  },
+  "cruel": {
+   "zh": "残忍的",
+   "gloss": "hard and hurting"
+  },
+  "just": {
+   "zh": "公义的",
+   "gloss": "fair and right"
+  },
+  "unjust": {
+   "zh": "不义的",
+   "gloss": "not fair"
+  },
+  "precious": {
+   "zh": "宝贵的",
+   "gloss": "of great worth"
+  },
+  "beautiful": {
+   "zh": "美丽的",
+   "gloss": "pleasing to see"
+  },
+  "glorious": {
+   "zh": "荣耀的",
+   "gloss": "full of glory"
+  },
+  "mighty": {
+   "zh": "大能的",
+   "gloss": "very strong"
+  },
+  "powerful": {
+   "zh": "有权能的",
+   "gloss": "having power"
+  },
+  "worthy": {
+   "zh": "配得的",
+   "gloss": "deserving honor"
+  },
+  "unworthy": {
+   "zh": "不配的",
+   "gloss": "not deserving"
+  },
+  "ready": {
+   "zh": "预备好的",
+   "gloss": "made ready"
+  },
+  "full": {
+   "zh": "满的",
+   "gloss": "filled up"
+  },
+  "empty": {
+   "zh": "空的",
+   "gloss": "with nothing in"
+  },
+  "bright": {
+   "zh": "明亮的",
+   "gloss": "giving much light"
+  },
+  "dark": {
+   "zh": "黑暗的",
+   "gloss": "without light"
+  },
+  "hot": {
+   "zh": "热的",
+   "gloss": "high in heat"
+  },
+  "cold": {
+   "zh": "冷的",
+   "gloss": "low in heat"
+  },
+  "dry": {
+   "zh": "干的",
+   "gloss": "without water"
+  },
+  "wet": {
+   "zh": "湿的",
+   "gloss": "full of water"
+  },
+  "heavy": {
+   "zh": "重的",
+   "gloss": "hard to carry"
+  },
+  "sharp": {
+   "zh": "锋利的",
+   "gloss": "able to cut"
+  },
+  "pure in heart": {
+   "zh": "心里纯洁的",
+   "gloss": "clean within"
+  },
+  "skilled": {
+   "zh": "有手艺的",
+   "gloss": "able to make"
+  },
+  "ancient": {
+   "zh": "古时的",
+   "gloss": "from long ago"
+  },
+  "former": {
+   "zh": "从前的",
+   "gloss": "of an earlier time"
+  },
+  "latter": {
+   "zh": "后来的",
+   "gloss": "of a later time"
+  },
+  "such": {
+   "zh": "这样的",
+   "gloss": "of this kind"
+  },
+  "same": {
+   "zh": "同样的",
+   "gloss": "not different"
+  },
+  "different": {
+   "zh": "不同的",
+   "gloss": "not the same"
+  },
+  "other": {
+   "zh": "别的",
+   "gloss": "another one"
+  },
+  "another": {
+   "zh": "另一个",
+   "gloss": "one more"
+  },
+  "own": {
+   "zh": "自己的",
+   "gloss": "belonging to oneself"
+  },
+  "only": {
+   "zh": "唯一的",
+   "gloss": "the single one"
+  },
+  "alone": {
+   "zh": "独自",
+   "gloss": "without others"
+  },
+  "together": {
+   "zh": "一同",
+   "gloss": "in one group"
+  },
+  "apart": {
+   "zh": "分开",
+   "gloss": "away from each other"
+  },
+  "secret": {
+   "zh": "隐藏的",
+   "gloss": "not known"
+  },
+  "openly": {
+   "zh": "公开地",
+   "gloss": "in plain sight"
+  },
+  "suddenly": {
+   "zh": "忽然",
+   "gloss": "very quickly"
+  },
+  "immediately": {
+   "zh": "立刻",
+   "gloss": "at once"
+  },
+  "quickly": {
+   "zh": "快地",
+   "gloss": "in a short time"
+  },
+  "slowly": {
+   "zh": "慢地",
+   "gloss": "taking much time"
+  },
+  "again": {
+   "zh": "再一次",
+   "gloss": "one more time"
+  },
+  "always": {
+   "zh": "常常",
+   "gloss": "at all times"
+  },
+  "never": {
+   "zh": "从不",
+   "gloss": "not at any time"
+  },
+  "often": {
+   "zh": "屡次",
+   "gloss": "many times"
+  },
+  "soon": {
+   "zh": "快",
+   "gloss": "in a little while"
+  },
+  "already": {
+   "zh": "已经",
+   "gloss": "before now"
+  },
+  "still": {
+   "zh": "仍然",
+   "gloss": "even now"
+  },
+  "yet": {
+   "zh": "还",
+   "gloss": "up to now"
+  },
+  "word": {
+   "zh": "话;道",
+   "gloss": "the spoken message"
+  },
+  "message": {
+   "zh": "信息",
+   "gloss": "what is told"
+  },
+  "news": {
+   "zh": "消息",
+   "gloss": "a report of events"
+  },
+  "report": {
+   "zh": "报告",
+   "gloss": "what is said about"
+  },
+  "teaching": {
+   "zh": "教导",
+   "gloss": "what is taught"
+  },
+  "doctrine": {
+   "zh": "道理",
+   "gloss": "a body of teaching"
+  },
+  "instruction": {
+   "zh": "教训",
+   "gloss": "a direction given"
+  },
+  "tradition": {
+   "zh": "传统",
+   "gloss": "what was handed down"
+  },
+  "authority": {
+   "zh": "权柄",
+   "gloss": "the right to rule"
+  },
+  "power": {
+   "zh": "能力",
+   "gloss": "the strength to act"
+  },
+  "strength": {
+   "zh": "力量",
+   "gloss": "might to do"
+  },
+  "weakness": {
+   "zh": "软弱",
+   "gloss": "lack of strength"
+  },
+  "wisdom": {
+   "zh": "智慧",
+   "gloss": "good judgment"
+  },
+  "knowledge": {
+   "zh": "知识",
+   "gloss": "what is known"
+  },
+  "understanding": {
+   "zh": "悟性",
+   "gloss": "grasping of meaning"
+  },
+  "mind set": {
+   "zh": "心思",
+   "gloss": "way of thinking"
+  },
+  "will": {
+   "zh": "旨意;意愿",
+   "gloss": "the choosing power"
+  },
+  "desire": {
+   "zh": "愿望",
+   "gloss": "what one wants"
+  },
+  "lust": {
+   "zh": "私欲",
+   "gloss": "wrong desire"
+  },
+  "passion": {
+   "zh": "情欲",
+   "gloss": "strong feeling"
+  },
+  "temptation": {
+   "zh": "试探",
+   "gloss": "a pull to sin"
+  },
+  "trial": {
+   "zh": "试炼",
+   "gloss": "a testing time"
+  },
+  "tribulation": {
+   "zh": "患难",
+   "gloss": "great trouble"
+  },
+  "persecution": {
+   "zh": "逼迫",
+   "gloss": "suffering for faith"
+  },
+  "suffering": {
+   "zh": "受苦",
+   "gloss": "going through pain"
+  },
+  "grief": {
+   "zh": "忧愁",
+   "gloss": "deep sadness"
+  },
+  "inheritance": {
+   "zh": "基业",
+   "gloss": "what is passed down"
+  },
+  "reward": {
+   "zh": "赏赐",
+   "gloss": "what is given for good"
+  },
+  "punishment": {
+   "zh": "刑罚",
+   "gloss": "what is given for wrong"
+  },
+  "wrath": {
+   "zh": "忿怒",
+   "gloss": "great anger"
+  },
+  "jealousy": {
+   "zh": "忌恨",
+   "gloss": "anger at another's good"
+  },
+  "patience": {
+   "zh": "忍耐",
+   "gloss": "long waiting"
+  },
+  "kindness": {
+   "zh": "恩慈",
+   "gloss": "goodness to others"
+  },
+  "goodness": {
+   "zh": "良善",
+   "gloss": "being good"
+  },
+  "faithfulness": {
+   "zh": "信实",
+   "gloss": "keeping one's word"
+  },
+  "self-control": {
+   "zh": "节制",
+   "gloss": "ruling oneself"
+  },
+  "transgression": {
+   "zh": "过犯",
+   "gloss": "a step over the line"
+  },
+  "iniquity": {
+   "zh": "罪孽",
+   "gloss": "deep wrong"
+  },
+  "guilt": {
+   "zh": "罪疚",
+   "gloss": "being at fault"
+  },
+  "shame": {
+   "zh": "羞辱",
+   "gloss": "loss of honor"
+  },
+  "confession": {
+   "zh": "承认",
+   "gloss": "saying what one did"
+  },
+  "redemption": {
+   "zh": "救赎",
+   "gloss": "buying back"
+  },
+  "resurrection life": {
+   "zh": "复活的生命",
+   "gloss": "life after death"
+  },
+  "ascension": {
+   "zh": "升天",
+   "gloss": "going up to heaven"
+  },
+  "conscience": {
+   "zh": "良心",
+   "gloss": "inner sense of right"
+  },
+  "throne": {
+   "zh": "宝座",
+   "gloss": "a king's seat"
+  },
+  "crown": {
+   "zh": "冠冕",
+   "gloss": "a king's headpiece"
+  },
+  "scepter": {
+   "zh": "权杖",
+   "gloss": "a ruler's staff"
+  },
+  "dominion": {
+   "zh": "权柄",
+   "gloss": "rule and power"
+  },
+  "majesty": {
+   "zh": "威严",
+   "gloss": "great glory"
+  },
+  "mystery truth": {
+   "zh": "奥秘",
+   "gloss": "hidden truth"
+  },
+  "counsel": {
+   "zh": "谋略",
+   "gloss": "advice given"
+  },
+  "plan": {
+   "zh": "计划",
+   "gloss": "what is intended"
+  },
+  "purpose": {
+   "zh": "旨意",
+   "gloss": "the reason for"
+  },
+  "example": {
+   "zh": "榜样",
+   "gloss": "a pattern to follow"
+  },
+  "pattern": {
+   "zh": "样式",
+   "gloss": "a model"
+  },
+  "sign of the times": {
+   "zh": "时代的记号",
+   "gloss": "a mark of the age"
+  },
+  "genealogy": {
+   "zh": "家谱",
+   "gloss": "a list of ancestors"
+  },
+  "ancestor": {
+   "zh": "祖宗",
+   "gloss": "one from long ago"
+  },
+  "descendant": {
+   "zh": "后裔",
+   "gloss": "one born later"
+  },
+  "birth": {
+   "zh": "出生",
+   "gloss": "coming into life"
+  },
+  "death and life": {
+   "zh": "死与生",
+   "gloss": "the two ways"
+  },
+  "judgment day": {
+   "zh": "审判之日",
+   "gloss": "the day of deciding"
+  },
+  "eternity": {
+   "zh": "永远",
+   "gloss": "time without end"
+  },
+  "silence": {
+   "zh": "静默",
+   "gloss": "no sound"
+  },
+  "voice from heaven": {
+   "zh": "天上的声音",
+   "gloss": "a sound from God"
+  },
+  "presence": {
+   "zh": "同在",
+   "gloss": "being near"
+  },
+  "absence": {
+   "zh": "不在",
+   "gloss": "being away"
+  },
+  "distance": {
+   "zh": "距离",
+   "gloss": "space between"
+  },
+  "journey's end": {
+   "zh": "旅程之末",
+   "gloss": "the finish of a trip"
+  },
+  "harvest time": {
+   "zh": "收割之时",
+   "gloss": "the time of reaping"
+  },
+  "wedding": {
+   "zh": "婚宴",
+   "gloss": "a marriage feast"
+  },
+  "feast": {
+   "zh": "筵席",
+   "gloss": "a great meal"
+  },
+  "banquet": {
+   "zh": "宴席",
+   "gloss": "a rich meal"
+  },
+  "debt": {
+   "zh": "债",
+   "gloss": "what is owed"
+  },
+  "tax": {
+   "zh": "税",
+   "gloss": "money paid to rulers"
+  },
+  "wage": {
+   "zh": "工价",
+   "gloss": "pay for work"
+  },
+  "profit": {
+   "zh": "得益",
+   "gloss": "what is gained"
+  },
+  "swear": {
+   "zh": "起誓",
+   "gloss": "to make an oath"
+  },
+  "warn of": {
+   "zh": "警告",
+   "gloss": "to tell of danger"
+  },
+  "reveal to": {
+   "zh": "启示",
+   "gloss": "to show openly"
+  },
+  "hide": {
+   "zh": "隐藏",
+   "gloss": "to keep from sight"
+  },
+  "cover": {
+   "zh": "遮盖",
+   "gloss": "to put over"
+  },
+  "uncover": {
+   "zh": "揭露",
+   "gloss": "to make known"
+  },
+  "spread": {
+   "zh": "传开",
+   "gloss": "to go out wide"
+  },
+  "increase": {
+   "zh": "增多",
+   "gloss": "to become more"
+  },
+  "decrease": {
+   "zh": "减少",
+   "gloss": "to become less"
+  },
+  "multiply": {
+   "zh": "繁衍",
+   "gloss": "to become many"
+  },
+  "divide": {
+   "zh": "分开",
+   "gloss": "to make parts"
+  },
+  "share": {
+   "zh": "分享",
+   "gloss": "to give part"
+  },
+  "join": {
+   "zh": "连接",
+   "gloss": "to bring together"
+  },
+  "separate": {
+   "zh": "分离",
+   "gloss": "to put apart"
+  },
+  "put away": {
+   "zh": "除去",
+   "gloss": "to remove"
+  },
+  "take away": {
+   "zh": "拿去",
+   "gloss": "to carry off"
+  },
+  "bring near": {
+   "zh": "带近",
+   "gloss": "to make close"
+  },
+  "draw near": {
+   "zh": "靠近",
+   "gloss": "to come close"
+  },
+  "stand up": {
+   "zh": "站起来",
+   "gloss": "to rise to the feet"
+  },
+  "sit down": {
+   "zh": "坐下",
+   "gloss": "to take a seat"
+  },
+  "lie down": {
+   "zh": "躺下",
+   "gloss": "to rest flat"
+  },
+  "wake up": {
+   "zh": "醒起",
+   "gloss": "to come from sleep"
+  },
+  "fall down": {
+   "zh": "俯伏",
+   "gloss": "to go to the ground"
+  },
+  "throw down": {
+   "zh": "推倒",
+   "gloss": "to cast to the ground"
+  },
+  "lift up": {
+   "zh": "举起",
+   "gloss": "to raise high"
+  },
+  "put on": {
+   "zh": "穿上",
+   "gloss": "to clothe with"
+  },
+  "take off": {
+   "zh": "脱下",
+   "gloss": "to remove clothing"
+  },
+  "wash away": {
+   "zh": "洗净",
+   "gloss": "to clean by water"
+  },
+  "dry up": {
+   "zh": "枯干",
+   "gloss": "to lose water"
+  },
+  "flow out": {
+   "zh": "流出",
+   "gloss": "to come out as water"
+  },
+  "spring up": {
+   "zh": "涌出",
+   "gloss": "to come up quickly"
+  },
+  "take root": {
+   "zh": "扎根",
+   "gloss": "to fix in the ground"
+  },
+  "bear fruit": {
+   "zh": "结果子",
+   "gloss": "to produce fruit"
+  },
+  "wither": {
+   "zh": "枯干",
+   "gloss": "to dry and die"
+  },
+  "blossom": {
+   "zh": "开花",
+   "gloss": "to open in flower"
+  },
+  "shine out": {
+   "zh": "照耀",
+   "gloss": "to give forth light"
+  },
+  "give light": {
+   "zh": "发光",
+   "gloss": "to be a light"
+  },
+  "sound out": {
+   "zh": "响起",
+   "gloss": "to make a sound"
+  },
+  "call out": {
+   "zh": "呼叫",
+   "gloss": "to cry loudly"
+  },
+  "send word": {
+   "zh": "捎信",
+   "gloss": "to tell by messenger"
+  },
+  "give thanks": {
+   "zh": "感谢",
+   "gloss": "to speak thankfulness"
+  },
+  "give glory to": {
+   "zh": "归荣耀给",
+   "gloss": "to honor greatly"
+  },
+  "fear god": {
+   "zh": "敬畏神",
+   "gloss": "to honor with awe"
+  },
+  "love one another": {
+   "zh": "彼此相爱",
+   "gloss": "to care for each other"
+  },
+  "serve one another": {
+   "zh": "彼此服事",
+   "gloss": "to help each other"
+  },
+  "forgive one another": {
+   "zh": "彼此饶恕",
+   "gloss": "to pardon each other"
+  },
+  "bear witness": {
+   "zh": "作见证",
+   "gloss": "to tell the truth"
+  },
+  "keep watch": {
+   "zh": "警醒",
+   "gloss": "to stay awake"
+  },
+  "be on guard": {
+   "zh": "防备",
+   "gloss": "to watch out"
+  },
+  "take heed": {
+   "zh": "谨慎",
+   "gloss": "to pay attention"
+  },
+  "pay attention": {
+   "zh": "留心",
+   "gloss": "to give care to"
+  },
+  "give ear": {
+   "zh": "侧耳",
+   "gloss": "to listen closely"
+  },
+  "set one's heart": {
+   "zh": "定意",
+   "gloss": "to decide firmly"
+  },
+  "make known": {
+   "zh": "显明",
+   "gloss": "to cause to be known"
+  },
+  "bring good news": {
+   "zh": "报好信息",
+   "gloss": "to tell good news"
+  },
+  "thing": {
+   "zh": "事物",
+   "gloss": "an object, a matter"
+  },
+  "things": {
+   "zh": "事物",
+   "gloss": "objects, matters"
+  },
+  "men": {
+   "zh": "男人们",
+   "gloss": "adult males"
+  },
+  "name": {
+   "zh": "名字",
+   "gloss": "what one is called"
+  },
+  "righteousness": {
+   "zh": "公义",
+   "gloss": "being right with God"
+  },
+  "assembly": {
+   "zh": "会众",
+   "gloss": "a gathered group"
+  },
+  "sabbath": {
+   "zh": "安息日",
+   "gloss": "the day of rest"
+  },
+  "feet": {
+   "zh": "脚",
+   "gloss": "the walking parts"
+  },
+  "sight": {
+   "zh": "视力;景象",
+   "gloss": "the power to see"
+  },
+  "boat": {
+   "zh": "船",
+   "gloss": "a small vessel"
+  },
+  "food": {
+   "zh": "食物",
+   "gloss": "what is eaten"
+  },
+  "gift": {
+   "zh": "恩赐;礼物",
+   "gloss": "what is given"
+  },
+  "demon": {
+   "zh": "污鬼",
+   "gloss": "an evil spirit"
+  },
+  "beast": {
+   "zh": "兽",
+   "gloss": "a wild animal"
+  },
+  "fellow": {
+   "zh": "同伴",
+   "gloss": "a companion"
+  },
+  "circumcision": {
+   "zh": "割礼",
+   "gloss": "the sign of the covenant"
+  },
+  "country": {
+   "zh": "地方;国",
+   "gloss": "a land, a region"
+  },
+  "book": {
+   "zh": "书卷",
+   "gloss": "a written scroll"
+  },
+  "part": {
+   "zh": "部分",
+   "gloss": "a piece of"
+  },
+  "cause": {
+   "zh": "原因;缘故",
+   "gloss": "the reason for"
+  },
+  "able": {
+   "zh": "能",
+   "gloss": "having power to"
+  },
+  "sake": {
+   "zh": "缘故",
+   "gloss": "for the good of"
+  },
+  "beloved": {
+   "zh": "亲爱的",
+   "gloss": "dearly loved"
+  },
+  "certain": {
+   "zh": "某个;确实的",
+   "gloss": "sure, some one"
+  },
+  "chief": {
+   "zh": "首领",
+   "gloss": "the leading one"
+  },
+  "loud": {
+   "zh": "大声的",
+   "gloss": "very noisy"
+  },
+  "free": {
+   "zh": "自由的",
+   "gloss": "not bound"
+  },
+  "present": {
+   "zh": "在场的",
+   "gloss": "being here"
+  },
+  "born": {
+   "zh": "生的",
+   "gloss": "past of bear",
+   "type": "x"
+  },
+  "whatever": {
+   "zh": "无论什么",
+   "gloss": "anything at all"
+  },
+  "whoever": {
+   "zh": "无论谁",
+   "gloss": "any person who"
+  },
+  "concerning": {
+   "zh": "关于",
+   "gloss": "about, regarding"
+  },
+  "according to": {
+   "zh": "按照",
+   "gloss": "in line with"
+  },
+  "except": {
+   "zh": "除了",
+   "gloss": "other than"
+  },
+  "though": {
+   "zh": "虽然",
+   "gloss": "even if"
+  },
+  "forever": {
+   "zh": "永远",
+   "gloss": "for all time"
+  },
+  "third": {
+   "zh": "第三",
+   "gloss": "number three in order"
+  },
+  "second": {
+   "zh": "第二",
+   "gloss": "number two in order"
+  },
+  "fourth": {
+   "zh": "第四",
+   "gloss": "number four in order"
+  },
+  "four": {
+   "zh": "四",
+   "gloss": "the number 4"
+  },
+  "five": {
+   "zh": "五",
+   "gloss": "the number 5"
+  },
+  "six": {
+   "zh": "六",
+   "gloss": "the number 6"
+  },
+  "eight": {
+   "zh": "八",
+   "gloss": "the number 8"
+  },
+  "nine": {
+   "zh": "九",
+   "gloss": "the number 9"
+  },
+  "want": {
+   "zh": "想要",
+   "gloss": "to wish for"
+  },
+  "need": {
+   "zh": "需要",
+   "gloss": "to have lack of"
+  },
+  "get": {
+   "zh": "得到",
+   "gloss": "to come to have"
+  },
+  "show": {
+   "zh": "显明",
+   "gloss": "to make seen"
+  },
+  "write": {
+   "zh": "写",
+   "gloss": "to put in letters"
+  },
+  "lay": {
+   "zh": "放;躺",
+   "gloss": "to put down"
+  },
+  "make": {
+   "zh": "造",
+   "gloss": "to cause to be"
+  },
+  "made": {
+   "zh": "造成了",
+   "gloss": "past of make",
+   "type": "x"
+  },
+  "do": {
+   "zh": "做",
+   "gloss": "to act"
+  },
+  "work of": {
+   "zh": "……的工作",
+   "gloss": "the doing of"
+  },
+  "seek after": {
+   "zh": "追求",
+   "gloss": "to go after"
+  },
+  "abide in": {
+   "zh": "住在……里",
+   "gloss": "to stay in"
+  },
+  "hunger for": {
+   "zh": "渴慕",
+   "gloss": "to long for"
+  },
+  "thirst for": {
+   "zh": "渴想",
+   "gloss": "to long for"
+  },
+  "follow me": {
+   "zh": "跟从我",
+   "gloss": "to come after me"
+  },
+  "come and see": {
+   "zh": "来看",
+   "gloss": "to come and look"
+  },
+  "fear not": {
+   "zh": "不要怕",
+   "gloss": "do not be afraid"
+  },
+  "behold": {
+   "zh": "看哪",
+   "gloss": "look, pay attention"
+  },
+  "behold i": {
+   "zh": "看哪，我",
+   "gloss": "look, I"
+  },
+  "woe": {
+   "zh": "有祸了",
+   "gloss": "great sorrow is coming"
+  },
+  "woe to": {
+   "zh": "有祸了",
+   "gloss": "sorrow to"
+  },
+  "truly": {
+   "zh": "实在",
+   "gloss": "in truth"
+  },
+  "verily": {
+   "zh": "实在",
+   "gloss": "truly"
+  },
+  "surely": {
+   "zh": "必定",
+   "gloss": "without doubt"
+  },
+  "perhaps": {
+   "zh": "或者",
+   "gloss": "maybe"
+  },
+  "almost": {
+   "zh": "几乎",
+   "gloss": "nearly"
+  },
+  "enough": {
+   "zh": "够了",
+   "gloss": "as much as needed"
+  },
+  "rather": {
+   "zh": "宁可",
+   "gloss": "more willingly"
+  },
+  "no longer": {
+   "zh": "不再",
+   "gloss": "not any more"
+  },
+  "at once": {
+   "zh": "立刻",
+   "gloss": "right away"
+  },
+  "in vain": {
+   "zh": "徒然",
+   "gloss": "with no result"
+  },
+  "by no means": {
+   "zh": "绝不",
+   "gloss": "not at all"
+  },
+  "on account of": {
+   "zh": "因为",
+   "gloss": "because of"
+  },
+  "in order that": {
+   "zh": "为了",
+   "gloss": "so that"
+  },
+  "so that": {
+   "zh": "以致",
+   "gloss": "with the result that"
+  },
+  "as for": {
+   "zh": "至于",
+   "gloss": "concerning"
+  },
+  "but rather": {
+   "zh": "反而",
+   "gloss": "instead"
+  },
+  "not only": {
+   "zh": "不但",
+   "gloss": "not just"
+  },
+  "how much more": {
+   "zh": "何况",
+   "gloss": "even more"
+  },
+  "one another": {
+   "zh": "彼此",
+   "gloss": "each other"
+  },
+  "each other": {
+   "zh": "互相",
+   "gloss": "one the other"
+  },
+  "said": {
+   "zh": "说（过去式）",
+   "gloss": "past of say",
+   "type": "x"
+  },
+  "came": {
+   "zh": "来（过去式）",
+   "gloss": "past of come",
+   "type": "x"
+  },
+  "went": {
+   "zh": "去（过去式）",
+   "gloss": "past of go",
+   "type": "x"
+  },
+  "made of": {
+   "zh": "做成",
+   "gloss": "made from",
+   "type": "x"
+  },
+  "saw": {
+   "zh": "看见（过去式）",
+   "gloss": "past of see",
+   "type": "x"
+  },
+  "heard": {
+   "zh": "听见（过去式）",
+   "gloss": "past of hear",
+   "type": "x"
+  },
+  "having": {
+   "zh": "拥有（分词）",
+   "gloss": "having",
+   "type": "x"
+  },
+  "sent": {
+   "zh": "差遣（过去式）",
+   "gloss": "past of send",
+   "type": "x"
+  },
+  "given": {
+   "zh": "赐给（过去分词）",
+   "gloss": "past of give",
+   "type": "x"
+  },
+  "took": {
+   "zh": "拿（过去式）",
+   "gloss": "past of take",
+   "type": "x"
+  },
+  "gave": {
+   "zh": "给（过去式）",
+   "gloss": "past of give",
+   "type": "x"
+  },
+  "brought": {
+   "zh": "带来（过去式）",
+   "gloss": "past of bring",
+   "type": "x"
+  },
+  "spoke": {
+   "zh": "说（过去式）",
+   "gloss": "past of speak",
+   "type": "x"
+  },
+  "told": {
+   "zh": "告诉（过去式）",
+   "gloss": "past of tell",
+   "type": "x"
+  },
+  "became": {
+   "zh": "成为（过去式）",
+   "gloss": "past of become",
+   "type": "x"
+  },
+  "left": {
+   "zh": "离开（过去式）",
+   "gloss": "past of leave",
+   "type": "x"
+  },
+  "seen": {
+   "zh": "看见（过去分词）",
+   "gloss": "past of see",
+   "type": "x"
+  },
+  "sat": {
+   "zh": "坐（过去式）",
+   "gloss": "past of sit",
+   "type": "x"
+  },
+  "fell": {
+   "zh": "倒下（过去式）",
+   "gloss": "past of fall",
+   "type": "x"
+  },
+  "known": {
+   "zh": "知道（过去分词）",
+   "gloss": "past of know",
+   "type": "x"
+  },
+  "stood": {
+   "zh": "站立（过去式）",
+   "gloss": "past of stand",
+   "type": "x"
+  },
+  "began": {
+   "zh": "开始（过去式）",
+   "gloss": "past of begin",
+   "type": "x"
+  },
+  "laid": {
+   "zh": "放（过去式）",
+   "gloss": "past of lay",
+   "type": "x"
+  },
+  "arose": {
+   "zh": "起来（过去式）",
+   "gloss": "past of arise",
+   "type": "x"
+  },
+  "found": {
+   "zh": "找到（过去式）",
+   "gloss": "past of find",
+   "type": "x"
+  },
+  "wrote": {
+   "zh": "写（过去式）",
+   "gloss": "past of write",
+   "type": "x"
+  },
+  "written": {
+   "zh": "写（过去分词）",
+   "gloss": "past of write",
+   "type": "x"
+  },
+  "taught": {
+   "zh": "教导（过去式）",
+   "gloss": "past of teach",
+   "type": "x"
+  },
+  "led": {
+   "zh": "带领（过去式）",
+   "gloss": "past of lead",
+   "type": "x"
+  },
+  "kept": {
+   "zh": "遵守（过去式）",
+   "gloss": "past of keep",
+   "type": "x"
+  },
+  "bound": {
+   "zh": "捆绑（过去式）",
+   "gloss": "past of bind",
+   "type": "x"
+  },
+  "drew": {
+   "zh": "拉（过去式）",
+   "gloss": "past of draw",
+   "type": "x"
+  },
+  "threw": {
+   "zh": "扔（过去式）",
+   "gloss": "past of throw",
+   "type": "x"
+  },
+  "ate": {
+   "zh": "吃（过去式）",
+   "gloss": "past of eat",
+   "type": "x"
+  },
+  "drank": {
+   "zh": "喝（过去式）",
+   "gloss": "past of drink",
+   "type": "x"
+  },
+  "slept": {
+   "zh": "睡（过去式）",
+   "gloss": "past of sleep",
+   "type": "x"
+  },
+  "woke": {
+   "zh": "醒（过去式）",
+   "gloss": "past of wake",
+   "type": "x"
+  },
+  "sang": {
+   "zh": "唱（过去式）",
+   "gloss": "past of sing",
+   "type": "x"
+  },
+  "wept": {
+   "zh": "哭泣（过去式）",
+   "gloss": "past of weep",
+   "type": "x"
+  },
+  "bore": {
+   "zh": "结出; bearing",
+   "gloss": "past of bear",
+   "type": "x"
+  },
+  "wore": {
+   "zh": "穿（过去式）",
+   "gloss": "past of wear",
+   "type": "x"
+  },
+  "broke": {
+   "zh": "折断（过去式）",
+   "gloss": "past of break",
+   "type": "x"
+  },
+  "chose": {
+   "zh": "拣选（过去式）",
+   "gloss": "past of choose",
+   "type": "x"
+  },
+  "rose": {
+   "zh": "起来（过去式）",
+   "gloss": "past of rise",
+   "type": "x"
+  },
+  "ran": {
+   "zh": "跑（过去式）",
+   "gloss": "past of run",
+   "type": "x"
+  },
+  "spoke to": {
+   "zh": "对……说",
+   "gloss": "spoke to",
+   "type": "x"
+  },
+  "cried out": {
+   "zh": "喊叫（过去式）",
+   "gloss": "cried out",
+   "type": "x"
+  },
+  "commanded": {
+   "zh": "吩咐（过去式）",
+   "gloss": "past of command",
+   "type": "x"
+  },
+  "ordered": {
+   "zh": "命令（过去式）",
+   "gloss": "past of order",
+   "type": "x"
+  },
+  "kept on": {
+   "zh": "继续",
+   "gloss": "kept on",
+   "type": "x"
+  },
+  "went out": {
+   "zh": "出去（过去式）",
+   "gloss": "went out",
+   "type": "x"
+  },
+  "came out": {
+   "zh": "出来（过去式）",
+   "gloss": "came out",
+   "type": "x"
+  },
+  "went up": {
+   "zh": "上去（过去式）",
+   "gloss": "went up",
+   "type": "x"
+  },
+  "came down": {
+   "zh": "下来（过去式）",
+   "gloss": "came down",
+   "type": "x"
+  },
+  "went in": {
+   "zh": "进去（过去式）",
+   "gloss": "went in",
+   "type": "x"
+  },
+  "took up": {
+   "zh": "拿起（过去式）",
+   "gloss": "took up",
+   "type": "x"
+  },
+  "laid hands": {
+   "zh": "按手（过去式）",
+   "gloss": "laid hands",
+   "type": "x"
+  },
+  "rejoiced": {
+   "zh": "欢欣（过去式）",
+   "gloss": "past of rejoice",
+   "type": "x"
+  },
+  "marveled": {
+   "zh": "希奇（过去式）",
+   "gloss": "past of marvel",
+   "type": "x"
+  },
+  "answered": {
+   "zh": "回答（过去式）",
+   "gloss": "past of answer",
+   "type": "x"
+  },
+  "asked": {
+   "zh": "问（过去式）",
+   "gloss": "past of ask",
+   "type": "x"
+  },
+  "called": {
+   "zh": "呼叫（过去式）",
+   "gloss": "past of call",
+   "type": "x"
+  },
+  "replied": {
+   "zh": "回答（过去式）",
+   "gloss": "past of reply",
+   "type": "x"
+  },
+  "don't": {
+   "zh": "不",
+   "gloss": "do not",
+   "type": "x"
+  },
+  "don’t": {
+   "zh": "不",
+   "gloss": "do not",
+   "type": "x"
+  },
+  "didn't": {
+   "zh": "没有",
+   "gloss": "did not",
+   "type": "x"
+  },
+  "didn’t": {
+   "zh": "没有",
+   "gloss": "did not",
+   "type": "x"
+  },
+  "isn't": {
+   "zh": "不是",
+   "gloss": "is not",
+   "type": "x"
+  },
+  "isn’t": {
+   "zh": "不是",
+   "gloss": "is not",
+   "type": "x"
+  },
+  "doesn't": {
+   "zh": "不",
+   "gloss": "does not",
+   "type": "x"
+  },
+  "doesn’t": {
+   "zh": "不",
+   "gloss": "does not",
+   "type": "x"
+  },
+  "wouldn't": {
+   "zh": "不会",
+   "gloss": "would not",
+   "type": "x"
+  },
+  "wouldn’t": {
+   "zh": "不会",
+   "gloss": "would not",
+   "type": "x"
+  },
+  "won't": {
+   "zh": "不会",
+   "gloss": "will not",
+   "type": "x"
+  },
+  "won’t": {
+   "zh": "不会",
+   "gloss": "will not",
+   "type": "x"
+  },
+  "can't": {
+   "zh": "不能",
+   "gloss": "cannot",
+   "type": "x"
+  },
+  "can’t": {
+   "zh": "不能",
+   "gloss": "cannot",
+   "type": "x"
+  },
+  "couldn't": {
+   "zh": "不能",
+   "gloss": "could not",
+   "type": "x"
+  },
+  "couldn’t": {
+   "zh": "不能",
+   "gloss": "could not",
+   "type": "x"
+  },
+  "shouldn't": {
+   "zh": "不该",
+   "gloss": "should not",
+   "type": "x"
+  },
+  "shouldn’t": {
+   "zh": "不该",
+   "gloss": "should not",
+   "type": "x"
+  },
+  "hasn't": {
+   "zh": "没有",
+   "gloss": "has not",
+   "type": "x"
+  },
+  "hasn’t": {
+   "zh": "没有",
+   "gloss": "has not",
+   "type": "x"
+  },
+  "haven't": {
+   "zh": "没有",
+   "gloss": "have not",
+   "type": "x"
+  },
+  "haven’t": {
+   "zh": "没有",
+   "gloss": "have not",
+   "type": "x"
+  },
+  "wasn't": {
+   "zh": "不是",
+   "gloss": "was not",
+   "type": "x"
+  },
+  "wasn’t": {
+   "zh": "不是",
+   "gloss": "was not",
+   "type": "x"
+  },
+  "weren't": {
+   "zh": "不是",
+   "gloss": "were not",
+   "type": "x"
+  },
+  "weren’t": {
+   "zh": "不是",
+   "gloss": "were not",
+   "type": "x"
+  },
+  "mustn't": {
+   "zh": "不可",
+   "gloss": "must not",
+   "type": "x"
+  },
+  "mustn’t": {
+   "zh": "不可",
+   "gloss": "must not",
+   "type": "x"
+  },
+  "i'm": {
+   "zh": "我是",
+   "gloss": "I am",
+   "type": "x"
+  },
+  "i’m": {
+   "zh": "我是",
+   "gloss": "I am",
+   "type": "x"
+  },
+  "it's": {
+   "zh": "它是",
+   "gloss": "it is",
+   "type": "x"
+  },
+  "it’s": {
+   "zh": "它是",
+   "gloss": "it is",
+   "type": "x"
+  },
+  "that's": {
+   "zh": "那是",
+   "gloss": "that is",
+   "type": "x"
+  },
+  "that’s": {
+   "zh": "那是",
+   "gloss": "that is",
+   "type": "x"
+  },
+  "he's": {
+   "zh": "他是",
+   "gloss": "he is",
+   "type": "x"
+  },
+  "he’s": {
+   "zh": "他是",
+   "gloss": "he is",
+   "type": "x"
+  },
+  "you're": {
+   "zh": "你是",
+   "gloss": "you are",
+   "type": "x"
+  },
+  "you’re": {
+   "zh": "你是",
+   "gloss": "you are",
+   "type": "x"
+  },
+  "we're": {
+   "zh": "我们是",
+   "gloss": "we are",
+   "type": "x"
+  },
+  "we’re": {
+   "zh": "我们是",
+   "gloss": "we are",
+   "type": "x"
+  },
+  "they're": {
+   "zh": "他们是",
+   "gloss": "they are",
+   "type": "x"
+  },
+  "they’re": {
+   "zh": "他们是",
+   "gloss": "they are",
+   "type": "x"
+  },
+  "israelites": {
+   "zh": "以色列人",
+   "gloss": "the people of Israel",
+   "type": "n"
+  },
+  "jew": {
+   "zh": "犹太人",
+   "gloss": "a person of Judah",
+   "type": "n"
+  },
+  "jews": {
+   "zh": "犹太人",
+   "gloss": "people of Judah",
+   "type": "n"
+  },
+  "gentiles": {
+   "zh": "外邦人",
+   "gloss": "non-Jewish peoples",
+   "type": "n"
+  },
+  "peter": {
+   "zh": "彼得",
+   "gloss": "a leading disciple",
+   "type": "n"
+  },
+  "paul": {
+   "zh": "保罗",
+   "gloss": "the apostle to the nations",
+   "type": "n"
+  },
+  "john": {
+   "zh": "约翰",
+   "gloss": "the Baptist or the apostle",
+   "type": "n"
+  },
+  "moses": {
+   "zh": "摩西",
+   "gloss": "the lawgiver",
+   "type": "n"
+  },
+  "abraham": {
+   "zh": "亚伯拉罕",
+   "gloss": "the father of faith",
+   "type": "n"
+  },
+  "isaac": {
+   "zh": "以撒",
+   "gloss": "the son of promise",
+   "type": "n"
+  },
+  "jacob": {
+   "zh": "雅各",
+   "gloss": "the father of the tribes",
+   "type": "n"
+  },
+  "david": {
+   "zh": "大卫",
+   "gloss": "the shepherd king",
+   "type": "n"
+  },
+  "solomon": {
+   "zh": "所罗门",
+   "gloss": "the wise king",
+   "type": "n"
+  },
+  "mary": {
+   "zh": "马利亚",
+   "gloss": "the mother of Jesus",
+   "type": "n"
+  },
+  "joseph": {
+   "zh": "约瑟",
+   "gloss": "the husband of Mary",
+   "type": "n"
+  },
+  "james": {
+   "zh": "雅各",
+   "gloss": "a leader in Jerusalem",
+   "type": "n"
+  },
+  "simon": {
+   "zh": "西门",
+   "gloss": "another name of Peter",
+   "type": "n"
+  },
+  "andrew": {
+   "zh": "安得烈",
+   "gloss": "Peter's brother",
+   "type": "n"
+  },
+  "philip": {
+   "zh": "腓力",
+   "gloss": "one of the twelve",
+   "type": "n"
+  },
+  "thomas": {
+   "zh": "多马",
+   "gloss": "one of the twelve",
+   "type": "n"
+  },
+  "judas": {
+   "zh": "犹大",
+   "gloss": "the betrayer",
+   "type": "n"
+  },
+  "matthew": {
+   "zh": "马太",
+   "gloss": "the tax collector apostle",
+   "type": "n"
+  },
+  "mark": {
+   "zh": "马可",
+   "gloss": "the writer of the second gospel",
+   "type": "n"
+  },
+  "luke": {
+   "zh": "路加",
+   "gloss": "the beloved physician",
+   "type": "n"
+  },
+  "timothy": {
+   "zh": "提摩太",
+   "gloss": "Paul's young coworker",
+   "type": "n"
+  },
+  "titus": {
+   "zh": "提多",
+   "gloss": "Paul's coworker",
+   "type": "n"
+  },
+  "satan": {
+   "zh": "撒但",
+   "gloss": "the adversary",
+   "type": "n"
+  },
+  "devil": {
+   "zh": "魔鬼",
+   "gloss": "the evil one",
+   "type": "n"
+  },
+  "galilee": {
+   "zh": "加利利",
+   "gloss": "a region in the north",
+   "type": "n"
+  },
+  "judea": {
+   "zh": "犹太",
+   "gloss": "the southern region",
+   "type": "n"
+  },
+  "samaria": {
+   "zh": "撒马利亚",
+   "gloss": "the middle region",
+   "type": "n"
+  },
+  "bethlehem": {
+   "zh": "伯利恒",
+   "gloss": "the town of David",
+   "type": "n"
+  },
+  "nazareth": {
+   "zh": "拿撒勒",
+   "gloss": "the town of Jesus' youth",
+   "type": "n"
+  },
+  "capernaum": {
+   "zh": "迦百农",
+   "gloss": "a town by the lake",
+   "type": "n"
+  },
+  "damascus": {
+   "zh": "大马士革",
+   "gloss": "the city of Paul's call",
+   "type": "n"
+  },
+  "antioch": {
+   "zh": "安提阿",
+   "gloss": "where disciples were first called Christians",
+   "type": "n"
+  },
+  "corinth": {
+   "zh": "哥林多",
+   "gloss": "a city in Greece",
+   "type": "n"
+  },
+  "ephesus": {
+   "zh": "以弗所",
+   "gloss": "a city in Asia",
+   "type": "n"
+  },
+  "philippi": {
+   "zh": "腓立比",
+   "gloss": "a city in Macedonia",
+   "type": "n"
+  },
+  "rome": {
+   "zh": "罗马",
+   "gloss": "the capital of the empire",
+   "type": "n"
+  },
+  "egypt": {
+   "zh": "埃及",
+   "gloss": "the land of slavery",
+   "type": "n"
+  },
+  "babylon": {
+   "zh": "巴比伦",
+   "gloss": "the city of exile",
+   "type": "n"
+  },
+  "herod": {
+   "zh": "希律",
+   "gloss": "the ruling king",
+   "type": "n"
+  },
+  "pilate": {
+   "zh": "彼拉多",
+   "gloss": "the Roman governor",
+   "type": "n"
+  },
+  "caiaphas": {
+   "zh": "该亚法",
+   "gloss": "the high priest",
+   "type": "n"
+  },
+  "pharaoh": {
+   "zh": "法老",
+   "gloss": "the king of Egypt",
+   "type": "n"
+  },
+  "adam": {
+   "zh": "亚当",
+   "gloss": "the first man",
+   "type": "n"
+  },
+  "eve": {
+   "zh": "夏娃",
+   "gloss": "the first woman",
+   "type": "n"
+  },
+  "noah": {
+   "zh": "挪亚",
+   "gloss": "the man of the ark",
+   "type": "n"
+  },
+  "elijah": {
+   "zh": "以利亚",
+   "gloss": "the prophet of fire",
+   "type": "n"
+  },
+  "elisha": {
+   "zh": "以利沙",
+   "gloss": "the prophet after Elijah",
+   "type": "n"
+  },
+  "isaiah": {
+   "zh": "以赛亚",
+   "gloss": "the prophet of the coming One",
+   "type": "n"
+  },
+  "jeremiah": {
+   "zh": "耶利米",
+   "gloss": "the weeping prophet",
+   "type": "n"
+  },
+  "daniel": {
+   "zh": "但以理",
+   "gloss": "the prophet in exile",
+   "type": "n"
+  },
+  "job": {
+   "zh": "约伯",
+   "gloss": "the man who suffered",
+   "type": "n"
+  },
+  "ezekiel": {
+   "zh": "以西结",
+   "gloss": "the prophet of visions",
+   "type": "n"
+  },
+  "hosea": {
+   "zh": "何西阿",
+   "gloss": "the prophet of steadfast love",
+   "type": "n"
+  },
+  "joel": {
+   "zh": "约珥",
+   "gloss": "the prophet of the Spirit",
+   "type": "n"
+  },
+  "amos": {
+   "zh": "阿摩司",
+   "gloss": "the prophet of justice",
+   "type": "n"
+  },
+  "micah": {
+   "zh": "弥迦",
+   "gloss": "the prophet of Bethlehem",
+   "type": "n"
+  },
+  "habakkuk": {
+   "zh": "哈巴谷",
+   "gloss": "the prophet who questioned",
+   "type": "n"
+  },
+  "zechariah": {
+   "zh": "撒迦利亚",
+   "gloss": "the father of John the Baptist",
+   "type": "n"
+  },
+  "elizabeth": {
+   "zh": "以利沙伯",
+   "gloss": "the mother of John the Baptist",
+   "type": "n"
+  },
+  "lazarus": {
+   "zh": "拉撒路",
+   "gloss": "the friend Jesus raised",
+   "type": "n"
+  },
+  "martha": {
+   "zh": "马大",
+   "gloss": "the sister of Lazarus",
+   "type": "n"
+  },
+  "mary magdalene": {
+   "zh": "抹大拉的马利亚",
+   "gloss": "the witness of the resurrection",
+   "type": "n"
+  },
+  "zacchaeus": {
+   "zh": "撒该",
+   "gloss": "the tax collector who climbed",
+   "type": "n"
+  },
+  "nicodemus": {
+   "zh": "尼哥底母",
+   "gloss": "the teacher who came by night",
+   "type": "n"
+  },
+  "cornelius": {
+   "zh": "哥尼流",
+   "gloss": "the devout centurion",
+   "type": "n"
+  },
+  "stephen": {
+   "zh": "司提反",
+   "gloss": "the first martyr",
+   "type": "n"
+  },
+  "barnabas": {
+   "zh": "巴拿巴",
+   "gloss": "the son of encouragement",
+   "type": "n"
+  },
+  "silas": {
+   "zh": "西拉",
+   "gloss": "Paul's companion",
+   "type": "n"
+  },
+  "apollos": {
+   "zh": "亚波罗",
+   "gloss": "the eloquent teacher",
+   "type": "n"
+  },
+  "priscilla": {
+   "zh": "百基拉",
+   "gloss": "a teacher of the way",
+   "type": "n"
+  },
+  "aquila": {
+   "zh": "亚居拉",
+   "gloss": "the tentmaker with Paul",
+   "type": "n"
+  },
+  "lydia": {
+   "zh": "吕底亚",
+   "gloss": "the first believer in Philippi",
+   "type": "n"
+  },
+  "onesimus": {
+   "zh": "阿尼西母",
+   "gloss": "the runaway who returned",
+   "type": "n"
+  },
+  "like": {
+   "zh": "像",
+   "gloss": "similar to"
+  },
+  "well": {
+   "zh": "好;井",
+   "gloss": "in a good way; a water hole"
+  },
+  "spoken": {
+   "zh": "说出的",
+   "gloss": "that was said"
+  },
+  "cried": {
+   "zh": "喊叫",
+   "gloss": "called out loud"
+  },
+  "taken": {
+   "zh": "被拿走的",
+   "gloss": "that was taken"
+  },
+  "ought": {
+   "zh": "应当",
+   "gloss": "should"
+  },
+  "women": {
+   "zh": "妇女们",
+   "gloss": "adult females"
+  },
+  "thanks": {
+   "zh": "感谢",
+   "gloss": "words of thankfulness"
+  },
+  "outside": {
+   "zh": "外面",
+   "gloss": "not inside"
+  },
+  "gone": {
+   "zh": "去了",
+   "gloss": "past of go",
+   "type": "x"
+  },
+  "crucified": {
+   "zh": "被钉十字架",
+   "gloss": "put on a cross"
+  },
+  "beg": {
+   "zh": "乞求",
+   "gloss": "to ask with need"
+  },
+  "begged": {
+   "zh": "恳求",
+   "gloss": "asked with need"
+  },
+  "command": {
+   "zh": "命令",
+   "gloss": "an order given"
+  },
+  "turn": {
+   "zh": "转;回转",
+   "gloss": "to change direction"
+  },
+  "better": {
+   "zh": "更好",
+   "gloss": "of higher quality"
+  },
+  "offspring": {
+   "zh": "后裔",
+   "gloss": "children, descendants"
+  },
+  "knew": {
+   "zh": "知道",
+   "gloss": "knew"
+  },
+  "glorified": {
+   "zh": "得荣耀",
+   "gloss": "given glory"
+  },
+  "exceedingly": {
+   "zh": "极其",
+   "gloss": "very greatly"
+  },
+  "sitting": {
+   "zh": "坐着",
+   "gloss": "being seated"
+  },
+  "chosen": {
+   "zh": "所拣选的",
+   "gloss": "picked out"
+  },
+  "middle": {
+   "zh": "中间",
+   "gloss": "the center"
+  },
+  "sought": {
+   "zh": "寻找",
+   "gloss": "looked for"
+  },
+  "sound": {
+   "zh": "声音;健全的",
+   "gloss": "a noise; healthy"
+  },
+  "next": {
+   "zh": "下一个",
+   "gloss": "the following one"
+  },
+  "clothing": {
+   "zh": "衣服",
+   "gloss": "what is worn"
+  },
+  "cut": {
+   "zh": "割",
+   "gloss": "to divide with a blade"
+  },
+  "immorality": {
+   "zh": "淫乱",
+   "gloss": "sexual sin"
+  },
+  "side": {
+   "zh": "旁边;肋旁",
+   "gloss": "the flank"
+  },
+  "passed": {
+   "zh": "经过",
+   "gloss": "went by"
+  },
+  "cup": {
+   "zh": "杯",
+   "gloss": "a drinking vessel"
+  },
+  "justified": {
+   "zh": "称义",
+   "gloss": "declared right"
+  },
+  "boast": {
+   "zh": "夸口",
+   "gloss": "to speak proudly"
+  },
+  "means": {
+   "zh": "方法;手段",
+   "gloss": "a way to do"
+  },
+  "members": {
+   "zh": "肢体;成员",
+   "gloss": "parts of a body"
+  },
+  "sword": {
+   "zh": "刀剑",
+   "gloss": "a weapon"
+  },
+  "perfect": {
+   "zh": "完全的",
+   "gloss": "without lack"
+  },
+  "thrown": {
+   "zh": "被扔",
+   "gloss": "cast away"
+  },
+  "cross": {
+   "zh": "十字架",
+   "gloss": "the wood of death"
+  },
+  "turned": {
+   "zh": "转过来",
+   "gloss": "changed direction"
+  },
+  "person": {
+   "zh": "人",
+   "gloss": "an individual"
+  },
+  "likewise": {
+   "zh": "照样",
+   "gloss": "in the same way"
+  },
+  "passover": {
+   "zh": "逾越节",
+   "gloss": "the feast of deliverance"
+  },
+  "appointed": {
+   "zh": "指定的",
+   "gloss": "set in place"
+  },
+  "service": {
+   "zh": "服事",
+   "gloss": "work for others"
+  },
+  "spiritual": {
+   "zh": "属灵的",
+   "gloss": "of the Spirit"
+  },
+  "stumble": {
+   "zh": "绊跌",
+   "gloss": "to trip and fall"
+  },
+  "lawful": {
+   "zh": "合法的",
+   "gloss": "allowed by law"
+  },
+  "testified": {
+   "zh": "作见证",
+   "gloss": "told the truth"
+  },
+  "repent": {
+   "zh": "悔改",
+   "gloss": "to turn from sin"
+  },
+  "pass": {
+   "zh": "经过;过去",
+   "gloss": "to go by"
+  },
+  "vain": {
+   "zh": "徒然",
+   "gloss": "of no use"
+  },
+  "soldiers": {
+   "zh": "兵丁",
+   "gloss": "armed men"
+  },
+  "table": {
+   "zh": "桌子",
+   "gloss": "a flat stand"
+  },
+  "rulers": {
+   "zh": "掌权的",
+   "gloss": "those who rule"
+  },
+  "hidden": {
+   "zh": "隐藏的",
+   "gloss": "not seen"
+  },
+  "white": {
+   "zh": "白的",
+   "gloss": "of light color"
+  },
+  "sold": {
+   "zh": "卖了",
+   "gloss": "past of sell",
+   "type": "x"
+  },
+  "broken": {
+   "zh": "掰开的",
+   "gloss": "made into pieces"
+  },
+  "image": {
+   "zh": "形像",
+   "gloss": "a likeness"
+  },
+  "perseverance": {
+   "zh": "忍耐",
+   "gloss": "holding on"
+  },
+  "ground": {
+   "zh": "地",
+   "gloss": "the soil"
+  },
+  "read": {
+   "zh": "诵读",
+   "gloss": "to look at words"
+  },
+  "reason": {
+   "zh": "理由",
+   "gloss": "the cause"
+  },
+  "forty": {
+   "zh": "四十",
+   "gloss": "the number 40"
+  },
+  "council": {
+   "zh": "公会",
+   "gloss": "a ruling group"
+  },
+  "household": {
+   "zh": "全家",
+   "gloss": "all in a house"
+  },
+  "loaves": {
+   "zh": "饼",
+   "gloss": "breads"
+  },
+  "ship": {
+   "zh": "船",
+   "gloss": "a large boat"
+  },
+  "languages": {
+   "zh": "语言",
+   "gloss": "tongues, speeches"
+  },
+  "self": {
+   "zh": "自己",
+   "gloss": "one's own person"
+  },
+  "troubled": {
+   "zh": "忧愁",
+   "gloss": "disturbed"
+  },
+  "letter": {
+   "zh": "书信",
+   "gloss": "a written message"
+  },
+  "yours": {
+   "zh": "你们的",
+   "gloss": "belonging to you"
+  },
+  "risen": {
+   "zh": "复活了",
+   "gloss": "past of rise",
+   "type": "x"
+  },
+  "foundation": {
+   "zh": "根基",
+   "gloss": "the base"
+  },
+  "savior": {
+   "zh": "救主",
+   "gloss": "the one who saves"
+  },
+  "tribe": {
+   "zh": "支派",
+   "gloss": "a family line"
+  },
+  "war": {
+   "zh": "战争",
+   "gloss": "armed fighting"
+  },
+  "baptism": {
+   "zh": "洗礼",
+   "gloss": "the washing of water"
+  },
+  "adultery": {
+   "zh": "奸淫",
+   "gloss": "breaking marriage"
+  },
+  "consider": {
+   "zh": "思想",
+   "gloss": "to think about"
+  },
+  "measure": {
+   "zh": "量;尺度",
+   "gloss": "a standard of size"
+  },
+  "amazed": {
+   "zh": "惊奇",
+   "gloss": "filled with wonder"
+  },
+  "counted": {
+   "zh": "算为",
+   "gloss": "reckoned"
+  },
+  "release": {
+   "zh": "释放",
+   "gloss": "to set free"
+  },
+  "behalf": {
+   "zh": "代表",
+   "gloss": "for the sake of"
+  },
+  "various": {
+   "zh": "各种的",
+   "gloss": "of different kinds"
+  },
+  "lamp": {
+   "zh": "灯",
+   "gloss": "lamp for light"
+  },
+  "commit": {
+   "zh": "犯",
+   "gloss": "to do wrong"
+  },
+  "perish": {
+   "zh": "灭亡",
+   "gloss": "to be destroyed"
+  },
+  "deeds": {
+   "zh": "行为",
+   "gloss": "things done"
+  },
+  "pieces": {
+   "zh": "碎片",
+   "gloss": "broken parts"
+  },
+  "built": {
+   "zh": "建造",
+   "gloss": "constructed"
+  },
+  "beat": {
+   "zh": "打",
+   "gloss": "to hit"
+  },
+  "compassion": {
+   "zh": "怜悯",
+   "gloss": "deep pity"
+  },
+  "parents": {
+   "zh": "父母",
+   "gloss": "father and mother"
+  },
+  "deny": {
+   "zh": "否认",
+   "gloss": "to say not true"
+  },
+  "pay": {
+   "zh": "偿还",
+   "gloss": "to give what is owed"
+  },
+  "speech": {
+   "zh": "言语",
+   "gloss": "words spoken"
+  },
+  "fallen": {
+   "zh": "坠落的",
+   "gloss": "having fallen"
+  },
+  "determined": {
+   "zh": "定意",
+   "gloss": "decided firmly"
+  },
+  "abound": {
+   "zh": "充足",
+   "gloss": "to be much"
+  },
+  "anger": {
+   "zh": "怒气",
+   "gloss": "strong displeasure"
+  },
+  "faith in": {
+   "zh": "信靠",
+   "gloss": "trust in"
+  },
+  "grace of": {
+   "zh": "恩典",
+   "gloss": "the favor of"
+  },
+  "mercy of": {
+   "zh": "怜悯",
+   "gloss": "the pity of"
+  },
+  "word of god": {
+   "zh": "神的话",
+   "gloss": "the message of God"
+  },
+  "son of man": {
+   "zh": "人子",
+   "gloss": "the title of Jesus"
+  },
+  "son of god": {
+   "zh": "神的儿子",
+   "gloss": "the title of Jesus"
+  },
+  "lamb of god": {
+   "zh": "神的羔羊",
+   "gloss": "the sacrifice for sin"
+  },
+  "kingdom of god": {
+   "zh": "神的国",
+   "gloss": "the rule of God"
+  },
+  "holy spirit": {
+   "zh": "圣灵",
+   "gloss": "the Spirit of God"
+  },
+  "eternal life": {
+   "zh": "永生",
+   "gloss": "life without end"
+  },
+  "good news": {
+   "zh": "好消息",
+   "gloss": "the gospel"
+  },
+  "last days": {
+   "zh": "末后的日子",
+   "gloss": "the final age"
+  },
+  "day of the lord": {
+   "zh": "主的日子",
+   "gloss": "the coming day"
+  },
+  "according": {
+   "zh": "按照",
+   "gloss": "in line with",
+   "type": "x"
+  },
+  "right": {
+   "zh": "正当的;权",
+   "gloss": "correct; a claim",
+   "type": "x"
+  },
+  "off": {
+   "zh": "离开",
+   "gloss": "away from",
+   "type": "x"
+  },
+  "ever": {
+   "zh": "曾经",
+   "gloss": "at any time",
+   "type": "x"
+  },
+  "however": {
+   "zh": "然而",
+   "gloss": "but",
+   "type": "x"
+  },
+  "else": {
+   "zh": "别的",
+   "gloss": "other than",
+   "type": "x"
+  },
+  "lest": {
+   "zh": "免得",
+   "gloss": "so that not",
+   "type": "x"
+  },
+  "yourself": {
+   "zh": "你自己",
+   "gloss": "your own self",
+   "type": "x"
+  },
+  "let's": {
+   "zh": "让我们",
+   "gloss": "let us",
+   "type": "x"
+  },
+  "let’s": {
+   "zh": "让我们",
+   "gloss": "let us",
+   "type": "x"
+  },
+  "aren't": {
+   "zh": "不是",
+   "gloss": "are not",
+   "type": "x"
+  },
+  "aren’t": {
+   "zh": "不是",
+   "gloss": "are not",
+   "type": "x"
+  },
+  "mine": {
+   "zh": "我的",
+   "gloss": "belonging to me",
+   "type": "x"
+  },
+  "least": {
+   "zh": "最小的",
+   "gloss": "the smallest",
+   "type": "x"
+  },
+  "hence": {
+   "zh": "因此",
+   "gloss": "from here",
+   "type": "x"
+  },
+  "thereof": {
+   "zh": "其中",
+   "gloss": "of it",
+   "type": "x"
+  },
+  "wherefore": {
+   "zh": "因此",
+   "gloss": "for which reason",
+   "type": "x"
+  },
+  "whence": {
+   "zh": "从那里",
+   "gloss": "from where",
+   "type": "x"
+  }
+ }
+}

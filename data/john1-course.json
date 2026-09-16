@@ -1,0 +1,1374 @@
+{
+ "book": "JHN",
+ "bookName": "John",
+ "bookNameZh": "约翰福音",
+ "chapter": 1,
+ "title": "John 1 · 完整精读课程",
+ "curated": true,
+ "source": "EBRM V0.9 JOHN 1 complete course (app.js COURSE)",
+ "units": [
+  {
+   "id": "JHN.1-U01",
+   "number": 1,
+   "reference": "John 1:1–5",
+   "title": "The Word · Life · Light",
+   "verses": [
+    {
+     "number": 1,
+     "text": "In the beginning was the Word, and the Word was with God, and the Word was God."
+    },
+    {
+     "number": 2,
+     "text": "The same was in the beginning with God."
+    },
+    {
+     "number": 3,
+     "text": "All things were made through him. Without him, nothing was made that has been made."
+    },
+    {
+     "number": 4,
+     "text": "In him was life, and the life was the light of men."
+    },
+    {
+     "number": 5,
+     "text": "The light shines in the darkness, and the darkness hasn’t overcome it."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "Word",
+     "zh": "道",
+     "gloss": "the Word"
+    },
+    {
+     "english": "beginning",
+     "zh": "起初",
+     "gloss": "the start"
+    },
+    {
+     "english": "with",
+     "zh": "与……同在",
+     "gloss": "together with"
+    },
+    {
+     "english": "life",
+     "zh": "生命",
+     "gloss": "life"
+    },
+    {
+     "english": "light",
+     "zh": "光",
+     "gloss": "light"
+    },
+    {
+     "english": "darkness",
+     "zh": "黑暗",
+     "gloss": "darkness"
+    },
+    {
+     "english": "overcome",
+     "zh": "胜过",
+     "gloss": "to defeat"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "In the beginning was the Word.",
+     "explanation": "时间背景 + 核心主语。"
+    },
+    {
+     "sentence": "The Word was with God.",
+     "explanation": "was with 表达关系。"
+    },
+    {
+     "sentence": "The Word was God.",
+     "explanation": "Subject + be + complement。"
+    },
+    {
+     "sentence": "In him was life.",
+     "explanation": "in him 放在前面突出生命所在。"
+    },
+    {
+     "sentence": "The light shines in the darkness.",
+     "explanation": "主语 + 动作 + 环境。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What word is repeated as a major focus?",
+     "options": [
+      "Word",
+      "Temple",
+      "King"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What two ideas are contrasted?",
+     "options": [
+      "Light and darkness",
+      "King and servant",
+      "Life and money"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What is connected with the Word?",
+     "options": [
+      "God, creation, life, and light",
+      "Rome, law, and temple",
+      "Water, fire, and army"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What does the darkness fail to do?",
+     "options": [
+      "Overcome the light",
+      "Create life",
+      "Become the Word"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "Who was with God in the beginning?",
+     "options": [
+      "The Word",
+      "John",
+      "Moses"
+     ],
+     "answer": 0,
+     "hint": "道与神同在。"
+    },
+    {
+     "question": "What was in the Word?",
+     "options": [
+      "Darkness",
+      "Life",
+      "Death"
+     ],
+     "answer": 1,
+     "hint": "生命在祂里面。"
+    },
+    {
+     "question": "What was the life in the Word?",
+     "options": [
+      "The light of men",
+      "The law of Moses",
+      "The temple"
+     ],
+     "answer": 0,
+     "hint": "这生命就是人的光。"
+    },
+    {
+     "question": "Where does the light shine?",
+     "options": [
+      "In the darkness",
+      "In the temple",
+      "In Rome"
+     ],
+     "answer": 0,
+     "hint": "光照在黑暗里。"
+    },
+    {
+     "question": "Has the darkness overcome the light?",
+     "options": [
+      "Yes",
+      "No",
+      "The passage does not say"
+     ],
+     "answer": 1,
+     "hint": "黑暗没有胜过光。"
+    }
+   ],
+   "production": "In simple English, explain who the Word is and what is in the Word.",
+   "baseline": [
+    {
+     "question": "Who is central in this passage?",
+     "options": [
+      "The Word",
+      "John",
+      "Moses"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What major idea appears?",
+     "options": [
+      "Light and life",
+      "Roman politics",
+      "Temple building"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What is the movement of the passage?",
+     "options": [
+      "Word → life → light",
+      "Rome → temple → king",
+      "Law → army → nation"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U02",
+   "number": 2,
+   "reference": "John 1:6–13",
+   "title": "The Light Comes into the World",
+   "verses": [
+    {
+     "number": 6,
+     "text": "There came a man, sent from God, whose name was John."
+    },
+    {
+     "number": 7,
+     "text": "The same came as a witness, that he might testify about the light, that all might believe through him."
+    },
+    {
+     "number": 8,
+     "text": "He was not the light, but was sent that he might testify about the light."
+    },
+    {
+     "number": 9,
+     "text": "The true light that enlightens everyone was coming into the world."
+    },
+    {
+     "number": 10,
+     "text": "He was in the world, and the world was made through him, and the world didn’t recognize him."
+    },
+    {
+     "number": 11,
+     "text": "He came to his own, and those who were his own didn’t receive him."
+    },
+    {
+     "number": 12,
+     "text": "But as many as received him, to them he gave the right to become God’s children, to those who believe in his name."
+    },
+    {
+     "number": 13,
+     "text": "Who were born not of blood, nor of the will of the flesh, nor of the will of man, but of God."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "witness",
+     "zh": "见证人",
+     "gloss": "a person who gives testimony"
+    },
+    {
+     "english": "testify",
+     "zh": "作见证",
+     "gloss": "to give evidence"
+    },
+    {
+     "english": "true",
+     "zh": "真实的",
+     "gloss": "real or genuine"
+    },
+    {
+     "english": "recognize",
+     "zh": "认识",
+     "gloss": "to know or identify"
+    },
+    {
+     "english": "receive",
+     "zh": "领受",
+     "gloss": "to accept"
+    },
+    {
+     "english": "believe",
+     "zh": "相信",
+     "gloss": "to trust"
+    },
+    {
+     "english": "children",
+     "zh": "儿女",
+     "gloss": "children"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "There came a man, sent from God.",
+     "explanation": "there + 动词结构引入人物。"
+    },
+    {
+     "sentence": "that he might testify about the light",
+     "explanation": "that + 主语 + might 表达目的。"
+    },
+    {
+     "sentence": "He was not the light.",
+     "explanation": "be 动词否定结构。"
+    },
+    {
+     "sentence": "He came to his own.",
+     "explanation": "come + to 表达来到某处或某群体。"
+    },
+    {
+     "sentence": "he gave the right to become God's children",
+     "explanation": "give + 人 + 名词 + to do。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What was John's main role?",
+     "options": [
+      "To bear witness",
+      "To become the light",
+      "To create the world"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "How did the world respond to the light?",
+     "options": [
+      "The world did not recognize him",
+      "Everyone received him",
+      "Everyone followed him"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What can those who receive him become?",
+     "options": [
+      "God's children",
+      "Angels",
+      "Kings"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "Who sent John?",
+     "options": [
+      "God",
+      "Rome",
+      "Moses"
+     ],
+     "answer": 0,
+     "hint": "约翰是从神那里来的。"
+    },
+    {
+     "question": "Why was John sent?",
+     "options": [
+      "To testify about the light",
+      "To become the light",
+      "To build a temple"
+     ],
+     "answer": 0,
+     "hint": "约翰为光作见证。"
+    },
+    {
+     "question": "Did the world recognize him?",
+     "options": [
+      "Yes",
+      "No",
+      "Only Rome did"
+     ],
+     "answer": 1,
+     "hint": "世界却不认识祂。"
+    },
+    {
+     "question": "What does God give to those who receive him?",
+     "options": [
+      "The right to become God's children",
+      "Political power",
+      "Money"
+     ],
+     "answer": 0,
+     "hint": "赐他们成为神儿女的权柄。"
+    }
+   ],
+   "production": "In simple English, explain John's role and how people respond to the light.",
+   "baseline": [
+    {
+     "question": "Who is introduced as a witness?",
+     "options": [
+      "John",
+      "Moses",
+      "Pilate"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What is the main theme?",
+     "options": [
+      "Witness and response to the light",
+      "Roman politics",
+      "Temple construction"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What can believers become?",
+     "options": [
+      "God's children",
+      "Kings",
+      "Angels"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U03",
+   "number": 3,
+   "reference": "John 1:14–18",
+   "title": "The Word Became Flesh",
+   "verses": [
+    {
+     "number": 14,
+     "text": "The Word became flesh and lived among us. We saw his glory, such glory as of the only born Son of the Father, full of grace and truth."
+    },
+    {
+     "number": 15,
+     "text": "John testified about him. He cried out, saying, 'This was he of whom I said, He who comes after me has surpassed me, for he was before me.'"
+    },
+    {
+     "number": 16,
+     "text": "From his fullness we all received grace upon grace."
+    },
+    {
+     "number": 17,
+     "text": "For the law was given through Moses. Grace and truth came through Jesus Christ."
+    },
+    {
+     "number": 18,
+     "text": "No one has seen God at any time. The only born Son, who is in the bosom of the Father, has declared him."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "flesh",
+     "zh": "肉身",
+     "gloss": "human bodily existence"
+    },
+    {
+     "english": "glory",
+     "zh": "荣耀",
+     "gloss": "splendor and honor"
+    },
+    {
+     "english": "fullness",
+     "zh": "丰盛",
+     "gloss": "complete abundance"
+    },
+    {
+     "english": "grace",
+     "zh": "恩典",
+     "gloss": "undeserved favor"
+    },
+    {
+     "english": "truth",
+     "zh": "真理",
+     "gloss": "what is true"
+    },
+    {
+     "english": "declared",
+     "zh": "显明",
+     "gloss": "made known"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "The Word became flesh.",
+     "explanation": "became + 名词，表达进入新的状态。"
+    },
+    {
+     "sentence": "We saw his glory.",
+     "explanation": "主语 + 动词 + 宾语。"
+    },
+    {
+     "sentence": "From his fullness we all received grace.",
+     "explanation": "from 突出来源。"
+    },
+    {
+     "sentence": "Grace and truth came through Jesus Christ.",
+     "explanation": "came through 表达来源或媒介。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What did the Word become?",
+     "options": [
+      "Flesh",
+      "An angel",
+      "A prophet"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What was the Word full of?",
+     "options": [
+      "Grace and truth",
+      "Money and power",
+      "Fear and judgment"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What did the witnesses see?",
+     "options": [
+      "His glory",
+      "His palace",
+      "His army"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "What did the Word become?",
+     "options": [
+      "Flesh",
+      "Light",
+      "Darkness"
+     ],
+     "answer": 0,
+     "hint": "道成了肉身。"
+    },
+    {
+     "question": "What did people receive from his fullness?",
+     "options": [
+      "Grace upon grace",
+      "Political power",
+      "Wealth"
+     ],
+     "answer": 0,
+     "hint": "从祂丰盛里领受恩典。"
+    },
+    {
+     "question": "Through whom did grace and truth come?",
+     "options": [
+      "Moses",
+      "Jesus Christ",
+      "John"
+     ],
+     "answer": 1,
+     "hint": "恩典和真理由耶稣基督而来。"
+    }
+   ],
+   "production": "In simple English, explain why John 1:14 is important.",
+   "baseline": [
+    {
+     "question": "What did the Word become?",
+     "options": [
+      "Flesh",
+      "An angel",
+      "A king"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What filled the Word?",
+     "options": [
+      "Grace and truth",
+      "Money and power",
+      "Fear and judgment"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Through whom did grace and truth come?",
+     "options": [
+      "Jesus Christ",
+      "Moses",
+      "John"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U04",
+   "number": 4,
+   "reference": "John 1:19–28",
+   "title": "John's Witness",
+   "verses": [
+    {
+     "number": 19,
+     "text": "This is John’s testimony, when the Jews sent priests and Levites from Jerusalem to ask him, 'Who are you?'"
+    },
+    {
+     "number": 20,
+     "text": "He declared, and didn’t deny, but he declared, 'I am not the Christ.'"
+    },
+    {
+     "number": 21,
+     "text": "They asked him, 'What then? Are you Elijah?' He said, 'I am not.' 'Are you the prophet?' He answered, 'No.'"
+    },
+    {
+     "number": 22,
+     "text": "They said therefore to him, 'Who are you? Give us an answer, that we may give an answer to those who sent us. What do you say about yourself?'"
+    },
+    {
+     "number": 23,
+     "text": "He said, 'I am the voice of one crying in the wilderness, Make straight the way of the Lord, as Isaiah the prophet said.'"
+    },
+    {
+     "number": 24,
+     "text": "The ones who had been sent were from the Pharisees."
+    },
+    {
+     "number": 25,
+     "text": "They asked him, 'Why then do you baptize, if you are not the Christ, nor Elijah, nor the prophet?'"
+    },
+    {
+     "number": 26,
+     "text": "John answered them, 'I baptize in water, but among you stands one whom you don’t know.'"
+    },
+    {
+     "number": 27,
+     "text": "He is the one who comes after me, who has come to be before me, whose sandal strap I’m not worthy to untie.'"
+    },
+    {
+     "number": 28,
+     "text": "These things were done in Bethany beyond the Jordan, where John was baptizing."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "testimony",
+     "zh": "见证",
+     "gloss": "testimony"
+    },
+    {
+     "english": "confess",
+     "zh": "承认",
+     "gloss": "to openly state"
+    },
+    {
+     "english": "Christ",
+     "zh": "基督",
+     "gloss": "Messiah"
+    },
+    {
+     "english": "prophet",
+     "zh": "先知",
+     "gloss": "prophet"
+    },
+    {
+     "english": "voice",
+     "zh": "声音",
+     "gloss": "voice"
+    },
+    {
+     "english": "wilderness",
+     "zh": "旷野",
+     "gloss": "desert region"
+    },
+    {
+     "english": "worthy",
+     "zh": "配得",
+     "gloss": "deserving"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "Who are you?",
+     "explanation": "疑问句推动身份确认。"
+    },
+    {
+     "sentence": "I am not the Christ.",
+     "explanation": "be + not + 名词。"
+    },
+    {
+     "sentence": "I am the voice of one crying...",
+     "explanation": "I am + 名词定义身份。"
+    },
+    {
+     "sentence": "Make straight the way of the Lord.",
+     "explanation": "祈使句，表达使命。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "Who was John not?",
+     "options": [
+      "The Christ",
+      "A witness",
+      "A voice"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What did John call himself?",
+     "options": [
+      "The voice",
+      "The king",
+      "The Messiah"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Whose way was John preparing?",
+     "options": [
+      "The Lord's way",
+      "Rome's way",
+      "His own way"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "Was John the Christ?",
+     "options": [
+      "Yes",
+      "No",
+      "The passage does not say"
+     ],
+     "answer": 1,
+     "hint": "约翰不是基督。"
+    },
+    {
+     "question": "What did John call himself?",
+     "options": [
+      "The voice",
+      "The king",
+      "The light"
+     ],
+     "answer": 0,
+     "hint": "约翰说自己是声音。"
+    },
+    {
+     "question": "What was John preparing?",
+     "options": [
+      "The way of the Lord",
+      "A palace",
+      "A kingdom"
+     ],
+     "answer": 0,
+     "hint": "他预备主的道路。"
+    }
+   ],
+   "production": "In simple English, explain how John understood his own role.",
+   "baseline": [
+    {
+     "question": "Who is speaking throughout the passage?",
+     "options": [
+      "John",
+      "Pilate",
+      "Peter"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What is John clarifying?",
+     "options": [
+      "His identity and role",
+      "His wealth",
+      "His political position"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Whose way is John preparing?",
+     "options": [
+      "The Lord's",
+      "Rome's",
+      "His own"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U05",
+   "number": 5,
+   "reference": "John 1:29–34",
+   "title": "The Lamb of God",
+   "verses": [
+    {
+     "number": 29,
+     "text": "The next day, he saw Jesus coming to him, and said, 'Behold, the Lamb of God, who takes away the sin of the world!'"
+    },
+    {
+     "number": 30,
+     "text": "This is he of whom I said, 'After me comes a man who is before me, for he was before me.'"
+    },
+    {
+     "number": 31,
+     "text": "I didn’t recognize him, but for this reason I came baptizing in water: that he would be revealed to Israel."
+    },
+    {
+     "number": 32,
+     "text": "John testified, saying, 'I have seen the Spirit descending like a dove out of heaven, and it remained on him.'"
+    },
+    {
+     "number": 33,
+     "text": "I didn’t recognize him, but he who sent me to baptize in water, he said to me, 'On whomever you will see the Spirit descending and remaining on him, the same is he who baptizes in the Holy Spirit.'"
+    },
+    {
+     "number": 34,
+     "text": "I have seen and have testified that this is the Son of God."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "Lamb",
+     "zh": "羔羊",
+     "gloss": "Lamb"
+    },
+    {
+     "english": "sin",
+     "zh": "罪",
+     "gloss": "sin"
+    },
+    {
+     "english": "take away",
+     "zh": "除去",
+     "gloss": "remove"
+    },
+    {
+     "english": "Spirit",
+     "zh": "圣灵",
+     "gloss": "Spirit"
+    },
+    {
+     "english": "descend",
+     "zh": "降下",
+     "gloss": "come down"
+    },
+    {
+     "english": "remain",
+     "zh": "停留",
+     "gloss": "stay"
+    },
+    {
+     "english": "testified",
+     "zh": "作见证",
+     "gloss": "gave testimony"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "Behold, the Lamb of God.",
+     "explanation": "behold 用来引起注意。"
+    },
+    {
+     "sentence": "who takes away the sin of the world",
+     "explanation": "关系从句说明人物的行动。"
+    },
+    {
+     "sentence": "I have seen the Spirit descending.",
+     "explanation": "现在完成时 + 感官动作。"
+    },
+    {
+     "sentence": "this is the Son of God",
+     "explanation": "this is + 身份确认。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What title does John give Jesus?",
+     "options": [
+      "The Lamb of God",
+      "The King of Rome",
+      "The Prophet"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What does the Lamb take away?",
+     "options": [
+      "The sin of the world",
+      "The temple",
+      "The law"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What descended on Jesus?",
+     "options": [
+      "The Spirit",
+      "Fire",
+      "Water"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "Who is the Lamb of God?",
+     "options": [
+      "Jesus",
+      "John",
+      "Moses"
+     ],
+     "answer": 0,
+     "hint": "耶稣是神的羔羊。"
+    },
+    {
+     "question": "What does the Lamb take away?",
+     "options": [
+      "The sin of the world",
+      "The temple",
+      "The law"
+     ],
+     "answer": 0,
+     "hint": "除去世人的罪。"
+    },
+    {
+     "question": "What remained on Jesus?",
+     "options": [
+      "The Spirit",
+      "The crown",
+      "The book"
+     ],
+     "answer": 0,
+     "hint": "圣灵停留在祂身上。"
+    },
+    {
+     "question": "What did John testify?",
+     "options": [
+      "Jesus is the Son of God",
+      "John is the Son of God",
+      "Jesus is a Roman king"
+     ],
+     "answer": 0,
+     "hint": "约翰见证耶稣是神的儿子。"
+    }
+   ],
+   "production": "In simple English, explain what John says Jesus came to do.",
+   "baseline": [
+    {
+     "question": "Who is identified as the Lamb of God?",
+     "options": [
+      "Jesus",
+      "John",
+      "Moses"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What does the Lamb take away?",
+     "options": [
+      "The sin of the world",
+      "The temple",
+      "The law"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What came upon Jesus?",
+     "options": [
+      "The Spirit",
+      "A crown",
+      "A book"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U06",
+   "number": 6,
+   "reference": "John 1:35–42",
+   "title": "Come and See",
+   "verses": [
+    {
+     "number": 35,
+     "text": "Again, the next day, John was standing with two of his disciples,"
+    },
+    {
+     "number": 36,
+     "text": "and he looked at Jesus as he walked, and said, 'Behold, the Lamb of God!'"
+    },
+    {
+     "number": 37,
+     "text": "The two disciples heard him speak, and they followed Jesus."
+    },
+    {
+     "number": 38,
+     "text": "Jesus turned and saw them following, and said to them, 'What are you looking for?' They said to him, 'Rabbi,' which is to say, being interpreted, 'Teacher, where are you staying?'"
+    },
+    {
+     "number": 39,
+     "text": "He said to them, 'Come and see.' They came and saw where he was staying, and they stayed with him that day. It was about the tenth hour."
+    },
+    {
+     "number": 40,
+     "text": "One of the two who heard John and followed him was Andrew, Simon Peter’s brother."
+    },
+    {
+     "number": 41,
+     "text": "He first found his own brother, Simon, and said to him, 'We have found the Messiah!' which is, being interpreted, Christ."
+    },
+    {
+     "number": 42,
+     "text": "He brought him to Jesus. Jesus looked at him, and said, 'You are Simon the son of Jonah. You shall be called Cephas,' which is by interpretation, Peter."
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "disciple",
+     "zh": "门徒",
+     "gloss": "follower"
+    },
+    {
+     "english": "follow",
+     "zh": "跟随",
+     "gloss": "go after"
+    },
+    {
+     "english": "Rabbi",
+     "zh": "拉比",
+     "gloss": "teacher"
+    },
+    {
+     "english": "Messiah",
+     "zh": "弥赛亚",
+     "gloss": "Christ"
+    },
+    {
+     "english": "stay",
+     "zh": "停留",
+     "gloss": "remain"
+    },
+    {
+     "english": "found",
+     "zh": "找到",
+     "gloss": "discovered"
+    },
+    {
+     "english": "bring",
+     "zh": "带来",
+     "gloss": "take someone to another person"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "They followed Jesus.",
+     "explanation": "主语 + 动词 + 宾语。"
+    },
+    {
+     "sentence": "What are you looking for?",
+     "explanation": "现在进行时疑问句。"
+    },
+    {
+     "sentence": "Come and see.",
+     "explanation": "祈使句 + and + 结果。"
+    },
+    {
+     "sentence": "We have found the Messiah.",
+     "explanation": "现在完成时表达刚刚发现。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What did the disciples do?",
+     "options": [
+      "They followed Jesus",
+      "They rejected Jesus",
+      "They ignored John"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What invitation did Jesus give?",
+     "options": [
+      "Come and see",
+      "Go and hide",
+      "Write a book"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Who did Andrew bring to Jesus?",
+     "options": [
+      "Simon",
+      "John",
+      "Moses"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "What did the two disciples do?",
+     "options": [
+      "They followed Jesus",
+      "They followed Rome",
+      "They returned home"
+     ],
+     "answer": 0,
+     "hint": "他们跟随了耶稣。"
+    },
+    {
+     "question": "What did Jesus say?",
+     "options": [
+      "Come and see",
+      "Go away",
+      "Stay home"
+     ],
+     "answer": 0,
+     "hint": "耶稣说：来，你们就看见了。"
+    },
+    {
+     "question": "Who did Andrew find?",
+     "options": [
+      "Simon",
+      "John",
+      "Philip"
+     ],
+     "answer": 0,
+     "hint": "安得烈找到了他的兄弟西门。"
+    },
+    {
+     "question": "What did Andrew say they had found?",
+     "options": [
+      "The Messiah",
+      "The prophet",
+      "The king of Rome"
+     ],
+     "answer": 0,
+     "hint": "我们找到了弥赛亚。"
+    }
+   ],
+   "production": "In simple English, describe how the disciples began following Jesus and bringing others to him.",
+   "baseline": [
+    {
+     "question": "What did the disciples do?",
+     "options": [
+      "They followed Jesus",
+      "They left immediately",
+      "They rejected John"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What invitation did Jesus give?",
+     "options": [
+      "Come and see",
+      "Go away",
+      "Wait outside"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Who did Andrew bring?",
+     "options": [
+      "Simon",
+      "Moses",
+      "Pilate"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "JHN.1-U07",
+   "number": 7,
+   "reference": "John 1:43–51",
+   "title": "Follow Me",
+   "verses": [
+    {
+     "number": 43,
+     "text": "On the next day, he was determined to go out into Galilee, and he found Philip. Jesus said to him, 'Follow me.'"
+    },
+    {
+     "number": 44,
+     "text": "Now Philip was from Bethsaida, the city of Andrew and Peter."
+    },
+    {
+     "number": 45,
+     "text": "Philip found Nathanael and said to him, 'We have found him, of whom Moses in the law, and the prophets, wrote: Jesus of Nazareth, the son of Joseph.'"
+    },
+    {
+     "number": 46,
+     "text": "Nathanael said to him, 'Can any good thing come out of Nazareth?' Philip said to him, 'Come and see.'"
+    },
+    {
+     "number": 47,
+     "text": "Jesus saw Nathanael coming to him, and said about him, 'Behold, an Israelite indeed, in whom is no deceit!'"
+    },
+    {
+     "number": 48,
+     "text": "Nathanael said to him, 'How do you know me?' Jesus answered him, 'Before Philip called you, when you were under the fig tree, I saw you.'"
+    },
+    {
+     "number": 49,
+     "text": "Nathanael answered him, 'Rabbi, you are the Son of God! You are King of Israel!'"
+    },
+    {
+     "number": 50,
+     "text": "Jesus answered him, 'Because I told you, I saw you underneath the fig tree, do you believe? You will see greater things than these.'"
+    },
+    {
+     "number": 51,
+     "text": "He said to him, 'Most certainly, I tell you, hereafter you will see heaven opened, and the angels of God ascending and descending on the Son of Man.'"
+    }
+   ],
+   "vocabulary": [
+    {
+     "english": "follow",
+     "zh": "跟随",
+     "gloss": "go after"
+    },
+    {
+     "english": "Nazareth",
+     "zh": "拿撒勒",
+     "gloss": "Nazareth"
+    },
+    {
+     "english": "Israelite",
+     "zh": "以色列人",
+     "gloss": "a person of Israel"
+    },
+    {
+     "english": "deceit",
+     "zh": "诡诈",
+     "gloss": "deception"
+    },
+    {
+     "english": "fig tree",
+     "zh": "无花果树",
+     "gloss": "fig tree"
+    },
+    {
+     "english": "heaven",
+     "zh": "天",
+     "gloss": "heaven"
+    },
+    {
+     "english": "Son of Man",
+     "zh": "人子",
+     "gloss": "Son of Man"
+    }
+   ],
+   "structures": [
+    {
+     "sentence": "Follow me.",
+     "explanation": "最简洁的命令式呼召。"
+    },
+    {
+     "sentence": "Can any good thing come out of Nazareth?",
+     "explanation": "Can + 主语 + 动词表达可能性。"
+    },
+    {
+     "sentence": "You will see greater things.",
+     "explanation": "will + 动词表达将来的经历。"
+    },
+    {
+     "sentence": "You will see heaven opened.",
+     "explanation": "will + see + 宾语 + 过去分词。"
+    }
+   ],
+   "notice": [
+    {
+     "question": "What did Jesus say to Philip?",
+     "options": [
+      "Follow me",
+      "Stay here",
+      "Go home"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What did Nathanael initially question?",
+     "options": [
+      "Nazareth",
+      "Galilee",
+      "Jerusalem"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What did Nathanael call Jesus?",
+     "options": [
+      "Son of God and King of Israel",
+      "Roman governor",
+      "Prophet of Moses"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What would Nathanael see?",
+     "options": [
+      "Greater things",
+      "The Roman army",
+      "A new palace"
+     ],
+     "answer": 0
+    }
+   ],
+   "comprehension": [
+    {
+     "question": "What did Jesus say to Philip?",
+     "options": [
+      "Follow me",
+      "Go away",
+      "Wait here"
+     ],
+     "answer": 0,
+     "hint": "耶稣呼召腓力跟从祂。"
+    },
+    {
+     "question": "Where was Jesus from?",
+     "options": [
+      "Nazareth",
+      "Rome",
+      "Bethany"
+     ],
+     "answer": 0,
+     "hint": "耶稣来自拿撒勒。"
+    },
+    {
+     "question": "What did Nathanael call Jesus?",
+     "options": [
+      "Son of God and King of Israel",
+      "A Roman soldier",
+      "A priest"
+     ],
+     "answer": 0,
+     "hint": "拿但业称耶稣为神的儿子、以色列的王。"
+    },
+    {
+     "question": "What did Jesus say Nathanael would see?",
+     "options": [
+      "Greater things",
+      "The Roman army",
+      "A palace"
+     ],
+     "answer": 0,
+     "hint": "他将看见更大的事。"
+    }
+   ],
+   "production": "Describe in simple English how Jesus calls people, how people respond, and how they bring others to Jesus.",
+   "baseline": [
+    {
+     "question": "Who called Philip?",
+     "options": [
+      "Jesus",
+      "John",
+      "Moses"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "What did Jesus say?",
+     "options": [
+      "Follow me",
+      "Go home",
+      "Stay here"
+     ],
+     "answer": 0
+    },
+    {
+     "question": "Who did Philip bring into the story?",
+     "options": [
+      "Nathanael",
+      "Peter",
+      "Pilate"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}
